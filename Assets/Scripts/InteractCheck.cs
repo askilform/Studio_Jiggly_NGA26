@@ -5,11 +5,13 @@ using UnityEngine;
 public class InteractCheck : MonoBehaviour
 {
     public GameObject UI;
+    public Animator animator;
     [SerializeField] private Interactable CurrentInteractable;
+    bool isInteracting;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Interactable>() != null)
+        if (other.gameObject.GetComponent<Interactable>() != null && !isInteracting)
         {
             UI.SetActive(true);
             CurrentInteractable = other.GetComponent<Interactable>();
@@ -21,13 +23,14 @@ public class InteractCheck : MonoBehaviour
         if (other.gameObject.GetComponent<Interactable>() != null)
         {
             UI.SetActive(false);
-            CurrentInteractable = null;
+
+            if (!isInteracting) CurrentInteractable = null;
         }
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && CurrentInteractable != null)
+        if (Input.GetKeyDown(KeyCode.E) && CurrentInteractable != null && !isInteracting)
         {
             StartCoroutine(Interact());
         }
@@ -35,6 +38,10 @@ public class InteractCheck : MonoBehaviour
 
     private IEnumerator Interact()
     {
+        UI.SetActive(false);        
+        isInteracting = true;
+        animator.SetBool(CurrentInteractable.ArmAnimName, true);
+
         foreach (GameObject obj in CurrentInteractable.ToDisable)
         {
             obj.SetActive(false);
@@ -45,7 +52,7 @@ public class InteractCheck : MonoBehaviour
             obj.SetActive(true);
         }
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(CurrentInteractable.timeActive);
 
         foreach (GameObject obj in CurrentInteractable.ToDisable)
         {
@@ -56,5 +63,8 @@ public class InteractCheck : MonoBehaviour
         {
             obj.SetActive(false);
         }
+
+        animator.SetBool(CurrentInteractable.ArmAnimName, false);
+        isInteracting = false;
     }
 }
