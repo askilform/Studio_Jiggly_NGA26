@@ -16,9 +16,11 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private float xRotation = 0f;
     private bool isGrounded = false;
+    private AudioSource WalkingSFX;
 
     void Start()
     {
+        WalkingSFX = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
 
         // Lock cursor
@@ -48,7 +50,11 @@ public class PlayerMovement : MonoBehaviour
 
         // Normalize so diagonals aren't faster
         if (direction.magnitude > 1f)
+        {
             direction.Normalize();
+        }
+
+        WalkingSFX.mute = direction.magnitude == 0;
 
         Vector3 move = direction * moveSpeed;
 
