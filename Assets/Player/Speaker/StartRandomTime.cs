@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class StartRandomTime : MonoBehaviour
 {
-    void Start()
+    AudioSource AS;
+
+    private void OnEnable()
     {
-        AudioSource AS = GetComponent<AudioSource>();
+        if (AS == null) AS = GetComponent<AudioSource>();
         AS.time = Random.Range(0.0f, AS.clip.length);
     }
 }
