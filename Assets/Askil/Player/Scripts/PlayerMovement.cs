@@ -17,10 +17,18 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody rb;
     private float xRotation = 0f;
+    private float startSpeed;
+
+
+    [SerializeField] float sprintSpeed = 2f;
+    [SerializeField] float Acceleration = 2f;
+
+    float currentSprintMultiplier = 1f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        startSpeed = moveSpeed;
 
         // Lock cursor
         Cursor.lockState = CursorLockMode.Locked;
@@ -30,11 +38,26 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         HandleMouseLook();
+        SprintCheck();
     }
 
     void FixedUpdate()
     {
         HandleMovement();
+    }
+
+    void SprintCheck()
+    {
+        float targetMultiplier = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : 1f;
+
+        currentSprintMultiplier = Mathf.Lerp(
+            currentSprintMultiplier,
+            targetMultiplier,
+            Acceleration * Time.deltaTime
+        );
+
+        moveSpeed = startSpeed * currentSprintMultiplier;
+        SFX[0].pitch = currentSprintMultiplier;
     }
 
     void HandleMovement()

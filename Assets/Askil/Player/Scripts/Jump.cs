@@ -42,12 +42,13 @@ public class Jump : MonoBehaviour
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            SFX[0].Play();
         }
     }
 
     void OnLanding()
     {
         CameraAnims.SetTrigger("Landed");
-        SFX[0].Play();
+        SFX[1].Play();
     }
 }
