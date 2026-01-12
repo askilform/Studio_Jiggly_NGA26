@@ -45,7 +45,7 @@ public class InteractCheck : MonoBehaviour
             obj.SetActive(true);
         }
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(CurrentInteractable.TimeBeforeReset);
 
         foreach (GameObject obj in CurrentInteractable.ToDisable)
         {
