@@ -4,7 +4,7 @@ public class bulletTracerVisual : MonoBehaviour
 {
 
     float lifetimenow = 0f;
-    float lifetimeMax = 1f;
+    public float lifetimeMax = 0.8f;
 
     void Start()
     {

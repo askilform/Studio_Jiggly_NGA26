@@ -16,6 +16,9 @@ public class gunscript : MonoBehaviour
 
     public float heldGunAimLerp = 40f;
 
+
+    public GameObject bulletTraceObjectToSpawn;
+
     void Start()
     {
         print("Gun Script");
@@ -74,6 +77,13 @@ public class gunscript : MonoBehaviour
             gunRayIndicatorObject.transform.position = hitPointIndicatorObject.transform.position;
         }
 
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            GameObject traceInstatiated = Instantiate(bulletTraceObjectToSpawn, HitPos, ObjectToAim.transform.rotation);
+            
+            traceInstatiated.transform.localScale = new Vector3(1, 1, (traceInstatiated.transform.position - ObjectToAim.transform.position).magnitude);
+        }
 
     }
 }
