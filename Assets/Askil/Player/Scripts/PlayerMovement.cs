@@ -80,8 +80,8 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleMouseLook()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+        float mouseX = Input.GetAxisRaw("Mouse X") * mouseSensitivity;
+        float mouseY = Input.GetAxisRaw("Mouse Y") * mouseSensitivity;
 
         // Rotate the body
         transform.Rotate(Vector3.up * mouseX);
