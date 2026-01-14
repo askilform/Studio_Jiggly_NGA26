@@ -1,18 +1,20 @@
 using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class Weapon_Builder : MonoBehaviour
 {
-    public List<string> partsPickedUp = new List<string>();
+    public List<int> IdsPickedUp = new List<int>();
+    public List<int> CollectedWeaponsId = new List<int>();
+    public int CurrentBuildId;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<WeaponPart>() != null)
         {
             AddToInventory(other.gameObject);
-            print(partsPickedUp.Count);
         }
     }
 
@@ -20,7 +22,11 @@ public class Weapon_Builder : MonoBehaviour
     {
         WeaponPart WeaponPartScript = weaponPartObject.GetComponent<WeaponPart>();
 
-        partsPickedUp.Add(WeaponPartScript.partName);
+        IdsPickedUp.Add(WeaponPartScript.id);
         WeaponPartScript.OnPickup();
+
+        IdsPickedUp.Sort();
+        CurrentBuildId = int.Parse(string.Concat(IdsPickedUp));
+        print(CurrentBuildId);
     }
 }
