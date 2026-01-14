@@ -19,6 +19,12 @@ public class gunscript : MonoBehaviour
 
     public GameObject bulletTraceObjectToSpawn;
 
+
+    [Header("damage is flat number reduced by the reciever armor. Penetration flat removes this armor. Not percent")]
+    public float damage = 1;
+    public float armorPiercing = 5;
+
+
     void Start()
     {
         print("Gun Script");
@@ -44,13 +50,13 @@ public class gunscript : MonoBehaviour
         if (Physics.Raycast(AimReferenceObject.transform.position, AimReferenceObject.transform.forward, out hit, raycastRange, layerMask))
 
         { 
-            Debug.Log("Hit"); 
+            //Debug.Log("Hit"); 
             HitPos = hit.point;
         }
 
         else
         { 
-            Debug.Log("No Hit");
+            //Debug.Log("No Hit");
         }
 
         hitPointIndicatorObject.transform.position = HitPos;
@@ -64,25 +70,41 @@ public class gunscript : MonoBehaviour
 
         RaycastHit actualHit;
 
+        Vector3 actualHitPos = ObjectToAim.transform.position + ObjectToAim.transform.forward * raycastRange;
+
         if (Physics.Raycast(ObjectToAim.transform.position, ObjectToAim.transform.TransformDirection(Vector3.forward), out actualHit, raycastRange, layerMask))
 
         {
-            Debug.Log("Hit");
+            //Debug.Log("Hit");
             gunRayIndicatorObject.transform.position = actualHit.point;
+            actualHitPos = actualHit.point;
+
+
+            
+
         }
 
         else
         {
-            Debug.Log("No Hit");
+            //Debug.Log("No Hit");
             gunRayIndicatorObject.transform.position = hitPointIndicatorObject.transform.position;
         }
 
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            GameObject traceInstatiated = Instantiate(bulletTraceObjectToSpawn, HitPos, ObjectToAim.transform.rotation);
+            GameObject traceInstatiated = Instantiate(bulletTraceObjectToSpawn, actualHitPos, ObjectToAim.transform.rotation);
             
             traceInstatiated.transform.localScale = new Vector3(1, 1, (traceInstatiated.transform.position - ObjectToAim.transform.position).magnitude);
+
+
+            if (actualHit.transform.gameObject.TryGetComponent<GetShotObject>(out GetShotObject getShotScript))
+            {
+                print("Hit A THing");
+                getShotScript.GetShot(damage, armorPiercing);
+                print("try deal damage " + damage.ToString() + " dmg, " + armorPiercing.ToString() + " penetration");
+            }
+
         }
 
     }
