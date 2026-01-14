@@ -3,17 +3,24 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class GunPartCheck : MonoBehaviour
+public class WorkBench : MonoBehaviour
 {
-    public int CorrentPartAmount;
+    public int CorrectBuildId;
     public GameObject SpawnFrom;
     public GameObject WeaponToSpawn;
     public List <AudioSource> SFXs = new List <AudioSource>();
+
+    private Weapon_Builder weapon_BuilderSC;
+
     void OnEnable()
     {
-        Weapon_Builder weapon_BuilderSC = GameObject.Find("WeaponBuilder").GetComponent<Weapon_Builder>();
+        weapon_BuilderSC = GameObject.Find("WeaponBuilder").GetComponent<Weapon_Builder>();
 
-        if (weapon_BuilderSC.partsPickedUp.Count == CorrentPartAmount)
+        bool MadeWeapon = weapon_BuilderSC.CollectedWeaponsId.Contains(CorrectBuildId);
+
+        print(weapon_BuilderSC.CurrentBuildId);
+
+        if (weapon_BuilderSC.CurrentBuildId == CorrectBuildId && !MadeWeapon)
         {
             SpawnWeapon();
         }
@@ -25,6 +32,7 @@ public class GunPartCheck : MonoBehaviour
     {
         Instantiate(WeaponToSpawn, SpawnFrom.transform.position, SpawnFrom.transform.rotation);
         SFXs[1].Play();
+        weapon_BuilderSC.CollectedWeaponsId.Add(CorrectBuildId);
     }
 
     private void OnBuildFail()

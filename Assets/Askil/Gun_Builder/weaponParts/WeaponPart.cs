@@ -5,7 +5,7 @@ public class WeaponPart : MonoBehaviour
 {
     public string partName;
     public Image uiImage;
-    public string id;
+    public int id;
 
     public void OnPickup()
     {
