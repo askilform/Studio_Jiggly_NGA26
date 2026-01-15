@@ -5,6 +5,7 @@ using UnityEngine;
 public class InteractCheck : MonoBehaviour
 {
     public GameObject UI;
+    private bool InInteraction;
     [SerializeField] private Interactable CurrentInteractable;
 
     private void OnTriggerEnter(Collider other)
@@ -27,7 +28,7 @@ public class InteractCheck : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && CurrentInteractable != null)
+        if (Input.GetKeyDown(KeyCode.E) && CurrentInteractable != null && !InInteraction)
         {
             StartCoroutine(Interact());
         }
@@ -35,6 +36,9 @@ public class InteractCheck : MonoBehaviour
 
     private IEnumerator Interact()
     {
+        InInteraction = true;
+        UI.SetActive(false);
+
         {
             foreach (GameObject obj in CurrentInteractable.ToDisable)
             {
@@ -48,6 +52,7 @@ public class InteractCheck : MonoBehaviour
         }
 
         yield return new WaitForSeconds(CurrentInteractable.TimeBeforeReset);
+        InInteraction = false;
 
         {
             foreach (GameObject obj in CurrentInteractable.ToDisable)

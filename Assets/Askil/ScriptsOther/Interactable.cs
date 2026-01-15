@@ -8,6 +8,6 @@ public class Interactable : MonoBehaviour
 {
     public List<GameObject> ToDisable = new List<GameObject>();
     public List<GameObject> ToEnable = new List<GameObject>();
-    public string ArmAnimName;
+    public string PlayerAnimBool;
     public float TimeBeforeReset;
 }

@@ -10,12 +10,13 @@ public class WorkBench : MonoBehaviour
     public List<AudioSource> SFXs = new List<AudioSource>();
     public GameObject CinematicCamPrefab;
     public float CutSceneDuration;
+    public GameObject SpawnWeaponTransform;
+    public GameObject CinematicTargetPosition;
 
     [Header("Assign in scene")]
     public int CorrectBuildId;
-    public GameObject SpawnWeaponTransform;
     public GameObject WeaponToSpawn;
-    public GameObject CinematicTargetPosition;
+
 
     private Weapon_Builder weapon_BuilderSC;
 
@@ -38,11 +39,11 @@ public class WorkBench : MonoBehaviour
 
     private IEnumerator SpawnWeapon()
     {
+        yield return new WaitForSeconds(CutSceneDuration * 0.3f);
+
         Instantiate(WeaponToSpawn, SpawnWeaponTransform.transform.position, SpawnWeaponTransform.transform.rotation);
         SFXs[1].Play();
         weapon_BuilderSC.CollectedWeaponsId.Add(CorrectBuildId);
-
-        yield return null;
     }
 
     private void OnBuildFail()
