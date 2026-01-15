@@ -9,6 +9,7 @@ public class WorkBench : MonoBehaviour
     public GameObject SpawnFrom;
     public GameObject WeaponToSpawn;
     public List <AudioSource> SFXs = new List <AudioSource>();
+    public GameObject CinematicCamPrefab;
 
     private Weapon_Builder weapon_BuilderSC;
 
@@ -33,10 +34,20 @@ public class WorkBench : MonoBehaviour
         Instantiate(WeaponToSpawn, SpawnFrom.transform.position, SpawnFrom.transform.rotation);
         SFXs[1].Play();
         weapon_BuilderSC.CollectedWeaponsId.Add(CorrectBuildId);
+
+        SpawnCinematicCam();
     }
 
     private void OnBuildFail()
     {
         SFXs[0].Play();
+    }
+
+    private void SpawnCinematicCam()
+    {
+        GameObject CamPrefab = Instantiate(CinematicCamPrefab, Vector3.zero, Quaternion.identity);
+        CinematicCam CineCamScript = CamPrefab.GetComponent<CinematicCam>();
+
+        CineCamScript.timeBetweenTargets = 2;
     }
 }
