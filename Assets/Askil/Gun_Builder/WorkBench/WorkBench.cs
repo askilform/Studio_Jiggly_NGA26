@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
@@ -5,11 +6,16 @@ using UnityEngine.UIElements;
 
 public class WorkBench : MonoBehaviour
 {
-    public int CorrectBuildId;
-    public GameObject SpawnFrom;
-    public GameObject WeaponToSpawn;
-    public List <AudioSource> SFXs = new List <AudioSource>();
+    [Header("Assign in prefab")]
+    public List<AudioSource> SFXs = new List<AudioSource>();
     public GameObject CinematicCamPrefab;
+    public float CutSceneDuration;
+
+    [Header("Assign in scene")]
+    public int CorrectBuildId;
+    public GameObject SpawnWeaponTransform;
+    public GameObject WeaponToSpawn;
+    public GameObject CinematicTargetPosition;
 
     private Weapon_Builder weapon_BuilderSC;
 
@@ -23,19 +29,20 @@ public class WorkBench : MonoBehaviour
 
         if (weapon_BuilderSC.CurrentBuildId == CorrectBuildId && !MadeWeapon)
         {
-            SpawnWeapon();
+            SpawnCinematicCam();
+            StartCoroutine(SpawnWeapon());
         }
 
         else OnBuildFail();
     }
 
-    private void SpawnWeapon()
+    private IEnumerator SpawnWeapon()
     {
-        Instantiate(WeaponToSpawn, SpawnFrom.transform.position, SpawnFrom.transform.rotation);
+        Instantiate(WeaponToSpawn, SpawnWeaponTransform.transform.position, SpawnWeaponTransform.transform.rotation);
         SFXs[1].Play();
         weapon_BuilderSC.CollectedWeaponsId.Add(CorrectBuildId);
 
-        SpawnCinematicCam();
+        yield return null;
     }
 
     private void OnBuildFail()
@@ -48,6 +55,6 @@ public class WorkBench : MonoBehaviour
         GameObject CamPrefab = Instantiate(CinematicCamPrefab, Vector3.zero, Quaternion.identity);
         CinematicCam CineCamScript = CamPrefab.GetComponent<CinematicCam>();
 
-        CineCamScript.timeBetweenTargets = 2;
+        CineCamScript.SetReferences(CinematicTargetPosition, CutSceneDuration);
     }
 }

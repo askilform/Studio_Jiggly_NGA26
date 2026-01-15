@@ -35,26 +35,30 @@ public class InteractCheck : MonoBehaviour
 
     private IEnumerator Interact()
     {
-        foreach (GameObject obj in CurrentInteractable.ToDisable)
         {
-            obj.SetActive(false);
-        }
+            foreach (GameObject obj in CurrentInteractable.ToDisable)
+            {
+                obj.SetActive(false);
+            }
 
-        foreach (GameObject obj in CurrentInteractable.ToEnable)
-        {
-            obj.SetActive(true);
+            foreach (GameObject obj in CurrentInteractable.ToEnable)
+            {
+                obj.SetActive(true);
+            }
         }
 
         yield return new WaitForSeconds(CurrentInteractable.TimeBeforeReset);
 
-        foreach (GameObject obj in CurrentInteractable.ToDisable)
         {
-            obj.SetActive(true);
-        }
+            foreach (GameObject obj in CurrentInteractable.ToDisable)
+            {
+                obj.SetActive(true);
+            }
 
-        foreach (GameObject obj in CurrentInteractable.ToEnable)
-        {
-            obj.SetActive(false);
+            foreach (GameObject obj in CurrentInteractable.ToEnable)
+            {
+                obj.SetActive(false);
+            }
         }
     }
 }
