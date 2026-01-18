@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     private float xRotation = 0f;
     private float startSpeed;
 
+    float ogColliderHeight;
+    CapsuleCollider CLDR;
 
     [SerializeField] float sprintSpeed = 2f;
     [SerializeField] float Acceleration = 2f;
@@ -30,6 +32,9 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         startSpeed = moveSpeed;
 
+        CLDR = rb.GetComponent<CapsuleCollider>();
+        ogColliderHeight = CLDR.height;
+
         // Lock cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -39,25 +44,12 @@ public class PlayerMovement : MonoBehaviour
     {
         HandleMouseLook();
         SprintCheck();
+        CrouchCheck();
     }
 
     void FixedUpdate()
     {
         HandleMovement();
-    }
-
-    void SprintCheck()
-    {
-        float targetMultiplier = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : 1f;
-
-        currentSprintMultiplier = Mathf.Lerp(
-            currentSprintMultiplier,
-            targetMultiplier,
-            Acceleration * Time.deltaTime
-        );
-
-        moveSpeed = startSpeed * currentSprintMultiplier;
-        SFX[0].pitch = currentSprintMultiplier;
     }
 
     void HandleMovement()
@@ -93,4 +85,30 @@ public class PlayerMovement : MonoBehaviour
         cam.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
     }
 
+    void SprintCheck()
+    {
+        float targetMultiplier = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : 1f;
+
+        currentSprintMultiplier = Mathf.Lerp(
+            currentSprintMultiplier,
+            targetMultiplier,
+            Acceleration * Time.deltaTime
+        );
+
+        moveSpeed = startSpeed * currentSprintMultiplier;
+        SFX[0].pitch = currentSprintMultiplier;
+    }
+
+    void CrouchCheck()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            CLDR.height = ogColliderHeight * 0.3f;
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            CLDR.height = ogColliderHeight;
+        }
+    }
 }
