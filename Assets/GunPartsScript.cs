@@ -6,6 +6,8 @@ public class GunPartsScript : MonoBehaviour
 
 {
     
+    public bool autoUpdateEachFrame = true;
+
     public List<GameObject> partList;
     public Weapon_Builder weaponBuilderIdManager;
 
@@ -14,43 +16,44 @@ public class GunPartsScript : MonoBehaviour
         print("Press G to update parts");
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            checkParts();
+            CheckParts();
+            WritePartsString();
+        }
+
+        if (autoUpdateEachFrame)
+        {
+            CheckParts();
         }
         
     }
 
-
-
-    public void checkParts()
+    public void WritePartsString()
     {
         string allPartsString = "PARTS: ";
-
         foreach(GameObject part in partList)
         {
             if (part.TryGetComponent<SingleGunPartScript>(out SingleGunPartScript partScript))
             {
-
                 allPartsString += partScript.partName + ", ";
-
-                if (weaponBuilderIdManager.IdsPickedUp.Contains(partScript.partID))
-                {
-                    partScript.gameObject.SetActive(true);
-                }
-                else
-                {
-                    partScript.gameObject.SetActive(false);
-                }
-
-
             }
-
-
         }
         print(allPartsString);
+    }
+
+
+    public void CheckParts()
+    {
+        foreach(GameObject part in partList)
+        {
+            if (part.TryGetComponent<SingleGunPartScript>(out SingleGunPartScript partScript))
+            {
+                partScript.gameObject.SetActive(weaponBuilderIdManager.IdsPickedUp.Contains(partScript.partID));
+            }
+        }
     }
 }
