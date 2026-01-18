@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 8023111790060027166}
   - component: {fileID: 6407898379865256176}
   - component: {fileID: 8306181028676115328}
+  - component: {fileID: 4609828884557618753}
   m_Layer: 0
   m_Name: PlayerCam
   m_TagString: Untagged
@@ -291,6 +292,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4609828884557618753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574644956422523665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85d76bd7748cd84ca95625c9a1b2b74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSC: {fileID: 6929121227003658658}
+  jumpSC: {fileID: 7314829481378046210}
 --- !u!1 &1476070020620643327
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,6 +513,7 @@ MonoBehaviour:
   SFX:
   - {fileID: 2634203971453211482}
   JumpScript: {fileID: 7314829481378046210}
+  cameraAnims: {fileID: 8306181028676115328}
   sprintSpeed: 2
   Acceleration: 2
 --- !u!114 &7314829481378046210

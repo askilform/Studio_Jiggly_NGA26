@@ -65,5 +65,7 @@ public class CinematicCam : MonoBehaviour
 
             interpolationFactor -= Time.deltaTime;
         }
+
+
     } 
 }

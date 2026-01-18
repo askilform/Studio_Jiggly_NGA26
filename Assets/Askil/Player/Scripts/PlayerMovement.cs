@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public List<AudioSource> SFX = new List<AudioSource>();
     public Jump JumpScript;
 
-    private Rigidbody rb;
+    public Rigidbody rb;
     private float xRotation = 0f;
     private float startSpeed;
 
@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float sprintSpeed = 2f;
     [SerializeField] float Acceleration = 2f;
 
-    float currentSprintMultiplier = 1f;
+    public float currentSprintMultiplier = 1f;
 
     void Start()
     {
