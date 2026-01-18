@@ -27,7 +27,7 @@ public class gunscript : MonoBehaviour
 
     void Start()
     {
-        print("Gun Script");
+        print("Gun Script. Press F to fire");
     }
 
     void Update()
