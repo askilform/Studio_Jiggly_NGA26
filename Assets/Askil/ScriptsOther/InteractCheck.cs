@@ -5,8 +5,15 @@ using UnityEngine;
 public class InteractCheck : MonoBehaviour
 {
     public GameObject UI;
+    public AudioSource interactSfx;
+
     private bool InInteraction;
     [SerializeField] private Interactable CurrentInteractable;
+
+    private void Start()
+    {
+        interactSfx = GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -38,14 +45,15 @@ public class InteractCheck : MonoBehaviour
     {
         InInteraction = true;
         UI.SetActive(false);
+        PlayInteractSFX();
 
         {
-            foreach (GameObject obj in CurrentInteractable.ToDisable)
+            if (CurrentInteractable.ToDisable != null) foreach (GameObject obj in CurrentInteractable.ToDisable)
             {
                 obj.SetActive(false);
             }
 
-            foreach (GameObject obj in CurrentInteractable.ToEnable)
+            if (CurrentInteractable.ToEnable != null)  foreach (GameObject obj in CurrentInteractable.ToEnable)
             {
                 obj.SetActive(true);
             }
@@ -54,16 +62,25 @@ public class InteractCheck : MonoBehaviour
         yield return new WaitForSeconds(CurrentInteractable.TimeBeforeReset);
         InInteraction = false;
 
+        if (CurrentInteractable.resetAfterTime)
         {
-            foreach (GameObject obj in CurrentInteractable.ToDisable)
             {
-                obj.SetActive(true);
-            }
+                if (CurrentInteractable.ToDisable != null) foreach (GameObject obj in CurrentInteractable.ToDisable)
+                    {
+                        obj.SetActive(true);
+                    }
 
-            foreach (GameObject obj in CurrentInteractable.ToEnable)
-            {
-                obj.SetActive(false);
+                if (CurrentInteractable.ToEnable != null) foreach (GameObject obj in CurrentInteractable.ToEnable)
+                    {
+                        obj.SetActive(false);
+                    }
             }
         }
     }
+
+    public void PlayInteractSFX()
+    {
+        interactSfx.Play();
+    }
+
 }
