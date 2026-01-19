@@ -6,6 +6,10 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
     public float moveSpeed = 6f;
+    public float sprintSpeed = 2f;
+    public float Acceleration = 2f;
+    public float crouchSpeed = 0.2f;
+
 
     [Header("Mouse Settings")]
     public float mouseSensitivity = 2f;
@@ -15,15 +19,14 @@ public class PlayerMovement : MonoBehaviour
     public List<AudioSource> SFX = new List<AudioSource>();
     public Jump JumpScript;
 
+    [Header("Dont Assign!")]
     public Rigidbody rb;
+    public bool isCrouching;
+
     private float xRotation = 0f;
     private float startSpeed;
-
-    float ogColliderHeight;
-    CapsuleCollider CLDR;
-
-    [SerializeField] float sprintSpeed = 2f;
-    [SerializeField] float Acceleration = 2f;
+    private float ogColliderHeight;
+    private CapsuleCollider CLDR;
 
     public float currentSprintMultiplier = 1f;
 
@@ -43,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         HandleMouseLook();
-        SprintCheck();
+        SpeedCheck();
         CrouchCheck();
     }
 
@@ -85,9 +88,12 @@ public class PlayerMovement : MonoBehaviour
         cam.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
     }
 
-    void SprintCheck()
+    void SpeedCheck()
     {
-        float targetMultiplier = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : 1f;
+        float targetMultiplier;
+
+        if (!isCrouching) targetMultiplier = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : 1f;
+        else targetMultiplier = isCrouching ? crouchSpeed : 1f;
 
         currentSprintMultiplier = Mathf.Lerp(
             currentSprintMultiplier,
@@ -101,14 +107,16 @@ public class PlayerMovement : MonoBehaviour
 
     void CrouchCheck()
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.LeftControl) && JumpScript.isGrounded)
         {
             CLDR.height = ogColliderHeight * 0.3f;
+            isCrouching = true;
         }
 
         if (Input.GetKeyUp(KeyCode.LeftControl))
         {
             CLDR.height = ogColliderHeight;
+            isCrouching = false;
         }
     }
 }
