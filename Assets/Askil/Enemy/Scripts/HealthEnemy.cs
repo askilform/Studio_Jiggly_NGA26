@@ -38,11 +38,11 @@ public class HealthEnemy : MonoBehaviour
     {
         Health -= Damage;
 
-        if (Health <= 0) Death();
+        if (Health <= 0) StartCoroutine(Death());
         else StartCoroutine(MatFlash());
     }
 
-    public void Death()
+    public IEnumerator Death()
     {
         print("Dead");
         movementSc.agent.enabled = false;
@@ -50,6 +50,9 @@ public class HealthEnemy : MonoBehaviour
         Vector3 LauncDirection = movementSc.agent.transform.position - movementSc.player.transform.position;
         rb.isKinematic = false;
         rb.AddForce(LauncDirection.x, 5, LauncDirection.z, ForceMode.Impulse);
+
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
     }
 
     private IEnumerator MatFlash()
