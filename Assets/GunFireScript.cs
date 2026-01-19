@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEditor.PackageManager.UI;
 using UnityEngine;
 
@@ -5,14 +6,30 @@ public class GunFireScript : MonoBehaviour
 {
     
     public GameObject bulletTraceObjectToSpawn;
-
+    
     public AudioSource audioSource;
 
     public AudioClip[] gunfireSounds;
 
+    public bool burstShot = false;
+
     //GUN MECHANICS
+    [Header("for fire rate")]
     public float shotCooldownNow = 0f;
     public float ShotCooldown = 1.5f;
+
+    [Header("for charge and burst")]
+    public float chargeupTime = 1.3f;
+    private float chargeNow = 0f;
+    public float burstDuration = 1f;
+    private bool ambattaBurst = false;
+    public float postBurstClarity = 1.5f;
+    //public AudioClip chargeSound;
+    public AudioClip cooldownSound;
+    public AudioSource chargeSoundSource;
+
+
+    [Header("some unused now")]
     public float gunModelKnockback = 0.1f;
     public float aimKnockback = 0.1f;
 
@@ -28,9 +45,14 @@ public class GunFireScript : MonoBehaviour
     public Light muzzleLight;
     public float lightFadeDuration= 1.0f;
     private float lightFadeNow = 1f;
-    
 
-    
+    [Header("UI")]
+    public TextMeshPro burstingTextDev;
+    public TextMeshPro cdTextDev;
+
+
+
+
 
 
     void Start()
@@ -41,6 +63,9 @@ public class GunFireScript : MonoBehaviour
 
     void Update()
     {
+        bool holdingFire = Input.GetMouseButton(0);
+        bool pressFire = Input.GetMouseButtonDown(0);
+        bool releaseFire = Input.GetMouseButtonUp(0);
 
         lightFadeNow = Mathf.Min(lightFadeNow + Time.deltaTime / Mathf.Max(0.01f, lightFadeDuration), 1f);
 
@@ -48,7 +73,63 @@ public class GunFireScript : MonoBehaviour
 
 
 
-        if (Input.GetKey(KeyCode.F))
+        if (burstShot)
+        {
+            //chargeBurst
+            if (ambattaBurst == false && holdingFire || chargeNow < 0)
+            {
+                chargeNow += Time.deltaTime;
+            }
+
+            else if (chargeNow > 0)
+            {
+                chargeNow -= Time.deltaTime;
+            }
+
+            //Trigger burst
+            if (ambattaBurst == false && chargeNow > chargeupTime)
+            {
+                ambattaBurst = true;
+                chargeNow = burstDuration;
+            }
+
+            if (ambattaBurst && chargeNow < 0)
+            {
+                if (cooldownSound != null)
+                {
+                    audioSource.PlayOneShot(cooldownSound);
+                }
+
+                ambattaBurst = false;
+                chargeNow = -postBurstClarity;
+            }
+
+            if (burstingTextDev != null && cdTextDev != null)
+            {
+                burstingTextDev.text = ambattaBurst ? "AMBATTA BURST" : "Not Bursting";
+
+                cdTextDev.text = Mathf.Round(chargeNow*100).ToString() + " / " + Mathf.Round(chargeupTime*100).ToString();
+            }
+
+
+            //Sounds
+            float basePitch = 0.5f;
+
+            if (!ambattaBurst && chargeNow > 0 && holdingFire)
+            {
+                chargeSoundSource.volume = 1f;
+                chargeSoundSource.pitch = basePitch + chargeNow;
+            }
+            else
+            {
+                chargeSoundSource.volume -= Time.deltaTime * 5f;
+                chargeSoundSource.pitch = Mathf.Lerp(chargeSoundSource.pitch , basePitch, Time.deltaTime * 40f);
+            }
+
+
+        }
+
+        if ((holdingFire && !burstShot) || (burstShot && ambattaBurst))
         {
             if (shotCooldownNow <= 0f)
             {
@@ -57,6 +138,7 @@ public class GunFireScript : MonoBehaviour
                 GunFire();
             }
         }
+        
 
 
         //Pick out a color from a gradient
@@ -80,10 +162,12 @@ public class GunFireScript : MonoBehaviour
 
 
         audioSource.pitch = Random.Range(0.9f, 1.1f);
+
         if (gunfireSounds.Length > 0)
         {
             audioSource.PlayOneShot(  gunfireSounds[  Random.Range(0, gunfireSounds.Length)  ]  );
         }
+
         else
         {
             audioSource.PlayOneShot(audioSource.clip);
