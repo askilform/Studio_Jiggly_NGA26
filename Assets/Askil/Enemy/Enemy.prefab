@@ -132,7 +132,6 @@ GameObject:
   - component: {fileID: 442523571087304593}
   - component: {fileID: 6761302741911462960}
   - component: {fileID: 8197708728415659233}
-  - component: {fileID: 4842352698559472173}
   m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
@@ -210,27 +209,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4842352698559472173
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4296616517956296791}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5050151056277436939
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,6 +256,7 @@ GameObject:
   - component: {fileID: 148756641663054968}
   - component: {fileID: 9069309090038342852}
   - component: {fileID: 8881175576790305747}
+  - component: {fileID: 2850692011034610962}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -411,7 +390,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e28c81561320f4baaa34df38f75e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   Speed: 2
   SprintSpeedMultiplier: 2
   SneakSpeedMultiplier: 0.5
@@ -428,6 +406,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f8f11f4a78ece747a0867dde0a02f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Health: 100
+  movementSc: {fileID: 9069309090038342852}
+  HitMat: {fileID: -4246479402191905792, guid: bdc063f5c968b804aaad470959e2041c, type: 3}
+  renderers: []
+  OgMats: []
+--- !u!54 &2850692011034610962
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5861690194122135809}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6900177984578438806
 GameObject:
   m_ObjectHideFlags: 0

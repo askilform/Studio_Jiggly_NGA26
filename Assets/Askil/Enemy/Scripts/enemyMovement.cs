@@ -5,10 +5,10 @@ using UnityEngine.AI;
 
 public class enemyMovement : MonoBehaviour
 {
-    private NavMeshAgent agent;
+    [NonSerialized ]public NavMeshAgent agent;
     private float baseSpeedReference;
     private GameObject target;
-    [SerializeField] private GameObject player;
+    [NonSerialized] public GameObject player;
 
 
     public float Speed = 1;
