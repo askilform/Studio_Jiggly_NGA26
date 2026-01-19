@@ -28,6 +28,7 @@ public class GunFireScript : MonoBehaviour
     public AudioClip cooldownSound;
     public AudioSource chargeSoundSource;
 
+
     [Header("some unused now")]
     public float gunModelKnockback = 0.1f;
     public float aimKnockback = 0.1f;
