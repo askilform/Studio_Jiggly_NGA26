@@ -21,6 +21,8 @@ public class enemyMovement : MonoBehaviour
         baseSpeedReference = Speed;
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
+
+        
     }
     private void Update()
     {
@@ -30,7 +32,7 @@ public class enemyMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3)) Sneakfollow();
         if (Input.GetKeyDown(KeyCode.Alpha4)) Roam();
 
-        agent.SetDestination(target.transform.position);
+        if (target != null) agent.SetDestination(target.transform.position);
     }
 
     public void StopMovement()
@@ -61,6 +63,7 @@ public class enemyMovement : MonoBehaviour
 
     public void Roam()
     {
+        agent.isStopped = false;
         target = roamPointSc.activeRoamingPoint;
     }
 }

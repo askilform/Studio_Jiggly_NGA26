@@ -13,7 +13,7 @@ public class RoamingPoints : MonoBehaviour
     {
         foreach (GameObject point in points)
         {
-            point.GetComponent<MeshCollider>().enabled = false;
+            point.GetComponent<MeshRenderer>().enabled = false;
         }
 
         StartCoroutine(ChangeRoamingPoint());
