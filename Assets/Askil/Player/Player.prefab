@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 7314829481378046210}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -410,14 +410,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  sprintSpeed: 2
+  Acceleration: 2
+  crouchSpeed: 0.2
   mouseSensitivity: 2
   cam: {fileID: 3200426720164360264}
   SFX:
   - {fileID: 2634203971453211482}
   JumpScript: {fileID: 7314829481378046210}
   rb: {fileID: 0}
-  sprintSpeed: 2
-  Acceleration: 2
+  isCrouching: 0
   currentSprintMultiplier: 1
 --- !u!114 &7314829481378046210
 MonoBehaviour:
