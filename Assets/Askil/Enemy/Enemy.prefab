@@ -277,6 +277,7 @@ GameObject:
   - component: {fileID: 2357751336047061278}
   - component: {fileID: 148756641663054968}
   - component: {fileID: 9069309090038342852}
+  - component: {fileID: 8881175576790305747}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -368,7 +369,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -414,6 +415,19 @@ MonoBehaviour:
   Speed: 2
   SprintSpeedMultiplier: 2
   SneakSpeedMultiplier: 0.5
+  roamPointSc: {fileID: 0}
+--- !u!114 &8881175576790305747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5861690194122135809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8f11f4a78ece747a0867dde0a02f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6900177984578438806
 GameObject:
   m_ObjectHideFlags: 0
