@@ -1,3 +1,4 @@
+using UnityEditor.PackageManager.UI;
 using UnityEngine;
 
 public class GunFireScript : MonoBehaviour
@@ -22,6 +23,15 @@ public class GunFireScript : MonoBehaviour
     public float damage = 1;
     public float armorPiercing = 5;
 
+    [Header("LightGradient")]
+    public Gradient lightGradient;
+    public Light muzzleLight;
+    public float lightFadeDuration= 1.0f;
+    private float lightFadeNow = 1f;
+    
+
+    
+
 
     void Start()
     {
@@ -32,20 +42,43 @@ public class GunFireScript : MonoBehaviour
     void Update()
     {
 
+        lightFadeNow = Mathf.Min(lightFadeNow + Time.deltaTime / Mathf.Max(0.01f, lightFadeDuration), 1f);
+
         shotCooldownNow -= Time.deltaTime;
+
+
 
         if (Input.GetKey(KeyCode.F))
         {
             if (shotCooldownNow <= 0f)
             {
                 shotCooldownNow = ShotCooldown;
+                GunFireEffects();
                 GunFire();
             }
         }
+
+
+        //Pick out a color from a gradient
+        if (lightGradient != null && muzzleLight != null)
+        {
+            muzzleLight.color = lightGradient.Evaluate(lightFadeNow);
+        }
+
+
     }
+
+
+    public void GunFireEffects()
+    {
+        lightFadeNow = 0f;
+    }
+
 
     public void GunFire()
     {
+
+
         audioSource.pitch = Random.Range(0.9f, 1.1f);
         if (gunfireSounds.Length > 0)
         {
@@ -68,6 +101,18 @@ public class GunFireScript : MonoBehaviour
             Debug.Log("Hit");
             //override that to the hit point if hit
             actualHitPos = actualHit.point;
+
+            //check if target can SUFFER!!!! WRARARARARARA
+            if (actualHit.transform.gameObject.TryGetComponent<GetShotObject>(out GetShotObject getShotScript))
+            {
+                print("Hit A THing");
+                getShotScript.GetShot(damage, armorPiercing);
+                print("try deal damage " + damage.ToString() + " dmg, " + armorPiercing.ToString() + " penetration");
+            }
+            else
+            {
+                print("No Hit");
+            }
         }
 
 
@@ -77,13 +122,7 @@ public class GunFireScript : MonoBehaviour
         traceInstatiated.transform.localScale = new Vector3(1, 1, (traceInstatiated.transform.position - transform.position).magnitude);
 
 
-        //check if target can SUFFER!!!! WRARARARARARA
-        if (actualHit.transform.gameObject.TryGetComponent<GetShotObject>(out GetShotObject getShotScript))
-        {
-            print("Hit A THing");
-            getShotScript.GetShot(damage, armorPiercing);
-            print("try deal damage " + damage.ToString() + " dmg, " + armorPiercing.ToString() + " penetration");
-        }
+        
 
 
     }
