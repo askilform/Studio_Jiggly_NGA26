@@ -9,6 +9,11 @@ public class GetShotObject : MonoBehaviour
 
     public UnityEvent onDieEvent;
 
+    public UnityEvent onBlockDamageEvent;
+    public UnityEvent onDamageEvent;
+
+    public HealthEnemy enemyHealthScript; 
+
 
     public void GetShot(float damageIn, float armorPierce)
     {
@@ -22,13 +27,21 @@ public class GetShotObject : MonoBehaviour
 
         print("dmg " + damageIn.ToString() + "pen " + armorPierce.ToString() + " | reducedarmor:" + reducedArmor.ToString() + ", damageinafterarmor: " + damageInAfterArmor.ToString() + " | health: " + health.ToString());
 
-        
+
+        if (damageInAfterArmor > 0) { onDamageEvent.Invoke(); }
+        if (damageInAfterArmor <= 0) { onBlockDamageEvent.Invoke(); }
+
+        if (enemyHealthScript != null) 
+        {
+            enemyHealthScript.TakeDamage(Mathf.RoundToInt(damageInAfterArmor));
+        }
+
+
         if (health <= 0)
         {
             OnDie();
         }
     }
-
 
     public void OnDie()
     {

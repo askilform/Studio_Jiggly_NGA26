@@ -2626,6 +2626,10 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 8881175576790305747, guid: 4b20be5e9cbe045428306568d4a0ff61, type: 3}
+      propertyPath: Health
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881175576790305747, guid: 4b20be5e9cbe045428306568d4a0ff61, type: 3}
       propertyPath: HitMat
       value: 
       objectReference: {fileID: -4246479402191905792, guid: bdc063f5c968b804aaad470959e2041c, type: 3}
@@ -2637,6 +2641,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5861690194122135809, guid: 4b20be5e9cbe045428306568d4a0ff61, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1708267170}
     - targetCorrespondingSourceObject: {fileID: 2730179500843181834, guid: 4b20be5e9cbe045428306568d4a0ff61, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1331585558}
@@ -3529,6 +3536,43 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1670698206}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1708267161 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5861690194122135809, guid: 4b20be5e9cbe045428306568d4a0ff61, type: 3}
+  m_PrefabInstance: {fileID: 1331585554}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1708267164 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8881175576790305747, guid: 4b20be5e9cbe045428306568d4a0ff61, type: 3}
+  m_PrefabInstance: {fileID: 1331585554}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708267161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8f11f4a78ece747a0867dde0a02f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1708267170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708267161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe4502ff8b0a6ae4ea4528d865bc3fae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 4
+  armor: 1
+  onDieEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  enemyHealthScript: {fileID: 1708267164}
 --- !u!1001 &1739982880
 PrefabInstance:
   m_ObjectHideFlags: 0
