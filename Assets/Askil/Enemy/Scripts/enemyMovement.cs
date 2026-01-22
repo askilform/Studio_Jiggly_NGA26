@@ -8,6 +8,7 @@ public class enemyMovement : MonoBehaviour
     [NonSerialized ]public NavMeshAgent agent;
     private float baseSpeedReference;
     private GameObject target;
+    private bool FollowingPlayer;
     [NonSerialized] public GameObject player;
 
 
@@ -20,31 +21,30 @@ public class enemyMovement : MonoBehaviour
     {
         baseSpeedReference = Speed;
         agent = GetComponent<NavMeshAgent>();
-        player = GameObject.FindGameObjectWithTag("Player");
-
-        
+        player = GameObject.FindGameObjectWithTag("Player");     
     }
+
     private void Update()
     {
+        // Debugs
         if (Input.GetKeyDown(KeyCode.Alpha0)) StopMovement();
-        if (Input.GetKeyDown(KeyCode.Alpha1)) WalkFollow();
         if (Input.GetKeyDown(KeyCode.Alpha2)) SprintFollow();
-        if (Input.GetKeyDown(KeyCode.Alpha3)) Sneakfollow();
         if (Input.GetKeyDown(KeyCode.Alpha4)) Roam();
 
+        // Update destination and roaming-point
         if (target != null) agent.SetDestination(target.transform.position);
+        if (!FollowingPlayer) target = roamPointSc.activeRoamingPoint;
     }
 
     public void StopMovement()
     {
         agent.isStopped = true;
+        FollowingPlayer = false;
     }
 
-    public void WalkFollow()
+    public void SlowFollow()
     {
-        target = player;
-        agent.isStopped = false;
-        agent.speed = baseSpeedReference;
+
     }
 
     public void SprintFollow()
@@ -52,18 +52,12 @@ public class enemyMovement : MonoBehaviour
         target = player;
         agent.isStopped = false;
         agent.speed = baseSpeedReference * SprintSpeedMultiplier;
-    }
-
-    public void Sneakfollow()
-    {
-        target = player;
-        agent.isStopped = false;
-        agent.speed = baseSpeedReference * SneakSpeedMultiplier;
+        FollowingPlayer = true;
     }
 
     public void Roam()
     {
         agent.isStopped = false;
-        target = roamPointSc.activeRoamingPoint;
+        FollowingPlayer = false;
     }
 }
