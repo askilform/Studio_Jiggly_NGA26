@@ -22,5 +22,6 @@ public class RoamingPoints : MonoBehaviour
     {
         activeRoamingPoint = points[Random.Range(0, (points.Count - 1))];
         yield return new WaitForSeconds(Random.Range(0, 10));
+        StartCoroutine(ChangeRoamingPoint());
     }
 }
