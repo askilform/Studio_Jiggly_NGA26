@@ -28,6 +28,10 @@ public class GunFireScript : MonoBehaviour
     public AudioClip cooldownSound;
     public AudioSource chargeSoundSource;
 
+    [Header("ammostuff")]
+    [HideInInspector] public int batteryLeft = 10;
+    public int batteryMax = 10;
+
 
     [Header("some unused now")]
     public float gunModelKnockback = 0.1f;
@@ -49,6 +53,7 @@ public class GunFireScript : MonoBehaviour
     [Header("UI")]
     public TextMeshPro burstingTextDev;
     public TextMeshPro cdTextDev;
+    public TextMeshPro batteryDev;
 
 
 
@@ -57,7 +62,19 @@ public class GunFireScript : MonoBehaviour
 
     void Start()
     {
+        if (batteryLeft > batteryMax) 
+        {
+            batteryLeft = batteryMax;
+        }
+
+        lightFadeNow = 1f;
         print("Press F to fire, for now");
+    }
+
+    public void RefillBatteries()
+    {
+        batteryLeft = batteryMax;
+
     }
 
 
@@ -76,9 +93,10 @@ public class GunFireScript : MonoBehaviour
         if (burstShot)
         {
             //chargeBurst
-            if (ambattaBurst == false && holdingFire || chargeNow < 0)
+            if ((ambattaBurst == false && holdingFire && batteryLeft > 0) || chargeNow < 0)
             {
                 chargeNow += Time.deltaTime;
+
             }
 
             else if (chargeNow > 0)
@@ -109,6 +127,7 @@ public class GunFireScript : MonoBehaviour
                 burstingTextDev.text = ambattaBurst ? "AMBATTA BURST" : "Not Bursting";
 
                 cdTextDev.text = Mathf.Round(chargeNow*100).ToString() + " / " + Mathf.Round(chargeupTime*100).ToString();
+
             }
 
 
@@ -129,13 +148,14 @@ public class GunFireScript : MonoBehaviour
 
         }
 
-        if ((holdingFire && !burstShot) || (burstShot && ambattaBurst))
+        if ((holdingFire && !burstShot && batteryLeft > 0) || (burstShot && ambattaBurst))
         {
             if (shotCooldownNow <= 0f)
             {
                 shotCooldownNow = ShotCooldown;
                 GunFireEffects();
                 GunFire();
+
             }
         }
         
@@ -148,6 +168,11 @@ public class GunFireScript : MonoBehaviour
         }
 
 
+        if (batteryDev != null)
+        {
+            batteryDev.text = batteryLeft.ToString() + " / " + batteryMax.ToString() + " battery"; 
+        }
+
     }
 
 
@@ -159,6 +184,9 @@ public class GunFireScript : MonoBehaviour
 
     public void GunFire()
     {
+
+        //Reduce Battery
+        batteryLeft = Mathf.Max(batteryLeft - 1, 0);
 
 
         audioSource.pitch = Random.Range(0.9f, 1.1f);
