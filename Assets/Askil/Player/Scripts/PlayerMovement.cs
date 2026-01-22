@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     private float startSpeed;
     private float ogColliderHeight;
     private CapsuleCollider CLDR;
+    float x;
+    float z;
 
     public float currentSprintMultiplier = 1f;
 
@@ -48,6 +50,9 @@ public class PlayerMovement : MonoBehaviour
         HandleMouseLook();
         SpeedCheck();
         CrouchCheck();
+
+        x = Input.GetAxis("Horizontal");
+        z = Input.GetAxis("Vertical");
     }
 
     void FixedUpdate()
@@ -57,9 +62,6 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleMovement()
     {
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-
         // Combine input directions
         Vector3 direction = transform.right * x + transform.forward * z;
 
