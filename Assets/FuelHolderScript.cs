@@ -23,13 +23,40 @@ public class FuelHolderScript : MonoBehaviour
         
     }
 
+
+    public void ReloadFuel()
+    {
+        if (gunFireScript.batteryLeft > 0)
+        {
+            DropFuel();
+        }
+        
+        hasDroppedRod = true;
+        gunFireScript.batteryLeft = gunFireScript.batteryMax;
+    }
+
+    public void DropFuel()
+    {
+        fuelAnimator.SetTrigger("dropFuelRod");
+            GameObject fuelRodInstance = Instantiate(emptyFuelPrefabProjectile, fuelObject.transform.position, fuelObject.transform.rotation);
+
+            if (fuelRodInstance.TryGetComponent<Rigidbody>(out Rigidbody rb))
+            {
+                rb.linearVelocity = fuelRodInstance.transform.up * 1f + fuelRodInstance.transform.forward * -0.5f + fuelRodInstance.transform.right * -0.5f;;
+                rb.angularVelocity = fuelRodInstance.transform.right * -16f;
+            }
+            audioSource.PlayOneShot(dropRodSound);
+    }
+
+
     void Update()
     {
-
+        //TRY THIS ONLY!!!?
+        fuelAnimator.SetBool("hasFuel", gunFireScript.batteryLeft > 0);
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            gunFireScript.batteryLeft = gunFireScript.batteryMax;
+            //ReloadFuel();
         }
 
 
@@ -45,18 +72,7 @@ public class FuelHolderScript : MonoBehaviour
             
             if (hasDroppedRod == false)
             {
-                print("RUN DROP ROD SCRIPT");
-                fuelAnimator.SetTrigger("dropFuelRod");
-                GameObject fuelRodInstance = Instantiate(emptyFuelPrefabProjectile, fuelObject.transform.position, fuelObject.transform.rotation);
-
-                if (fuelRodInstance.TryGetComponent<Rigidbody>(out Rigidbody rb))
-                {
-                    rb.linearVelocity = fuelRodInstance.transform.up * 0.6f + fuelRodInstance.transform.forward * -1f + fuelRodInstance.transform.right * -1f;;
-                    rb.angularVelocity = fuelRodInstance.transform.right * -32f;
-                }
-                audioSource.PlayOneShot(dropRodSound);
-
-                
+                DropFuel();
             }
             hasDroppedRod = true;
         }

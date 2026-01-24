@@ -10,6 +10,8 @@ public class InteractCheck : MonoBehaviour
     private bool InInteraction;
     [SerializeField] private Interactable CurrentInteractable;
 
+    public FuelHolderScript fuelHolderScriptRef;
+
     private void Start()
     {
         interactSfx = GetComponent<AudioSource>();
@@ -38,6 +40,16 @@ public class InteractCheck : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && CurrentInteractable != null && !InInteraction)
         {
             StartCoroutine(Interact());
+
+            if (CurrentInteractable.CompareTag("AmmoPickup") && fuelHolderScriptRef != null)
+            {
+                print("pick up and reload fuel");
+                
+                fuelHolderScriptRef.ReloadFuel();
+
+                Destroy(CurrentInteractable.gameObject);
+            }
+            
         }
     }
 
