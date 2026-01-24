@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &9180352291455711636
+--- !u!1 &6274706926854864891
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 531672462848766399}
-  - component: {fileID: 8834381231044650418}
-  - component: {fileID: 5666002819284211497}
+  - component: {fileID: 5091902236896141441}
+  - component: {fileID: 5418193257680623285}
+  - component: {fileID: 3950978948869565976}
   m_Layer: 7
-  m_Name: EmptyRod
+  m_Name: FuelPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &531672462848766399
+--- !u!4 &5091902236896141441
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9180352291455711636}
+  m_GameObject: {fileID: 6274706926854864891}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5804569, y: 0.491, z: 7.104}
+  m_LocalPosition: {x: -1.572, y: 0.491, z: 7.809}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 668349687697332448}
+  - {fileID: 327529181675327366}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &8834381231044650418
+--- !u!54 &5418193257680623285
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9180352291455711636}
+  m_GameObject: {fileID: 6274706926854864891}
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
@@ -61,13 +61,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &5666002819284211497
+--- !u!136 &3950978948869565976
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9180352291455711636}
+  m_GameObject: {fileID: 6274706926854864891}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -84,13 +84,13 @@ CapsuleCollider:
   m_Height: 0.3
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1001 &1066452622506737419
+--- !u!1001 &216497633339402349
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 531672462848766399}
+    m_TransformParent: {fileID: 5091902236896141441}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 169406c85e2a67a4bbc789719a486654, type: 3}
       propertyPath: m_LocalPosition.x
@@ -153,8 +153,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 169406c85e2a67a4bbc789719a486654, type: 3}
---- !u!4 &668349687697332448 stripped
+--- !u!4 &327529181675327366 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 169406c85e2a67a4bbc789719a486654, type: 3}
-  m_PrefabInstance: {fileID: 1066452622506737419}
+  m_PrefabInstance: {fileID: 216497633339402349}
   m_PrefabAsset: {fileID: 0}

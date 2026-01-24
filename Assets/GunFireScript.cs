@@ -62,10 +62,7 @@ public class GunFireScript : MonoBehaviour
 
     void Start()
     {
-        if (batteryLeft > batteryMax) 
-        {
-            batteryLeft = batteryMax;
-        }
+        batteryLeft = batteryMax;
 
         lightFadeNow = 1f;
         print("Press F to fire, for now");

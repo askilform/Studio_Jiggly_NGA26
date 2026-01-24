@@ -48,10 +48,11 @@ public class FuelHolderScript : MonoBehaviour
                 print("RUN DROP ROD SCRIPT");
                 fuelAnimator.SetTrigger("dropFuelRod");
                 GameObject fuelRodInstance = Instantiate(emptyFuelPrefabProjectile, fuelObject.transform.position, fuelObject.transform.rotation);
+
                 if (fuelRodInstance.TryGetComponent<Rigidbody>(out Rigidbody rb))
                 {
-                    rb.linearVelocity = fuelRodInstance.transform.up * 1 + fuelRodInstance.transform.forward * -1;
-                    rb.angularVelocity = fuelRodInstance.transform.right * 8;
+                    rb.linearVelocity = fuelRodInstance.transform.up * 0.6f + fuelRodInstance.transform.forward * -1f + fuelRodInstance.transform.right * -1f;;
+                    rb.angularVelocity = fuelRodInstance.transform.right * -32f;
                 }
                 audioSource.PlayOneShot(dropRodSound);
 
