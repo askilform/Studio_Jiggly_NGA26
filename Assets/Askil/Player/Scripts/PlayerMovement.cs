@@ -10,6 +10,10 @@ public class PlayerMovement : MonoBehaviour
     public float Acceleration = 2f;
     public float crouchSpeed = 0.2f;
 
+    [SerializeField] float lookSmoothTime = 12f;
+
+    float targetXRotation;
+    Quaternion targetBodyRotation;
 
     [Header("Mouse Settings")]
     public float mouseSensitivity = 2f;
@@ -43,11 +47,14 @@ public class PlayerMovement : MonoBehaviour
         // Lock cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        targetXRotation = xRotation;
+        targetBodyRotation = transform.rotation;
     }
 
     void Update()
     {
-        HandleMouseLook();
+        HandleMovement();
         SpeedCheck();
         CrouchCheck();
 
@@ -55,9 +62,9 @@ public class PlayerMovement : MonoBehaviour
         z = Input.GetAxis("Vertical");
     }
 
-    void FixedUpdate()
+    private void LateUpdate()
     {
-        HandleMovement();
+        HandleMouseLook();
     }
 
     void HandleMovement()

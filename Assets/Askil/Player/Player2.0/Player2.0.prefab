@@ -350,7 +350,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Height: 2
@@ -393,14 +393,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc769006e4e75864db63695102ecabf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 6
-  sprintSpeed: 2
-  Acceleration: 2
-  crouchSpeed: 0.2
-  gravity: -20
+  moveSpeed: 3
+  sprintSpeed: 2.5
+  Acceleration: 1.7
+  crouchSpeed: 0.6
+  gravity: -9.8
   mouseSensitivity: 2
   cam: {fileID: 3200426720164360264}
-  SFX: []
+  SFX:
+  - {fileID: 2634203971453211482}
   JumpScript: {fileID: 7755356356409509890}
   controller: {fileID: 0}
   isCrouching: 0
@@ -417,10 +418,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d257014812c92b44f977aa8de4b86da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 5
-  gravity: -20
+  jumpForce: 4
+  gravity: -9.8
   CameraAnims: {fileID: 8306181028676115328}
-  SFX: []
+  SFX:
+  - {fileID: 4012577877607470412}
+  - {fileID: 8356207561863964839}
 --- !u!1 &2263517418075697463
 GameObject:
   m_ObjectHideFlags: 0

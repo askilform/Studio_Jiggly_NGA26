@@ -74,7 +74,10 @@ public class PlayerMovement2 : MonoBehaviour
 
         controller.Move(finalMove * Time.deltaTime);
 
-        SFX[0].mute = move.x == 0f || move.z == 0f || !JumpScript.isGrounded;
+        if (SFX.Count > 0 && SFX[0] != null)
+        {
+            SFX[0].mute = move.sqrMagnitude == 0f || !JumpScript.isGrounded;
+        }
     }
 
     void HandleMouseLook()
