@@ -8,7 +8,7 @@ public class InteractCheck : MonoBehaviour
     public AudioSource interactSfx;
 
     private bool InInteraction;
-    [SerializeField] private Interactable CurrentInteractable;
+    [SerializeField] public Interactable CurrentInteractable;
 
     public FuelHolderScript fuelHolderScriptRef;
 
