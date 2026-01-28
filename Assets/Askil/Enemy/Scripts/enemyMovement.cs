@@ -42,11 +42,6 @@ public class enemyMovement : MonoBehaviour
         FollowingPlayer = false;
     }
 
-    public void SlowFollow()
-    {
-
-    }
-
     public void SprintFollow()
     {
         target = player;

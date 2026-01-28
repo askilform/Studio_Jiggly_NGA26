@@ -7,7 +7,8 @@ public class PlayerDetection : MonoBehaviour
 {
 
     public Transform meshTransform;
-    public LayerMask raycastHit; 
+    public LayerMask raycastHit;
+    public float timeBeforeLosingPlayer = 10;
 
     //Player
     private GameObject playerObject;
@@ -17,9 +18,10 @@ public class PlayerDetection : MonoBehaviour
     private bool playerSpotted;
     private bool lineCastToPlayer;
     private AudioSource spottedSFX;
-    private float sinceLastSawPlayer;
+    [SerializeField]  private float sinceLastSawPlayer;
 
     [SerializeField] private enemyMovement movementSc;
+    private TextPopUp textPopUpSc;
 
 
     private void Start()
@@ -27,6 +29,7 @@ public class PlayerDetection : MonoBehaviour
         playerObject = GameObject.FindGameObjectWithTag("Player");
         movementSc = GetComponentInParent<enemyMovement>();
         spottedSFX = GetComponent<AudioSource>();
+        textPopUpSc = GameObject.Find("TextPopUp").GetComponent<TextPopUp>();
     }
 
     private void Update()
@@ -38,11 +41,13 @@ public class PlayerDetection : MonoBehaviour
             if (hitInfo.collider.tag == "Player") lineCastToPlayer = true; else lineCastToPlayer = false;
         }
 
-        if (sinceLastSawPlayer > 5 && playerSpotted)
+        if (sinceLastSawPlayer > timeBeforeLosingPlayer && playerSpotted)
         {
             OnPlayerLost();
             playerSpotted = false;
         }
+
+        else sinceLastSawPlayer += Time.deltaTime;
     }
 
     private void OnTriggerStay(Collider other)
@@ -54,18 +59,18 @@ public class PlayerDetection : MonoBehaviour
             playerSpotted = true;
             sinceLastSawPlayer = 0;
         }
-
-        else sinceLastSawPlayer += Time.deltaTime;
     }
 
     private void OnPlayerSpot()
     {
+        StartCoroutine(textPopUpSc.FlashText("He Sees You!", 0.5f));
         spottedSFX.Play();
         movementSc.SprintFollow();
     }
 
     private void OnPlayerLost()
     {
+        StartCoroutine(textPopUpSc.FlashText("He Lost You!", 1f));
         movementSc.Roam();
     }
 }

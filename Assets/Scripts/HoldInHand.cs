@@ -29,7 +29,10 @@ public class HoldInHand : MonoBehaviour
             {
 
                 //Pick Up
-
+                if (interactCheck.CurrentInteractable.canBeHeldInHand == false)
+                {
+                    return;
+                }
 
                 currentHeldObject = interactCheck.CurrentInteractable.gameObject;
 

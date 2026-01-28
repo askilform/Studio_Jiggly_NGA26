@@ -76,7 +76,7 @@ public class PlayerMovement2 : MonoBehaviour
 
         if (SFX.Count > 0 && SFX[0] != null)
         {
-            SFX[0].mute = move.sqrMagnitude == 0f || !JumpScript.isGrounded;
+            SFX[0].mute = move.sqrMagnitude == 0f || !JumpScript.isGrounded || isCrouching;
         }
     }
 
