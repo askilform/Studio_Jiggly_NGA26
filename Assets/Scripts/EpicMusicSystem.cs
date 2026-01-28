@@ -1,6 +1,7 @@
 using System;
 using UnityEditor.Rendering.BuiltIn.ShaderGraph;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class EpicMusicSystem : MonoBehaviour
 {
@@ -13,33 +14,52 @@ public class EpicMusicSystem : MonoBehaviour
     public GameObject visHit;
     public GameObject visLead;
 
+    public float maxVol = 0.2f;
+
     public float bpm;
     public float hitFreq;
     private float hitNow;
     private float leadNow;
     public float leadFreq;
 
-    public bool ishit;
-    public bool bufferHit;
-    public bool isLead;
-    public bool bufferLead;
+    public bool isHit = false;
+    public bool bufferHit = false;
+    public bool isLead = false;
+    public bool bufferLead = false;
+
+    float musicFadeLerp = 60f;
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        audBase.volume = maxVol;
+        audHit.volume = 0;
+        audLead.volume = 0;
+
+        audBase.Play();
+        audHit.Play();
+        audLead.Play();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        float bpmInvert = 1f/(bpm * 60);
+        //try no loop this instead for detect end and reset bpm
+        if (!audBase.isPlaying)
+        {
+            audBase.Play();
+            audHit.Play();
+            audLead.Play();
+            leadNow = 0;
+            hitNow = 0;
+        }
+
+        float bpmInvert = bpm / 60f;
 
         if (Input.GetKeyDown(KeyCode.L))
         {
             bufferLead = true;
         }
+
         if (Input.GetKeyDown(KeyCode.H))
         {
             bufferHit = true;
@@ -47,44 +67,54 @@ public class EpicMusicSystem : MonoBehaviour
 
         float delta = Time.deltaTime;
 
-        leadNow += delta;
-        hitNow += delta;
+        leadNow += delta * bpmInvert;
+        hitNow += delta * bpmInvert;
 
 
 
         if (hitNow > hitFreq)
         {
             hitNow -= hitFreq;
+            onHit();
         }
 
         if (leadNow > leadFreq)
         {
             leadNow -= leadFreq;
+            onLead();
         }
 
 
-        visHit.transform.position = new Vector3(hitNow, 0, 0 );
-        visLead.transform.position = new Vector3(leadNow, 1, 0);
+        visBase.transform.position = new Vector3(audBase.time / audBase.clip.length, 2, 0 );
+        visHit.transform.position = new Vector3(hitNow / hitFreq, 0, 0 );
+        visLead.transform.position = new Vector3(leadNow / leadFreq, 1, 0);
 
+        
+    
+        float leadTargetVol = isLead ? maxVol : 0f;
+
+        float hitTargetVol = isHit ? maxVol : 0f;
+
+        audLead.volume = Mathf.Lerp(audLead.volume, leadTargetVol, delta * musicFadeLerp);
+
+        audHit.volume = Mathf.Lerp(audHit.volume, hitTargetVol, delta * musicFadeLerp);
 
 
     }
 
     private void onHit()
     {
-        if (bufferHit) 
-        {
-            ishit = true;
-            bufferHit = false;
-        }
+
+        isHit = bufferHit;
+        bufferHit = false;
+
     }
 
     private void onLead()
     {
-        if (bufferLead) 
-        {
-            isLead = true;
-            bufferLead = false;
-        }
+
+        isLead = bufferLead;
+        bufferLead = false;
+
     }
 }
