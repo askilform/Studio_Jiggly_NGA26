@@ -3,7 +3,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-public class EnemyZoneUI : MonoBehaviour
+public class TextPopUp : MonoBehaviour
 {
     private float lerpValue;
     private TextMeshProUGUI txt;
@@ -14,18 +14,18 @@ public class EnemyZoneUI : MonoBehaviour
         txt.color = new Color(0, 0, 0, 0);
     }
 
-    public IEnumerator OnZoneChange(string message, float duration)
+    public IEnumerator FlashText(string message, float duration)
     {
         txt.text = message;
         txt.color = Color.white;
 
         yield return new WaitForSeconds(duration);
 
-        txt.color = new Color (0, 0, 0, 0);
+        txt.color = new Color(0, 0, 0, 0);
     }
 
     private void Update()
     {
-        
+
     }
 }
