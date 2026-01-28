@@ -191,7 +191,9 @@ MonoBehaviour:
   raycastHit:
     serializedVersion: 2
     m_Bits: 475
-  devThang: {fileID: 0}
+  timeBeforeLosingPlayer: 10
+  sinceLastSawPlayer: 0
+  movementSc: {fileID: 0}
 --- !u!1 &4141089643167310089
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,7 +828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 2
-  SprintSpeedMultiplier: 2
+  SprintSpeedMultiplier: 5
   SneakSpeedMultiplier: 0.5
   roamPointSc: {fileID: 5188486803422986115}
 --- !u!114 &8881175576790305747

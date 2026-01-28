@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = direction * moveSpeed;
 
         rb.linearVelocity = new Vector3(move.x, rb.linearVelocity.y, move.z);
-        SFX[0].mute = move.x == 0f || move.z == 0f || !JumpScript.isGrounded;
+        SFX[0].mute = move.x == 0f || move.z == 0f || !JumpScript.isGrounded || !isCrouching;
     }
 
     void HandleMouseLook()
