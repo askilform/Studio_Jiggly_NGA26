@@ -13,4 +13,7 @@ public class Interactable : MonoBehaviour
 
     public bool resetAfterTime = true;
     public float TimeBeforeReset;
+
+
+    public bool canBeHeldInHand = false;
 }
