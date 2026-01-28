@@ -17,6 +17,7 @@ public class PlayerDetection : MonoBehaviour
     private bool playerSpotted;
     private bool lineCastToPlayer;
     private AudioSource spottedSFX;
+    private float sinceLastSawPlayer;
 
     [SerializeField] private enemyMovement movementSc;
 
@@ -36,20 +37,35 @@ public class PlayerDetection : MonoBehaviour
         {
             if (hitInfo.collider.tag == "Player") lineCastToPlayer = true; else lineCastToPlayer = false;
         }
+
+        if (sinceLastSawPlayer > 5 && playerSpotted)
+        {
+            OnPlayerLost();
+            playerSpotted = false;
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.transform.tag == "Player" && lineCastToPlayer && !playerSpotted)
         {
+            // While seeing player
             OnPlayerSpot();
             playerSpotted = true;
+            sinceLastSawPlayer = 0;
         }
+
+        else sinceLastSawPlayer += Time.deltaTime;
     }
 
     private void OnPlayerSpot()
     {
         spottedSFX.Play();
         movementSc.SprintFollow();
+    }
+
+    private void OnPlayerLost()
+    {
+        movementSc.Roam();
     }
 }

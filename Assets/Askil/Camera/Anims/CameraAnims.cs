@@ -4,7 +4,7 @@ public class CameraAnims : MonoBehaviour
 {
     private Animator cameraAnims;
 
-    public PlayerMovement movementSC;
+    public PlayerMovement2 movementSC;
     public Jump jumpSC;
     void Start()
     {
@@ -15,6 +15,6 @@ public class CameraAnims : MonoBehaviour
     {
         cameraAnims.SetFloat("SpeedMultiplier", movementSC.currentSprintMultiplier);
         cameraAnims.SetBool("IsGrounded", jumpSC.isGrounded);
-        cameraAnims.SetBool("Moving", movementSC.rb.linearVelocity.x != 0 || movementSC.rb.linearVelocity.z != 0);
+        cameraAnims.SetBool("Moving", movementSC.controller.velocity.x != 0 || movementSC.controller.velocity.z != 0);
     }
 }

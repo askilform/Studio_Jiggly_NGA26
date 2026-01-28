@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 3197945071380123774}
   - component: {fileID: 8023111790060027166}
   - component: {fileID: 8306181028676115328}
+  - component: {fileID: 7045073900975487501}
   m_Layer: 0
   m_Name: CameraParent
   m_TagString: Player
@@ -193,6 +194,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7045073900975487501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574644956422523665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64b89d01df256a540a52fdd606a53644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSC: {fileID: 1634119308411728011}
+  jumpSC: {fileID: 7755356356409509890}
 --- !u!1 &1476070020620643327
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,6 +956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cigaretteObject: {fileID: 584714921618155543, guid: e545946bdcc6fa1438dbea87f26cb556, type: 3}
+  mustBeHeldToUse: 0
 --- !u!1 &3194507912363746953
 GameObject:
   m_ObjectHideFlags: 0
