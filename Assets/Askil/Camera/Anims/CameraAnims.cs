@@ -5,7 +5,8 @@ public class CameraAnims : MonoBehaviour
     private Animator cameraAnims;
 
     public PlayerMovement2 movementSC;
-    public Jump jumpSC;
+    public Jump2 jumpSC;
+
     void Start()
     {
         cameraAnims = GetComponent<Animator>();

@@ -7,21 +7,26 @@ public class enemyMovement : MonoBehaviour
 {
     [NonSerialized ]public NavMeshAgent agent;
     private float baseSpeedReference;
-    private GameObject target;
+    [SerializeField] private GameObject target;
     private bool FollowingPlayer;
     [NonSerialized] public GameObject player;
 
+    private Vector3 investigateLocation;
+    private bool investigating;
+    private LevelMaster levelMaster;
 
     public float Speed = 1;
     public float SprintSpeedMultiplier;
-    public float SneakSpeedMultiplier;
     public RoamingPoints roamPointSc;
 
     private void Start()
     {
         baseSpeedReference = Speed;
         agent = GetComponent<NavMeshAgent>();
-        player = GameObject.FindGameObjectWithTag("Player");     
+        player = GameObject.FindGameObjectWithTag("Player");
+        levelMaster = FindFirstObjectByType<LevelMaster>();
+
+        Roam();
     }
 
     private void Update()
@@ -34,6 +39,13 @@ public class enemyMovement : MonoBehaviour
         // Update destination and roaming-point
         if (target != null) agent.SetDestination(target.transform.position);
         if (!FollowingPlayer) target = roamPointSc.activeRoamingPoint;
+
+
+        if (agent.transform.position == investigateLocation)
+        {
+            investigating = false;
+            Roam();
+        }
     }
 
     public void StopMovement()
@@ -52,7 +64,18 @@ public class enemyMovement : MonoBehaviour
 
     public void Roam()
     {
+        target = roamPointSc.activeRoamingPoint;
+        agent.speed = baseSpeedReference;
         agent.isStopped = false;
         FollowingPlayer = false;
+    }
+
+    public void Investigate(Vector3 locationToInvestigate)
+    {
+        if (target != player)
+        {
+            investigateLocation = locationToInvestigate;
+            investigating = true;
+        }
     }
 }

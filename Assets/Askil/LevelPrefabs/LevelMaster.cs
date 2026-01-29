@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 public class LevelMaster : MonoBehaviour
@@ -12,7 +13,24 @@ public class LevelMaster : MonoBehaviour
     public AudioSource DangerMusic;
     public AudioSource ChaseMusic;
 
-    public float playerWalkMultiplier;
+    [Header("Player")]
+    [SerializeField] private PlayerMovement2 playerMovementSc;
+    private float ogPlayerSpeed;
+    public bool playerCrouching;
+    public bool playerRunning;
+    public bool playerInDangerArea;
+
+    private void Start()
+    {
+        playerMovementSc = FindFirstObjectByType<PlayerMovement2>();
+        ogPlayerSpeed = playerMovementSc.moveSpeed;
+    }
+
+    private void FixedUpdate()
+    {
+        playerCrouching = playerMovementSc.isCrouching;
+        playerRunning = playerMovementSc.moveSpeed > ogPlayerSpeed + 0.5f;
+    }
 
     public void FadeBetweenMusic(AudioSource currentMusic, AudioSource nextMusic)
     {

@@ -10,6 +10,9 @@ public class PlayerDetection : MonoBehaviour
     public LayerMask raycastHit;
     public float timeBeforeLosingPlayer = 10;
 
+    [Header("Dont Assign")]
+    public float sinceLastSawPlayer;
+
     //Player
     private GameObject playerObject;
     private Transform playerTransform;
@@ -18,10 +21,12 @@ public class PlayerDetection : MonoBehaviour
     private bool playerSpotted;
     private bool lineCastToPlayer;
     private AudioSource spottedSFX;
-    [SerializeField]  private float sinceLastSawPlayer;
+
+
 
     [SerializeField] private enemyMovement movementSc;
     private TextPopUp textPopUpSc;
+    [SerializeField] private LevelMaster levelMaster;
 
 
     private void Start()
@@ -30,6 +35,7 @@ public class PlayerDetection : MonoBehaviour
         movementSc = GetComponentInParent<enemyMovement>();
         spottedSFX = GetComponent<AudioSource>();
         textPopUpSc = GameObject.Find("TextPopUp").GetComponent<TextPopUp>();
+        levelMaster = FindFirstObjectByType<LevelMaster>();
     }
 
     private void Update()
@@ -63,9 +69,12 @@ public class PlayerDetection : MonoBehaviour
 
     private void OnPlayerSpot()
     {
-        StartCoroutine(textPopUpSc.FlashText("He Sees You!", 0.5f));
-        spottedSFX.Play();
-        movementSc.SprintFollow();
+        if (levelMaster.playerInDangerArea)
+        {
+            StartCoroutine(textPopUpSc.FlashText("He Sees You!", 0.5f));
+            spottedSFX.Play();
+            movementSc.SprintFollow();
+        }
     }
 
     private void OnPlayerLost()
