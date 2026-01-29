@@ -9,6 +9,7 @@ public class PlayerDetection : MonoBehaviour
     public Transform meshTransform;
     public LayerMask raycastHit;
     public float timeBeforeLosingPlayer = 10;
+    public AudioSource onSpottedSFX;
 
     [Header("Dont Assign")]
     public float sinceLastSawPlayer;
@@ -20,7 +21,6 @@ public class PlayerDetection : MonoBehaviour
     //PLayer-Detection
     private bool playerSpotted;
     private bool lineCastToPlayer;
-    private AudioSource spottedSFX;
 
 
 
@@ -33,7 +33,6 @@ public class PlayerDetection : MonoBehaviour
     {
         playerObject = GameObject.FindGameObjectWithTag("Player");
         movementSc = GetComponentInParent<enemyMovement>();
-        spottedSFX = GetComponent<AudioSource>();
         textPopUpSc = GameObject.Find("TextPopUp").GetComponent<TextPopUp>();
         levelMaster = FindFirstObjectByType<LevelMaster>();
     }
@@ -50,7 +49,6 @@ public class PlayerDetection : MonoBehaviour
         if (sinceLastSawPlayer > timeBeforeLosingPlayer && playerSpotted)
         {
             OnPlayerLost();
-            playerSpotted = false;
         }
 
         else sinceLastSawPlayer += Time.deltaTime;
@@ -62,8 +60,6 @@ public class PlayerDetection : MonoBehaviour
         {
             // While seeing player
             OnPlayerSpot();
-            playerSpotted = true;
-            sinceLastSawPlayer = 0;
         }
     }
 
@@ -71,15 +67,21 @@ public class PlayerDetection : MonoBehaviour
     {
         if (levelMaster.playerInDangerArea)
         {
+            print("[] Enemy Spotted Player");
             StartCoroutine(textPopUpSc.FlashText("He Sees You!", 0.5f));
-            spottedSFX.Play();
+            onSpottedSFX.Play();
             movementSc.SprintFollow();
+
+            playerSpotted = true;
+            sinceLastSawPlayer = 0;
         }
     }
 
-    private void OnPlayerLost()
+    public void OnPlayerLost()
     {
+        print("[] Enemy Lost Player");
         StartCoroutine(textPopUpSc.FlashText("He Lost You!", 1f));
         movementSc.Roam();
+        playerSpotted = false;
     }
 }

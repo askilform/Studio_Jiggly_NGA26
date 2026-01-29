@@ -36,7 +36,11 @@ public class EnemyZone : MonoBehaviour
             uiSc.StartCoroutine(uiSc.FlashText("You Are Safe, FOR NOW", 2));
             sfxs[1].Play();
             levelMaster.playerInDangerArea = false;
-            enemyMovementSc.Roam();
+
+            if (enemyMovementSc.mainTarget.tag == "Player")
+            {
+                playerdetectSc.OnPlayerLost();
+            }
         }
     }
 }

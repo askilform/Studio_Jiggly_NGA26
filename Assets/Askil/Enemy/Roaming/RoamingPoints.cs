@@ -8,6 +8,8 @@ public class RoamingPoints : MonoBehaviour
 {
     public List<GameObject> points = new List<GameObject>();
     public GameObject activeRoamingPoint;
+    public enemyMovement enemyMovementSc;
+    public float timeBetweenPointChange;
 
     private void Start()
     {
@@ -21,7 +23,9 @@ public class RoamingPoints : MonoBehaviour
     private IEnumerator ChangeRoamingPoint()
     {
         activeRoamingPoint = points[Random.Range(0, (points.Count - 1))];
-        yield return new WaitForSeconds(Random.Range(0, 10));
+        yield return new WaitForSeconds(timeBetweenPointChange);
         StartCoroutine(ChangeRoamingPoint());
+
+        if (enemyMovementSc.mainTarget.tag != "Player") enemyMovementSc.Roam();
     }
 }

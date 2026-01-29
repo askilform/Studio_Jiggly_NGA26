@@ -5,19 +5,20 @@ using UnityEngine.AI;
 
 public class enemyMovement : MonoBehaviour
 {
-    [NonSerialized ]public NavMeshAgent agent;
+
     private float baseSpeedReference;
-    [SerializeField] private GameObject target;
-    private bool FollowingPlayer;
-    [NonSerialized] public GameObject player;
-
     private Vector3 investigateLocation;
-    private bool investigating;
+    private bool investigating = false;
     private LevelMaster levelMaster;
+    
 
+    [NonSerialized] public NavMeshAgent agent;
+    [NonSerialized] public GameObject player;
+    public GameObject mainTarget;
     public float Speed = 1;
     public float SprintSpeedMultiplier;
     public RoamingPoints roamPointSc;
+    public AudioSource walkSFX;
 
     private void Start()
     {
@@ -37,45 +38,42 @@ public class enemyMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha4)) Roam();
 
         // Update destination and roaming-point
-        if (target != null) agent.SetDestination(target.transform.position);
-        if (!FollowingPlayer) target = roamPointSc.activeRoamingPoint;
-
-
-        if (agent.transform.position == investigateLocation)
+        if (mainTarget != null)
         {
-            investigating = false;
-            Roam();
+            if (!investigating) agent.SetDestination(mainTarget.transform.position);
+            else agent.SetDestination(investigateLocation);
         }
+
+        if (transform.position == investigateLocation) investigating = false;
+
+        walkSFX.mute = agent.velocity.x == 0 && agent.velocity.z == 0;
     }
 
     public void StopMovement()
     {
         agent.isStopped = true;
-        FollowingPlayer = false;
     }
 
     public void SprintFollow()
     {
-        target = player;
+        print("[] Enemy Following player!");
+        mainTarget = player;
         agent.isStopped = false;
         agent.speed = baseSpeedReference * SprintSpeedMultiplier;
-        FollowingPlayer = true;
     }
 
     public void Roam()
     {
-        target = roamPointSc.activeRoamingPoint;
+        print("[] Enemy Roaming!");
+        mainTarget = roamPointSc.activeRoamingPoint;
         agent.speed = baseSpeedReference;
         agent.isStopped = false;
-        FollowingPlayer = false;
     }
 
     public void Investigate(Vector3 locationToInvestigate)
     {
-        if (target != player)
-        {
-            investigateLocation = locationToInvestigate;
-            investigating = true;
-        }
+        print("[] Enemy Investigating!");
+        investigateLocation = locationToInvestigate;
+        investigating = true; 
     }
 }
