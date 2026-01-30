@@ -10,6 +10,7 @@ public class Interactable : MonoBehaviour
     public List<GameObject> ToDisable = new List<GameObject>();
     public List<GameObject> ToEnable = new List<GameObject>();
     public string PlayerAnimBool;
+    public UnityEvent onEnable;
 
     public bool resetAfterTime = true;
     public float TimeBeforeReset;

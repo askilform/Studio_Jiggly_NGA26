@@ -31,7 +31,13 @@ public class MultipurposeDoor : MonoBehaviour
         Vector3 targetPos = open ? defaultOffst + openOffset : defaultOffst;
 
         transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * speed);
-        transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, targetAngles, Time.deltaTime * speed);
+        //transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, targetAngles, Time.deltaTime * speed);
+
+        Quaternion anglefromeuler = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
+        Quaternion targetanglefromeuler = Quaternion.Euler(targetAngles.x, targetAngles.y, targetAngles.z);
+
+        anglefromeuler = Quaternion.Lerp(anglefromeuler, targetanglefromeuler, Time.deltaTime * speed);
+        transform.eulerAngles = anglefromeuler.eulerAngles;
 
 
     }
