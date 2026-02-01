@@ -21,6 +21,8 @@ public class PlayerMovement2 : MonoBehaviour
     [Header("Dont Assign!")]
     public CharacterController controller;
     public bool isCrouching;
+    public bool movementAllowed;
+    public float currentSprintMultiplier = 1f;
 
     private float xRotation = 0f;
     private float startSpeed;
@@ -30,7 +32,6 @@ public class PlayerMovement2 : MonoBehaviour
     float x;
     float z;
 
-    public float currentSprintMultiplier = 1f;
 
     void Start()
     {
@@ -41,7 +42,9 @@ public class PlayerMovement2 : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-    }
+
+        movementAllowed = true;
+}
 
     void Update()
     {
@@ -52,7 +55,7 @@ public class PlayerMovement2 : MonoBehaviour
         x = Input.GetAxis("Horizontal");
         z = Input.GetAxis("Vertical");
 
-        HandleMovement();
+        if (movementAllowed) HandleMovement();
     }
 
     void HandleMovement()
