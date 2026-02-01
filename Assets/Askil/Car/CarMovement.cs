@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CarMovement : MonoBehaviour
@@ -7,6 +8,15 @@ public class CarMovement : MonoBehaviour
     public float moveSpeed = 20f;
     public float maxSpeedLimit = 30f;
     public float rotationSpeed = 100f;
+    public GameObject SeatPosition;
+
+    public GameObject player;
+
+    private void OnEnable()
+    {
+        player.GetComponent<PlayerMovement2>().movementAllowed = false;
+        player.GetComponent<CharacterController>().enabled = false;
+    }
 
     private void FixedUpdate()
     {
@@ -27,5 +37,18 @@ public class CarMovement : MonoBehaviour
 
             rb.MoveRotation(rb.rotation * turnRotation);
         }
+
+        if (Input.GetKeyDown(KeyCode.Tab)) OnCarExit();
+
+        player.transform.position = SeatPosition.transform.position;
+    }
+
+    private void OnCarExit()
+    {
+        print("[]");
+        player.GetComponent<PlayerMovement2>().movementAllowed = true;
+        player.GetComponent<CharacterController>().enabled = true;
+
+        enabled = false;
     }
 }

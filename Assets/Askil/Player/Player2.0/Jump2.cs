@@ -23,9 +23,12 @@ public class Jump2 : MonoBehaviour
 
     void Update()
     {
-        GroundCheck();
-        HandleJump();
-        ApplyGravity();
+        if (controller.enabled == true)
+        {
+            GroundCheck();
+            HandleJump();
+            ApplyGravity();
+        }
     }
 
     void GroundCheck()

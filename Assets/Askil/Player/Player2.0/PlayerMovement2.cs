@@ -44,7 +44,7 @@ public class PlayerMovement2 : MonoBehaviour
         Cursor.visible = false;
 
         movementAllowed = true;
-}
+    }
 
     void Update()
     {
