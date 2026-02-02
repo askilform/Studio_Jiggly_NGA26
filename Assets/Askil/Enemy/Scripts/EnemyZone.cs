@@ -8,7 +8,7 @@ public class EnemyZone : MonoBehaviour
     public List<AudioSource> sfxs = new List<AudioSource> ();
     public enemyMovement enemyMovementSc;
 
-    private PlayerDetection playerdetectSc;
+    [SerializeField] private PlayerDetection playerdetectSc;
     private TextPopUp uiSc;
     private LevelMaster levelMaster;
 
@@ -17,6 +17,7 @@ public class EnemyZone : MonoBehaviour
         uiSc = GameObject.FindFirstObjectByType<TextPopUp>();
         levelMaster = FindFirstObjectByType<LevelMaster>();
         playerdetectSc = FindFirstObjectByType<PlayerDetection>();
+        enemyMovementSc = FindFirstObjectByType<enemyMovement>();
     }
 
     private void OnTriggerEnter(Collider other)
