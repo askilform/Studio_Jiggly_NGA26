@@ -85,9 +85,9 @@ public class EpicMusicSystem : MonoBehaviour
         }
 
 
-        visBase.transform.position = new Vector3(audBase.time / audBase.clip.length, 2, 0 );
-        visHit.transform.position = new Vector3(hitNow / hitFreq, 0, 0 );
-        visLead.transform.position = new Vector3(leadNow / leadFreq, 1, 0);
+        visBase.transform.localPosition = new Vector3(audBase.time / audBase.clip.length, 2, 0 );
+        visHit.transform.localPosition = new Vector3(hitNow / hitFreq, 0, 0 );
+        visLead.transform.localPosition = new Vector3(leadNow / leadFreq, 1, 0);
 
         
     
@@ -102,6 +102,19 @@ public class EpicMusicSystem : MonoBehaviour
 
     }
 
+    //Call these to use with other scripts
+    public void bufferHitSegment()
+    {
+        bufferHit = true;
+    }
+
+    public void bufferLeadSegment()
+    {
+        bufferLead = true;
+    }
+
+
+    //these are just here, leave them be, they do things
     private void onHit()
     {
 
