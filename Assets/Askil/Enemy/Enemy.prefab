@@ -952,7 +952,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 8de0b95ee150aae478a0c1c196855776, type: 3}
   m_Resource: {fileID: 8300000, guid: 8de0b95ee150aae478a0c1c196855776, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.161
+  m_Volume: 0.118
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1135,11 +1135,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e28c81561320f4baaa34df38f75e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  investigedFor: 0
+  investigating: 0
   mainTarget: {fileID: 0}
   Speed: 2
   SprintSpeedMultiplier: 3
   roamPointSc: {fileID: 5188486803422986115}
   walkSFX: {fileID: 4815627358504764848}
+  timeBeforeInvestigateStop: 15
 --- !u!114 &1240855743323339328
 MonoBehaviour:
   m_ObjectHideFlags: 0

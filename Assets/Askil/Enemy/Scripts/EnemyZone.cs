@@ -30,7 +30,7 @@ public class EnemyZone : MonoBehaviour
             uiSc.StartCoroutine(uiSc.FlashText("You Are In Danger!", 0.5f));
             sfxs[0].Play();
             levelMaster.playerInDangerArea = true;
-            Enemy.SetActive(true);
+            StartCoroutine(WaitAndActivate());
         }
     }
 
@@ -41,6 +41,7 @@ public class EnemyZone : MonoBehaviour
             uiSc.StartCoroutine(uiSc.FlashText("You Are Safe, FOR NOW", 2));
             sfxs[1].Play();
             levelMaster.playerInDangerArea = false;
+            enemyMovementSc.investigating = false;
 
             if (enemyMovementSc.mainTarget.tag == "Player")
             {
@@ -49,6 +50,11 @@ public class EnemyZone : MonoBehaviour
 
             StartCoroutine(WaitAndDeactivate());
         }
+    }
+    private IEnumerator WaitAndActivate()
+    {
+        yield return new WaitForSeconds(2);
+        if (levelMaster.playerInDangerArea) Enemy.SetActive(true);
     }
 
     private IEnumerator WaitAndDeactivate()
