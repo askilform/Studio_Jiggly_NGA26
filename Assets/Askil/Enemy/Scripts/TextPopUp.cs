@@ -23,9 +23,4 @@ public class TextPopUp : MonoBehaviour
 
         txt.color = new Color(0, 0, 0, 0);
     }
-
-    private void Update()
-    {
-
-    }
 }
