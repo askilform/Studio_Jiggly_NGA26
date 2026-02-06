@@ -43,12 +43,14 @@ public class enemyMovement : MonoBehaviour
             else agent.SetDestination(investigateLocation);
         }
 
+        // Stop investigating after enough time
         if (investigedFor > timeBeforeInvestigateStop)
         {
             investigating = false;
             investigedFor = 0;
         }
 
+        // Start investigation
         if (levelMaster.playerRunning && levelMaster.playerInDangerArea)
         {
             if (!investigating) StartCoroutine(FindFirstObjectByType<TextPopUp>().FlashText("He Heard You!", 0.5f));
