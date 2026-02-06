@@ -23,6 +23,7 @@ public class PlayerMovement2 : MonoBehaviour
     public bool isCrouching;
     public bool movementAllowed;
     public float currentSprintMultiplier = 1f;
+    public LevelMaster levelMaster;
 
     private float xRotation = 0f;
     private float startSpeed;
@@ -36,6 +37,7 @@ public class PlayerMovement2 : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        levelMaster = FindFirstObjectByType<LevelMaster>();
 
         startSpeed = moveSpeed;
         ogHeight = controller.height;
@@ -62,9 +64,8 @@ public class PlayerMovement2 : MonoBehaviour
     {
         Vector3 direction = transform.right * x + transform.forward * z;
 
-        if (direction.magnitude > 1f)
-            direction.Normalize();
-
+        if (direction.magnitude > 1f) direction.Normalize();
+  
         Vector3 move = direction * moveSpeed;
 
         // gravity handling
@@ -81,6 +82,7 @@ public class PlayerMovement2 : MonoBehaviour
         {
             SFX[0].mute = move.sqrMagnitude == 0f || !JumpScript.isGrounded || isCrouching;
         }
+        
     }
 
     void HandleMouseLook()
@@ -105,7 +107,8 @@ public class PlayerMovement2 : MonoBehaviour
         else
             targetMultiplier = crouchSpeed;
 
-        currentSprintMultiplier = Mathf.Lerp(
+        currentSprintMultiplier = Mathf.Lerp
+        (
             currentSprintMultiplier,
             targetMultiplier,
             Acceleration * Time.deltaTime
@@ -113,6 +116,7 @@ public class PlayerMovement2 : MonoBehaviour
 
         moveSpeed = startSpeed * currentSprintMultiplier;
         SFX[0].pitch = currentSprintMultiplier;
+
     }
 
     void CrouchCheck()

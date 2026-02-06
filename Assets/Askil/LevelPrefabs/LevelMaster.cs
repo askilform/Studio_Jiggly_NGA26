@@ -5,9 +5,6 @@ public class LevelMaster : MonoBehaviour
 {
     [Header("Enemy")]
 
-
-
-
     [Header("Music")]
     public AudioSource ChillMusic;
     public AudioSource DangerMusic;
@@ -19,6 +16,7 @@ public class LevelMaster : MonoBehaviour
     public bool playerCrouching;
     public bool playerRunning;
     public bool playerInDangerArea;
+    public bool playerSprinting;
 
     private void Start()
     {
@@ -36,4 +34,6 @@ public class LevelMaster : MonoBehaviour
     {
 
     }
+
+
 }
