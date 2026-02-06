@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,6 +19,8 @@ public class EnemyZone : MonoBehaviour
         levelMaster = FindFirstObjectByType<LevelMaster>();
         playerdetectSc = FindFirstObjectByType<PlayerDetection>();
         enemyMovementSc = FindFirstObjectByType<enemyMovement>();
+
+        Enemy.SetActive (false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,6 +30,7 @@ public class EnemyZone : MonoBehaviour
             uiSc.StartCoroutine(uiSc.FlashText("You Are In Danger!", 0.5f));
             sfxs[0].Play();
             levelMaster.playerInDangerArea = true;
+            Enemy.SetActive(true);
         }
     }
 
@@ -42,6 +46,14 @@ public class EnemyZone : MonoBehaviour
             {
                 playerdetectSc.OnPlayerLost();
             }
+
+            StartCoroutine(WaitAndDeactivate());
         }
+    }
+
+    private IEnumerator WaitAndDeactivate()
+    {
+        yield return new WaitForSeconds(5);
+        if (!levelMaster.playerInDangerArea) Enemy.SetActive(false);
     }
 }

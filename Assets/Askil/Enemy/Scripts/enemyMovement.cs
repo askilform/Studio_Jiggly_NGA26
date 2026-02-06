@@ -20,7 +20,7 @@ public class enemyMovement : MonoBehaviour
     public RoamingPoints roamPointSc;
     public AudioSource walkSFX;
 
-    private void Start()
+    private void OnEnable()
     {
         baseSpeedReference = Speed;
         agent = GetComponent<NavMeshAgent>();
@@ -32,11 +32,6 @@ public class enemyMovement : MonoBehaviour
 
     private void Update()
     {
-        // Debugs
-        if (Input.GetKeyDown(KeyCode.Alpha0)) StopMovement();
-        if (Input.GetKeyDown(KeyCode.Alpha2)) SprintFollow();
-        if (Input.GetKeyDown(KeyCode.Alpha4)) Roam();
-
         // Update destination and roaming-point
         if (mainTarget != null)
         {
@@ -45,6 +40,8 @@ public class enemyMovement : MonoBehaviour
         }
 
         if (transform.position == investigateLocation) investigating = false;
+
+        if (levelMaster.playerRunning) Investigate(player.transform.position);
 
         walkSFX.mute = agent.velocity.x == 0 && agent.velocity.z == 0;
     }
