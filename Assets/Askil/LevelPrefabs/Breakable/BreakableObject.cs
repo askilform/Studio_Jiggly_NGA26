@@ -17,7 +17,15 @@ public class BreakableObject : MonoBehaviour
     {
         Debug.Log("[] Player hit breakable");
 
-        GameObject broken = Instantiate(BrokenPrefab, transform);
+        Transform source = transform.root;
+
+        GameObject broken = Instantiate(
+            BrokenPrefab,
+            source.position,
+            source.rotation
+        );
+        broken.transform.localScale = source.lossyScale;
+
         broken.transform.SetParent(null);
 
         yield return null;
