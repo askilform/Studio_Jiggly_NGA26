@@ -32,7 +32,7 @@ public class EpicMusicSystem : MonoBehaviour
     private bool bufferLead = false;
 
 
-    float musicFadeLerp = 60f;
+    public float musicFadeLerp = 80f;
 
     public bool playMusic = true;
 
