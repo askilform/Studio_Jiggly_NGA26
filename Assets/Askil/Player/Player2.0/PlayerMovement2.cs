@@ -103,7 +103,7 @@ public class PlayerMovement2 : MonoBehaviour
         float targetMultiplier;
 
         if (!isCrouching)
-            targetMultiplier = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : 1f;
+            targetMultiplier = Input.GetKey(KeyCode.LeftShift) && x + z != 0  ? sprintSpeed : 1f;
         else
             targetMultiplier = crouchSpeed;
 
