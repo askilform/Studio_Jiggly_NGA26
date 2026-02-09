@@ -116,7 +116,6 @@ public class PlayerMovement2 : MonoBehaviour
 
         moveSpeed = startSpeed * currentSprintMultiplier;
         SFX[0].pitch = currentSprintMultiplier;
-
     }
 
     void CrouchCheck()
