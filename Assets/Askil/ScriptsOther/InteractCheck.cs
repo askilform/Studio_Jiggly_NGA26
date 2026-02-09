@@ -13,6 +13,7 @@ public class InteractCheck : MonoBehaviour
     public FuelHolderScript fuelHolderScriptRef;
 
     [HideInInspector] public WeaponPart heldWeaponPartRef;
+    public HoldInHand holdInHandScriptRef;
     public Weapon_Builder weaponBuilderRef;
 
     private void Start()
@@ -41,6 +42,7 @@ public class InteractCheck : MonoBehaviour
     private void Update()
     {
         if (weaponBuilderRef == null) print("please connect INTERACT CHECK to the WEAPON BUILDER");
+        if (holdInHandScriptRef == null) print("please connect INTERACT CHECK to the HOLD IN HAND script");
 
         if (Input.GetKeyDown(KeyCode.E) && CurrentInteractable != null && !InInteraction)
         {
@@ -57,16 +59,21 @@ public class InteractCheck : MonoBehaviour
             
 
             //BUILD PART WHILE AT WORKBENCH
+            // --------------------------------------------------------------------------------------------------------------------- !!!!!!!!!!
             if (CurrentInteractable.CompareTag("WorkBench"))
             {
                 print("WORKBENCH");
 
-                if (heldWeaponPartRef != null && weaponBuilderRef != null)
+                if (heldWeaponPartRef != null && weaponBuilderRef != null && holdInHandScriptRef != null)
                 {
                     weaponBuilderRef.AddToInventory(heldWeaponPartRef.gameObject);
+
+                    heldWeaponPartRef = null;
+                    holdInHandScriptRef.currentHeldObject = null;
                 }
 
             }
+            // --------------------------------------------------------------------------------------------------------------------- !!!!!!!!!!!!
             
         }
     }

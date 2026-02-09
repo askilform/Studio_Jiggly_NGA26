@@ -1366,6 +1366,9 @@ MonoBehaviour:
   interactSfx: {fileID: 0}
   CurrentInteractable: {fileID: 0}
   fuelHolderScriptRef: {fileID: 1324247374335222578}
+  heldWeaponPartRef: {fileID: 0}
+  holdInHandScriptRef: {fileID: 2757516449638309261}
+  weaponBuilderRef: {fileID: 1123771480605965860}
 --- !u!82 &4324006578881435900
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2827,9 +2830,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2178682985501642567}
     - target: {fileID: 8523937725533299735, guid: 2b5d3844e533427459228216a1f6481e, type: 3}
+      propertyPath: chargeupTime
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8523937725533299735, guid: 2b5d3844e533427459228216a1f6481e, type: 3}
+      propertyPath: burstDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8523937725533299735, guid: 2b5d3844e533427459228216a1f6481e, type: 3}
       propertyPath: burstingTextDev
       value: 
       objectReference: {fileID: 5891005667599426163}
+    - target: {fileID: 8523937725533299735, guid: 2b5d3844e533427459228216a1f6481e, type: 3}
+      propertyPath: postBurstClarity
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
