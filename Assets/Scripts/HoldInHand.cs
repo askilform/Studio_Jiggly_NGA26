@@ -48,6 +48,10 @@ public class HoldInHand : MonoBehaviour
             }
 
         }
+        else
+        {
+            print("please connect HOLD IN HAND to the INTERACT CHECK");
+        }
 
 
 
@@ -68,6 +72,13 @@ public class HoldInHand : MonoBehaviour
                     
                 }
             }
+
+            if (currentHeldObject.TryGetComponent<WeaponPart>(out WeaponPart weaponPart))
+            {
+                interactCheck.heldWeaponPartRef = weaponPart;
+            }
+
+            
 
         }
 

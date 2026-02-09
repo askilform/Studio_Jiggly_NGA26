@@ -8,9 +8,12 @@ public class InteractCheck : MonoBehaviour
     public AudioSource interactSfx;
 
     private bool InInteraction;
-    [SerializeField] public Interactable CurrentInteractable;
+    [HideInInspector] public Interactable CurrentInteractable;
 
     public FuelHolderScript fuelHolderScriptRef;
+
+    [HideInInspector] public WeaponPart heldWeaponPartRef;
+    public Weapon_Builder weaponBuilderRef;
 
     private void Start()
     {
@@ -37,6 +40,8 @@ public class InteractCheck : MonoBehaviour
 
     private void Update()
     {
+        if (weaponBuilderRef == null) print("please connect INTERACT CHECK to the WEAPON BUILDER");
+
         if (Input.GetKeyDown(KeyCode.E) && CurrentInteractable != null && !InInteraction)
         {
             StartCoroutine(Interact());
@@ -48,6 +53,19 @@ public class InteractCheck : MonoBehaviour
                 fuelHolderScriptRef.ReloadFuel();
 
                 Destroy(CurrentInteractable.gameObject);
+            }
+            
+
+            //BUILD PART WHILE AT WORKBENCH
+            if (CurrentInteractable.CompareTag("WorkBench"))
+            {
+                print("WORKBENCH");
+
+                if (heldWeaponPartRef != null && weaponBuilderRef != null)
+                {
+                    weaponBuilderRef.AddToInventory(heldWeaponPartRef.gameObject);
+                }
+
             }
             
         }

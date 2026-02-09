@@ -1,5 +1,6 @@
 using System;
 using TMPro;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor.Rendering.BuiltIn.ShaderGraph;
 using UnityEngine;
@@ -37,6 +38,16 @@ public class EpicMusicSystem : MonoBehaviour
     public bool playMusic = true;
 
 
+    //for dps over triggering
+    public float heatToTriggerLead = 10f;
+    public float heatMax = 30f;
+    public float heatReductionMult = 0.3f;
+    private float heatNow = 0f;
+
+    public bool allowDevKeys = false;
+
+
+
     void Start()
     {
         audBase.volume = maxVol;
@@ -67,6 +78,11 @@ public class EpicMusicSystem : MonoBehaviour
         leadNow += delta * bpmInvert;
         hitNow += delta * bpmInvert;
 
+        //Gain heat On Hit-----------
+        heatNow -= delta * heatReductionMult;
+        heatNow = Mathf.Clamp(heatNow, 0, heatMax);
+
+        if (heatNow > heatToTriggerLead) bufferLead = true;
 
 
         if (hitNow > hitFreq)
@@ -93,24 +109,28 @@ public class EpicMusicSystem : MonoBehaviour
 
 
         //DEV----------------------------------------------------------------------------------
-        if (Input.GetKeyDown(KeyCode.L))
+        if (allowDevKeys)
         {
-            bufferLead = true;
+         
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                bufferLeadSegment();
+            }
+
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                bufferHitSegment();
+            }
+
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                simulateGettingHit();
+            }
+            
         }
 
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            bufferHit = true;
-        }
 
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            bufferHit = true;
-            bufferLead = true;
-        }
-
-
-        if (devMusicUi != null) devMusicUi.text = "MUSIC SYSTEM:\n";
+        if (devMusicUi != null) devMusicUi.text = "MUSIC SYSTEM:\n\n";
 
         int devtextLength = 20;
         devText("BASE: ", audBase.time / audBase.clip.length, devtextLength );
@@ -118,14 +138,23 @@ public class EpicMusicSystem : MonoBehaviour
         devText("LEAD: ", leadNow / leadFreq, devtextLength );
 
 
+        
 
-        if (devMusicUi != null && isBuild) devMusicUi.text += "\nPlaying Buildup";
+        if (devMusicUi != null)
+        {
+            devMusicUi.text += "\nCURRENT HEAT: " + Mathf.RoundToInt(heatNow).ToString() + " / " + Mathf.RoundToInt(heatToTriggerLead).ToString() + "\n";
 
-        if (devMusicUi != null && bufferLead) devMusicUi.text += "\nBuffering Lead";
-        if (devMusicUi != null && isLead) devMusicUi.text += "\nPlaying Lead";
+            if (isBuild) devMusicUi.text += "\nPlaying Buildup";
 
-        if (devMusicUi != null && bufferHit) devMusicUi.text += "\n---Buffering Hit";
-        if (devMusicUi != null && isHit) devMusicUi.text += "\n---Playing Hit";
+            if (bufferLead) devMusicUi.text += "\nBuffering Lead";
+            if (isLead) devMusicUi.text += "\nPlaying Lead";
+
+            if (bufferHit) devMusicUi.text += "\n---Buffering Hit";
+            if (isHit) devMusicUi.text += "\n---Playing Hit";
+
+            
+        }
+
         
     }
 
@@ -163,6 +192,13 @@ public class EpicMusicSystem : MonoBehaviour
     public void bufferLeadSegment()
     {
         bufferLead = true;
+    }
+
+
+    public void simulateGettingHit()
+    {
+        bufferHit = true;
+        heatNow += 1f;
     }
 
 
