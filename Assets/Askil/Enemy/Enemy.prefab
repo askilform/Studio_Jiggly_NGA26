@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 172282306178067694}
   - component: {fileID: 2843297902121800966}
   - component: {fileID: 4036267672643406198}
+  - component: {fileID: 2700580603704795231}
   m_Layer: 9
   m_Name: DetectionZone
   m_TagString: Untagged
@@ -196,6 +197,33 @@ MonoBehaviour:
   sinceLastSawPlayer: 0
   movementSc: {fileID: 0}
   levelMaster: {fileID: 0}
+--- !u!54 &2700580603704795231
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2968408734676210133}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &4025241874115148941
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,7 +1073,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8754285747482704838}
-  - component: {fileID: 2357751336047061278}
   - component: {fileID: 148756641663054968}
   - component: {fileID: 9069309090038342852}
   - component: {fileID: 1240855743323339328}
@@ -1078,29 +1105,6 @@ Transform:
   - {fileID: 8285227269803415710}
   m_Father: {fileID: 3550762667936313056}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &2357751336047061278
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5861690194122135809}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &148756641663054968
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1143,6 +1147,7 @@ MonoBehaviour:
   roamPointSc: {fileID: 5188486803422986115}
   walkSFX: {fileID: 4815627358504764848}
   timeBeforeInvestigateStop: 15
+  jumpscarePrefab: {fileID: 7579572513748672127, guid: f38094cf340a0eb44a870af938345b7e, type: 3}
 --- !u!114 &1240855743323339328
 MonoBehaviour:
   m_ObjectHideFlags: 0

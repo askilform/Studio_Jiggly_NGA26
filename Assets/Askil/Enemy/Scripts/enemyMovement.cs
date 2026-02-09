@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class enemyMovement : MonoBehaviour
 {
-
     private float baseSpeedReference;
     private Vector3 investigateLocation;
     private LevelMaster levelMaster;
@@ -21,6 +20,7 @@ public class enemyMovement : MonoBehaviour
     public RoamingPoints roamPointSc;
     public AudioSource walkSFX;
     public float timeBeforeInvestigateStop;
+    public GameObject jumpscarePrefab;
 
     private void OnEnable()
     {
@@ -72,6 +72,11 @@ public class enemyMovement : MonoBehaviour
 
         else agent.updateRotation = true;
         */
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.tag == "Player") Instantiate (jumpscarePrefab, other.transform);
     }
 
     public void StopMovement()

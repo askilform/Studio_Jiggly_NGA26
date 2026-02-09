@@ -18,7 +18,7 @@ public class PlayerDetection : MonoBehaviour
     private GameObject playerObject;
     private Transform playerTransform;
 
-    //PLayer-Detection
+    //Player-Detection
     private bool playerSpotted;
     private bool lineCastToPlayer;
 
@@ -35,6 +35,8 @@ public class PlayerDetection : MonoBehaviour
         movementSc = GetComponentInParent<enemyMovement>();
         textPopUpSc = GameObject.Find("TextPopUp").GetComponent<TextPopUp>();
         levelMaster = FindFirstObjectByType<LevelMaster>();
+
+        print("[]" + playerObject.transform.name);
     }
 
     private void Update()
@@ -57,7 +59,8 @@ public class PlayerDetection : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (other.transform.tag == "Player" && lineCastToPlayer && !playerSpotted)
-        {
+        { 
+            print ("+" + other.transform.name);
             // While seeing player
             OnPlayerSpot();
         }
