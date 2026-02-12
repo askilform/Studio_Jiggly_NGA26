@@ -87,6 +87,8 @@ public class Jump2 : MonoBehaviour
 
     void OnLanding()
     {
+        velocity.y = 0;
+
         if (CameraAnims != null)
             CameraAnims.SetTrigger("Landed");
 
