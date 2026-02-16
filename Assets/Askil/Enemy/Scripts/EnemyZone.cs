@@ -8,10 +8,12 @@ public class EnemyZone : MonoBehaviour
     public GameObject Enemy;
     public List<AudioSource> sfxs = new List<AudioSource> ();
     public enemyMovement enemyMovementSc;
+    public CanvasGroup uiGroup;
 
     [SerializeField] private PlayerDetection playerdetectSc;
     private TextPopUp uiSc;
     private LevelMaster levelMaster;
+    public bool enemyActive;
 
     private void Start()
     {
@@ -21,13 +23,22 @@ public class EnemyZone : MonoBehaviour
         enemyMovementSc = FindFirstObjectByType<enemyMovement>();
 
         Enemy.SetActive (false);
+        enemyActive = false;
+        uiGroup.alpha = 0;
+    }
+
+    private void FixedUpdate()
+    {
+        if (enemyActive && uiGroup.alpha < 1) uiGroup.alpha += 0.005f;
+
+        if (!enemyActive && uiGroup.alpha > 0) uiGroup.alpha -= 0.01f;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            uiSc.StartCoroutine(uiSc.FlashText("He Can Hear you! Don't Sprint....", 2f));
+            uiSc.StartCoroutine(uiSc.FlashText("He will hear you running...", 2f));
             sfxs[0].Play();
             levelMaster.playerInDangerArea = true;
             StartCoroutine(WaitAndActivate());
@@ -54,12 +65,20 @@ public class EnemyZone : MonoBehaviour
     private IEnumerator WaitAndActivate()
     {
         yield return new WaitForSeconds(2);
-        if (levelMaster.playerInDangerArea) Enemy.SetActive(true);
+        if (levelMaster.playerInDangerArea)
+        {
+            Enemy.SetActive(true);
+            enemyActive = true;
+        }    
     }
 
     private IEnumerator WaitAndDeactivate()
     {
+        enemyActive = false;
         yield return new WaitForSeconds(5);
-        if (!levelMaster.playerInDangerArea) Enemy.SetActive(false);
+        if (!levelMaster.playerInDangerArea)
+        {
+            Enemy.SetActive(false);
+        }    
     }
 }

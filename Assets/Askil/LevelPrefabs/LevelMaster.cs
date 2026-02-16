@@ -27,6 +27,6 @@ public class LevelMaster : MonoBehaviour
     private void FixedUpdate()
     {
         playerCrouching = playerMovementSc.isCrouching;
-        playerRunning = playerMovementSc.moveSpeed > ogPlayerSpeed + 0.5f;
+        playerRunning = playerMovementSc.moveSpeed > (ogPlayerSpeed * playerMovementSc.sprintSpeed) - 0.5f;
     }
 }
