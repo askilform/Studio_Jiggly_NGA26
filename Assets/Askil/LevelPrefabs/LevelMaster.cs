@@ -29,9 +29,4 @@ public class LevelMaster : MonoBehaviour
         playerCrouching = playerMovementSc.isCrouching;
         playerRunning = playerMovementSc.moveSpeed > ogPlayerSpeed + 0.5f;
     }
-
-    public void FadeBetweenMusic(AudioSource currentMusic, AudioSource nextMusic)
-    {
-
-    }
 }

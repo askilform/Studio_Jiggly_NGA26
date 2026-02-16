@@ -1,5 +1,6 @@
 using System.Net;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
@@ -10,18 +11,22 @@ public class PlayerDetection : MonoBehaviour
     public LayerMask raycastHit;
     public float timeBeforeLosingPlayer = 10;
     public AudioSource onSpottedSFX;
+    public float detectionSpeed;
+    public Gradient lightGradient;
+    public Light headLight;
 
     [Header("Dont Assign")]
     public float sinceLastSawPlayer;
+    public float detectionProcent;
 
     //Player
     private GameObject playerObject;
     private Transform playerTransform;
+    [SerializeField] private Slider enemyDetectionSlider;
 
     //Player-Detection
     private bool playerSpotted;
     private bool lineCastToPlayer;
-
 
 
     [SerializeField] private enemyMovement movementSc;
@@ -29,20 +34,19 @@ public class PlayerDetection : MonoBehaviour
     [SerializeField] private LevelMaster levelMaster;
 
 
-    private void Start()
+    private void OnEnable()
     {
         playerObject = GameObject.FindGameObjectWithTag("Player");
         movementSc = GetComponentInParent<enemyMovement>();
         textPopUpSc = GameObject.Find("TextPopUp").GetComponent<TextPopUp>();
         levelMaster = FindFirstObjectByType<LevelMaster>();
+        enemyDetectionSlider = GameObject.Find("EnemyDetectionSlider").GetComponent<Slider>();
 
         print("[]" + playerObject.transform.name);
     }
 
     private void Update()
     {
-        playerTransform = playerObject.transform;
-
         if (Physics.Linecast(meshTransform.position, playerTransform.position, out RaycastHit hitInfo))
         {
             if (hitInfo.collider.tag == "Player") lineCastToPlayer = true; else lineCastToPlayer = false;
@@ -54,15 +58,24 @@ public class PlayerDetection : MonoBehaviour
         }
 
         else sinceLastSawPlayer += Time.deltaTime;
+
+       if (sinceLastSawPlayer > 2 && detectionProcent > 0) detectionProcent -= detectionSpeed * Time.deltaTime;
     }
 
+    private void FixedUpdate()
+    {
+        playerTransform = playerObject.transform;
+        enemyDetectionSlider.value = (detectionProcent / 100);
+        headLight.color = lightGradient.Evaluate(detectionProcent / 100);
+    }
     private void OnTriggerStay(Collider other)
     {
-        if (other.transform.tag == "Player" && lineCastToPlayer && !playerSpotted)
-        { 
-            print ("+" + other.transform.name);
-            // While seeing player
-            OnPlayerSpot();
+        if (other.transform.tag == "Player" && lineCastToPlayer && !playerSpotted && detectionProcent < 110)
+        {
+            detectionProcent += detectionSpeed * Time.deltaTime;
+            sinceLastSawPlayer = 0;
+
+            if (detectionProcent > 100 && !playerSpotted) OnPlayerSpot();
         }
     }
 
@@ -76,7 +89,6 @@ public class PlayerDetection : MonoBehaviour
             movementSc.SprintFollow();
 
             playerSpotted = true;
-            sinceLastSawPlayer = 0;
         }
     }
 
