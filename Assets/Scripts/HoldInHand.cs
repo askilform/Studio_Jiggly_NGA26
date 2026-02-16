@@ -26,7 +26,13 @@ public class HoldInHand : MonoBehaviour
         if (interactCheck != null)
         {
             if (interactCheck.CurrentInteractable != null && Input.GetKeyDown(KeyCode.E))
+
             {
+
+                if (currentHeldObject != null)
+                {
+                    dropObject();
+                }
 
                 //Pick Up
                 if (interactCheck.CurrentInteractable.canBeHeldInHand == false)
@@ -86,7 +92,7 @@ public class HoldInHand : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.G))
         {
             dropObject();
         }
