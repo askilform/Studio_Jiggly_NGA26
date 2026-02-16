@@ -489,15 +489,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1492390325877332955}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.598752, y: 6.2980046, z: -4.5386405}
+  m_LocalRotation: {x: -0, y: 0.74920803, z: -0, w: 0.66233474}
+  m_LocalPosition: {x: 19.82, y: 1.3092318, z: -9.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3197945071380123774}
   - {fileID: 7682261214461691704}
   m_Father: {fileID: 740981395801854158}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 97.044, z: 0}
 --- !u!143 &5936768935277450755
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1665,7 +1665,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: c99eed62ab7a33048b639fd87ce12194, type: 2}
+  m_Texture: {fileID: 8400000, guid: 1561cf1d4b85964469eb2b35550f31c1, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2135,6 +2135,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 740981395801854158}
+  - component: {fileID: 2351614978680336475}
   m_Layer: 8
   m_Name: Player2.0
   m_TagString: Untagged
@@ -2161,6 +2162,21 @@ Transform:
   - {fileID: 9162240695770239810}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2351614978680336475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6369336014406527351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d31613f6aa3893c41a1e8bf4192ba91e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usePixelCanvasInsteadOfCamera: 1
+  ccccamera: {fileID: 3781416724308887190}
+  cccccanvas: {fileID: 7103353492640299982}
 --- !u!1 &7765864055412747355
 GameObject:
   m_ObjectHideFlags: 0
@@ -2241,7 +2257,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: c99eed62ab7a33048b639fd87ce12194, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: 1561cf1d4b85964469eb2b35550f31c1, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -2274,7 +2290,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
