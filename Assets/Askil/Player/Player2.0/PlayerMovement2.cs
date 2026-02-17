@@ -10,6 +10,11 @@ public class PlayerMovement2 : MonoBehaviour
     public float crouchSpeed = 0.2f;
     public float gravity = -20f;
 
+    [Header("Audio")]
+    public float walkVolume;
+    public float sprintVolume;
+
+
     [Header("Mouse Settings")]
     public float mouseSensitivity = 2f;
 
@@ -29,6 +34,7 @@ public class PlayerMovement2 : MonoBehaviour
     private float startSpeed;
     private float ogHeight;
     private Vector3 velocity;
+  
 
     float x;
     float z;
@@ -114,8 +120,9 @@ public class PlayerMovement2 : MonoBehaviour
             Acceleration * Time.deltaTime
         );
 
+        SFX[0].volume = Mathf.Lerp(walkVolume, sprintVolume, currentSprintMultiplier - 1);
+
         moveSpeed = startSpeed * currentSprintMultiplier;
-        SFX[0].pitch = currentSprintMultiplier;
     }
 
     void CrouchCheck()

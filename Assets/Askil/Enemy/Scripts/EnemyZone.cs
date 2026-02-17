@@ -38,7 +38,7 @@ public class EnemyZone : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            uiSc.StartCoroutine(uiSc.FlashText("He will hear you running...", 2f, true));
+            uiSc.StartCoroutine(uiSc.FlashText("He's Nearby! be quiet...", 2f, true));
             sfxs[0].Play();
             levelMaster.playerInDangerArea = true;
             StartCoroutine(WaitAndActivate());

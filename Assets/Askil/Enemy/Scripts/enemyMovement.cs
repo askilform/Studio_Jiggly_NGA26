@@ -1,5 +1,6 @@
 using System;
 using Unity.Hierarchy;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -104,6 +105,7 @@ public class enemyMovement : MonoBehaviour
     {
         print("[] Enemy Investigating!");
         investigateLocation = locationToInvestigate;
-        investigating = true; 
+        investigating = true;
+        agent.speed = Mathf.Lerp(baseSpeedReference, baseSpeedReference * SprintSpeedMultiplier, 0.5f);
     }
 }
