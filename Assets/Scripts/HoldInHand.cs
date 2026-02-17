@@ -68,6 +68,7 @@ public class HoldInHand : MonoBehaviour
             //HOLDING THINGS:
             currentHeldObject.transform.position = transform.position;
             currentHeldObject.transform.rotation = transform.rotation;
+            currentHeldObject.transform.parent = gameObject.transform;
 
 
             if (tryUseObject) 
@@ -124,6 +125,8 @@ public class HoldInHand : MonoBehaviour
     {
         if (currentHeldObject != null)
         {
+
+            currentHeldObject.transform.parent = null;
 
             if (currentHeldObject.TryGetComponent<Rigidbody>(out Rigidbody rb))
             {
