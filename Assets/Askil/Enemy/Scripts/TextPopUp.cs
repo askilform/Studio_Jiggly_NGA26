@@ -18,7 +18,7 @@ public class TextPopUp : MonoBehaviour
 
     public IEnumerator FlashText(string message, float duration, bool background)
     {
-        if (background) blackBackground.SetActive(true);
+        // if (background) blackBackground.SetActive(true);
         txt.text = message;
         txt.color = Color.white;
 
