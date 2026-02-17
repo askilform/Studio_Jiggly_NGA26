@@ -53,7 +53,7 @@ public class enemyMovement : MonoBehaviour
         // Start investigation
         if (levelMaster.playerRunning && levelMaster.playerInDangerArea)
         {
-            if (!investigating) StartCoroutine(FindFirstObjectByType<TextPopUp>().FlashText("He Heard You!", 0.5f));
+            if (!investigating) StartCoroutine(FindFirstObjectByType<TextPopUp>().FlashText("He Heard You!", 0.5f, true));
             Investigate(player.transform.position);
         }
    

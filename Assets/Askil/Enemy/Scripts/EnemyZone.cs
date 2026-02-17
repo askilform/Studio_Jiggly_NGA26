@@ -38,7 +38,7 @@ public class EnemyZone : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            uiSc.StartCoroutine(uiSc.FlashText("He will hear you running...", 2f));
+            uiSc.StartCoroutine(uiSc.FlashText("He will hear you running...", 2f, true));
             sfxs[0].Play();
             levelMaster.playerInDangerArea = true;
             StartCoroutine(WaitAndActivate());
@@ -49,7 +49,7 @@ public class EnemyZone : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            uiSc.StartCoroutine(uiSc.FlashText("You Are Safe, FOR NOW", 2));
+            uiSc.StartCoroutine(uiSc.FlashText("You Are Safe, FOR NOW", 2, false));
             sfxs[1].Play();
             levelMaster.playerInDangerArea = false;
             enemyMovementSc.investigating = false;

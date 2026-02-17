@@ -84,7 +84,7 @@ public class PlayerDetection : MonoBehaviour
         if (levelMaster.playerInDangerArea)
         {
             print("[] Enemy Spotted Player");
-            StartCoroutine(textPopUpSc.FlashText("He Sees You!", 0.5f));
+            StartCoroutine(textPopUpSc.FlashText("He Sees You!", 0.5f, false));
             onSpottedSFX.Play();
             movementSc.SprintFollow();
 
@@ -95,7 +95,7 @@ public class PlayerDetection : MonoBehaviour
     public void OnPlayerLost()
     {
         print("[] Enemy Lost Player");
-        StartCoroutine(textPopUpSc.FlashText("He Lost You!", 1f));
+        StartCoroutine(textPopUpSc.FlashText("He Lost You!", 1f, false));
         movementSc.Roam();
         playerSpotted = false;
     }
