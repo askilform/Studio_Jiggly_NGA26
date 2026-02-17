@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
 
+
 public class Interactable : MonoBehaviour
 {
     public List<GameObject> ToDisable = new List<GameObject>();
@@ -17,4 +18,7 @@ public class Interactable : MonoBehaviour
 
 
     public bool canBeHeldInHand = false;
+
+    public string hoverMessage = "E";
+
 }

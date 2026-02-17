@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -16,6 +17,8 @@ public class InteractCheck : MonoBehaviour
     public HoldInHand holdInHandScriptRef;
     public Weapon_Builder weaponBuilderRef;
 
+    public TextMeshProUGUI interactHoverText;
+
     private void Start()
     {
         interactSfx = GetComponent<AudioSource>();
@@ -27,6 +30,9 @@ public class InteractCheck : MonoBehaviour
         {
             UI.SetActive(true);
             CurrentInteractable = other.GetComponent<Interactable>();
+
+            interactHoverText.text = CurrentInteractable.hoverMessage;
+
         }
     }
 
