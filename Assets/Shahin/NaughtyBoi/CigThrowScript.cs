@@ -18,8 +18,8 @@ public class CigThrowScript : MonoBehaviour
     {
         print(currentCig.ToString() + "current cig amount");
         
-        cigHeightActive = cigs[currentCig-1].transform.localPosition.y;
-        cigHeightPassive = cigs[0].transform.localPosition.y;
+        cigHeightActive = cigs[currentCig].transform.localPosition.y;
+        cigHeightPassive = cigs[1].transform.localPosition.y;
 
     }
 

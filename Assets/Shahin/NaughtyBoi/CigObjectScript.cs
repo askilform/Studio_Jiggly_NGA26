@@ -47,7 +47,9 @@ public class CigObjectScript : MonoBehaviour
         }
 
         //shrink middle part
-        cigaretteBurndownPart.transform.localScale = new Vector3(1, 1, 1 - currentLifetimeAsRatio);
+        float middlePartScale = Mathf.Clamp((1 - currentLifetimeAsRatio), 0.001f, 1);
+
+        cigaretteBurndownPart.transform.localScale = new Vector3(1, 1, middlePartScale);
 
         //move tip (tihi)
         cigaretteTip.transform.localPosition = new Vector3(0, 0, (1f - currentLifetimeAsRatio) * cigarettePhysicalLength);
