@@ -55,6 +55,18 @@ public class EpicMusicSystem : MonoBehaviour
         audBuild.volume = 0;
     }
 
+
+    public void startPlayingMusic()
+    {
+        playMusic = true;
+    }
+
+    public void stopPlayingMusic()
+    {
+        playMusic = false;
+    }
+
+
     void Update()
     {
         //try no loop this instead for detect end and reset bpm-------------------------------------
