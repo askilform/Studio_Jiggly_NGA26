@@ -13,7 +13,7 @@ public class HealthEnemy : MonoBehaviour
     public Material HitMat;
     Material originalMaterial;
     MeshRenderer enemyMesh;
-    [SerializeField] MeshRenderer[] renderers;
+    [SerializeField] SkinnedMeshRenderer[] renderers;
     [SerializeField] List<Material> OgMats = new List<Material>();
 
     private Rigidbody rb;
@@ -23,7 +23,6 @@ public class HealthEnemy : MonoBehaviour
         // Materials
         enemyMesh = GetComponent<MeshRenderer>();
         originalMaterial = enemyMesh.material;
-        renderers = GetComponentsInChildren<MeshRenderer>();
 
         rb = GetComponent<Rigidbody>();
         rb.isKinematic = true;
@@ -39,7 +38,7 @@ public class HealthEnemy : MonoBehaviour
         Health -= Damage;
 
         if (Health <= 0) StartCoroutine(Death());
-        else StartCoroutine(MatFlash());
+        // else StartCoroutine(MatFlash());
     }
 
     public IEnumerator Death()
@@ -52,26 +51,44 @@ public class HealthEnemy : MonoBehaviour
         rb.AddForce(LauncDirection.x, 5, LauncDirection.z, ForceMode.Impulse);
 
         yield return new WaitForSeconds(0.5f);
-        Destroy(gameObject);
+        Destroy(transform.root.gameObject);
     }
 
     private IEnumerator MatFlash()
     {
-        foreach (MeshRenderer renderer in renderers)
-        {
-            OgMats.Add(renderer.material);
-            renderer.material = HitMat;
-        }
+        OgMats.Clear();
 
-        enemyMesh.material = HitMat;
+        // Store original materials
+        foreach (var renderer in renderers)
+        {
+            OgMats.AddRange(renderer.materials);
+
+            Material[] hitMats = new Material[renderer.materials.Length];
+            for (int i = 0; i < hitMats.Length; i++)
+            {
+                hitMats[i] = HitMat;
+            }
+
+            renderer.materials = hitMats;
+        }
 
         yield return new WaitForSeconds(0.1f);
 
-        for (int i = 0; i < renderers.Length; i++)
-        {
-            renderers[i].material = OgMats[i];
-        }
+        // Restore materials
+        int matIndex = 0;
 
-        enemyMesh.material = originalMaterial;
+        foreach (var renderer in renderers)
+        {
+            int matCount = renderer.materials.Length;
+            Material[] originalMats = new Material[matCount];
+
+            for (int i = 0; i < matCount; i++)
+            {
+                originalMats[i] = OgMats[matIndex++];
+            }
+
+            renderer.materials = originalMats;
+        }
     }
+
 }

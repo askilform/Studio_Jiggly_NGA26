@@ -12,9 +12,12 @@ public class GetShotObject : MonoBehaviour
     public UnityEvent onBlockDamageEvent;
     public UnityEvent onDamageEvent;
 
-    public HealthEnemy enemyHealthScript; 
+    public HealthEnemy enemyHealthScript;
 
-
+    private void Start()
+    {
+        if (enemyHealthScript != null) enemyHealthScript.Health = Mathf.RoundToInt(health);
+    }
     public void GetShot(float damageIn, float armorPierce)
     {
         print("Getting Hurt");
@@ -46,7 +49,7 @@ public class GetShotObject : MonoBehaviour
     public void OnDie()
     {
         print("On Die Event");
-        onDieEvent.Invoke();
+        if (enemyHealthScript != null) StartCoroutine(enemyHealthScript.Death()); else onDieEvent.Invoke();
     }
 
     public void JustDestroy()

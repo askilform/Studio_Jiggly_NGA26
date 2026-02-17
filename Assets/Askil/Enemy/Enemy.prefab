@@ -407,7 +407,7 @@ MonoBehaviour:
     m_Bits: 475
   timeBeforeLosingPlayer: 10
   onSpottedSFX: {fileID: 714173932821130806}
-  detectionSpeed: 100
+  detectionSpeed: 170
   lightGradient:
     serializedVersion: 2
     key0: {r: 0.99215686, g: 0.94509804, b: 0.61960787, a: 1}
@@ -1639,6 +1639,8 @@ GameObject:
   - component: {fileID: 8754285747482704838}
   - component: {fileID: 148756641663054968}
   - component: {fileID: 9069309090038342852}
+  - component: {fileID: 2255759946734308665}
+  - component: {fileID: 9102450674918524251}
   - component: {fileID: 2850692011034610962}
   - component: {fileID: 5280683841401725432}
   m_Layer: 9
@@ -1711,6 +1713,50 @@ MonoBehaviour:
   walkSFX: {fileID: 4815627358504764848}
   timeBeforeInvestigateStop: 15
   jumpscarePrefab: {fileID: 7579572513748672127, guid: f38094cf340a0eb44a870af938345b7e, type: 3}
+--- !u!114 &2255759946734308665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5861690194122135809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe4502ff8b0a6ae4ea4528d865bc3fae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
+  armor: 5
+  onDieEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onBlockDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  enemyHealthScript: {fileID: 9102450674918524251}
+--- !u!114 &9102450674918524251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5861690194122135809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8f11f4a78ece747a0867dde0a02f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 0
+  movementSc: {fileID: 9069309090038342852}
+  HitMat: {fileID: 2100000, guid: a362a9fa61ad67e42a93e43e630f9a8c, type: 2}
+  renderers:
+  - {fileID: 908042885295283036}
+  - {fileID: 4369257809056367199}
+  - {fileID: 2828077085324264193}
+  OgMats: []
 --- !u!54 &2850692011034610962
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1733,8 +1779,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1757,10 +1803,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.2
+  m_Radius: 1.22
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!1 &6331079182082413827
 GameObject:
   m_ObjectHideFlags: 0
@@ -2922,6 +2968,16 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2798386466904450995}
   m_SourcePrefab: {fileID: 100100000, guid: 9d8afc65a3825544e87412fb6ad91c25, type: 3}
+--- !u!137 &908042885295283036 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -5325261119702189423, guid: 9d8afc65a3825544e87412fb6ad91c25, type: 3}
+  m_PrefabInstance: {fileID: 4216173031483711949}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &2828077085324264193 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7080359927741947188, guid: 9d8afc65a3825544e87412fb6ad91c25, type: 3}
+  m_PrefabInstance: {fileID: 4216173031483711949}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3910165547792604316 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9d8afc65a3825544e87412fb6ad91c25, type: 3}
@@ -2965,6 +3021,11 @@ MonoBehaviour:
 --- !u!4 &3913244216881530344 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 922246067078587429, guid: 9d8afc65a3825544e87412fb6ad91c25, type: 3}
+  m_PrefabInstance: {fileID: 4216173031483711949}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &4369257809056367199 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -8781909479684627566, guid: 9d8afc65a3825544e87412fb6ad91c25, type: 3}
   m_PrefabInstance: {fileID: 4216173031483711949}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &4397873294327825958 stripped
