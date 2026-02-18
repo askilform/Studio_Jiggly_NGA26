@@ -19,10 +19,13 @@ public class HealthEnemy : MonoBehaviour
     public Rigidbody rb;
     public GameObject DeathPrefab;
 
+    private Vector3 ogScale;
+
     private void Start()
     {
         print("EnemyStart");
         rb.isKinematic = true;
+        ogScale = transform.localScale;
     }
 
     private void Update()
@@ -35,22 +38,22 @@ public class HealthEnemy : MonoBehaviour
         Health -= Damage;
 
         if (Health <= 0) StartCoroutine(Death());
-        // else StartCoroutine(MatFlash());
+        else StartCoroutine(DamageVisuals()); 
     }
 
     public IEnumerator Death()
     {
         print("Dead");
         movementSc.agent.enabled = false;
-        
+
         /* Vector3 LauncDirection = movementSc.agent.transform.position - movementSc.player.transform.position;
         rb.isKinematic = false;
         rb.AddForce(LauncDirection.x, 5, LauncDirection.z, ForceMode.Impulse);
         */
 
-        yield return new WaitForSeconds(0.8f);
+        yield return null;
         Instantiate(DeathPrefab, transform.position, Quaternion.identity);
-        Destroy(transform.root.gameObject);
+        Destroy(transform.parent.gameObject);
     }
 
     private IEnumerator MatFlash()
@@ -90,4 +93,12 @@ public class HealthEnemy : MonoBehaviour
         }
     }
 
+    private IEnumerator DamageVisuals()
+    {
+        transform.localScale = transform.localScale * 1.05f;
+
+        yield return new WaitForSeconds(0.05f);
+
+        transform.localScale = ogScale;
+    }
 }
