@@ -17,6 +17,7 @@ public class HealthEnemy : MonoBehaviour
     [SerializeField] List<Material> OgMats = new List<Material>();
 
     public Rigidbody rb;
+    public GameObject DeathPrefab;
 
     private void Start()
     {
@@ -42,11 +43,13 @@ public class HealthEnemy : MonoBehaviour
         print("Dead");
         movementSc.agent.enabled = false;
         
-        Vector3 LauncDirection = movementSc.agent.transform.position - movementSc.player.transform.position;
+        /* Vector3 LauncDirection = movementSc.agent.transform.position - movementSc.player.transform.position;
         rb.isKinematic = false;
         rb.AddForce(LauncDirection.x, 5, LauncDirection.z, ForceMode.Impulse);
-        
+        */
+
         yield return new WaitForSeconds(0.8f);
+        Instantiate(DeathPrefab, transform.position, Quaternion.identity);
         Destroy(transform.root.gameObject);
     }
 
