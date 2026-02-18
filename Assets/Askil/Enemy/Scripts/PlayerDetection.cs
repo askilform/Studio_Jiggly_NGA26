@@ -59,7 +59,7 @@ public class PlayerDetection : MonoBehaviour
 
         else sinceLastSawPlayer += Time.deltaTime;
 
-       if (sinceLastSawPlayer > 2 && detectionProcent > 0) detectionProcent -= detectionSpeed * Time.deltaTime;
+       if (sinceLastSawPlayer > 2 && detectionProcent > 0) detectionProcent -= (detectionSpeed / 5) * Time.deltaTime;
     }
 
     private void FixedUpdate()
@@ -68,6 +68,7 @@ public class PlayerDetection : MonoBehaviour
         enemyDetectionSlider.value = (detectionProcent / 100);
         headLight.color = lightGradient.Evaluate(detectionProcent / 100);
     }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.transform.tag == "Player" && lineCastToPlayer && !playerSpotted && detectionProcent < 110)
