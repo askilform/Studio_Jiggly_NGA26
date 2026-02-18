@@ -16,21 +16,17 @@ public class HealthEnemy : MonoBehaviour
     [SerializeField] SkinnedMeshRenderer[] renderers;
     [SerializeField] List<Material> OgMats = new List<Material>();
 
-    private Rigidbody rb;
+    public Rigidbody rb;
 
     private void Start()
     {
-        // Materials
-        enemyMesh = GetComponent<MeshRenderer>();
-        originalMaterial = enemyMesh.material;
-
-        rb = GetComponent<Rigidbody>();
+        print("EnemyStart");
         rb.isKinematic = true;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha8)) TakeDamage(20);
+        if (Input.GetKeyDown(KeyCode.Alpha8)) StartCoroutine(Death());
     }
 
     public void TakeDamage(int Damage)
@@ -49,8 +45,8 @@ public class HealthEnemy : MonoBehaviour
         Vector3 LauncDirection = movementSc.agent.transform.position - movementSc.player.transform.position;
         rb.isKinematic = false;
         rb.AddForce(LauncDirection.x, 5, LauncDirection.z, ForceMode.Impulse);
-
-        yield return new WaitForSeconds(0.5f);
+        
+        yield return new WaitForSeconds(0.8f);
         Destroy(transform.root.gameObject);
     }
 
