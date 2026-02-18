@@ -1687,7 +1687,7 @@ NavMeshAgent:
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 1
@@ -1805,8 +1805,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.22
-  m_Height: 1
+  m_Radius: 0.63
+  m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!1 &6331079182082413827
@@ -2266,6 +2266,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8a742501e62f4b040bdbcc5ca0bb0cba, type: 3}
       propertyPath: m_Name
       value: PEEPNEW
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8a742501e62f4b040bdbcc5ca0bb0cba, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2849,7 +2853,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9d8afc65a3825544e87412fb6ad91c25, type: 3}
       propertyPath: m_Name
-      value: Mesh
+      value: PeepOld
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9d8afc65a3825544e87412fb6ad91c25, type: 3}
       propertyPath: m_Layer
@@ -2857,7 +2861,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9d8afc65a3825544e87412fb6ad91c25, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 952324559717648685, guid: 9d8afc65a3825544e87412fb6ad91c25, type: 3}
       propertyPath: m_Layer
