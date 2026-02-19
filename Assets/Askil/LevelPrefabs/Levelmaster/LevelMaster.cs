@@ -25,12 +25,16 @@ public class LevelMaster : MonoBehaviour
     public bool playerInDangerArea;
     public bool playerSprinting;
 
+
+    private string sceneItBelongsTo;
+
     private void Start()
     {
         playerMovementSc = FindFirstObjectByType<PlayerMovement2>();
         ogPlayerSpeed = playerMovementSc.moveSpeed;
         sceneIn = true;
         canvasGroup.alpha = 1.0f;
+
     }
 
     private void FixedUpdate()
@@ -40,7 +44,6 @@ public class LevelMaster : MonoBehaviour
 
         if (canvasGroup.alpha < 1.1 || canvasGroup.alpha < 0) canvasGroup.alpha += sceneIn ? -0.05f : 0.1f;
     }
-
 
     public void ChanceScene(string sceneName) { StartCoroutine(ChanceSceneCoroutine(sceneName)); }
 

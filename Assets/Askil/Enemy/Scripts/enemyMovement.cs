@@ -104,6 +104,7 @@ public class enemyMovement : MonoBehaviour
     public void Investigate(Vector3 locationToInvestigate)
     {
         print("[] Enemy Investigating!");
+        
         investigateLocation = locationToInvestigate;
         investigating = true;
         agent.speed = Mathf.Lerp(baseSpeedReference, baseSpeedReference * SprintSpeedMultiplier, 0.5f);
