@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class disableOrEnableBasedOnInventory : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class disableOrEnableBasedOnInventory : MonoBehaviour
 
     public GameObject[] enableTheseObjects;
     public GameObject[] disableTheseObjects;
+
+
+    public UnityEvent runWhenEnabled;
+    public bool hasRunEvent = false;
 
     void Update()
     {
@@ -48,11 +53,22 @@ public class disableOrEnableBasedOnInventory : MonoBehaviour
         foreach(GameObject enableThis in enableTheseObjects)
         {
             enableThis.SetActive(enableBool);
+            
+
         }
         foreach(GameObject disableThis in disableTheseObjects)
         {
             disableThis.SetActive(!enableBool);
         }
-        
+
+
+
+        if (!hasRunEvent && hasAllTheGoodOnes && !hasAllTheBadOnes)
+        {
+            print("GO! GOOD EVENTS");
+            runWhenEnabled.Invoke();
+            hasRunEvent = true;
+        }
+
     }
 }
