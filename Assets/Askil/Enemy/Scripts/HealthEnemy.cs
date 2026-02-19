@@ -18,6 +18,7 @@ public class HealthEnemy : MonoBehaviour
 
     public Rigidbody rb;
     public GameObject DeathPrefab;
+    public GameObject hitParticles;
 
     private Vector3 ogScale;
 
@@ -33,12 +34,16 @@ public class HealthEnemy : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha8)) StartCoroutine(Death());
     }
 
-    public void TakeDamage(int Damage)
+    public void TakeDamage(int Damage, Vector3 hitLocation)
     {
         Health -= Damage;
 
         if (Health <= 0) StartCoroutine(Death());
-        else StartCoroutine(DamageVisuals()); 
+        else
+        {
+            StartCoroutine(DamageVisuals(hitLocation));
+            movementSc.SprintFollow();
+        }
     }
 
     public IEnumerator Death()
@@ -93,10 +98,11 @@ public class HealthEnemy : MonoBehaviour
         }
     }
 
-    private IEnumerator DamageVisuals()
+    private IEnumerator DamageVisuals(Vector3 hitLocation)
     {
-        transform.localScale = transform.localScale * 1.05f;
+        // transform.localScale = transform.localScale * 1.05f;
 
+        Instantiate (hitParticles, hitLocation, Quaternion.identity);
         yield return new WaitForSeconds(0.05f);
 
         transform.localScale = ogScale;

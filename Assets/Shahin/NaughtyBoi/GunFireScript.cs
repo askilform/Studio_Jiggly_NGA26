@@ -214,7 +214,7 @@ public class GunFireScript : MonoBehaviour
             if (actualHit.transform.gameObject.TryGetComponent<GetShotObject>(out GetShotObject getShotScript))
             {
                 print("Hit A THing");
-                getShotScript.GetShot(damage, armorPiercing);
+                getShotScript.GetShot(damage, armorPiercing, actualHit.transform.position);
                 print("try deal damage " + damage.ToString() + " dmg, " + armorPiercing.ToString() + " penetration");
             }
             else

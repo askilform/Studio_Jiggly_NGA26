@@ -18,7 +18,7 @@ public class GetShotObject : MonoBehaviour
     {
         if (enemyHealthScript != null) enemyHealthScript.Health = Mathf.RoundToInt(health);
     }
-    public void GetShot(float damageIn, float armorPierce)
+    public void GetShot(float damageIn, float armorPierce, Vector3 hitLocation)
     {
         print("Getting Hurt");
         
@@ -36,7 +36,7 @@ public class GetShotObject : MonoBehaviour
 
         if (enemyHealthScript != null) 
         {
-            enemyHealthScript.TakeDamage(Mathf.RoundToInt(damageInAfterArmor));
+            enemyHealthScript.TakeDamage(Mathf.RoundToInt(damageInAfterArmor), hitLocation);
         }
 
 
