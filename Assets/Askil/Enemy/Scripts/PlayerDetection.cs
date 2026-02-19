@@ -52,7 +52,7 @@ public class PlayerDetection : MonoBehaviour
             if (hitInfo.collider.tag == "Player") lineCastToPlayer = true; else lineCastToPlayer = false;
         }
 
-        if (sinceLastSawPlayer > timeBeforeLosingPlayer && playerSpotted)
+        if (sinceLastSawPlayer > timeBeforeLosingPlayer && playerSpotted && !movementSc.investigating)
         {
             OnPlayerLost();
         }
