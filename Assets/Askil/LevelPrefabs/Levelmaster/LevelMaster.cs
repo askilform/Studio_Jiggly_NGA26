@@ -18,7 +18,7 @@ public class LevelMaster : MonoBehaviour
     private bool sceneIn;
 
     [Header("Dont Assign")]
-    [SerializeField] private PlayerMovement2 playerMovementSc;
+    [SerializeField] public PlayerMovement2 playerMovementSc;
     private float ogPlayerSpeed;
     public bool playerCrouching;
     public bool playerRunning;
@@ -27,6 +27,7 @@ public class LevelMaster : MonoBehaviour
 
 
     private string sceneItBelongsTo;
+    public Vector3 spawnLocation;
 
     private void Start()
     {
@@ -34,7 +35,7 @@ public class LevelMaster : MonoBehaviour
         ogPlayerSpeed = playerMovementSc.moveSpeed;
         sceneIn = true;
         canvasGroup.alpha = 1.0f;
-
+        spawnLocation = playerMovementSc.transform.localPosition;
     }
 
     private void FixedUpdate()
@@ -52,5 +53,10 @@ public class LevelMaster : MonoBehaviour
         sceneIn = false;
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void UpdateSpawnLocation(Vector3 newSpawnLocation)
+    {
+        spawnLocation = newSpawnLocation;
     }
 }

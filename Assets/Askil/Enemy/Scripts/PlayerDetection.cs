@@ -59,7 +59,7 @@ public class PlayerDetection : MonoBehaviour
 
         else sinceLastSawPlayer += Time.deltaTime;
 
-       if (sinceLastSawPlayer > 2 && detectionProcent > 0) detectionProcent -= (detectionSpeed / 5) * Time.deltaTime;
+       if (sinceLastSawPlayer > 2 && detectionProcent > 0 && movementSc.mainTarget != playerObject) detectionProcent -= (detectionSpeed / 5) * Time.deltaTime;
     }
 
     private void FixedUpdate()
