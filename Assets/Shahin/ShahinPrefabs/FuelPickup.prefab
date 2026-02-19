@@ -133,6 +133,8 @@ GameObject:
   - component: {fileID: 5418193257680623285}
   - component: {fileID: 3950978948869565976}
   - component: {fileID: 848517953408699085}
+  - component: {fileID: 3882571698400186958}
+  - component: {fileID: 464570324275985549}
   m_Layer: 0
   m_Name: FuelPickup
   m_TagString: AmmoPickup
@@ -223,8 +225,52 @@ MonoBehaviour:
   ToDisable: []
   ToEnable: []
   PlayerAnimBool: 
+  onEnable:
+    m_PersistentCalls:
+      m_Calls: []
   resetAfterTime: 1
   TimeBeforeReset: 0
+  canBeHeldInHand: 1
+  hoverMessage: E
+--- !u!114 &3882571698400186958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6274706926854864891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1248b1c99cb635742b6a251761fac1c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseWhileHeldEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 464570324275985549}
+        m_TargetAssemblyTypeName: fuelCellUsableScript, Assembly-CSharp
+        m_MethodName: reloadWithThis
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &464570324275985549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6274706926854864891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4d2161f88218584fa2f8e3d3c15c497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &216497633339402349
 PrefabInstance:
   m_ObjectHideFlags: 0

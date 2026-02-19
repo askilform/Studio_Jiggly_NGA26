@@ -64,7 +64,7 @@ public class GunFireScript : MonoBehaviour
         batteryLeft = batteryMax;
 
         lightFadeNow = 1f;
-        print("Press F to fire, for now");
+        //print("Press F to fire, for now");
     }
 
     public void RefillBatteries()
