@@ -19,6 +19,8 @@ public class InteractCheck : MonoBehaviour
 
     public TextMeshProUGUI interactHoverText;
 
+    public bool canPickupFuel = false;
+
     private void Start()
     {
         interactSfx = GetComponent<AudioSource>();
@@ -54,14 +56,23 @@ public class InteractCheck : MonoBehaviour
         {
             StartCoroutine(Interact());
 
+
+            //We now use the fuel cell to reload while held. We don't need this anymore. But dont delete please
+            /*
+            //------------------------------------------------------------------------------------------------ fuel
             if (CurrentInteractable.CompareTag("AmmoPickup") && fuelHolderScriptRef != null)
             {
                 print("pick up and reload fuel");
-                
-                fuelHolderScriptRef.ReloadFuel();
 
-                Destroy(CurrentInteractable.gameObject);
+                if (canPickupFuel)
+                {
+
+                    fuelHolderScriptRef.ReloadFuel();
+
+                    Destroy(CurrentInteractable.gameObject);
+                }
             }
+            */
             
 
             //BUILD PART WHILE AT WORKBENCH
