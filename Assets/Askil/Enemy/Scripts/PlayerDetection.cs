@@ -47,11 +47,13 @@ public class PlayerDetection : MonoBehaviour
 
     private void Update()
     {
+        // Check if player is in enemys potential sight
         if (Physics.Linecast(meshTransform.position, playerTransform.position, out RaycastHit hitInfo))
         {
             if (hitInfo.collider.tag == "Player") lineCastToPlayer = true; else lineCastToPlayer = false;
         }
 
+        // Looses player if it doesnt see him for given time
         if (sinceLastSawPlayer > timeBeforeLosingPlayer && playerSpotted && !movementSc.investigating)
         {
             OnPlayerLost();
@@ -59,7 +61,8 @@ public class PlayerDetection : MonoBehaviour
 
         else sinceLastSawPlayer += Time.deltaTime;
 
-       if (sinceLastSawPlayer > 2 && detectionProcent > 0 && movementSc.mainTarget != playerObject) detectionProcent -= (detectionSpeed / 5) * Time.deltaTime;
+        // Update detect-procent
+        if (sinceLastSawPlayer > 2 && detectionProcent > 0 && movementSc.mainTarget != playerObject) detectionProcent -= (detectionSpeed / 5) * Time.deltaTime;
     }
 
     private void FixedUpdate()
@@ -90,6 +93,7 @@ public class PlayerDetection : MonoBehaviour
             movementSc.SprintFollow();
 
             playerSpotted = true;
+            movementSc.investigating = false;
         }
     }
 
