@@ -61,9 +61,10 @@ public class LevelMaster : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    public void UpdateSpawnPoint(Vector3 newSpawnLocation)
+    public void UpdateSpawnPoint(GameObject ObjectWithSpawnLocation)
     {
         GameInstance.overrideStartSpawn = true;
-        GameInstance.spawnLocationOverride = newSpawnLocation;
+        GameInstance.spawnLocationOverride = ObjectWithSpawnLocation.transform.position;
+        print("SetNewSpawnLocation");
     }
 }
