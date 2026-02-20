@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class enemyMovement : MonoBehaviour
+public class enemyMovement2 : MonoBehaviour
 {
     private float baseSpeedReference;
     private Vector3 investigateLocation;
@@ -26,7 +26,6 @@ public class enemyMovement : MonoBehaviour
     private void OnEnable()
     {
         baseSpeedReference = Speed;
-        investigating = false;  
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
         levelMaster = FindFirstObjectByType<LevelMaster>();
@@ -40,22 +39,24 @@ public class enemyMovement : MonoBehaviour
         // Update destination and roaming-point
         if (mainTarget != null)
         {
-            if (!investigating) agent.SetDestination(mainTarget.transform.position);
-            else agent.SetDestination(investigateLocation);
+            agent.SetDestination(mainTarget.transform.position);
         }
 
-        // Stop investigating after enough time
+        // Start roaming after enough time
         if (investigedFor > timeBeforeInvestigateStop)
         {
-            investigating = false;
-            investigedFor = 0;
+            StopInvestigation();
+            Roam();
         }
 
         // Start investigation
         if (levelMaster.playerRunning && levelMaster.playerInDangerArea && mainTarget != player)
         {
-            if (!investigating) StartCoroutine(FindFirstObjectByType<TextPopUp>().FlashText("He Heard You!", 0.5f, true));
-            Investigate(player.transform.position);
+            if (!investigating)
+            {
+                StartCoroutine(FindFirstObjectByType<TextPopUp>().FlashText("He Heard You!", 0.5f, true));
+                Investigate(player.transform.position);
+            }
         }
    
         walkSFX.mute = agent.velocity.x == 0 && agent.velocity.z == 0;
@@ -104,9 +105,19 @@ public class enemyMovement : MonoBehaviour
     public void Investigate(Vector3 locationToInvestigate)
     {
         print("[] Enemy Investigating!");
-        
-        investigateLocation = locationToInvestigate;
-        investigating = true;
+
+        // Spawn a gameobject where the enemy should check
+        GameObject investigateSpot = new GameObject("Investigating-Spot");
+        investigateSpot.transform.position = locationToInvestigate;
+        mainTarget = investigateSpot;
+        investigedFor = 0;
+
         agent.speed = Mathf.Lerp(baseSpeedReference, baseSpeedReference * SprintSpeedMultiplier, 0.5f);
+        investigating = true;
+    }
+
+    public void StopInvestigation()
+    {
+        investigating = false;
     }
 }
