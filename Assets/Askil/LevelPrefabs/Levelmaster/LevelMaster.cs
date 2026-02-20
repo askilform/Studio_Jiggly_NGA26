@@ -15,6 +15,7 @@ public class LevelMaster : MonoBehaviour
 
     [Header("Other")]
     public CanvasGroup canvasGroup;
+    public bool PlayerInScene = true;
     private bool sceneIn;
 
     [Header("Dont Assign")]
@@ -28,8 +29,15 @@ public class LevelMaster : MonoBehaviour
 
     private void Start()
     {
-        playerMovementSc = FindFirstObjectByType<PlayerMovement2>();
-        ogPlayerSpeed = playerMovementSc.moveSpeed;
+
+        PlayerInScene = (FindFirstObjectByType<PlayerMovement2>() != null);
+
+        if (PlayerInScene)
+        {
+            playerMovementSc = FindFirstObjectByType<PlayerMovement2>();
+            ogPlayerSpeed = playerMovementSc.moveSpeed;
+        }
+
         sceneIn = true;
         canvasGroup.alpha = 1.0f;
 
@@ -42,8 +50,11 @@ public class LevelMaster : MonoBehaviour
 
     private void FixedUpdate()
     {
-        playerCrouching = playerMovementSc.isCrouching;
-        playerRunning = playerMovementSc.moveSpeed > (ogPlayerSpeed * playerMovementSc.sprintSpeed) - 0.5f;
+        if (PlayerInScene)
+        {
+            playerCrouching = playerMovementSc.isCrouching;
+            playerRunning = playerMovementSc.moveSpeed > (ogPlayerSpeed * playerMovementSc.sprintSpeed) - 0.5f;
+        }
 
         if (canvasGroup.alpha < 1.1 || canvasGroup.alpha < 0) canvasGroup.alpha += sceneIn ? -0.05f : 0.1f;
     }
@@ -66,5 +77,10 @@ public class LevelMaster : MonoBehaviour
         GameInstance.overrideStartSpawn = true;
         GameInstance.spawnLocationOverride = ObjectWithSpawnLocation.transform.position;
         print("SetNewSpawnLocation");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
