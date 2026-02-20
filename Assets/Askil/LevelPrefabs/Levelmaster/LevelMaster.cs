@@ -19,15 +19,12 @@ public class LevelMaster : MonoBehaviour
 
     [Header("Dont Assign")]
     [SerializeField] public PlayerMovement2 playerMovementSc;
+    public GameObject playerBody;
     private float ogPlayerSpeed;
     public bool playerCrouching;
     public bool playerRunning;
     public bool playerInDangerArea;
     public bool playerSprinting;
-
-
-    private string sceneItBelongsTo;
-    public Vector3 spawnLocation;
 
     private void Start()
     {
@@ -35,7 +32,12 @@ public class LevelMaster : MonoBehaviour
         ogPlayerSpeed = playerMovementSc.moveSpeed;
         sceneIn = true;
         canvasGroup.alpha = 1.0f;
-        spawnLocation = playerMovementSc.transform.localPosition;
+
+        print("LastScene; " + GameInstance.LastScene);
+        GameInstance.CurrentScene = SceneManager.GetActiveScene().name;
+        print("CurrentScene; " + GameInstance.CurrentScene);
+
+        if (GameInstance.overrideStartSpawn) playerBody.transform.position = GameInstance.spawnLocationOverride;
     }
 
     private void FixedUpdate()
@@ -50,13 +52,18 @@ public class LevelMaster : MonoBehaviour
 
     public IEnumerator ChanceSceneCoroutine(string sceneName)
     {
+        GameInstance.LastScene = SceneManager.GetActiveScene().name;
+        GameInstance.overrideStartSpawn = false;
+
         sceneIn = false;
         yield return new WaitForSeconds(1);
+
         SceneManager.LoadScene(sceneName);
     }
 
-    public void UpdateSpawnLocation(Vector3 newSpawnLocation)
+    public void UpdateSpawnPoint(Vector3 newSpawnLocation)
     {
-        spawnLocation = newSpawnLocation;
+        GameInstance.overrideStartSpawn = true;
+        GameInstance.spawnLocationOverride = newSpawnLocation;
     }
 }
