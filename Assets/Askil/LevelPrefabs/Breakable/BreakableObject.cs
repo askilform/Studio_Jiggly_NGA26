@@ -30,7 +30,7 @@ public class BreakableObject : MonoBehaviour
 
         yield return null;
 
-        Destroy(transform.root.gameObject);
+        Destroy(transform.parent.gameObject);
     }
 
 }
