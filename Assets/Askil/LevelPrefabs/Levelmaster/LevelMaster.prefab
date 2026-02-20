@@ -122,7 +122,9 @@ MonoBehaviour:
   DangerMusic: {fileID: 0}
   ChaseMusic: {fileID: 0}
   canvasGroup: {fileID: 9195956760092682298}
+  PlayerInScene: 0
   playerMovementSc: {fileID: 0}
+  playerBody: {fileID: 0}
   playerCrouching: 0
   playerRunning: 0
   playerInDangerArea: 0
@@ -169,7 +171,6 @@ GameObject:
   - component: {fileID: 1403848873845168256}
   - component: {fileID: 1800239790299888090}
   - component: {fileID: 5990368273305602376}
-  - component: {fileID: 719550739667035289}
   - component: {fileID: 9195956760092682298}
   m_Layer: 5
   m_Name: Canvas
@@ -244,23 +245,6 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
---- !u!114 &719550739667035289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6963532120918220655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!225 &9195956760092682298
 CanvasGroup:
   m_ObjectHideFlags: 0
