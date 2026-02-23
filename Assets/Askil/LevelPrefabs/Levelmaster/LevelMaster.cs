@@ -46,6 +46,19 @@ public class LevelMaster : MonoBehaviour
         print("CurrentScene; " + GameInstance.CurrentScene);
 
         if (GameInstance.overrideStartSpawn) playerBody.transform.position = GameInstance.spawnLocationOverride;
+
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+
+        else
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+            
     }
 
     private void FixedUpdate()
