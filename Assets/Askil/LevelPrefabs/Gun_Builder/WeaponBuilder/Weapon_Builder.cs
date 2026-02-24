@@ -17,6 +17,7 @@ public class Weapon_Builder : MonoBehaviour
 
     private void Start()
     {
+        // Recieve entire weapon if checked
         if (instantlyBecomeInsane)
         {
             IdsPickedUp.Add(1);
@@ -26,6 +27,8 @@ public class Weapon_Builder : MonoBehaviour
             IdsPickedUp.Add(5);
             IdsPickedUp.Add(6);
         }
+
+        else foreach (int i in GameInstance.savedWeaponIds) IdsPickedUp.Add((int)i);
     }
 
 
@@ -47,5 +50,8 @@ public class Weapon_Builder : MonoBehaviour
         IdsPickedUp.Sort();
         CurrentBuildId = int.Parse(string.Concat(IdsPickedUp));
         print(CurrentBuildId);
+
+        GameInstance.savedWeaponIds = IdsPickedUp.ToArray();
+        foreach (int i in GameInstance.savedWeaponIds) print ("Weapon saved: " + i);
     }
 }

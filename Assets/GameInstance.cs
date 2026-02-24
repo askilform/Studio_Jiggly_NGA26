@@ -12,4 +12,11 @@ public static class GameInstance
     //Spawn
     public static Vector3 spawnLocationOverride;
     public static bool overrideStartSpawn;
+
+    public static int[] savedWeaponIds;
+
+    public static void ClearSaves()
+    {
+        
+    }
 }

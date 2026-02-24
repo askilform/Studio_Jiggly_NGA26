@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -26,17 +27,11 @@ public class LevelMaster : MonoBehaviour
     public bool playerRunning;
     public bool playerInDangerArea;
     public bool playerSprinting;
+    public WeaponPart[] weaponPartScripts;
 
     private void Start()
     {
-
         PlayerInScene = (FindFirstObjectByType<PlayerMovement2>() != null);
-
-        if (PlayerInScene)
-        {
-            playerMovementSc = FindFirstObjectByType<PlayerMovement2>();
-            ogPlayerSpeed = playerMovementSc.moveSpeed;
-        }
 
         sceneIn = true;
         canvasGroup.alpha = 1.0f;
@@ -58,7 +53,19 @@ public class LevelMaster : MonoBehaviour
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
-            
+
+        if (PlayerInScene)
+        {
+            playerMovementSc = FindFirstObjectByType<PlayerMovement2>();
+            ogPlayerSpeed = playerMovementSc.moveSpeed;
+
+            // Find Weaponparts and  destroy them if player has them
+            weaponPartScripts = GameObject.FindObjectsByType<WeaponPart>(FindObjectsSortMode.None);
+            foreach (WeaponPart weaponPart in weaponPartScripts)
+            {
+                if (GameInstance.savedWeaponIds.Contains(weaponPart.id)) Destroy(weaponPart.transform.parent);
+            }
+        }
     }
 
     private void FixedUpdate()
