@@ -10,6 +10,7 @@ public class enemyMovement : MonoBehaviour
     private Vector3 investigateLocation;
     private LevelMaster levelMaster;
     private EnemyZone enemyZone;
+    private float speedMultiplier = 1;
     [SerializeField] private float investigedFor;
 
     [NonSerialized] public NavMeshAgent agent;
@@ -90,7 +91,7 @@ public class enemyMovement : MonoBehaviour
         print("[] Enemy Following player!");
         mainTarget = player;
         agent.isStopped = false;
-        agent.speed = baseSpeedReference * SprintSpeedMultiplier;
+        agent.speed = baseSpeedReference * SprintSpeedMultiplier * speedMultiplier;
     }
 
     public void Roam()
@@ -108,5 +109,10 @@ public class enemyMovement : MonoBehaviour
         investigateLocation = locationToInvestigate;
         investigating = true;
         agent.speed = Mathf.Lerp(baseSpeedReference, baseSpeedReference * SprintSpeedMultiplier, 0.5f);
+    }
+
+    public void ReduceSpeedMultiplier(float reduceBy)
+    {
+        speedMultiplier -= reduceBy;
     }
 }
