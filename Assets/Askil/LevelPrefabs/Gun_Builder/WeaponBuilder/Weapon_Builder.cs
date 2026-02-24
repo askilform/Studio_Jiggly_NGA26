@@ -12,6 +12,23 @@ public class Weapon_Builder : MonoBehaviour
 
     public bool autoPickup = false;
 
+
+    public bool instantlyBecomeInsane = false;
+
+    private void Start()
+    {
+        if (instantlyBecomeInsane)
+        {
+            IdsPickedUp.Add(1);
+            IdsPickedUp.Add(2);
+            IdsPickedUp.Add(3);
+            IdsPickedUp.Add(4);
+            IdsPickedUp.Add(5);
+            IdsPickedUp.Add(6);
+        }
+    }
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (autoPickup && other.GetComponent<WeaponPart>() != null)

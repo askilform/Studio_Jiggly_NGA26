@@ -25,6 +25,7 @@ public class HealthEnemy : MonoBehaviour
     private void Start()
     {
         print("EnemyStart");
+        rb = GetComponent<Rigidbody>();
         rb.isKinematic = true;
         ogScale = transform.localScale;
     }
