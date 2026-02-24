@@ -63,9 +63,9 @@ public class LevelMaster : MonoBehaviour
             weaponPartScripts = GameObject.FindObjectsByType<WeaponPart>(FindObjectsSortMode.None);
             foreach (WeaponPart weaponPart in weaponPartScripts)
             {
-                if (GameInstance.savedWeaponIds.Contains(weaponPart.id)) Destroy(weaponPart.transform.parent);
+                if (GameInstance.savedWeaponIds.Contains(weaponPart.id)) Destroy(weaponPart.transform.gameObject);
             }
-        }
+        } 
     }
 
     private void FixedUpdate()
