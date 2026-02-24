@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class HealthEnemy : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class HealthEnemy : MonoBehaviour
     public Rigidbody rb;
     public GameObject DeathPrefab;
     public GameObject hitParticles;
+
+    public UnityEvent onDeath;
 
     private Vector3 ogScale;
 
@@ -49,6 +52,7 @@ public class HealthEnemy : MonoBehaviour
 
     public IEnumerator Death()
     {
+        onDeath.Invoke();
         print("Dead");
         movementSc.agent.enabled = false;
 
