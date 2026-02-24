@@ -10537,7 +10537,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1123771480605965860, guid: 92da7b33632eba7459fddaa749535448, type: 3}
       propertyPath: instantlyBecomeInsane
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1397115645926456323, guid: 92da7b33632eba7459fddaa749535448, type: 3}
       propertyPath: runWhenEnabled.m_PersistentCalls.m_Calls.Array.size
@@ -13853,6 +13853,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 304461830}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &319108183 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4124662196683266313, guid: 0ac943b4395ec8c4880ca374648bce34, type: 3}
+  m_PrefabInstance: {fileID: 55448181}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &323428997
 GameObject:
   m_ObjectHideFlags: 0
@@ -50658,7 +50663,7 @@ PrefabInstance:
       objectReference: {fileID: 707207774}
     - target: {fileID: 9102450674918524251, guid: 4b20be5e9cbe045428306568d4a0ff61, type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9102450674918524251, guid: 4b20be5e9cbe045428306568d4a0ff61, type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -50677,6 +50682,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9102450674918524251, guid: 4b20be5e9cbe045428306568d4a0ff61, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102450674918524251, guid: 4b20be5e9cbe045428306568d4a0ff61, type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2026366216}
@@ -50693,6 +50702,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2035008576}
     - target: {fileID: 9102450674918524251, guid: 4b20be5e9cbe045428306568d4a0ff61, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[4].m_Target
+      value: 
+      objectReference: {fileID: 319108183}
+    - target: {fileID: 9102450674918524251, guid: 4b20be5e9cbe045428306568d4a0ff61, type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -50706,6 +50719,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9102450674918524251, guid: 4b20be5e9cbe045428306568d4a0ff61, type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102450674918524251, guid: 4b20be5e9cbe045428306568d4a0ff61, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9102450674918524251, guid: 4b20be5e9cbe045428306568d4a0ff61, type: 3}
@@ -50741,6 +50758,10 @@ PrefabInstance:
       value: UnityEngine.AudioSource, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 9102450674918524251, guid: 4b20be5e9cbe045428306568d4a0ff61, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
+      value: UnityEngine.AudioSource, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102450674918524251, guid: 4b20be5e9cbe045428306568d4a0ff61, type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
@@ -50754,6 +50775,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9102450674918524251, guid: 4b20be5e9cbe045428306568d4a0ff61, type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9102450674918524251, guid: 4b20be5e9cbe045428306568d4a0ff61, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9102450674918524251, guid: 4b20be5e9cbe045428306568d4a0ff61, type: 3}

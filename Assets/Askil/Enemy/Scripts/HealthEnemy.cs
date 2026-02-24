@@ -64,6 +64,7 @@ public class HealthEnemy : MonoBehaviour
         yield return null;
         Instantiate(DeathPrefab, transform.position, Quaternion.identity);
         Destroy(transform.parent.gameObject);
+        
     }
 
     private IEnumerator MatFlash()

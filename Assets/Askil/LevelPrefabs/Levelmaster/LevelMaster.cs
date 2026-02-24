@@ -36,12 +36,6 @@ public class LevelMaster : MonoBehaviour
         sceneIn = true;
         canvasGroup.alpha = 1.0f;
 
-        print("LastScene; " + GameInstance.LastScene);
-        GameInstance.CurrentScene = SceneManager.GetActiveScene().name;
-        print("CurrentScene; " + GameInstance.CurrentScene);
-
-        if (GameInstance.overrideStartSpawn) playerBody.transform.position = GameInstance.spawnLocationOverride;
-
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
             Cursor.visible = true;
@@ -83,24 +77,19 @@ public class LevelMaster : MonoBehaviour
 
     public IEnumerator ChanceSceneCoroutine(string sceneName)
     {
-        GameInstance.LastScene = SceneManager.GetActiveScene().name;
-        GameInstance.overrideStartSpawn = false;
-
         sceneIn = false;
         yield return new WaitForSeconds(1);
 
         SceneManager.LoadScene(sceneName);
     }
 
-    public void UpdateSpawnPoint(GameObject ObjectWithSpawnLocation)
-    {
-        GameInstance.overrideStartSpawn = true;
-        GameInstance.spawnLocationOverride = ObjectWithSpawnLocation.transform.position;
-        print("SetNewSpawnLocation");
-    }
-
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void DiscardSaves()
+    {
+        GameInstance.ClearSaves();
     }
 }
