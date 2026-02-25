@@ -16,6 +16,11 @@ public class TextPopUp : MonoBehaviour
         blackBackground.SetActive(false);
     }
 
+    public void TextFlashEvent(string message0)
+    {
+        StartCoroutine(FlashText(message0, 1, false));
+    }
+
     public IEnumerator FlashText(string message, float duration, bool background)
     {
         // if (background) blackBackground.SetActive(true);
