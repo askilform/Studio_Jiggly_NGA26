@@ -1235,6 +1235,7 @@ MonoBehaviour:
   holdInHandScriptRef: {fileID: 2757516449638309261}
   weaponBuilderRef: {fileID: 1123771480605965860}
   interactHoverText: {fileID: 4135516519400134508}
+  canPickupFuel: 0
 --- !u!82 &4324006578881435900
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2764,6 +2765,10 @@ PrefabInstance:
       propertyPath: weaponBuilderIdManager
       value: 
       objectReference: {fileID: 1123771480605965860}
+    - target: {fileID: 87819122286127608, guid: 2b5d3844e533427459228216a1f6481e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 687535425032474034, guid: 2b5d3844e533427459228216a1f6481e, type: 3}
       propertyPath: m_CastShadows
       value: 0
