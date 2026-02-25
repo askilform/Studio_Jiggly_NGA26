@@ -12,8 +12,11 @@ public class BreakableObject : MonoBehaviour
             StartCoroutine(DestroyAndSpawn());
         }
     }
-
-    IEnumerator DestroyAndSpawn()
+    public void penis()
+    {
+        StartCoroutine (DestroyAndSpawn());
+    }
+    public IEnumerator DestroyAndSpawn()
     {
         Debug.Log("[] Player hit breakable");
 
