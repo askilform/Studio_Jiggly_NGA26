@@ -21,4 +21,9 @@ public class Interactable : MonoBehaviour
 
     public string hoverMessage = "E";
 
+    public string heldInHandName = "Junk";
+    public string heldInHandTossMessage = "Drop";
+    public bool showUseMessage = false;
+    public string heldInHandUseMessage = "Use";
+
 }

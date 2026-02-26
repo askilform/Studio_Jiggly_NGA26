@@ -109,7 +109,28 @@ public class HoldInHand : MonoBehaviour
             }
             else
             {
-                heldText.text = " OBJECT:\r\n|-" + currentHeldObject.name + "\r\n    |\r\n    |- F: use\r\n    |- V: drop";
+                string holdName = "Undefined Object";
+                string holdToss = "Drop";
+                string holdUse = "Use";
+                bool showUseMessage = true;
+
+                if (currentHeldObject.TryGetComponent<Interactable>(out Interactable interactScript))
+                {
+                    holdName = interactScript.heldInHandName;
+                    holdToss = interactScript.heldInHandTossMessage;
+                    holdUse = interactScript.heldInHandUseMessage;
+                    showUseMessage = interactScript.showUseMessage;
+                }
+
+
+
+                heldText.text = " OBJECT:\r\n|-" + holdName + "\r\n    |\r\n    |- G: " + holdToss;
+
+                if (showUseMessage)
+                {
+                    heldText.text += "\r\n    |- F: " + holdUse;
+                }
+
             }
             
         }
