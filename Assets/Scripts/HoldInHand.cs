@@ -123,12 +123,15 @@ public class HoldInHand : MonoBehaviour
                 }
 
 
-
-                heldText.text = " OBJECT:\r\n|-" + holdName + "\r\n    |\r\n    |- G: " + holdToss;
+                //old
+                //heldText.text = " OBJECT:\r\n|-" + holdName + "\r\n    |\r\n    |- G: " + holdToss;
+                
+                //new
+                heldText.text = "[" + holdName + "]\r\n ---[G] " + holdToss;
 
                 if (showUseMessage)
                 {
-                    heldText.text += "\r\n    |- F: " + holdUse;
+                    heldText.text += "\r\n ---[F] " + holdUse;
                 }
 
             }
