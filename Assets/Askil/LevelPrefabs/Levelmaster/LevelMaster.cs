@@ -83,6 +83,11 @@ public class LevelMaster : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    public void turnOnWeaponShowcase()
+    {
+        GameInstance.gunShowcase = true;
+    }
+
     public void QuitGame()
     {
         Application.Quit();

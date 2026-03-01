@@ -13,6 +13,7 @@ public class EnemyZone : MonoBehaviour
     [SerializeField] private PlayerDetection playerdetectSc;
     private TextPopUp uiSc;
     private LevelMaster levelMaster;
+    private Vector3 enemyStartLocation;
     public bool enemyActive;
 
     private void Start()
@@ -21,6 +22,8 @@ public class EnemyZone : MonoBehaviour
         levelMaster = FindFirstObjectByType<LevelMaster>();
         playerdetectSc = FindFirstObjectByType<PlayerDetection>();
         enemyMovementSc = FindFirstObjectByType<enemyMovement>();
+        enemyStartLocation = Enemy.transform.position;
+        print (enemyStartLocation);
 
         Enemy.SetActive (false);
         enemyActive = false;
@@ -78,6 +81,7 @@ public class EnemyZone : MonoBehaviour
         yield return new WaitForSeconds(5);
         if (!levelMaster.playerInDangerArea)
         {
+            Enemy.transform.position = enemyStartLocation;
             Enemy.SetActive(false);
         }    
     }

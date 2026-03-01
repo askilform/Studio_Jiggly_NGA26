@@ -18,7 +18,7 @@ public class Weapon_Builder : MonoBehaviour
     private void Start()
     {
         // Recieve entire weapon if checked
-        if (instantlyBecomeInsane)
+        if (GameInstance.gunShowcase || instantlyBecomeInsane)
         {
             IdsPickedUp.Add(1);
             IdsPickedUp.Add(2);
