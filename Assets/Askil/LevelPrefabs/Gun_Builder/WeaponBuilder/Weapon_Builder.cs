@@ -1,6 +1,7 @@
+using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
-using NUnit.Framework;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -14,6 +15,7 @@ public class Weapon_Builder : MonoBehaviour
 
 
     public bool instantlyBecomeInsane = false;
+    public int GetGunIdOnStart;
 
     private void Start()
     {
@@ -27,6 +29,19 @@ public class Weapon_Builder : MonoBehaviour
             IdsPickedUp.Add(5);
             IdsPickedUp.Add(6);
         }
+
+
+        if (GetGunIdOnStart != 0)
+        {
+            print("Null startID");
+            foreach (char digit in GetGunIdOnStart.ToString())
+            {
+                int value = digit - '0';
+                IdsPickedUp.Add(value);
+                Debug.Log(value);
+            }
+        }
+
 
         else foreach (int i in GameInstance.savedWeaponIds) IdsPickedUp.Add((int)i);
     }

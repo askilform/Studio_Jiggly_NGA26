@@ -1,10 +1,11 @@
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class GunFireScript : MonoBehaviour
 {
-    
+    public GameObject PlayerCam;
     public GameObject bulletTraceObjectToSpawn;
     
     public AudioSource audioSource;
@@ -58,6 +59,8 @@ public class GunFireScript : MonoBehaviour
     [Header("Juice")]
     public GameObject UniversalHitParticle;
     public bool HitParticleAdapt;
+
+    public CameraAnims2 CameraSc;
 
 
 
@@ -183,7 +186,7 @@ public class GunFireScript : MonoBehaviour
 
         //Reduce Battery
         batteryLeft = Mathf.Max(batteryLeft - 1, 0);
-
+        CameraSc.OnShot();
 
         audioSource.pitch = Random.Range(0.9f, 1.1f);
 
@@ -222,17 +225,24 @@ public class GunFireScript : MonoBehaviour
                 print("No Hit");
             }
 
-            GameObject UniHitParticleGameObject = Instantiate(UniversalHitParticle, actualHitPos, Quaternion.identity);
-            ParticleSystem UniHitParticles = UniHitParticleGameObject.GetComponent<ParticleSystem>();
-            if (HitParticleAdapt) UniHitParticles.GetComponent<ParticleSystemRenderer>().material = actualHit.transform.GetComponent<MeshRenderer>().material;
-            UniHitParticles.Play();
-            // Spawn Particle
-        }
+            SpawnDefaultHitParticle(actualHitPos, actualHit);
 
+        }
 
         //Trace
         GameObject traceInstatiated = Instantiate(bulletTraceObjectToSpawn, actualHitPos, transform.rotation);
         //scale trace
         traceInstatiated.transform.localScale = new Vector3(1, 1, (traceInstatiated.transform.position - transform.position).magnitude);
+    }
+
+    void SpawnDefaultHitParticle(Vector3 HitPos, RaycastHit ActualHit)
+    {
+        GameObject UniHitParticleGameObject = Instantiate(UniversalHitParticle, HitPos, Quaternion.identity);
+        ParticleSystem UniHitParticles = UniHitParticleGameObject.GetComponent<ParticleSystem>();
+        if (HitParticleAdapt) UniHitParticles.GetComponent<ParticleSystemRenderer>().material = ActualHit.transform.GetComponent<MeshRenderer>().material;
+        Vector3 direction = PlayerCam.transform.position - UniHitParticleGameObject.transform.position;
+        UniHitParticleGameObject.transform.rotation = Quaternion.LookRotation(direction);
+
+        UniHitParticles.Play();
     }
 }

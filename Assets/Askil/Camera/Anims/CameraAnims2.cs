@@ -17,4 +17,9 @@ public class CameraAnims2 : MonoBehaviour
         cameraAnims.SetBool("IsGrounded", jumpSC.isGrounded);
         cameraAnims.SetBool("Moving", movementSC.controller.velocity.x != 0 || movementSC.controller.velocity.z != 0);
     }
+
+    public void OnShot()
+    {
+        cameraAnims.SetTrigger("OnShot");
+    }
 }
