@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GunFireScript : MonoBehaviour
@@ -54,7 +55,9 @@ public class GunFireScript : MonoBehaviour
     public TextMeshPro cdTextDev;
     public TextMeshPro batteryDev;
 
-
+    [Header("Juice")]
+    public GameObject UniversalHitParticle;
+    public bool HitParticleAdapt;
 
 
 
@@ -70,7 +73,6 @@ public class GunFireScript : MonoBehaviour
     public void RefillBatteries()
     {
         batteryLeft = batteryMax;
-
     }
 
 
@@ -92,7 +94,6 @@ public class GunFireScript : MonoBehaviour
             if ((ambattaBurst == false && holdingFire && batteryLeft > 0) || chargeNow < 0)
             {
                 chargeNow += Time.deltaTime;
-
             }
 
             else if (chargeNow > 0)
@@ -151,7 +152,6 @@ public class GunFireScript : MonoBehaviour
                 shotCooldownNow = ShotCooldown;
                 GunFireEffects();
                 GunFire();
-
             }
         }
         
@@ -221,6 +221,12 @@ public class GunFireScript : MonoBehaviour
             {
                 print("No Hit");
             }
+
+            GameObject UniHitParticleGameObject = Instantiate(UniversalHitParticle, actualHitPos, Quaternion.identity);
+            ParticleSystem UniHitParticles = UniHitParticleGameObject.GetComponent<ParticleSystem>();
+            if (HitParticleAdapt) UniHitParticles.GetComponent<ParticleSystemRenderer>().material = actualHit.transform.GetComponent<MeshRenderer>().material;
+            UniHitParticles.Play();
+            // Spawn Particle
         }
 
 
@@ -228,11 +234,5 @@ public class GunFireScript : MonoBehaviour
         GameObject traceInstatiated = Instantiate(bulletTraceObjectToSpawn, actualHitPos, transform.rotation);
         //scale trace
         traceInstatiated.transform.localScale = new Vector3(1, 1, (traceInstatiated.transform.position - transform.position).magnitude);
-
-
-        
-
-
     }
-
 }
