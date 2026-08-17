@@ -27,6 +27,7 @@ public class PlayerMovement2 : MonoBehaviour
     public CharacterController controller;
     public bool isCrouching;
     public bool movementAllowed;
+    public bool cameraMovementAllowed;
     public float currentSprintMultiplier = 1f;
     public LevelMaster levelMaster;
 
@@ -52,11 +53,12 @@ public class PlayerMovement2 : MonoBehaviour
         Cursor.visible = false;
 
         movementAllowed = true;
-    }
+        cameraMovementAllowed = true;
+}
 
     void Update()
     {
-        HandleMouseLook();
+        if (cameraMovementAllowed) HandleMouseLook();
         SpeedCheck();
         CrouchCheck();
 

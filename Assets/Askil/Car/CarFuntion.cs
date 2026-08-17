@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class CarFuntion : MonoBehaviour
 {
-    public Rigidbody rb;
+    Rigidbody rb;
+    public Vector3 playerPreRot;
     public CarExitCheck exitSc;
     public GameObject SeatPosition;
 
@@ -14,15 +15,19 @@ public class CarFuntion : MonoBehaviour
     private void OnEnable()
     {
         player.GetComponent<PlayerMovement2>().movementAllowed = false;
+        player.GetComponent<PlayerMovement2>().cameraMovementAllowed = false;
         player.GetComponent<CharacterController>().enabled = false;
         uiSc = GameObject.FindFirstObjectByType<TextPopUp>();
 
+        rb = gameObject.AddComponent<Rigidbody>();
         rb.freezeRotation = true;
+        
     }
 
     private void FixedUpdate()
     {
-        player.transform.position = SeatPosition.transform.position;
+        player.transform.position = Vector3.Lerp(player.transform.position, SeatPosition.transform.position, 0.2f);
+        player.transform.rotation = Quaternion.Lerp(player.transform.rotation, SeatPosition.transform.rotation, 0.05f);
     }
 
     private void Update()
@@ -36,9 +41,12 @@ public class CarFuntion : MonoBehaviour
     private void OnCarExit()
     {
         player.transform.position = exitSc.transform.position;
+        player.transform.rotation = Quaternion.identity;
 
         player.GetComponent<PlayerMovement2>().movementAllowed = true;
+        player.GetComponent<PlayerMovement2>().cameraMovementAllowed = true;
         player.GetComponent<CharacterController>().enabled = true;
+
         carMovementSc.enabled = false;
         enabled = false;
     }
