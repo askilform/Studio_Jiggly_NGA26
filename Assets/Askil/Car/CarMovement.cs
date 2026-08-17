@@ -13,8 +13,9 @@ public class CarMovement : MonoBehaviour
     public GameObject wheelDebug;
 
     [Header("Tweaks")]
-    public float Speed;
+    public float acceleration;
     public float turnSpeed;
+    public float MaxSpeed;
 
     private void Start()
     {
@@ -27,8 +28,10 @@ public class CarMovement : MonoBehaviour
         x = Input.GetAxis("Horizontal");
         z = Input.GetAxis("Vertical");
 
-        debugText.text = new Vector2(x, z).ToString();
-        rb.AddForce(transform.forward * z * Speed, ForceMode.Acceleration);
+        debugText.text = rb.linearVelocity.ToString();
+        rb.AddForce(transform.forward * z * acceleration, ForceMode.Acceleration);
+        rb.maxLinearVelocity = MaxSpeed;
+     
 
         if (x != 0)
         { 
@@ -38,7 +41,7 @@ public class CarMovement : MonoBehaviour
                 , wheelDebug.transform.localPosition.z);
 
             rb.MoveRotation(
-            rb.rotation * Quaternion.Euler(0, x * Time.deltaTime * turnSpeed, 0));
+            rb.rotation * Quaternion.Euler(0, x * Time.deltaTime * turnSpeed * z, 0));
         }
     }
 }
