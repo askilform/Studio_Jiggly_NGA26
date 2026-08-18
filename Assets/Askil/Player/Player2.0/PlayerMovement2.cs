@@ -59,6 +59,8 @@ public class PlayerMovement2 : MonoBehaviour
     void Update()
     {
         if (cameraMovementAllowed) HandleMouseLook();
+        else cam.localRotation = Quaternion.Euler(0, 0f, 0f);
+
         SpeedCheck();
         CrouchCheck();
 

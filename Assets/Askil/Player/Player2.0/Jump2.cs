@@ -19,8 +19,9 @@ public class Jump2 : MonoBehaviour
     private CharacterController controller;
     private Vector3 velocity;
 
-    private float groundedTimer;
+    [SerializeField] private float groundedTimer;
     private bool wasGroundedLastFrame;
+    private float framesSinceLastLanding;
 
     private void Start()
     {
@@ -34,6 +35,8 @@ public class Jump2 : MonoBehaviour
         GroundCheck();
         HandleJump();
         ApplyGravity();
+
+        framesSinceLastLanding += 1;
     }
 
     void GroundCheck()
@@ -92,7 +95,9 @@ public class Jump2 : MonoBehaviour
         if (CameraAnims != null)
             CameraAnims.SetTrigger("Landed");
 
-        if (SFX.Count > 1 && SFX[1] != null)
+        if (SFX.Count > 1 && SFX[1] != null && framesSinceLastLanding > 120)
             SFX[1].Play();
+
+        framesSinceLastLanding = 0;
     }
 }

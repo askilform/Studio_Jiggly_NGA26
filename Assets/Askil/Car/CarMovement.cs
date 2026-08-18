@@ -9,9 +9,6 @@ public class CarMovement : MonoBehaviour
     float x;
     float z;
 
-    public TextMesh debugText;
-    public GameObject wheelDebug;
-
     [Header("Tweaks")]
     public float acceleration;
     public float turnSpeed;
@@ -20,7 +17,6 @@ public class CarMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        SteerDebugStartLocation = wheelDebug.transform.localPosition.x;
     }
 
     private void FixedUpdate()
@@ -29,7 +25,6 @@ public class CarMovement : MonoBehaviour
         z = Input.GetAxis("Vertical");
 
          //Push car with vertical input
-        debugText.text = rb.linearVelocity.ToString();
         rb.AddForce(transform.forward * z * acceleration, ForceMode.Acceleration);
         rb.maxLinearVelocity = MaxSpeed;
      
@@ -38,11 +33,6 @@ public class CarMovement : MonoBehaviour
         // rotates based on how high forward or backwards velocity is
         if (x != 0)
         { 
-            wheelDebug.transform.localPosition = new Vector3 
-                (x, 
-                wheelDebug.transform.localPosition.y
-                , wheelDebug.transform.localPosition.z);
-
             rb.MoveRotation(
             rb.rotation * Quaternion.Euler(
                 0, 

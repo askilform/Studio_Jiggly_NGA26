@@ -14,6 +14,7 @@ public class CarFuntion : MonoBehaviour
 
     private void OnEnable()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<PlayerMovement2>().movementAllowed = false;
         player.GetComponent<PlayerMovement2>().cameraMovementAllowed = false;
         player.GetComponent<CharacterController>().enabled = false;
@@ -26,8 +27,11 @@ public class CarFuntion : MonoBehaviour
 
     private void FixedUpdate()
     {
-        player.transform.position = Vector3.Lerp(player.transform.position, SeatPosition.transform.position, 0.2f);
-        player.transform.rotation = Quaternion.Lerp(player.transform.rotation, SeatPosition.transform.rotation, 0.05f);
+        if (player != null)
+        {
+            player.transform.position = Vector3.Lerp(player.transform.position, SeatPosition.transform.position, 0.5f);
+            player.transform.rotation = Quaternion.Lerp(player.transform.rotation, SeatPosition.transform.rotation, 0.1f);
+        }
     }
 
     private void Update()
@@ -37,6 +41,8 @@ public class CarFuntion : MonoBehaviour
             if (!exitSc.isColliding) OnCarExit();
             else uiSc.StartCoroutine(uiSc.FlashText("Door Is Blocked!", 0.5f, false));
         }
+
+        if (Input.GetKeyDown(KeyCode.O)) uiSc.StartCoroutine(uiSc.FlashText(transform.up.ToString(), 0.5f, false));
     }
     private void OnCarExit()
     {

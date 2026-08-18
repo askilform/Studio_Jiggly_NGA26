@@ -1,6 +1,5 @@
 using TMPro;
 using Unity.VisualScripting;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class GunFireScript : MonoBehaviour

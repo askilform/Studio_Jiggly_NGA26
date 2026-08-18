@@ -70,7 +70,7 @@ public class LevelMaster : MonoBehaviour
             playerRunning = playerMovementSc.moveSpeed > (ogPlayerSpeed * playerMovementSc.sprintSpeed) - 0.5f;
         }
 
-        if (canvasGroup.alpha < 1.1 || canvasGroup.alpha < 0) canvasGroup.alpha += sceneIn ? -0.05f : 0.1f;
+        if (canvasGroup.alpha < 1.1 || canvasGroup.alpha < 0) canvasGroup.alpha += sceneIn ? -0.01f : 0.05f;
     }
 
     public void ChanceScene(string sceneName) { StartCoroutine(ChanceSceneCoroutine(sceneName)); }
