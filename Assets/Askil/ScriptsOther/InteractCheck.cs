@@ -7,6 +7,8 @@ public class InteractCheck : MonoBehaviour
 {
     public GameObject UI;
     public AudioSource interactSfx;
+    public GameObject playerCam;
+    public LayerMask layerMask;
 
     private bool InInteraction;
     [HideInInspector] public Interactable CurrentInteractable;
@@ -16,7 +18,6 @@ public class InteractCheck : MonoBehaviour
     [HideInInspector] public WeaponPart heldWeaponPartRef;
     public HoldInHand holdInHandScriptRef;
     public Weapon_Builder weaponBuilderRef;
-
     public TextMeshProUGUI interactHoverText;
 
     public bool canPickupFuel = false;
@@ -30,13 +31,18 @@ public class InteractCheck : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Interactable>() != null)
         {
-            UI.SetActive(true);
-            CurrentInteractable = other.GetComponent<Interactable>();
+            RaycastHit hit;
+            if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out hit, 6, layerMask))
+            {
+                UI.SetActive(true);
+                CurrentInteractable = other.GetComponent<Interactable>();
 
-            interactHoverText.text = CurrentInteractable.hoverMessage;
+                interactHoverText.text = CurrentInteractable.hoverMessage;
+            }
 
         }
     }
+  
 
     private void OnTriggerExit(Collider other)
     {
@@ -46,6 +52,7 @@ public class InteractCheck : MonoBehaviour
             CurrentInteractable = null;
         }
     }
+      
 
     private void Update()
     {
@@ -90,9 +97,40 @@ public class InteractCheck : MonoBehaviour
                 }
 
             }
-            // --------------------------------------------------------------------------------------------------------------------- !!!!!!!!!!!!
-            
+
+
         }
+
+        /*                  ----- WORK IN PROGESS (RAYCAST TO INTERACTCHECK) ------
+        RaycastHit hit;
+        // --------------------------------------------------------------------------------------------------------------------- !!!!!!!!!!!!
+        if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out hit, 4, layerMask))
+        {
+            if (hit.transform.GetComponentInChildren<Interactable>() != null)
+            {
+                UI.SetActive(true);
+                CurrentInteractable = hit.transform.GetComponentInChildren<Interactable>();
+
+                interactHoverText.text = CurrentInteractable.hoverMessage;
+            }
+
+            else
+            {
+                if (hit.transform.GetComponentInChildren<Interactable>() != null)
+                {
+                    UI.SetActive(false);
+                    CurrentInteractable = null;
+                }
+            }
+        }
+
+        else
+        {
+            UI.SetActive(false);
+            CurrentInteractable = null;
+        }
+
+        */
     }
 
     private IEnumerator Interact()
