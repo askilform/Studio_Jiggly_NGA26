@@ -61,6 +61,10 @@ public class GunFireScript : MonoBehaviour
 
     public CameraAnims2 CameraSc;
 
+    public TrailRenderer smokeTrail;
+
+    [Header("for move arm")]
+    public gunscript ParentGunScript;
 
 
 
@@ -87,6 +91,7 @@ public class GunFireScript : MonoBehaviour
         lightFadeNow = Mathf.Min(lightFadeNow + Time.deltaTime / Mathf.Max(0.01f, lightFadeDuration), 1f);
 
         shotCooldownNow -= Time.deltaTime;
+
 
 
 
@@ -157,6 +162,18 @@ public class GunFireScript : MonoBehaviour
             }
         }
         
+
+
+        if (ParentGunScript != null)
+        {
+            ParentGunScript.aiming = holdingFire;
+        }
+
+        if (smokeTrail != null)
+        {
+            smokeTrail.emitting = chargeNow < 0;
+        }
+
 
 
         //Pick out a color from a gradient
