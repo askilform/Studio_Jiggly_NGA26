@@ -1710,11 +1710,32 @@ MonoBehaviour:
   investigating: 0
   mainTarget: {fileID: 0}
   Speed: 2
+  hitSlowRegainRate: 4
   SprintSpeedMultiplier: 3.5
   roamPointSc: {fileID: 5188486803422986115}
   walkSFX: {fileID: 4815627358504764848}
   timeBeforeInvestigateStop: 15
   jumpscarePrefab: {fileID: 7579572513748672127, guid: f38094cf340a0eb44a870af938345b7e, type: 3}
+  crippleSpeedMultiplier: 1
+  crippleRecoveryTime: 3
+  crippleBuildupCounter: 0
+  crippleBuildupNeeded: 10
+  crippleBuildupAmbientFade: 0.2
+  OnCrippled:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9102450674918524251}
+        m_TargetAssemblyTypeName: HealthEnemy, Assembly-CSharp
+        m_MethodName: SplatOnlyDontDie
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2255759946734308665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1760,7 +1781,8 @@ MonoBehaviour:
   - {fileID: 2828077085324264193}
   OgMats: []
   rb: {fileID: 0}
-  DeathPrefab: {fileID: 114122522550917755, guid: a9c68bc3a2b4be242a49549cc7511967, type: 3}
+  DeathPrefab: {fileID: 114122522550917755, guid: b6f8049adceed3341a8d1a4ffd1d48d9, type: 3}
+  CripplePrefab: {fileID: 114122522550917755, guid: a9c68bc3a2b4be242a49549cc7511967, type: 3}
   hitParticles: {fileID: 355343321405883421, guid: 7af28967be565614da9ddb0caaa5ef47, type: 3}
   onDeath:
     m_PersistentCalls:

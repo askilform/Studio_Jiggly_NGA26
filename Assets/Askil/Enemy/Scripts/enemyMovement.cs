@@ -1,8 +1,10 @@
 using System;
 using Unity.Hierarchy;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class enemyMovement : MonoBehaviour
 {
@@ -10,7 +12,6 @@ public class enemyMovement : MonoBehaviour
     private Vector3 investigateLocation;
     private LevelMaster levelMaster;
     private EnemyZone enemyZone;
-    private float speedMultiplier = 1;
     [SerializeField] private float investigedFor;
 
     [NonSerialized] public NavMeshAgent agent;
@@ -18,11 +19,24 @@ public class enemyMovement : MonoBehaviour
     public bool investigating;
     public GameObject mainTarget;
     public float Speed = 1;
+
+    private float hitSpeedMultiplier = 1; // a fast regaining slow on every hit. Like a little stutter almost.
+    public float hitSlowRegainRate = 3f;
+ 
+
     public float SprintSpeedMultiplier;
     public RoamingPoints roamPointSc;
     public AudioSource walkSFX;
     public float timeBeforeInvestigateStop;
     public GameObject jumpscarePrefab;
+
+    //a big slow when damaging him a lot.
+    private float crippleSpeedMultiplier = 1f; //should always be between 0 and 1
+    public float crippleRecoveryTime = 3f; //How many seconds for it to reach 1 again
+    private float crippleBuildupCounter = 0; //when the cripple buildup reaches the needed value, his speed is multiplied by 0. The 0 slowly goes back to 1.
+    public float crippleBuildupNeeded = 10f;
+    public float crippleBuildupAmbientFade = 0.2f; //fade the buildup of cripple away if youre slow
+    public UnityEvent OnCrippled;
 
     private void OnEnable()
     {
@@ -63,6 +77,7 @@ public class enemyMovement : MonoBehaviour
 
         investigedFor += investigating ? Time.deltaTime : 0;
 
+        CalculatePause(); //handles cripple things
 
         // if !Playercrouch -- Rotate towards player
         /*
@@ -91,14 +106,14 @@ public class enemyMovement : MonoBehaviour
         print("[] Enemy Following player!");
         mainTarget = player;
         agent.isStopped = false;
-        agent.speed = baseSpeedReference * SprintSpeedMultiplier * speedMultiplier;
+        agent.speed = baseSpeedReference * SprintSpeedMultiplier * hitSpeedMultiplier * crippleSpeedMultiplier;
     }
 
     public void Roam()
     {
         print("[] Enemy Roaming!");
         mainTarget = roamPointSc.activeRoamingPoint;
-        agent.speed = baseSpeedReference;
+        agent.speed = baseSpeedReference * hitSpeedMultiplier * crippleSpeedMultiplier;
         agent.isStopped = false;
     }
 
@@ -108,11 +123,44 @@ public class enemyMovement : MonoBehaviour
         
         investigateLocation = locationToInvestigate;
         investigating = true;
-        agent.speed = Mathf.Lerp(baseSpeedReference, baseSpeedReference * SprintSpeedMultiplier, 0.5f);
+        agent.speed = Mathf.Lerp(baseSpeedReference, baseSpeedReference * hitSpeedMultiplier * SprintSpeedMultiplier * crippleSpeedMultiplier, 0.5f);
     }
 
     public void ReduceSpeedMultiplier(float reduceBy)
     {
-        speedMultiplier -= reduceBy;
+        hitSpeedMultiplier = reduceBy;
+        
     }
+
+
+    public void GetHitBuildTowardsPause(float damageIn)
+    {
+        //Connect damage in to this, and after a while he takes a pause.
+        crippleBuildupCounter += damageIn;
+
+        if (crippleBuildupCounter >= crippleBuildupNeeded)
+        {
+            crippleBuildupCounter = 0; //reset counter
+            crippleSpeedMultiplier = 0; //slow to zero
+
+            OnCrippled.Invoke();
+
+        }
+
+
+    }
+
+    private void CalculatePause()
+    {
+
+        hitSpeedMultiplier = Mathf.MoveTowards(hitSpeedMultiplier, 1f, Time.deltaTime * hitSlowRegainRate); // a fast regaining slow on every hit.
+
+        crippleBuildupCounter = Mathf.MoveTowards(crippleBuildupCounter, 0f, Time.deltaTime * crippleBuildupAmbientFade);
+        //slowly lose cripple buildup
+
+        crippleSpeedMultiplier = Mathf.MoveTowards(crippleSpeedMultiplier, 1f, Time.deltaTime * (1f / Mathf.Max(0.01f, crippleRecoveryTime))); 
+        //increase over time (if 3s is the target, 1/3 = 0.3333 per second) (can't divide by zero, that's why the max picks 0.01 if lower) 
+
+    }
+
 }

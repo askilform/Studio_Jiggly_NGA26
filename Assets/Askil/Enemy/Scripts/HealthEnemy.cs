@@ -19,6 +19,7 @@ public class HealthEnemy : MonoBehaviour
 
     public Rigidbody rb;
     public GameObject DeathPrefab;
+    public GameObject CripplePrefab;
     public GameObject hitParticles;
 
     public UnityEvent onDeath;
@@ -65,6 +66,11 @@ public class HealthEnemy : MonoBehaviour
         Instantiate(DeathPrefab, transform.position, Quaternion.identity);
         Destroy(transform.parent.gameObject);
         
+    }
+
+    public void SplatOnlyDontDie()
+    {
+        Instantiate(CripplePrefab, transform.position, Quaternion.identity);
     }
 
     private IEnumerator MatFlash()
