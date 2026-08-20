@@ -61,7 +61,7 @@ public class GunFireScript : MonoBehaviour
 
     public CameraAnims2 CameraSc;
 
-    public TrailRenderer smokeTrail;
+    public TrailRenderer[] smokeTrails;
 
     [Header("for move arm")]
     public gunscript ParentGunScript;
@@ -103,6 +103,7 @@ public class GunFireScript : MonoBehaviour
                 chargeNow += Time.deltaTime;
             }
 
+            //anti charge
             else if (chargeNow > 0)
             {
                 chargeNow -= Time.deltaTime;
@@ -115,6 +116,7 @@ public class GunFireScript : MonoBehaviour
                 chargeNow = burstDuration;
             }
 
+            //Bursting and run out of charge
             if (ambattaBurst && chargeNow < 0)
             {
                 if (cooldownSound != null)
@@ -122,9 +124,11 @@ public class GunFireScript : MonoBehaviour
                     audioSource.PlayOneShot(cooldownSound);
                 }
 
+                //Kicking into negative charge, for a cooldown
                 ambattaBurst = false;
                 chargeNow = -postBurstClarity;
             }
+
 
             if (burstingTextDev != null && cdTextDev != null)
             {
@@ -138,11 +142,14 @@ public class GunFireScript : MonoBehaviour
             //Sounds
             float basePitch = 0.5f;
 
+            //if not bursting, rev sound
             if (!ambattaBurst && chargeNow > 0 && holdingFire)
             {
                 chargeSoundSource.volume = 1f;
                 chargeSoundSource.pitch = basePitch + chargeNow;
             }
+
+            //turn off sound.
             else
             {
                 chargeSoundSource.volume -= Time.deltaTime * 5f;
@@ -152,6 +159,7 @@ public class GunFireScript : MonoBehaviour
 
         }
 
+        //SHOOTING HAPPENS HERE
         if ((holdingFire && !burstShot && batteryLeft > 0) || (burstShot && ambattaBurst))
         {
             if (shotCooldownNow <= 0f)
@@ -163,15 +171,24 @@ public class GunFireScript : MonoBehaviour
         }
         
 
-
+        //for sending model into cool aim mode
         if (ParentGunScript != null)
         {
             ParentGunScript.aiming = holdingFire;
         }
 
-        if (smokeTrail != null)
+
+        //Smoke trail
+        bool shouldSmoke = chargeNow < -0.05; //this did not work when 0, this is so fucking stupid fix.
+        print("should smoke " + shouldSmoke.ToSafeString());
+
+        if (smokeTrails != null)
         {
-            smokeTrail.emitting = chargeNow < 0;
+            foreach(TrailRenderer smokeTrail in smokeTrails)
+            { 
+                smokeTrail.emitting = shouldSmoke;
+            }
+            
         }
 
 
