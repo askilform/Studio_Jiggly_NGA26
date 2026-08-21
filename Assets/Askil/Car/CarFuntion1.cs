@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CarFuntion : MonoBehaviour
+public class CarFuntion1 : MonoBehaviour
 {
     Rigidbody rb;
     public Vector3 playerPreRot;
@@ -9,7 +9,7 @@ public class CarFuntion : MonoBehaviour
     public GameObject SeatPosition;
 
     public GameObject player;
-    public CarMovement carMovementSc;
+    public WheelColliderMovement carMovementSc;
     private TextPopUp uiSc;
 
     private void OnEnable()
