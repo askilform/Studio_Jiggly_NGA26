@@ -26,4 +26,7 @@ public class Interactable : MonoBehaviour
     public bool showUseMessage = false;
     public string heldInHandUseMessage = "Use";
 
+    public bool throwFromCenterOfScreen = false;
+    public float throwForce = 3.0f;
+
 }

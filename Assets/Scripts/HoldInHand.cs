@@ -13,6 +13,9 @@ public class HoldInHand : MonoBehaviour
 
     public TextMeshProUGUI heldText;
 
+    public Transform throwFromHere;
+
+
     void Start()
     {
         
@@ -159,7 +162,29 @@ public class HoldInHand : MonoBehaviour
 
                 rb.excludeLayers = memoryLayerExclusion;
 
-                rb.linearVelocity = transform.forward * 3f;
+                //default throw force
+                float throwForceOut = 3.0f;
+
+                if (throwFromHere != null)
+                {
+                    if (currentHeldObject.TryGetComponent<Interactable>(out Interactable interactibleScript))
+                    {
+                        if (interactibleScript.throwFromCenterOfScreen)
+                        {
+                            //center on screen if thing says so
+                            
+                            rb.gameObject.transform.position = throwFromHere.position;
+                            
+                        }
+                        //Override throw force in object
+                        throwForceOut = interactibleScript.throwForce;
+                    }
+                    
+                }
+                //Toss the salad
+                rb.linearVelocity = transform.forward * throwForceOut;
+
+
             }
 
             currentHeldObject = null;
