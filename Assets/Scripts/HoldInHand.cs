@@ -15,6 +15,7 @@ public class HoldInHand : MonoBehaviour
 
     public Transform throwFromHere;
 
+    public Animator RightHandAnims;
 
     void Start()
     {
@@ -44,6 +45,7 @@ public class HoldInHand : MonoBehaviour
                 }
 
                 currentHeldObject = interactCheck.CurrentInteractable.gameObject;
+                RightHandAnims.SetTrigger("Pickup");
 
                 if (currentHeldObject.TryGetComponent<Rigidbody>(out Rigidbody rb))
                 {
