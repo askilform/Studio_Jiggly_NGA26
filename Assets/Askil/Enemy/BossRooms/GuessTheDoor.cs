@@ -1,11 +1,23 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GuessTheDoor : MonoBehaviour
 {
-    public GameObject[] sides;
+    public List<GameObject> sides = new List<GameObject>();
 
     private void OnEnable()
     {
-        sides[Random.Range(0,sides.Length)].SetActive(true);
+        StartCoroutine(RandomDoorBreak());
+    }
+
+    public void randomDoorBreak()
+    {
+        StartCoroutine(RandomDoorBreak());
+    }
+    IEnumerator RandomDoorBreak()
+    {
+        yield return new WaitForSeconds(3);
+        sides[Random.Range(0, sides.Count)].SetActive(true);
     }
 }

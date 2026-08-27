@@ -19,6 +19,7 @@ public class HealthEnemy : MonoBehaviour
     public GameObject CripplePrefab;
     public GameObject hitParticles;
 
+    public bool StandardDeath = true;
     public UnityEvent onDeath;
 
     private Vector3 ogScale;
@@ -48,14 +49,17 @@ public class HealthEnemy : MonoBehaviour
 
     public IEnumerator Death()
     {
-        onDeath.Invoke();
-        print("Dead");
-        movementSc.agent.enabled = false;
+        if (StandardDeath)
+        {
+            onDeath.Invoke();
+            print("Dead");
+            movementSc.agent.enabled = false;
 
-        yield return null;
-        Instantiate(DeathPrefab, transform.position, Quaternion.identity);
-        Destroy(transform.parent.gameObject);
-        
+            yield return null;
+            GameObject newDeathPrefab = Instantiate(DeathPrefab, transform.position, Quaternion.identity);
+            newDeathPrefab.GetComponent<OnDeath>().DeathWithEnding();
+            Destroy(transform.parent.gameObject);
+        }
     }
 
     public void SplatOnlyDontDie()
