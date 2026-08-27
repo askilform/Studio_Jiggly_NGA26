@@ -21,6 +21,7 @@ public class HealthEnemy : MonoBehaviour
 
     public bool StandardDeath = true;
     public UnityEvent onDeath;
+    bool dead;
 
     private Vector3 ogScale;
 
@@ -40,6 +41,7 @@ public class HealthEnemy : MonoBehaviour
         Health -= Damage;
 
         if (Health <= 0) StartCoroutine(Death());
+
         else
         {
             StartCoroutine(DamageVisuals(hitLocation));
@@ -49,15 +51,16 @@ public class HealthEnemy : MonoBehaviour
 
     public IEnumerator Death()
     {
-        if (StandardDeath)
+        if (StandardDeath =! dead)
         {
-            onDeath.Invoke();
-            print("Dead");
+            dead = true;
+            print("DEAD BOI");
             movementSc.agent.enabled = false;
 
             yield return null;
             GameObject newDeathPrefab = Instantiate(DeathPrefab, transform.position, Quaternion.identity);
             newDeathPrefab.GetComponent<OnDeath>().DeathWithEnding();
+            onDeath.Invoke();
             Destroy(transform.parent.gameObject);
         }
     }
