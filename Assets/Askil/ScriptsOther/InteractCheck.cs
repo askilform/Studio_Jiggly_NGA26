@@ -140,6 +140,7 @@ public class InteractCheck : MonoBehaviour
         PlayInteractSFX();
         CurrentInteractable.onEnable.Invoke();
 
+
         {
             if (CurrentInteractable.ToDisable != null) foreach (GameObject obj in CurrentInteractable.ToDisable)
             {

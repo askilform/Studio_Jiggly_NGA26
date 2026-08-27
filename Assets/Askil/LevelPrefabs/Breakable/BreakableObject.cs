@@ -19,8 +19,6 @@ public class BreakableObject : MonoBehaviour
     }
     public IEnumerator DestroyAndSpawn()
     {
-        Debug.Log("[] Player hit breakable");
-
         Transform source = transform.root;
 
         GameObject broken = Instantiate(
