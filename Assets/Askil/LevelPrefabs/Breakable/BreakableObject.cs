@@ -4,6 +4,7 @@ using UnityEngine;
 public class BreakableObject : MonoBehaviour
 {
     public GameObject BrokenPrefab;
+    public GameObject PrefabRoot;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -24,10 +25,10 @@ public class BreakableObject : MonoBehaviour
 
         GameObject broken = Instantiate(
             BrokenPrefab,
-            source.position,
-            source.rotation
+            PrefabRoot.transform.position,
+            PrefabRoot.transform.rotation
         );
-        broken.transform.localScale = source.lossyScale;
+        broken.transform.localScale = PrefabRoot.transform.lossyScale;
 
         broken.transform.SetParent(null);
 

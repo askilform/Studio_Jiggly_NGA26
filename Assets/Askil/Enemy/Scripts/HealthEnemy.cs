@@ -14,10 +14,7 @@ public class HealthEnemy : MonoBehaviour
     public Material HitMat;
     Material originalMaterial;
     MeshRenderer enemyMesh;
-    [SerializeField] SkinnedMeshRenderer[] renderers;
-    [SerializeField] List<Material> OgMats = new List<Material>();
 
-    public Rigidbody rb;
     public GameObject DeathPrefab;
     public GameObject CripplePrefab;
     public GameObject hitParticles;
@@ -29,8 +26,6 @@ public class HealthEnemy : MonoBehaviour
     private void Start()
     {
         print("EnemyStart");
-        rb = GetComponent<Rigidbody>();
-        rb.isKinematic = true;
         ogScale = transform.localScale;
     }
 
@@ -57,11 +52,6 @@ public class HealthEnemy : MonoBehaviour
         print("Dead");
         movementSc.agent.enabled = false;
 
-        /* Vector3 LauncDirection = movementSc.agent.transform.position - movementSc.player.transform.position;
-        rb.isKinematic = false;
-        rb.AddForce(LauncDirection.x, 5, LauncDirection.z, ForceMode.Impulse);
-        */
-
         yield return null;
         Instantiate(DeathPrefab, transform.position, Quaternion.identity);
         Destroy(transform.parent.gameObject);
@@ -71,43 +61,6 @@ public class HealthEnemy : MonoBehaviour
     public void SplatOnlyDontDie()
     {
         Instantiate(CripplePrefab, transform.position, Quaternion.identity);
-    }
-
-    private IEnumerator MatFlash()
-    {
-        OgMats.Clear();
-
-        // Store original materials
-        foreach (var renderer in renderers)
-        {
-            OgMats.AddRange(renderer.materials);
-
-            Material[] hitMats = new Material[renderer.materials.Length];
-            for (int i = 0; i < hitMats.Length; i++)
-            {
-                hitMats[i] = HitMat;
-            }
-
-            renderer.materials = hitMats;
-        }
-
-        yield return new WaitForSeconds(0.1f);
-
-        // Restore materials
-        int matIndex = 0;
-
-        foreach (var renderer in renderers)
-        {
-            int matCount = renderer.materials.Length;
-            Material[] originalMats = new Material[matCount];
-
-            for (int i = 0; i < matCount; i++)
-            {
-                originalMats[i] = OgMats[matIndex++];
-            }
-
-            renderer.materials = originalMats;
-        }
     }
 
     private IEnumerator DamageVisuals(Vector3 hitLocation)
