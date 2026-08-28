@@ -5,31 +5,46 @@ using UnityEngine;
 
 public class GuessTheDoor : MonoBehaviour
 {
+    float timeBetweenDoorChange = 1;
+    int DoorToChoose;
+
     [Header("Assign")]
-    public List<GameObject> sidesEnemy = new List<GameObject>();
+    public List<DoorToGuess> sides = new List<DoorToGuess>();
     public Animator animator;
 
     [Header("Tewaks")]
     public float timeBeforeWallBreak;
 
-    public void randomDoorBreak()
+    public void StartGameRound()
     {
-        StartCoroutine(RandomDoorBreak());
+        if (timeBetweenDoorChange > 0) StartCoroutine(DoorChanger());
+        else StartCoroutine(DoorBreak());
     }
-    IEnumerator RandomDoorBreak()
+
+    IEnumerator DoorChanger()
     {
-        if (sidesEnemy.Count != 0)
+        yield return new WaitForSeconds(timeBetweenDoorChange);
+        foreach (DoorToGuess side in sides) side.BecomeInactive();
+        yield return null;
+        DoorToChoose = Random.Range(0, sides.Count);
+        sides[DoorToChoose].BecomeActiveDoor();
+     
+        timeBetweenDoorChange -= 0.1f;
+
+        StartGameRound(); //Restart Loop
+    }
+
+
+    IEnumerator DoorBreak()
+    {
+        if (sides.Count != 0)
         {
             yield return new WaitForSeconds(timeBeforeWallBreak);
-            sidesEnemy[Random.Range(0, sidesEnemy.Count)].SetActive(true);
+            sides[DoorToChoose].ActivateEnemy();
         }
 
         else animator.SetTrigger("OpenDore");
-    }
 
-    public void RemoveGameObjectFromList(GameObject objectToRemove)
-    {
-        sidesEnemy.Remove(objectToRemove);
+        timeBetweenDoorChange = 1;
     }
-     
 }
