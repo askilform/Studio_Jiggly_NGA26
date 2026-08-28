@@ -5,8 +5,12 @@ using UnityEngine;
 
 public class GuessTheDoor : MonoBehaviour
 {
+    [Header("Assign")]
     public List<GameObject> sidesEnemy = new List<GameObject>();
     public Animator animator;
+
+    [Header("Tewaks")]
+    public float timeBeforeWallBreak;
 
     public void randomDoorBreak()
     {
@@ -16,7 +20,7 @@ public class GuessTheDoor : MonoBehaviour
     {
         if (sidesEnemy.Count != 0)
         {
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(timeBeforeWallBreak);
             sidesEnemy[Random.Range(0, sidesEnemy.Count)].SetActive(true);
         }
 

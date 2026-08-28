@@ -15,7 +15,7 @@ public class enemyMovement : MonoBehaviour
     [SerializeField] private float investigedFor;
 
     [NonSerialized] public NavMeshAgent agent;
-    [NonSerialized] public GameObject player;
+    public GameObject player;
     public bool investigating;
     public GameObject mainTarget;
     public float Speed = 1;
