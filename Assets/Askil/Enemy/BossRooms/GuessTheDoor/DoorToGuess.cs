@@ -13,6 +13,8 @@ public class DoorToGuess : MonoBehaviour
     {
         enemyConnected.SetActive(true);
         MasterScript.sides.Remove(this);
+
+        BecomeInactive();
     }
 
     public void BecomeActiveDoor()

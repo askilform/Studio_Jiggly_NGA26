@@ -17,8 +17,13 @@ public class GuessTheDoor : MonoBehaviour
 
     public void StartGameRound()
     {
-        if (timeBetweenDoorChange > 0) StartCoroutine(DoorChanger());
-        else StartCoroutine(DoorBreak());
+        if (sides.Count > 1)
+        {
+            if (timeBetweenDoorChange > 0) StartCoroutine(DoorChanger());
+            else StartCoroutine(DoorBreak());
+        }
+
+        else animator.SetTrigger("OpenDore");
     }
 
     IEnumerator DoorChanger()
