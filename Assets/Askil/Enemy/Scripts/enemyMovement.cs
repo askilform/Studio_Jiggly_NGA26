@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.Hierarchy;
 using Unity.Mathematics;
 using Unity.VisualScripting;
@@ -29,6 +30,7 @@ public class enemyMovement : MonoBehaviour
     public AudioSource walkSFX;
     public float timeBeforeInvestigateStop;
     public GameObject jumpscarePrefab;
+    public bool killOnOverlap;
 
     //a big slow when damaging him a lot.
     private float crippleSpeedMultiplier = 1f; //should always be between 0 and 1
@@ -91,9 +93,24 @@ public class enemyMovement : MonoBehaviour
         */
     }
 
-    private void OnTriggerEnter(Collider other)
+    private IEnumerator OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "Player") Instantiate (jumpscarePrefab, other.transform);
+        bool hasOverlapped = false;
+
+        if (other.transform.tag == "Player" != hasOverlapped)
+        {
+            hasOverlapped = true;
+
+            if (killOnOverlap) Instantiate(jumpscarePrefab, other.transform);
+
+            else
+            {
+                GameObject.FindFirstObjectByType<CameraAnims2>().KnockBack();
+
+                yield return new WaitForSeconds(1);
+                Destroy(transform.parent.gameObject);
+            }
+        }
     }
 
     public void StopMovement()
