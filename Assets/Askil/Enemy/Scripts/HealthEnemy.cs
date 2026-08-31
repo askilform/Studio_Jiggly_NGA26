@@ -1,29 +1,31 @@
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 
 public class HealthEnemy : MonoBehaviour
 {
+    private bool dead;
+
+    private Vector3 ogScale;
+
+
+
+
     public int Health;
     public enemyMovement movementSc;
 
-    // Materials
-    public Material HitMat;
-    Material originalMaterial;
-    MeshRenderer enemyMesh;
-
-    public GameObject DeathPrefab;
+    public GameObject PostDeathPrefab;
     public GameObject CripplePrefab;
     public GameObject hitParticles;
-
-    public bool StandardDeath = true;
     public UnityEvent onDeath;
-    bool dead;
 
-    private Vector3 ogScale;
+    public float destroyDelayDeath;
+
+
 
     private void Start()
     {
@@ -51,15 +53,22 @@ public class HealthEnemy : MonoBehaviour
 
     public IEnumerator Death()
     {
-        if (StandardDeath =! dead)
+        if (!dead)
         {
             dead = true;
             print("DEAD BOI");
-            movementSc.agent.enabled = false;
 
             yield return null;
-            GameObject newDeathPrefab = Instantiate(DeathPrefab, transform.position, Quaternion.identity);
-            newDeathPrefab.GetComponent<OnDeath>().DeathWithEnding();
+
+            if (PostDeathPrefab != null)
+            {
+                GameObject newDeathPrefab = Instantiate(PostDeathPrefab, transform.position, Quaternion.identity);
+            }
+
+
+            movementSc.agent.enabled = false;
+            yield return new WaitForSeconds(destroyDelayDeath);
+
             onDeath.Invoke();
             Destroy(transform.parent.gameObject);
         }
@@ -72,7 +81,7 @@ public class HealthEnemy : MonoBehaviour
 
     private IEnumerator DamageVisuals(Vector3 hitLocation)
     {
-        // transform.localScale = transform.localScale * 1.05f;
+        transform.localScale = transform.localScale * 1.05f;
 
         Instantiate (hitParticles, hitLocation, Quaternion.identity);
         yield return new WaitForSeconds(0.05f);

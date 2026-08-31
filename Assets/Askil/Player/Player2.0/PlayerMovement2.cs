@@ -26,8 +26,8 @@ public class PlayerMovement2 : MonoBehaviour
     [Header("Dont Assign!")]
     public CharacterController controller;
     public bool isCrouching;
-    public bool movementAllowed;
-    public bool cameraMovementAllowed;
+    public bool movementAllowed = true;
+    public bool cameraMovementAllowed = true;
     public float currentSprintMultiplier = 1f;
     public LevelMaster levelMaster;
 
