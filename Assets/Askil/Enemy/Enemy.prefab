@@ -551,7 +551,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 8448049110464741619}
   m_FillRect: {fileID: 619660732340247530}
   m_HandleRect: {fileID: 6146381536161201545}
@@ -1717,6 +1717,7 @@ MonoBehaviour:
   walkSFX: {fileID: 4815627358504764848}
   timeBeforeInvestigateStop: 15
   jumpscarePrefab: {fileID: 7579572513748672127, guid: f38094cf340a0eb44a870af938345b7e, type: 3}
+  killOnOverlap: 0
   crippleRecoveryTime: 3
   crippleBuildupNeeded: 10
   crippleBuildupAmbientFade: 0.2
@@ -1773,13 +1774,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 0
   movementSc: {fileID: 9069309090038342852}
-  HitMat: {fileID: 2100000, guid: a362a9fa61ad67e42a93e43e630f9a8c, type: 2}
   PostDeathPrefab: {fileID: 114122522550917755, guid: b6f8049adceed3341a8d1a4ffd1d48d9, type: 3}
   CripplePrefab: {fileID: 114122522550917755, guid: a9c68bc3a2b4be242a49549cc7511967, type: 3}
   hitParticles: {fileID: 355343321405883421, guid: 7af28967be565614da9ddb0caaa5ef47, type: 3}
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+  destroyDelayDeath: 0
 --- !u!54 &2850692011034610962
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2133,7 +2134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6146381536161201545
 RectTransform:
   m_ObjectHideFlags: 0

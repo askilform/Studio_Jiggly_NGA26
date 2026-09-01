@@ -39,6 +39,7 @@ public class enemyMovement : MonoBehaviour
     public float crippleBuildupNeeded = 10f;
     public float crippleBuildupAmbientFade = 0.2f; //fade the buildup of cripple away if youre slow
     public UnityEvent OnCrippled;
+    public UnityEvent onPlayerOverlap;
 
     private void OnEnable()
     {
@@ -110,6 +111,8 @@ public class enemyMovement : MonoBehaviour
                 yield return new WaitForSeconds(1);
                 Destroy(transform.parent.gameObject);
             }
+
+            onPlayerOverlap.Invoke();
         }
     }
 
@@ -178,6 +181,12 @@ public class enemyMovement : MonoBehaviour
         crippleSpeedMultiplier = Mathf.MoveTowards(crippleSpeedMultiplier, 1f, Time.deltaTime * (1f / Mathf.Max(0.01f, crippleRecoveryTime))); 
         //increase over time (if 3s is the target, 1/3 = 0.3333 per second) (can't divide by zero, that's why the max picks 0.01 if lower) 
 
+    }
+
+    public void ScriptedAttack(float NewBaseSpeed)
+    {
+        Speed = NewBaseSpeed;
+        killOnOverlap = false;
     }
 
 }
