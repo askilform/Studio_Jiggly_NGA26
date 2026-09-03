@@ -416,7 +416,6 @@ GameObject:
   - component: {fileID: 5936768935277450755}
   - component: {fileID: 1634119308411728011}
   - component: {fileID: 7755356356409509890}
-  - component: {fileID: 5622954838990037228}
   m_Layer: 8
   m_Name: Body
   m_TagString: Player
@@ -488,7 +487,7 @@ MonoBehaviour:
   mouseSensitivity: 2
   cam: {fileID: 3200426720164360264}
   JumpScript: {fileID: 7755356356409509890}
-  WalkRunAudio: {fileID: 5622954838990037228}
+  WalkRunAudio: {fileID: 2137376989226503263}
   controller: {fileID: 0}
   isCrouching: 0
   movementAllowed: 1
@@ -543,37 +542,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   groundedTimer: 0
---- !u!114 &5622954838990037228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1492390325877332955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  Event: 
-  EventPlayTrigger: 1
-  EventStopTrigger: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
 --- !u!1 &1681334707792905759
 GameObject:
   m_ObjectHideFlags: 0
@@ -1277,7 +1245,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 4535016681610763928}
-  interactSfx: {fileID: 0}
   playerCam: {fileID: 7765864055412747355}
   layerMask:
     serializedVersion: 2
