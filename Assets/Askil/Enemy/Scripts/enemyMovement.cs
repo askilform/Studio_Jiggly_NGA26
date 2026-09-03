@@ -108,7 +108,7 @@ public class enemyMovement : MonoBehaviour
             {
                 GameObject.FindFirstObjectByType<CameraAnims2>().KnockBack();
 
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(0);
                 Destroy(transform.parent.gameObject);
             }
 
