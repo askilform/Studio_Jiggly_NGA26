@@ -10,7 +10,7 @@ public static class GameInstance
 
     public static void ClearSaves()
     {
-        savedWeaponIds = null;
+        // savedWeaponIds = null; Fix Later lol...
         gunShowcase = false;
     }
 }
