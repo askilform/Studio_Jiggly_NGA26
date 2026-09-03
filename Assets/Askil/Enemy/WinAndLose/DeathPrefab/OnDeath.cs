@@ -4,7 +4,7 @@ using UnityEngine;
 public class OnDeath : MonoBehaviour
 {
     public bool FinishGame = true;
-    public IEnumerator DeathWithEnding()
+    public IEnumerator Start()
     {
         if (FinishGame)
         {

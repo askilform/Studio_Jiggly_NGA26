@@ -73,6 +73,12 @@ public class LevelMaster : MonoBehaviour
         if (canvasGroup.alpha < 1.1 || canvasGroup.alpha < 0) canvasGroup.alpha += sceneIn ? -0.01f : 0.05f;
     }
 
+    private void Update()
+    {
+        DiscardSaves(); 
+        if (Input.GetKeyDown(KeyCode.F12)) ChanceScene("MainMenu");
+    }
+
     public void ChanceScene(string sceneName) { StartCoroutine(ChanceSceneCoroutine(sceneName)); }
 
     public IEnumerator ChanceSceneCoroutine(string sceneName)

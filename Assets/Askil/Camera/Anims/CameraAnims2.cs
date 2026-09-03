@@ -22,4 +22,9 @@ public class CameraAnims2 : MonoBehaviour
     {
         cameraAnims.SetTrigger("OnShot");
     }
+
+    public void KnockBack()
+    {
+        cameraAnims.SetTrigger("KnockBack");
+    }
 }

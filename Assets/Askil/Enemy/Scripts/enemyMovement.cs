@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.Hierarchy;
 using Unity.Mathematics;
 using Unity.VisualScripting;
@@ -29,6 +30,7 @@ public class enemyMovement : MonoBehaviour
     public AudioSource walkSFX;
     public float timeBeforeInvestigateStop;
     public GameObject jumpscarePrefab;
+    public bool killOnOverlap;
 
     //a big slow when damaging him a lot.
     private float crippleSpeedMultiplier = 1f; //should always be between 0 and 1
@@ -37,6 +39,7 @@ public class enemyMovement : MonoBehaviour
     public float crippleBuildupNeeded = 10f;
     public float crippleBuildupAmbientFade = 0.2f; //fade the buildup of cripple away if youre slow
     public UnityEvent OnCrippled;
+    public UnityEvent onPlayerOverlap;
 
     private void OnEnable()
     {
@@ -91,9 +94,26 @@ public class enemyMovement : MonoBehaviour
         */
     }
 
-    private void OnTriggerEnter(Collider other)
+    private IEnumerator OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "Player") Instantiate (jumpscarePrefab, other.transform);
+        bool hasOverlapped = false;
+
+        if (other.transform.tag == "Player" != hasOverlapped)
+        {
+            hasOverlapped = true;
+
+            if (killOnOverlap) Instantiate(jumpscarePrefab, other.transform);
+
+            else
+            {
+                GameObject.FindFirstObjectByType<CameraAnims2>().KnockBack();
+
+                yield return new WaitForSeconds(1);
+                Destroy(transform.parent.gameObject);
+            }
+
+            onPlayerOverlap.Invoke();
+        }
     }
 
     public void StopMovement()
@@ -161,6 +181,12 @@ public class enemyMovement : MonoBehaviour
         crippleSpeedMultiplier = Mathf.MoveTowards(crippleSpeedMultiplier, 1f, Time.deltaTime * (1f / Mathf.Max(0.01f, crippleRecoveryTime))); 
         //increase over time (if 3s is the target, 1/3 = 0.3333 per second) (can't divide by zero, that's why the max picks 0.01 if lower) 
 
+    }
+
+    public void ScriptedAttack(float NewBaseSpeed)
+    {
+        Speed = NewBaseSpeed;
+        killOnOverlap = false;
     }
 
 }

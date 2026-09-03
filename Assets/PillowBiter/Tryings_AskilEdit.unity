@@ -12447,6 +12447,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8115024949095057779, guid: 3b5f09340ce6fd14c8d0b8d3ee0735d5, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8115024949095057779, guid: 3b5f09340ce6fd14c8d0b8d3ee0735d5, type: 3}
+      propertyPath: hoverMessage
+      value: Door Locked*
+      objectReference: {fileID: 0}
+    - target: {fileID: 8115024949095057779, guid: 3b5f09340ce6fd14c8d0b8d3ee0735d5, type: 3}
+      propertyPath: onEnable.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8115024949095057779, guid: 3b5f09340ce6fd14c8d0b8d3ee0735d5, type: 3}
@@ -12455,7 +12463,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1052129616513896469, guid: 3b5f09340ce6fd14c8d0b8d3ee0735d5, type: 3}
-    - {fileID: 8115024949095057779, guid: 3b5f09340ce6fd14c8d0b8d3ee0735d5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -45737,7 +45744,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8115024949095057779, guid: 3b5f09340ce6fd14c8d0b8d3ee0735d5, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8115024949095057779, guid: 3b5f09340ce6fd14c8d0b8d3ee0735d5, type: 3}
+      propertyPath: hoverMessage
+      value: Door Locked*
       objectReference: {fileID: 0}
     - target: {fileID: 8115024949095057779, guid: 3b5f09340ce6fd14c8d0b8d3ee0735d5, type: 3}
       propertyPath: onEnable.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -45745,7 +45756,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1052129616513896469, guid: 3b5f09340ce6fd14c8d0b8d3ee0735d5, type: 3}
-    - {fileID: 8115024949095057779, guid: 3b5f09340ce6fd14c8d0b8d3ee0735d5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -98991,6 +99001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   investigedFor: 0
+  player: {fileID: 0}
   investigating: 0
   mainTarget: {fileID: 0}
   Speed: 1.5
