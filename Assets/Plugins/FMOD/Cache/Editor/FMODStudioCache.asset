@@ -1,5 +1,414 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8881078829842992378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Main Menu
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Main Menu
+  Guid:
+    Data1: 1697090775
+    Data2: 1155561965
+    Data3: -296640325
+    Data4: -1325453573
+  Banks:
+  - {fileID: -543547481762148250}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 44571
+--- !u!114 &-8096340430267792155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambiance/ConcreteOneShots
+  m_EditorClassIdentifier: 
+  Path: event:/Ambiance/ConcreteOneShots
+  Guid:
+    Data1: -1480089806
+    Data2: 1114577606
+    Data3: -425650259
+    Data4: 653313523
+  Banks:
+  - {fileID: 5928728530067513273}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-7271036453327918045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 639240320404530632
+  FileSizes:
+  - Name: Desktop
+    Value: 7326
+  Exists: 1
+--- !u!114 &-5976671192806246405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Detection
+  m_EditorClassIdentifier: 
+  Name: Detection
+  StudioPath: parameter:/Globals/Detection
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 4112978730
+    data2: 1679381632
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-5517739754048416156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Location
+  m_EditorClassIdentifier: 
+  Name: Location
+  StudioPath: parameter:/Location
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 2832344813
+    data2: 376883749
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - Value A
+  - Value B
+  - Value C
+  Exists: 1
+--- !u!114 &-5417241423889600383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Core.bank
+  m_EditorClassIdentifier: 
+  Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Core.bank
+  Name: Core
+  StudioPath: bank:/Core
+  lastModified: 639240320404490364
+  FileSizes:
+  - Name: Desktop
+    Value: 2560
+  Exists: 1
+--- !u!114 &-4101982120054314131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/GameState
+  m_EditorClassIdentifier: 
+  Name: GameState
+  StudioPath: parameter:/Globals/GameState
+  Min: 0
+  Max: 4
+  Default: 0
+  ID:
+    data1: 549887875
+    data2: 633685656
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - Menu
+  - Gameplay
+  - Pause
+  - Death
+  - Victory
+  Exists: 1
+--- !u!114 &-4044977530057169856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/Confirm
+  m_EditorClassIdentifier: 
+  Path: event:/UI/Confirm
+  Guid:
+    Data1: 1989404548
+    Data2: 1331908356
+    Data3: -1894018157
+    Data4: 2024322490
+  Banks:
+  - {fileID: -5417241423889600383}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-3308805719868763467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Threat
+  m_EditorClassIdentifier: 
+  Name: Threat
+  StudioPath: parameter:/Globals/Threat
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 554482043
+    data2: 1242008994
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-2689139143940371866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambiance/CarStartStop
+  m_EditorClassIdentifier: 
+  Path: event:/Ambiance/CarStartStop
+  Guid:
+    Data1: -565221162
+    Data2: 1340891325
+    Data3: -1122753366
+    Data4: -1932649346
+  Banks:
+  - {fileID: 5928728530067513273}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 3877401628573156044}
+  - {fileID: 5622857255029552970}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 6200
+--- !u!114 &-2440493315602746741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/Death
+  m_EditorClassIdentifier: 
+  Path: snapshot:/Death
+  Guid:
+    Data1: -1035512092
+    Data2: 1194406409
+    Data3: -1974811516
+    Data4: 1860532634
+  Banks:
+  - {fileID: -7271036453327918045}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &-1717463373915403300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/Cinematic
+  m_EditorClassIdentifier: 
+  Path: snapshot:/Cinematic
+  Guid:
+    Data1: -1863227617
+    Data2: 1295382766
+    Data3: -472896604
+    Data4: 1546630793
+  Banks:
+  - {fileID: -7271036453327918045}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &-1476266251968341622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/Jumpscare
+  m_EditorClassIdentifier: 
+  Path: snapshot:/Jumpscare
+  Guid:
+    Data1: -1449456430
+    Data2: 1121297999
+    Data3: -1957634659
+    Data4: 1411895501
+  Banks:
+  - {fileID: -7271036453327918045}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &-543547481762148250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music.bank
+  m_EditorClassIdentifier: 
+  Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Music.bank
+  Name: Music
+  StudioPath: bank:/Music
+  lastModified: 639240316922951287
+  FileSizes:
+  - Name: Desktop
+    Value: 551584
+  Exists: 1
+--- !u!114 &-212882663495795311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/Pause
+  m_EditorClassIdentifier: 
+  Path: snapshot:/Pause
+  Guid:
+    Data1: -1166682015
+    Data2: 1131854366
+    Data3: -995588446
+    Data4: -1208387648
+  Banks:
+  - {fileID: -7271036453327918045}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &-18054809654242880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambiance/ForestNight
+  m_EditorClassIdentifier: 
+  Path: event:/Ambiance/ForestNight
+  Guid:
+    Data1: 1749302711
+    Data2: 1089507069
+    Data3: -813632101
+    Data4: 300934754
+  Banks:
+  - {fileID: 5928728530067513273}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 167957
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,11 +421,362 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
-  EditorBanks: []
-  EditorEvents: []
-  EditorParameters: []
-  MasterBanks: []
-  StringsBanks: []
+  EditorBanks:
+  - {fileID: 6515993396963030209}
+  - {fileID: -5417241423889600383}
+  - {fileID: -7271036453327918045}
+  - {fileID: -543547481762148250}
+  - {fileID: 5928728530067513273}
+  EditorEvents:
+  - {fileID: -1717463373915403300}
+  - {fileID: -212882663495795311}
+  - {fileID: -1476266251968341622}
+  - {fileID: -2440493315602746741}
+  - {fileID: -8881078829842992378}
+  - {fileID: 39385538158172345}
+  - {fileID: 4751478322353706326}
+  - {fileID: -8096340430267792155}
+  - {fileID: 5770618410618712704}
+  - {fileID: 627499272820009687}
+  - {fileID: -18054809654242880}
+  - {fileID: -2689139143940371866}
+  - {fileID: 2640879957764205486}
+  - {fileID: -4044977530057169856}
+  EditorParameters:
+  - {fileID: 5917452995507546380}
+  - {fileID: -5976671192806246405}
+  - {fileID: -4101982120054314131}
+  - {fileID: -3308805719868763467}
+  - {fileID: -5517739754048416156}
+  MasterBanks:
+  - {fileID: -7271036453327918045}
+  StringsBanks:
+  - {fileID: 6515993396963030209}
   cacheVersion: 131860
-  cacheTime: 0
-  SerializableEventsDict: []
+  cacheTime: 639240320404575859
+  SerializableEventsDict:
+  - key: snapshot:/Cinematic
+    index: 0
+  - key: snapshot:/Pause
+    index: 1
+  - key: snapshot:/Jumpscare
+    index: 2
+  - key: snapshot:/Death
+    index: 3
+  - key: event:/Music/Main Menu
+    index: 4
+  - key: event:/Ambiance/Engine
+    index: 5
+  - key: event:/Ambiance/Electrical
+    index: 6
+  - key: event:/Ambiance/ConcreteOneShots
+    index: 7
+  - key: event:/Ambiance/IndustrialRoom
+    index: 8
+  - key: event:/Ambiance/ConcreteInterior
+    index: 9
+  - key: event:/Ambiance/ForestNight
+    index: 10
+  - key: event:/Ambiance/CarStartStop
+    index: 11
+  - key: event:/Ambiance/Ventilation
+    index: 12
+  - key: event:/UI/Confirm
+    index: 13
+--- !u!114 &39385538158172345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambiance/Engine
+  m_EditorClassIdentifier: 
+  Path: event:/Ambiance/Engine
+  Guid:
+    Data1: 1037601793
+    Data2: 1227345189
+    Data3: 555042230
+    Data4: -1904958404
+  Banks:
+  - {fileID: 5928728530067513273}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 6171153052039213566}
+  - {fileID: 6050032570452005155}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &627499272820009687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambiance/ConcreteInterior
+  m_EditorClassIdentifier: 
+  Path: event:/Ambiance/ConcreteInterior
+  Guid:
+    Data1: 341386322
+    Data2: 1153641052
+    Data3: -494068079
+    Data4: -230689278
+  Banks:
+  - {fileID: 5928728530067513273}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &2640879957764205486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambiance/Ventilation
+  m_EditorClassIdentifier: 
+  Path: event:/Ambiance/Ventilation
+  Guid:
+    Data1: 473766873
+    Data2: 1300259638
+    Data3: 176132498
+    Data4: 507220496
+  Banks:
+  - {fileID: 5928728530067513273}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &3877401628573156044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/CarStartStop/Load
+  m_EditorClassIdentifier: 
+  Name: Load
+  StudioPath: 
+  Min: -1
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1928820928
+    data2: 3927545816
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &4751478322353706326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambiance/Electrical
+  m_EditorClassIdentifier: 
+  Path: event:/Ambiance/Electrical
+  Guid:
+    Data1: -1676180185
+    Data2: 1203839611
+    Data3: -509473115
+    Data4: 2016181002
+  Banks:
+  - {fileID: 5928728530067513273}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &5622857255029552970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/CarStartStop/RPM
+  m_EditorClassIdentifier: 
+  Name: RPM
+  StudioPath: 
+  Min: 0
+  Max: 6500
+  Default: 0
+  ID:
+    data1: 558456504
+    data2: 620520398
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &5770618410618712704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambiance/IndustrialRoom
+  m_EditorClassIdentifier: 
+  Path: event:/Ambiance/IndustrialRoom
+  Guid:
+    Data1: -988904897
+    Data2: 1340187237
+    Data3: 946557594
+    Data4: 520809206
+  Banks:
+  - {fileID: 5928728530067513273}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &5917452995507546380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/IsPaused
+  m_EditorClassIdentifier: 
+  Name: IsPaused
+  StudioPath: parameter:/Globals/IsPaused
+  Min: 1
+  Max: 2
+  Default: 1
+  ID:
+    data1: 1740894122
+    data2: 1606362295
+  Type: 1
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &5928728530067513273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/World.bank
+  m_EditorClassIdentifier: 
+  Path: Echoes_Of_Mettle_FMOD/Build/Desktop/World.bank
+  Name: World
+  StudioPath: bank:/World
+  lastModified: 639240308729943999
+  FileSizes:
+  - Name: Desktop
+    Value: 5608768
+  Exists: 1
+--- !u!114 &6050032570452005155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Engine/Load
+  m_EditorClassIdentifier: 
+  Name: Load
+  StudioPath: 
+  Min: -1
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1928820928
+    data2: 3927545816
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &6171153052039213566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Engine/RPM
+  m_EditorClassIdentifier: 
+  Name: RPM
+  StudioPath: 
+  Min: 0
+  Max: 6500
+  Default: 0
+  ID:
+    data1: 558456504
+    data2: 620520398
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &6515993396963030209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 639240320404575859
+  FileSizes:
+  - Name: Desktop
+    Value: 2476
+  Exists: 1

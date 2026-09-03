@@ -1,6 +1,8 @@
+using FMODUnity;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Jump2 : MonoBehaviour
 {
@@ -15,6 +17,8 @@ public class Jump2 : MonoBehaviour
     [Header("References")]
     public Animator CameraAnims;
     public List<AudioSource> SFX = new List<AudioSource>();
+    public UnityEvent onJump;
+    public UnityEvent onLanded;
 
     private CharacterController controller;
     private Vector3 velocity;
@@ -75,7 +79,11 @@ public class Jump2 : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
 
             if (SFX.Count > 0 && SFX[0] != null)
+            {
                 SFX[0].Play();
+                onJump.Invoke();
+            }
+                
 
             groundedTimer = 0f; // prevents double jump via coyote time
         }
@@ -96,7 +104,10 @@ public class Jump2 : MonoBehaviour
             CameraAnims.SetTrigger("Landed");
 
         if (SFX.Count > 1 && SFX[1] != null && framesSinceLastLanding > 120)
+        {
             SFX[1].Play();
+            onLanded.Invoke();
+        }
 
         framesSinceLastLanding = 0;
     }

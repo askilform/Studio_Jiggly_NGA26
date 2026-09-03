@@ -18,6 +18,11 @@ public class CameraAnims2 : MonoBehaviour
         cameraAnims.SetBool("Moving", movementSC.controller.velocity.x != 0 || movementSC.controller.velocity.z != 0);
     }
 
+    private void FixedUpdate()
+    {
+        cameraAnims.enabled = movementSC.movementAllowed;
+    }
+
     public void OnShot()
     {
         cameraAnims.SetTrigger("OnShot");

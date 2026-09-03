@@ -75,8 +75,11 @@ public class LevelMaster : MonoBehaviour
 
     private void Update()
     {
-        DiscardSaves(); 
-        if (Input.GetKeyDown(KeyCode.F12)) ChanceScene("MainMenu");
+        if (Input.GetKeyDown(KeyCode.F12))
+        {
+            DiscardSaves();
+            ChanceScene("MainMenu");
+        }
     }
 
     public void ChanceScene(string sceneName) { StartCoroutine(ChanceSceneCoroutine(sceneName)); }
