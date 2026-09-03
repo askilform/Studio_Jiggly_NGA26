@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,14 +15,13 @@ public class PlayerMovement2 : MonoBehaviour
     public float walkVolume;
     public float sprintVolume;
 
-
     [Header("Mouse Settings")]
     public float mouseSensitivity = 2f;
 
     [Header("References")]
     public Transform cam;
-    public List<AudioSource> SFX = new List<AudioSource>();
     public Jump2 JumpScript;
+    public StudioEventEmitter WalkRunAudio;
 
     [Header("Dont Assign!")]
     public CharacterController controller;
@@ -70,6 +70,11 @@ public class PlayerMovement2 : MonoBehaviour
         if (movementAllowed) HandleMovement();
     }
 
+    private void FixedUpdate()
+    {
+        // WalkRunAudio.SetParameter("WalkSpeed", (currentSprintMultiplier - 1));
+    }
+
     void HandleMovement()
     {
         Vector3 direction = transform.right * x + transform.forward * z;
@@ -87,12 +92,6 @@ public class PlayerMovement2 : MonoBehaviour
         Vector3 finalMove = move + Vector3.up * velocity.y;
 
         controller.Move(finalMove * Time.deltaTime);
-
-        if (SFX.Count > 0 && SFX[0] != null)
-        {
-            SFX[0].mute = move.sqrMagnitude == 0f || !JumpScript.isGrounded || isCrouching;
-        }
-        
     }
 
     void HandleMouseLook()
@@ -123,8 +122,6 @@ public class PlayerMovement2 : MonoBehaviour
             targetMultiplier,
             Acceleration * Time.deltaTime
         );
-
-        SFX[0].volume = Mathf.Lerp(walkVolume, sprintVolume, currentSprintMultiplier - 1);
 
         moveSpeed = startSpeed * currentSprintMultiplier;
     }

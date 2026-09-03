@@ -16,7 +16,7 @@ public class Jump2 : MonoBehaviour
 
     [Header("References")]
     public Animator CameraAnims;
-    public List<AudioSource> SFX = new List<AudioSource>();
+
     public UnityEvent onJump;
     public UnityEvent onLanded;
 
@@ -78,12 +78,7 @@ public class Jump2 : MonoBehaviour
 
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
 
-            if (SFX.Count > 0 && SFX[0] != null)
-            {
-                SFX[0].Play();
-                onJump.Invoke();
-            }
-                
+            onJump.Invoke();
 
             groundedTimer = 0f; // prevents double jump via coyote time
         }
@@ -103,11 +98,7 @@ public class Jump2 : MonoBehaviour
         if (CameraAnims != null)
             CameraAnims.SetTrigger("Landed");
 
-        if (SFX.Count > 1 && SFX[1] != null && framesSinceLastLanding > 120)
-        {
-            SFX[1].Play();
-            onLanded.Invoke();
-        }
+        onLanded.Invoke();
 
         framesSinceLastLanding = 0;
     }

@@ -2,13 +2,14 @@ using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class InteractCheck : MonoBehaviour
 {
     public GameObject UI;
-    public AudioSource interactSfx;
     public GameObject playerCam;
     public LayerMask layerMask;
+    public UnityEvent InteractAudioEvent;
 
     private bool InInteraction;
     [HideInInspector] public Interactable CurrentInteractable;
@@ -21,11 +22,6 @@ public class InteractCheck : MonoBehaviour
     public TextMeshProUGUI interactHoverText;
 
     public bool canPickupFuel = false;
-
-    private void Start()
-    {
-        interactSfx = GetComponent<AudioSource>();
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -174,7 +170,7 @@ public class InteractCheck : MonoBehaviour
 
     public void PlayInteractSFX()
     {
-        interactSfx.Play();
+        InteractAudioEvent.Invoke();
     }
 
 }
