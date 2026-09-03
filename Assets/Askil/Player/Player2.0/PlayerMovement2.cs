@@ -73,6 +73,7 @@ public class PlayerMovement2 : MonoBehaviour
     private void FixedUpdate()
     {
         // WalkRunAudio.SetParameter("WalkSpeed", (currentSprintMultiplier - 1));
+        
     }
 
     void HandleMovement()

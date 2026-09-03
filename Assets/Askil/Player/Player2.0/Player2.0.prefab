@@ -47,11 +47,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1989404548
-      Data2: 1331908356
-      Data3: -1894018157
-      Data4: 2024322490
-    Path: event:/UI/Confirm
+      Data1: 553085036
+      Data2: 1187250139
+      Data3: -1770790519
+      Data4: 1237914325
+    Path: event:/OldSounds/LandNew2
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0
@@ -438,6 +438,7 @@ Transform:
   m_Children:
   - {fileID: 3197945071380123774}
   - {fileID: 7682261214461691704}
+  - {fileID: 9162240695770239810}
   m_Father: {fileID: 740981395801854158}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!143 &5936768935277450755
@@ -1728,7 +1729,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4048058048876530654}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1736,7 +1737,7 @@ Transform:
   - {fileID: 4530705009113732479}
   - {fileID: 6996323623337350623}
   - {fileID: 7680372080491766033}
-  m_Father: {fileID: 740981395801854158}
+  m_Father: {fileID: 2223401360093469492}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4470642517451237267
 GameObject:
@@ -2405,7 +2406,6 @@ Transform:
   - {fileID: 1847120757219587764}
   - {fileID: 2223401360093469492}
   - {fileID: 316903934411248458}
-  - {fileID: 9162240695770239810}
   - {fileID: 8002049881759545224}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2435,6 +2435,7 @@ GameObject:
   - component: {fileID: 3200426720164360264}
   - component: {fileID: 3781416724308887190}
   - component: {fileID: 5891752904028152797}
+  - component: {fileID: 5441565852884334925}
   m_Layer: 0
   m_Name: PlayerCam
   m_TagString: Untagged
@@ -2561,6 +2562,20 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &5441565852884334925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7765864055412747355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 7765864055412747355}
 --- !u!1 &8167106654809475966
 GameObject:
   m_ObjectHideFlags: 0
@@ -2608,22 +2623,22 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 835489060
+      Data2: 1316357641
+      Data3: -1359493203
+      Data4: 544347257
+    Path: event:/OldSounds/WalkingTimeline
   Event: 
-  EventPlayTrigger: 0
-  EventStopTrigger: 0
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
   NonRigidbodyVelocity: 0
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &8960326424878858159
 GameObject:
   m_ObjectHideFlags: 0
@@ -2671,11 +2686,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1989404548
-      Data2: 1331908356
-      Data3: -1894018157
-      Data4: 2024322490
-    Path: event:/UI/Confirm
+      Data1: 1691042035
+      Data2: 1284750676
+      Data3: -1382615143
+      Data4: -186369433
+    Path: event:/OldSounds/JumpNew
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0
