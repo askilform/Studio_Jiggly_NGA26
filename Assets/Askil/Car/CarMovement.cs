@@ -18,9 +18,11 @@ public class CarMovement : MonoBehaviour
     public float turnSpeed;
     public float MaxSpeed;
 
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        carEngineAudio.SetParameter("RPM", 0.15f * 6500);
     }
 
     private void FixedUpdate()
@@ -44,7 +46,8 @@ public class CarMovement : MonoBehaviour
             0));
         }
 
-        CurrentRpmRead = Mathf.Abs(Vector3.Dot(rb.linearVelocity, transform.forward)) / MaxSpeed;
-        carEngineAudio.SetParameter("RPM", CurrentRpmRead * 6500);
+        CurrentRpmRead = Vector3.Dot(rb.linearVelocity, transform.forward) / MaxSpeed;
+
+        carEngineAudio.SetParameter("RPM", CurrentRpmRead * 6500f);
     }
 }

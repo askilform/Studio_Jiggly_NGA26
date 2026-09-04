@@ -1,3 +1,4 @@
+using FMODUnity;
 using System;
 using System.Collections;
 using Unity.Hierarchy;
@@ -28,6 +29,7 @@ public class enemyMovement : MonoBehaviour
     public float SprintSpeedMultiplier;
     public RoamingPoints roamPointSc;
     public AudioSource walkSFX;
+    public StudioEventEmitter walkSfxNew;
     public float timeBeforeInvestigateStop;
     public GameObject jumpscarePrefab;
     public bool killOnOverlap;
@@ -127,6 +129,7 @@ public class enemyMovement : MonoBehaviour
         mainTarget = player;
         agent.isStopped = false;
         agent.speed = baseSpeedReference * SprintSpeedMultiplier * hitSpeedMultiplier * crippleSpeedMultiplier;
+        
     }
 
     public void Roam()
@@ -135,6 +138,7 @@ public class enemyMovement : MonoBehaviour
         mainTarget = roamPointSc.activeRoamingPoint;
         agent.speed = baseSpeedReference * hitSpeedMultiplier * crippleSpeedMultiplier;
         agent.isStopped = false;
+        
     }
 
     public void Investigate(Vector3 locationToInvestigate)
@@ -144,6 +148,7 @@ public class enemyMovement : MonoBehaviour
         investigateLocation = locationToInvestigate;
         investigating = true;
         agent.speed = Mathf.Lerp(baseSpeedReference, baseSpeedReference * hitSpeedMultiplier * SprintSpeedMultiplier * crippleSpeedMultiplier, 0.5f);
+        
     }
 
     public void ReduceSpeedMultiplier(float reduceBy)

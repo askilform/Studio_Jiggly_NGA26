@@ -98,7 +98,7 @@ public class Jump2 : MonoBehaviour
         if (CameraAnims != null)
             CameraAnims.SetTrigger("Landed");
 
-        onLanded.Invoke();
+        if (framesSinceLastLanding > 120) onLanded.Invoke();
 
         framesSinceLastLanding = 0;
     }

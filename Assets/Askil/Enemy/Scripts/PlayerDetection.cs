@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Net;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
@@ -11,6 +12,7 @@ public class PlayerDetection : MonoBehaviour
     public LayerMask raycastHit;
     public float timeBeforeLosingPlayer = 10;
     public AudioSource onSpottedSFX;
+    public StudioEventEmitter onSpottedSfxNew;
     public float detectionSpeed;
     public Gradient lightGradient;
     public Light headLight;
@@ -90,6 +92,7 @@ public class PlayerDetection : MonoBehaviour
             print("[] Enemy Spotted Player");
             StartCoroutine(textPopUpSc.FlashText("He Sees You!", 0.5f, false));
             onSpottedSFX.Play();
+            onSpottedSfxNew.Play();
             movementSc.SprintFollow();
 
             playerSpotted = true;

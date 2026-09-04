@@ -696,6 +696,7 @@ GameObject:
   - component: {fileID: 1085342546734998226}
   - component: {fileID: 4738781427877293695}
   - component: {fileID: 8740181008748645103}
+  - component: {fileID: 7936438596466413839}
   m_Layer: 0
   m_Name: broken (1)
   m_TagString: Untagged
@@ -841,6 +842,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fffd7b6c683d86741816888af48ffbcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7936438596466413839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3214587638333063740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -198355717
+      Data2: 1165511553
+      Data3: 1698827143
+      Data4: 1001948004
+    Path: event:/OldSounds/OnBreak
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &3860549142085454258
 GameObject:
   m_ObjectHideFlags: 0

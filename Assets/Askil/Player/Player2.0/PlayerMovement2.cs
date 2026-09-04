@@ -74,6 +74,7 @@ public class PlayerMovement2 : MonoBehaviour
     {
         // WalkRunAudio.SetParameter("WalkSpeed", (currentSprintMultiplier - 1));
         
+        
     }
 
     void HandleMovement()
@@ -93,6 +94,7 @@ public class PlayerMovement2 : MonoBehaviour
         Vector3 finalMove = move + Vector3.up * velocity.y;
 
         controller.Move(finalMove * Time.deltaTime);
+        // WalkRunAudio. = (move != null && JumpScript.isGrounded) ? true : false;
     }
 
     void HandleMouseLook()

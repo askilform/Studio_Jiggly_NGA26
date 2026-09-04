@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 
 public class DoorToGuess : MonoBehaviour
@@ -8,6 +9,7 @@ public class DoorToGuess : MonoBehaviour
     public Material WhiteGlow;
     public GameObject Light;
     public AudioSource TurnOnSound;
+    public StudioEventEmitter turnOnSoundNew;
 
     public void ActivateEnemy()
     {
@@ -26,6 +28,7 @@ public class DoorToGuess : MonoBehaviour
         print("DoorActivated");
         TurnOnSound.pitch = Random.Range(0.5f, 1.5f);
         TurnOnSound.Play();
+        turnOnSoundNew.Play();
     }
 
     public void BecomeInactive()
