@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.FullSerializer;
+using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 
 public class GuessTheDoor : MonoBehaviour
 {
     float timeBetweenDoorChange = 1;
+   
     int DoorToChoose;
 
     [Header("Assign")]
     public List<DoorToGuess> sides = new List<DoorToGuess>();
     public Animator animator;
+    public AnimationCurve CountDownTime;
+
 
     [Header("Tewaks")]
     public float timeBeforeWallBreak;
@@ -19,6 +23,8 @@ public class GuessTheDoor : MonoBehaviour
     {
         if (sides.Count > 1)
         {
+
+
             if (timeBetweenDoorChange > 0) StartCoroutine(DoorChanger());
             else StartCoroutine(DoorBreak());
         }
@@ -35,6 +41,7 @@ public class GuessTheDoor : MonoBehaviour
         sides[DoorToChoose].BecomeActiveDoor();
      
         timeBetweenDoorChange -= 0.1f;
+
 
         StartGameRound(); //Restart Loop
     }

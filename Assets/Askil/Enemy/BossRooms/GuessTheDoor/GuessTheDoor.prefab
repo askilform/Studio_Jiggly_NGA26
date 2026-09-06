@@ -389,6 +389,7 @@ MonoBehaviour:
   Light: {fileID: 8109821824926257179}
   TurnOnSound: {fileID: 1772892629753550540}
   turnOnSoundNew: {fileID: 8808800543393198751}
+  enemyProperDeath: {fileID: 114122522550917755, guid: b6f8049adceed3341a8d1a4ffd1d48d9, type: 3}
 --- !u!1 &710415635181341216
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,6 +1013,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  DieOnDeath: 1
   destroyDelayDeath: 1
 --- !u!54 &1817031755349970654
 Rigidbody:
@@ -1882,6 +1884,7 @@ MonoBehaviour:
   Light: {fileID: 5128951069047604437}
   TurnOnSound: {fileID: 6147535762137023806}
   turnOnSoundNew: {fileID: 8735569663473320737}
+  enemyProperDeath: {fileID: 114122522550917755, guid: b6f8049adceed3341a8d1a4ffd1d48d9, type: 3}
 --- !u!1 &2105172786095741653
 GameObject:
   m_ObjectHideFlags: 0
@@ -2670,6 +2673,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  DieOnDeath: 1
   destroyDelayDeath: 1
 --- !u!54 &8769010843423615107
 Rigidbody:
@@ -8931,6 +8935,30 @@ MonoBehaviour:
   - {fileID: 3800706326255912095}
   - {fileID: 5955595394721780738}
   animator: {fileID: 7534393403972273944}
+  CountDownTime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   timeBeforeWallBreak: 1
 --- !u!1 &6453086384547132125
 GameObject:
@@ -9271,6 +9299,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  DieOnDeath: 1
   destroyDelayDeath: 1
 --- !u!54 &5322472434283839492
 Rigidbody:
@@ -9489,6 +9518,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  DieOnDeath: 1
   destroyDelayDeath: 1
 --- !u!54 &7724572655459066375
 Rigidbody:
@@ -11007,6 +11037,7 @@ MonoBehaviour:
   Light: {fileID: 2373065015182315492}
   TurnOnSound: {fileID: 4944736592176436908}
   turnOnSoundNew: {fileID: 1981032416137300320}
+  enemyProperDeath: {fileID: 114122522550917755, guid: b6f8049adceed3341a8d1a4ffd1d48d9, type: 3}
 --- !u!1 &8361202151069115602
 GameObject:
   m_ObjectHideFlags: 0
@@ -11251,6 +11282,7 @@ MonoBehaviour:
   Light: {fileID: 1398591201645422240}
   TurnOnSound: {fileID: 8813306650823019055}
   turnOnSoundNew: {fileID: 2718509600129004607}
+  enemyProperDeath: {fileID: 114122522550917755, guid: b6f8049adceed3341a8d1a4ffd1d48d9, type: 3}
 --- !u!1 &8389766019617944547
 GameObject:
   m_ObjectHideFlags: 0
@@ -14168,11 +14200,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1647250772
-      Data2: 1308817621
-      Data3: 1182389660
-      Data4: 1716666908
-    Path: event:/OldSounds/Soundshelfstudio-ui-switch-on-516359
+      Data1: 1989404548
+      Data2: 1331908356
+      Data3: -1894018157
+      Data4: 2024322490
+    Path: event:/UI/Confirm
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 2
@@ -14567,11 +14599,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1647250772
-      Data2: 1308817621
-      Data3: 1182389660
-      Data4: 1716666908
-    Path: event:/OldSounds/Soundshelfstudio-ui-switch-on-516359
+      Data1: 1989404548
+      Data2: 1331908356
+      Data3: -1894018157
+      Data4: 2024322490
+    Path: event:/UI/Confirm
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 2
@@ -16169,11 +16201,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1647250772
-      Data2: 1308817621
-      Data3: 1182389660
-      Data4: 1716666908
-    Path: event:/OldSounds/Soundshelfstudio-ui-switch-on-516359
+      Data1: 1989404548
+      Data2: 1331908356
+      Data3: -1894018157
+      Data4: 2024322490
+    Path: event:/UI/Confirm
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 2
@@ -19637,11 +19669,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1647250772
-      Data2: 1308817621
-      Data3: 1182389660
-      Data4: 1716666908
-    Path: event:/OldSounds/Soundshelfstudio-ui-switch-on-516359
+      Data1: 1989404548
+      Data2: 1331908356
+      Data3: -1894018157
+      Data4: 2024322490
+    Path: event:/UI/Confirm
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 2

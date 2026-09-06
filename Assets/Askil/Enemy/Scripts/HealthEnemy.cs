@@ -66,9 +66,11 @@ public class HealthEnemy : MonoBehaviour
                 GameObject newDeathPrefab = Instantiate(PostDeathPrefab, transform.position, Quaternion.identity);
             }
 
-
-            // movementSc.agent.enabled = false;
-            yield return new WaitForSeconds(destroyDelayDeath);
+            if (destroyDelayDeath != 0)
+            {
+                movementSc.agent.enabled = false;
+                yield return new WaitForSeconds(destroyDelayDeath);
+            }
 
             onDeath.Invoke();
             if (DieOnDeath) Destroy(transform.parent.gameObject);
