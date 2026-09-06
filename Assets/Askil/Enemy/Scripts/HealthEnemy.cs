@@ -22,6 +22,7 @@ public class HealthEnemy : MonoBehaviour
     public GameObject CripplePrefab;
     public GameObject hitParticles;
     public UnityEvent onDeath;
+    public bool DieOnDeath;
 
     public float destroyDelayDeath;
 
@@ -66,11 +67,11 @@ public class HealthEnemy : MonoBehaviour
             }
 
 
-            movementSc.agent.enabled = false;
+            // movementSc.agent.enabled = false;
             yield return new WaitForSeconds(destroyDelayDeath);
 
             onDeath.Invoke();
-            Destroy(transform.parent.gameObject);
+            if (DieOnDeath) Destroy(transform.parent.gameObject);
         }
     }
 
