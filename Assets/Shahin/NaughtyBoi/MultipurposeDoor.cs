@@ -4,15 +4,13 @@ public class MultipurposeDoor : MonoBehaviour
 {
 
     public bool open = false;
+    public bool Works = true;
 
     public Vector3 openOffset = new Vector3(0,0,0);
     public Vector3 openAngles = new Vector3(0, 90, 0);
 
     public Vector3 defaultOffst;
     public Vector3 defaultAngles;
-
-
-
 
     public float speed = 10f;
 
@@ -38,13 +36,11 @@ public class MultipurposeDoor : MonoBehaviour
 
         anglefromeuler = Quaternion.Lerp(anglefromeuler, targetanglefromeuler, Time.deltaTime * speed);
         transform.eulerAngles = anglefromeuler.eulerAngles;
-
-
     }
 
     public void Open()
     {
-        open = true;
+        if (Works) open = true;
     }
 
     public void Close()
@@ -54,7 +50,8 @@ public class MultipurposeDoor : MonoBehaviour
 
     public void Toggle()
     {
-        open = !open;
+        if (Works) open = !open;
     }
 
+    public void SetWorksBool(bool newWorks) { Works = newWorks; }
 }
