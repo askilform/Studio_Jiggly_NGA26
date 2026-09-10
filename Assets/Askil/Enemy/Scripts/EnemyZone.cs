@@ -1,3 +1,4 @@
+using FMODUnity;
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ public class EnemyZone : MonoBehaviour
 {
     public GameObject Enemy;
     public List<AudioSource> sfxs = new List<AudioSource> ();
+    public List<StudioEventEmitter> sfxsNew = new List<StudioEventEmitter>();
     public enemyMovement enemyMovementSc;
     public CanvasGroup uiGroup;
 
@@ -43,6 +45,7 @@ public class EnemyZone : MonoBehaviour
         {
             uiSc.StartCoroutine(uiSc.FlashText("He's Nearby! be quiet...", 5f, true));
             sfxs[0].Play();
+            sfxsNew[0].Play();
             levelMaster.playerInDangerArea = true;
             StartCoroutine(WaitAndActivate());
         }
@@ -54,6 +57,7 @@ public class EnemyZone : MonoBehaviour
         {
             uiSc.StartCoroutine(uiSc.FlashText("You Are Safe, FOR NOW", 2, false));
             sfxs[1].Play();
+            sfxsNew[1].Play();
             levelMaster.playerInDangerArea = false;
             enemyMovementSc.investigating = false;
 

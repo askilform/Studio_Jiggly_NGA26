@@ -29,4 +29,9 @@ public class Interactable : MonoBehaviour
     public bool throwFromCenterOfScreen = false;
     public float throwForce = 3.0f;
 
+    public void ChangeHoverMessage(string newMessage)
+    {
+        hoverMessage = newMessage;
+    }
+
 }
