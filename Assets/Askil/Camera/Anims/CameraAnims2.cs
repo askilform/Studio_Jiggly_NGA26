@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class CameraAnims2 : MonoBehaviour
@@ -6,10 +7,13 @@ public class CameraAnims2 : MonoBehaviour
 
     public PlayerMovement2 movementSC;
     public Jump2 jumpSC;
+    public bool WakeUp;
 
-    void Start()
+    IEnumerator Start()
     {
         cameraAnims = GetComponent<Animator>();
+        yield return null;
+        if (WakeUp) cameraAnims.SetTrigger("WakeUp");
     }
 
     void Update()
