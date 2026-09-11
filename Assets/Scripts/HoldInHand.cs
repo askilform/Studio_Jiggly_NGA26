@@ -32,9 +32,9 @@ public class HoldInHand : MonoBehaviour
             if (interactCheck.CurrentInteractable != null && Input.GetKeyDown(KeyCode.E))
 
             {
-
-                if (currentHeldObject != null)
+                if (currentHeldObject != null && interactCheck.CurrentInteractable.canBeHeldInHand == true)
                 {
+                    print ("Interacted with lol" + interactCheck.CurrentInteractable.transform.gameObject.ToString());
                     dropObject();
                 }
 

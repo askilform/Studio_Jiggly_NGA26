@@ -4,6 +4,7 @@ public class CigThrowScript : MonoBehaviour
 {
 
     public GameObject cigaretteObject;
+    public MeshRenderer BoxMesh;
 
     public bool mustBeHeldToUse = false;
 
@@ -58,4 +59,8 @@ public class CigThrowScript : MonoBehaviour
         }
     }
 
+    public void ChangeMeshMaterial(Material NewMat)
+    {
+        BoxMesh.material = NewMat;
+    }
 }
