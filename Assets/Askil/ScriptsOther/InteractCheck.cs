@@ -12,7 +12,7 @@ public class InteractCheck : MonoBehaviour
     public UnityEvent InteractAudioEvent;
 
     private bool InInteraction;
-    [HideInInspector] public Interactable CurrentInteractable;
+    public Interactable CurrentInteractable;
 
     public FuelHolderScript fuelHolderScriptRef;
 
