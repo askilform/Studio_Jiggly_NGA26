@@ -1,6 +1,7 @@
 using FMODUnity;
 using System.Net;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
@@ -11,8 +12,8 @@ public class PlayerDetection : MonoBehaviour
     public Transform meshTransform;
     public LayerMask raycastHit;
     public float timeBeforeLosingPlayer = 10;
-    public AudioSource onSpottedSFX;
     public StudioEventEmitter onSpottedSfxNew;
+    public StudioEventEmitter PlayerLostSfxNew;
     public float detectionSpeed;
     public Gradient lightGradient;
     public Light headLight;
@@ -91,7 +92,6 @@ public class PlayerDetection : MonoBehaviour
         {
             print("[] Enemy Spotted Player");
             StartCoroutine(textPopUpSc.FlashText("He Sees You!", 0.5f, false));
-            onSpottedSFX.Play();
             onSpottedSfxNew.Play();
             movementSc.SprintFollow();
 
@@ -104,6 +104,7 @@ public class PlayerDetection : MonoBehaviour
     {
         print("[] Enemy Lost Player");
         StartCoroutine(textPopUpSc.FlashText("He Lost You!", 1f, false));
+        PlayerLostSfxNew.Play();
         movementSc.Roam();
         playerSpotted = false;
     }
