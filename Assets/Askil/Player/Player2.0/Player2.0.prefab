@@ -134,6 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSC: {fileID: 1634119308411728011}
   jumpSC: {fileID: 7755356356409509890}
+  WakeUp: 0
 --- !u!114 &4443013670581204239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,12 +484,18 @@ MonoBehaviour:
   Acceleration: 1.7
   crouchSpeed: 0.6
   gravity: -9.8
+  walkingAudio:
+    Guid:
+      Data1: 835489060
+      Data2: 1316357641
+      Data3: -1359493203
+      Data4: 544347257
+    Path: event:/OldSounds/WalkingTimeline
   walkVolume: 0.02
   sprintVolume: 0.2
   mouseSensitivity: 2
   cam: {fileID: 3200426720164360264}
   JumpScript: {fileID: 7755356356409509890}
-  WalkRunAudio: {fileID: 2137376989226503263}
   controller: {fileID: 0}
   isCrouching: 0
   movementAllowed: 1
@@ -1093,6 +1100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cigaretteObject: {fileID: 584714921618155543, guid: e545946bdcc6fa1438dbea87f26cb556, type: 3}
+  BoxMesh: {fileID: 0}
   mustBeHeldToUse: 0
   cigs: []
 --- !u!1 &3194507912363746953

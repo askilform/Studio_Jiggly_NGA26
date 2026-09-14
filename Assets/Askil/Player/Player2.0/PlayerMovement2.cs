@@ -1,3 +1,4 @@
+using FMOD.Studio;
 using FMODUnity;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class PlayerMovement2 : MonoBehaviour
     public float gravity = -20f;
 
     [Header("Audio")]
+    public EventReference walkingAudio;
+    private EventInstance walkingAudioInstance;
     public float walkVolume;
     public float sprintVolume;
 
@@ -21,7 +24,6 @@ public class PlayerMovement2 : MonoBehaviour
     [Header("References")]
     public Transform cam;
     public Jump2 JumpScript;
-    public StudioEventEmitter WalkRunAudio;
 
     [Header("Dont Assign!")]
     public CharacterController controller;
@@ -54,7 +56,10 @@ public class PlayerMovement2 : MonoBehaviour
 
         movementAllowed = true;
         cameraMovementAllowed = true;
-}
+
+        walkingAudioInstance = RuntimeManager.CreateInstance(walkingAudio);
+        walkingAudioInstance.start();
+    }   
 
     void Update()
     {
@@ -68,13 +73,6 @@ public class PlayerMovement2 : MonoBehaviour
         z = Input.GetAxis("Vertical");
 
         if (movementAllowed) HandleMovement();
-    }
-
-    private void FixedUpdate()
-    {
-        // WalkRunAudio.SetParameter("WalkSpeed", (currentSprintMultiplier - 1));
-        
-        
     }
 
     void HandleMovement()
@@ -94,7 +92,7 @@ public class PlayerMovement2 : MonoBehaviour
         Vector3 finalMove = move + Vector3.up * velocity.y;
 
         controller.Move(finalMove * Time.deltaTime);
-        // WalkRunAudio. = (move != null && JumpScript.isGrounded) ? true : false;
+        walkingAudioInstance.setVolume((move.magnitude > 0.01f && JumpScript.isGrounded) ? 1f : 0f);
     }
 
     void HandleMouseLook()
@@ -142,5 +140,11 @@ public class PlayerMovement2 : MonoBehaviour
             controller.height = ogHeight;
             isCrouching = false;
         }
+    }
+
+    private void OnDestroy()
+    {
+        walkingAudioInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        walkingAudioInstance.release();
     }
 }
