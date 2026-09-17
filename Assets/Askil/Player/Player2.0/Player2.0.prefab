@@ -161,6 +161,7 @@ GameObject:
   - component: {fileID: 2630711972650490137}
   - component: {fileID: 6342479706270695894}
   - component: {fileID: 7638314157334301129}
+  - component: {fileID: 3064369123988650813}
   m_Layer: 5
   m_Name: TextPopUp
   m_TagString: Untagged
@@ -301,6 +302,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackBackground: {fileID: 5923802777604272637}
+  Sfx: {fileID: 3064369123988650813}
+--- !u!114 &3064369123988650813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176564838000631550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1763466516
+      Data2: 1234037784
+      Data3: -632079436
+      Data4: -138197621
+    Path: event:/OldSounds/ScreenMessage
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1476070020620643327
 GameObject:
   m_ObjectHideFlags: 0

@@ -94,7 +94,7 @@ public class PlayerMovement2 : MonoBehaviour
 
         if (move.magnitude > 0.01f && JumpScript.isGrounded)
         {
-            walkingAudioInstance.setVolume((Mathf.InverseLerp(0.6f, 2.5f, currentSprintMultiplier)));
+            walkingAudioInstance.setVolume((Mathf.InverseLerp(0.9f, 2.5f, currentSprintMultiplier)));
         }
 
         else walkingAudioInstance.setVolume(0);

@@ -406,8 +406,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 475
   timeBeforeLosingPlayer: 10
-  onSpottedSFX: {fileID: 714173932821130806}
   onSpottedSfxNew: {fileID: 7344042615977503630}
+  PlayerLostSfxNew: {fileID: 0}
   detectionSpeed: 170
   lightGradient:
     serializedVersion: 2
@@ -784,7 +784,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7374195606816616888}
-  - component: {fileID: 4815627358504764848}
   - component: {fileID: 4905872988618906406}
   m_Layer: 9
   m_Name: WalkingSFX
@@ -808,112 +807,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8285227269803415710}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &4815627358504764848
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4509474396082447919}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7f754c5bdc485f541af84ef3d64dab60, type: 3}
-  m_Resource: {fileID: 8300000, guid: 7f754c5bdc485f541af84ef3d64dab60, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.244
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 3.48
-  MaxDistance: 16.3
-  Pan2D: 0
-  rolloffMode: 1
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0.2540146
-      value: 1
-      inSlope: -3.93835
-      outSlope: -3.93835
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.5080292
-      value: 0.5
-      inSlope: -0.9845875
-      outSlope: -0.9845875
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -0.25411585
-      outSlope: -0.25411585
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &4905872988618906406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -929,14 +822,14 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -250009797
+      Data2: 1236049954
+      Data3: -846594666
+      Data4: 699440709
+    Path: event:/OldSounds/EnemyWalkTimeline
   Event: 
-  EventPlayTrigger: 11
-  EventStopTrigger: 0
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
@@ -1683,7 +1576,6 @@ MonoBehaviour:
   hitSlowRegainRate: 4
   SprintSpeedMultiplier: 3.5
   roamPointSc: {fileID: 5188486803422986115}
-  walkSFX: {fileID: 4815627358504764848}
   walkSfxNew: {fileID: 4905872988618906406}
   timeBeforeInvestigateStop: 15
   jumpscarePrefab: {fileID: 7579572513748672127, guid: f38094cf340a0eb44a870af938345b7e, type: 3}
