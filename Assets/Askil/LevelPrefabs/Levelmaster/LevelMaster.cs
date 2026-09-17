@@ -36,7 +36,7 @@ public class LevelMaster : MonoBehaviour
         sceneIn = true;
         canvasGroup.alpha = 1.0f;
 
-        if (SceneManager.GetActiveScene().name == "MainMenu")
+        if (SceneManager.GetActiveScene().name == "MainMenu" || SceneManager.GetActiveScene().name == "MainMenuKari")
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
