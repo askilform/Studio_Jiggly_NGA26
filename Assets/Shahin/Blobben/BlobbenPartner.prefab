@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3807910460595268126}
   - component: {fileID: 1202997736651902997}
   - component: {fileID: 3007510462895644483}
+  - component: {fileID: 6301087464453185234}
+  - component: {fileID: 4954947381535568819}
   m_Layer: 0
   m_Name: BlobbenPartner
   m_TagString: Untagged
@@ -98,6 +100,76 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CrawlSpeed: 20
   lookLerp: 0.2
+--- !u!114 &6301087464453185234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6491444533333041078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe4502ff8b0a6ae4ea4528d865bc3fae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 4
+  armor: 0
+  onDieEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4954947381535568819}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onBlockDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  enemyHealthScript: {fileID: 4954947381535568819}
+--- !u!114 &4954947381535568819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6491444533333041078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8f11f4a78ece747a0867dde0a02f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 0
+  movementSc: {fileID: 0}
+  PostDeathPrefab: {fileID: 114122522550917755, guid: b6f8049adceed3341a8d1a4ffd1d48d9, type: 3}
+  CripplePrefab: {fileID: 0}
+  hitParticles: {fileID: 0}
+  onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6491444533333041078}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  DieOnDeath: 0
+  destroyDelayDeath: 0
 --- !u!1 &9049839266834752221
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,15 +301,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 9b8296284a9bf4949b94eab520cd0253, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.2
+      value: 0.4528
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9b8296284a9bf4949b94eab520cd0253, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.2
+      value: 0.4528
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9b8296284a9bf4949b94eab520cd0253, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.2
+      value: 0.4528
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9b8296284a9bf4949b94eab520cd0253, type: 3}
       propertyPath: m_LocalPosition.x
