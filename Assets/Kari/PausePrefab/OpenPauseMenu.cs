@@ -9,7 +9,7 @@ public class OpenPauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            Instantiate(pausePrefab);
+            if (GameObject.FindFirstObjectByType<PausePrefab>() == null) Instantiate(pausePrefab);
         }
     }
 }

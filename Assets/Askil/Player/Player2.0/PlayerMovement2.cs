@@ -14,7 +14,7 @@ public class PlayerMovement2 : MonoBehaviour
 
     [Header("Audio")]
     public EventReference walkingAudio;
-    private EventInstance walkingAudioInstance;
+    public EventInstance walkingAudioInstance;
     public float walkVolume;
     public float sprintVolume;
 
@@ -32,7 +32,6 @@ public class PlayerMovement2 : MonoBehaviour
     public bool cameraMovementAllowed = true;
     public float currentSprintMultiplier = 1f;
     public LevelMaster levelMaster;
-
     private float xRotation = 0f;
     private float startSpeed;
     private float ogHeight;
