@@ -35,7 +35,7 @@ public class CarFuntion : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (!exitSc.isColliding) OnCarExit();
             else uiSc.StartCoroutine(uiSc.FlashText("Door Is Blocked!", 0.5f, false));
