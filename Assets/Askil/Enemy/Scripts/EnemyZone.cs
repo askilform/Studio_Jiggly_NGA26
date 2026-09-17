@@ -43,7 +43,7 @@ public class EnemyZone : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            uiSc.StartCoroutine(uiSc.FlashText("He's Nearby! be quiet...", 5f, true));
+            uiSc.StartCoroutine(uiSc.FlashText("He's Nearby! be quiet...", 5f, true, false));
             sfxs[0].Play();
             sfxsNew[0].Play();
             levelMaster.playerInDangerArea = true;
@@ -55,7 +55,7 @@ public class EnemyZone : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            uiSc.StartCoroutine(uiSc.FlashText("You Are Safe, FOR NOW", 2, false));
+            uiSc.StartCoroutine(uiSc.FlashText("You Are Safe, FOR NOW", 2, false, false));
             sfxs[1].Play();
             sfxsNew[1].Play();
             levelMaster.playerInDangerArea = false;

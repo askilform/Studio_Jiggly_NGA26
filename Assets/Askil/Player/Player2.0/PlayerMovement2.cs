@@ -91,7 +91,13 @@ public class PlayerMovement2 : MonoBehaviour
         Vector3 finalMove = move + Vector3.up * velocity.y;
 
         controller.Move(finalMove * Time.deltaTime);
-        walkingAudioInstance.setVolume((move.magnitude > 0.01f && JumpScript.isGrounded) ? 1f : 0f);
+
+        if (move.magnitude > 0.01f && JumpScript.isGrounded)
+        {
+            walkingAudioInstance.setVolume((Mathf.InverseLerp(0.9f, 2.5f, currentSprintMultiplier)));
+        }
+
+        else walkingAudioInstance.setVolume(0);
     }
 
     void HandleMouseLook()

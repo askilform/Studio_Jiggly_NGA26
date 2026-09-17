@@ -16,12 +16,14 @@ public class Jump2 : MonoBehaviour
 
     [Header("References")]
     public Animator CameraAnims;
+    public PlayerMovement2 movementSc;
 
     public UnityEvent onJump;
-    public UnityEvent onLanded;
+    public UnityEvent onLandedSfx;
 
     private CharacterController controller;
     private Vector3 velocity;
+
 
     [SerializeField] private float groundedTimer;
     private bool wasGroundedLastFrame;
@@ -98,7 +100,7 @@ public class Jump2 : MonoBehaviour
         if (CameraAnims != null)
             CameraAnims.SetTrigger("Landed");
 
-        if (framesSinceLastLanding > 120) onLanded.Invoke();
+        if (framesSinceLastLanding > 120 && !movementSc.isCrouching) onLandedSfx.Invoke();
 
         framesSinceLastLanding = 0;
     }

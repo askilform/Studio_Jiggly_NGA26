@@ -28,7 +28,6 @@ public class enemyMovement : MonoBehaviour
 
     public float SprintSpeedMultiplier;
     public RoamingPoints roamPointSc;
-    public AudioSource walkSFX;
     public StudioEventEmitter walkSfxNew;
     public float timeBeforeInvestigateStop;
     public GameObject jumpscarePrefab;
@@ -74,12 +73,10 @@ public class enemyMovement : MonoBehaviour
         // Start investigation
         if (levelMaster.playerRunning && levelMaster.playerInDangerArea && mainTarget != player)
         {
-            if (!investigating) StartCoroutine(FindFirstObjectByType<TextPopUp>().FlashText("He Heard You!", 0.5f, true));
+            if (!investigating) StartCoroutine(FindFirstObjectByType<TextPopUp>().FlashText("He Heard You!", 0.5f, true, true));
             Investigate(player.transform.position);
         }
    
-        walkSFX.mute = agent.velocity.x == 0 && agent.velocity.z == 0;
-
         investigedFor += investigating ? Time.deltaTime : 0;
 
         CalculatePause(); //handles cripple things
