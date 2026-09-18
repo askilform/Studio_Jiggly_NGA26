@@ -17,6 +17,9 @@ public class Weapon_Builder : MonoBehaviour
     public bool instantlyBecomeInsane = false;
     public int GetGunIdOnStart;
 
+    public UiWeaponsParts uiWeaponPartSc;
+
+
     private void Start()
     {
         // Recieve entire weapon if checked
@@ -30,7 +33,6 @@ public class Weapon_Builder : MonoBehaviour
             IdsPickedUp.Add(6);
         }
 
-
         if (GetGunIdOnStart != 0)
         {
             print("Null startID");
@@ -38,6 +40,7 @@ public class Weapon_Builder : MonoBehaviour
             {
                 int value = digit - '0';
                 IdsPickedUp.Add(value);
+                uiWeaponPartSc.colorUiPart(value);
                 Debug.Log(value);
             }
         }
@@ -60,6 +63,7 @@ public class Weapon_Builder : MonoBehaviour
         WeaponPart WeaponPartScript = weaponPartObject.GetComponent<WeaponPart>();
 
         IdsPickedUp.Add(WeaponPartScript.id);
+        uiWeaponPartSc.colorUiPart(WeaponPartScript.id);
         WeaponPartScript.OnPickup();
 
         IdsPickedUp.Sort();
