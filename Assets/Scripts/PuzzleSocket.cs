@@ -1,3 +1,5 @@
+using FMODUnity;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,36 +14,39 @@ public class PuzzleSocket : MonoBehaviour
     public int lookForThisID;
 
     public GameObject currentMatch;
-    private bool powered = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+
+    private bool powered = false;
+    private bool allowLerp;
 
 
     void Update()
     {
-        if (currentMatch != null)
-        {
-            currentMatch.transform.position = transform.position;
-            currentMatch.transform.rotation = transform.rotation;
-        }
-
-
         if (powered)
         {
             whileConnected.Invoke();
         }
-
     }
+
+    private void FixedUpdate()
+    {
+        if (allowLerp)
+        {
+            currentMatch.transform.position = Vector3.Lerp(
+                currentMatch.transform.position,
+                transform.position,
+                0.1f);
+
+            currentMatch.transform.rotation = Quaternion.Lerp(
+            currentMatch.transform.rotation,
+            transform.rotation,
+            0.1f);
+        }
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
-        
-
-
         if (other.TryGetComponent<PuzzlePlug>(out PuzzlePlug plug))
         {
 
@@ -57,6 +62,9 @@ public class PuzzleSocket : MonoBehaviour
             if (plug.plugPowered && (canTakeAnyID || plug.plugID == lookForThisID))
             {
                 powered = true;
+
+                StartCoroutine(lerpMovement());
+
                 whenJustConnected.Invoke();
             }
         }
@@ -72,4 +80,17 @@ public class PuzzleSocket : MonoBehaviour
 
     }
 
+    IEnumerator lerpMovement()
+    {
+        FindFirstObjectByType<HoldInHand>().dropObject();
+        currentMatch.GetComponentInChildren<Rigidbody>().isKinematic = true;
+
+        allowLerp = true;
+        GetComponent<StudioEventEmitter>().Play();
+
+        yield return new WaitForSeconds(1);
+
+        allowLerp = false;
+        currentMatch.transform.position = transform.position;
+    }
 }

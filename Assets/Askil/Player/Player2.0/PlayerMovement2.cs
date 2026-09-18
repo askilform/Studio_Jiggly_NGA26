@@ -72,6 +72,7 @@ public class PlayerMovement2 : MonoBehaviour
         z = Input.GetAxis("Vertical");
 
         if (movementAllowed) HandleMovement();
+        else walkingAudioInstance.setVolume(0);
     }
 
     void HandleMovement()

@@ -150,7 +150,7 @@ public class HoldInHand : MonoBehaviour
 
 
 
-    private void dropObject()
+    public void dropObject()
     {
         if (currentHeldObject != null)
         {
