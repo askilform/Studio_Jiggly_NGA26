@@ -28,7 +28,7 @@ public class PlayerDetection : MonoBehaviour
     [SerializeField] private Slider enemyDetectionSlider;
 
     //Player-Detection
-    private bool playerSpotted;
+    [SerializeField] private bool playerSpotted;
     private bool lineCastToPlayer;
 
 
