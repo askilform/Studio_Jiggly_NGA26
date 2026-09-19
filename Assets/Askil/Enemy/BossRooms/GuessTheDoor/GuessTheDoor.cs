@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GuessTheDoor : MonoBehaviour
 {
     float timeBetweenDoorChange = 1;
    
     int DoorToChoose;
+
+    public UnityEvent onLastKill;
 
     [Header("Assign")]
     public List<DoorToGuess> sides = new List<DoorToGuess>();
@@ -21,13 +24,15 @@ public class GuessTheDoor : MonoBehaviour
     {
         if (sides.Count > 1)
         {
-
-
             if (timeBetweenDoorChange > 0) StartCoroutine(DoorChanger());
             else StartCoroutine(DoorBreak());
         }
 
-        else animator.SetTrigger("OpenDore");
+        else
+        {
+            animator.SetTrigger("OpenDore");
+            onLastKill.Invoke();
+        }
     }
 
     IEnumerator DoorChanger()
@@ -53,7 +58,12 @@ public class GuessTheDoor : MonoBehaviour
             sides[DoorToChoose].ActivateEnemy();
         }
 
-        else animator.SetTrigger("OpenDore");
+
+        else
+        {
+            animator.SetTrigger("OpenDore");
+            onLastKill.Invoke();
+        }
 
         timeBetweenDoorChange = 1;
     }

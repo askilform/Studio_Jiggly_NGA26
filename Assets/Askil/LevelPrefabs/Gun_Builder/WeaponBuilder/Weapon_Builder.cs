@@ -4,6 +4,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEngine.Rendering.DebugUI;
 
 public class Weapon_Builder : MonoBehaviour
 {
@@ -13,8 +14,6 @@ public class Weapon_Builder : MonoBehaviour
 
     public bool autoPickup = false;
 
-
-    public bool instantlyBecomeInsane = false;
     public int GetGunIdOnStart;
 
     public UiWeaponsParts uiWeaponPartSc;
@@ -22,20 +21,9 @@ public class Weapon_Builder : MonoBehaviour
 
     private void Start()
     {
-        // Recieve entire weapon if checked
-        if (GameInstance.gunShowcase || instantlyBecomeInsane)
-        {
-            IdsPickedUp.Add(1);
-            IdsPickedUp.Add(2);
-            IdsPickedUp.Add(3);
-            IdsPickedUp.Add(4);
-            IdsPickedUp.Add(5);
-            IdsPickedUp.Add(6);
-        }
 
         if (GetGunIdOnStart != 0)
         {
-            print("Null startID");
             foreach (char digit in GetGunIdOnStart.ToString())
             {
                 int value = digit - '0';
@@ -46,7 +34,11 @@ public class Weapon_Builder : MonoBehaviour
         }
 
 
-        else foreach (int i in GameInstance.savedWeaponIds) IdsPickedUp.Add((int)i);
+        else foreach (int i in GameInstance.savedWeaponIds)
+        {
+            IdsPickedUp.Add((int)i);
+            uiWeaponPartSc.colorUiPart((int)i);
+        }
     }
 
 
