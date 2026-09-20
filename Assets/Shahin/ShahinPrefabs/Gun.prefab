@@ -206,9 +206,9 @@ MonoBehaviour:
   burstShot: 1
   shotCooldownNow: 0
   ShotCooldown: 0.1
-  chargeupTime: 2.2
+  chargeupTime: 2
   burstDuration: 1.5
-  postBurstClarity: 3
+  postBurstClarity: 2.6
   cooldownSound: {fileID: 8300000, guid: 9cdea9becc1a9b94e9c29caa2dcc1afe, type: 3}
   chargeSoundSource: {fileID: 3443111963323522508}
   chargeSound:
@@ -218,8 +218,16 @@ MonoBehaviour:
       Data3: 2088159114
       Data4: 1358617943
     Path: event:/JallaSound/gMS Chargeup Timeline
-  batteryLeft: 10
+  gunfireSound:
+    Guid:
+      Data1: 590887500
+      Data2: 1210147055
+      Data3: -1565685102
+      Data4: 1543934351
+    Path: event:/JallaSound/gMS shot
+  gunfireFmod: {fileID: 0}
   batteryMax: 50
+  batteryLeft: 10
   gunModelKnockback: 0.1
   aimKnockback: 0.1
   raycastRange: 80
@@ -1002,8 +1010,16 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
-  batteryLeft: 10
+  gunfireSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  gunfireFmod: {fileID: 0}
   batteryMax: 256
+  batteryLeft: 10
   gunModelKnockback: 0.1
   aimKnockback: 0.1
   raycastRange: 4

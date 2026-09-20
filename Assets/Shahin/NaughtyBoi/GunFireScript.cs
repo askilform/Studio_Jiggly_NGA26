@@ -1,5 +1,6 @@
 using FMOD.Studio;
 using FMODUnity;
+using System.Resources;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -34,13 +35,20 @@ public class GunFireScript : MonoBehaviour
     public EventReference chargeSound;
     public EventInstance chargeSoundInstance;
 
+
+    public EventReference gunfireSound;
+    public EventInstance gunfireSoundInstance;
+
+    public StudioEventEmitter gunfireFmod;
+
+
     private float chargeSoundPitch = 1f;
     private float chargeSoundVolume = 1f;
 
 
     [Header("ammostuff")]
-    [HideInInspector] public int batteryLeft = 10;
     public int batteryMax = 10;
+    [HideInInspector] public int batteryLeft = 10;
 
 
     [Header("some unused now")]
@@ -83,6 +91,8 @@ public class GunFireScript : MonoBehaviour
 
         chargeSoundInstance = RuntimeManager.CreateInstance(chargeSound);
         chargeSoundInstance.start();
+
+        gunfireSoundInstance = RuntimeManager.CreateInstance(gunfireSound);
 
         batteryLeft = batteryMax;
 
@@ -136,6 +146,7 @@ public class GunFireScript : MonoBehaviour
                 if (cooldownSound != null)
                 {
                     audioSource.PlayOneShot(cooldownSound);
+                    //INSERT FMOD COOLDOWN SOUND HERE
                 }
 
                 //Kicking into negative charge, for a cooldown
@@ -159,23 +170,29 @@ public class GunFireScript : MonoBehaviour
             //if not bursting, rev sound
             if (!ambattaBurst && chargeNow > 0 && holdingFire)
             {
+
+                chargeSoundVolume = Mathf.MoveTowards(chargeSoundVolume, 1f, Time.deltaTime * 10f);
+                chargeSoundPitch = Mathf.MoveTowards(chargeSoundPitch, basePitch + chargeNow, Time.deltaTime * 40f);
+
                 chargeSoundSource.volume = 1f;
                 chargeSoundSource.pitch = basePitch + chargeNow;
 
-                chargeSoundInstance.setPitch(basePitch + chargeNow);
-                chargeSoundInstance.setVolume(1f);
+                chargeSoundInstance.setPitch(chargeSoundPitch);
+                chargeSoundInstance.setVolume(chargeSoundVolume);
             }
 
             //turn off sound.
             else
             {
+                //FMOD & Old
+                chargeSoundPitch = Mathf.Lerp(chargeSoundPitch, basePitch, Time.deltaTime * 20f);
+                chargeSoundVolume = Mathf.MoveTowards(chargeSoundVolume, 0f, Time.deltaTime * 1f);
+                
+                //OLD
                 chargeSoundSource.volume -= Time.deltaTime * 5f;
-                chargeSoundSource.pitch = Mathf.Lerp(chargeSoundSource.pitch , basePitch, Time.deltaTime * 40f);
+                chargeSoundSource.pitch = chargeSoundPitch;
 
-
-                chargeSoundPitch = Mathf.Lerp(chargeSoundPitch, basePitch, Time.deltaTime * 40f);
-                chargeSoundVolume -= Time.deltaTime * 5f;
-
+                //FMOD
                 chargeSoundInstance.setPitch(chargeSoundPitch);
                 chargeSoundInstance.setVolume(chargeSoundVolume);
 
@@ -248,6 +265,9 @@ public class GunFireScript : MonoBehaviour
         CameraSc.OnShot();
 
         audioSource.pitch = Random.Range(0.9f, 1.1f);
+
+        //INSERT fmod shot here
+       
 
         if (gunfireSounds.Length > 0)
         {
