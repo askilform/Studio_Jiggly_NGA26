@@ -34,7 +34,7 @@ public class enemyMovement : MonoBehaviour
     public bool killOnOverlap;
 
     //a big slow when damaging him a lot.
-    private float crippleSpeedMultiplier = 1f; //should always be between 0 and 1
+    public float crippleSpeedMultiplier = 1f; //should always be between 0 and 1
     public float crippleRecoveryTime = 3f; //How many seconds for it to reach 1 again
     private float crippleBuildupCounter = 0; //when the cripple buildup reaches the needed value, his speed is multiplied by 0. The 0 slowly goes back to 1.
     public float crippleBuildupNeeded = 10f;
@@ -168,8 +168,6 @@ public class enemyMovement : MonoBehaviour
             OnCrippled.Invoke();
 
         }
-
-
     }
 
     private void CalculatePause()

@@ -19,7 +19,7 @@ public class DoorToGuess : MonoBehaviour
         if (MasterScript.sides.Count == 1) // What happens to the last enemy attacking you?
         {
             HealthEnemy enemyHealthSc = enemyConnected.GetComponentInChildren<HealthEnemy>();
-            enemyHealthSc.PostDeathPrefab = enemyProperDeath;
+            // enemyHealthSc.PostDeathPrefab = enemyProperDeath;
             enemyHealthSc.destroyDelayDeath = 0;
         }
 
