@@ -444,7 +444,7 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639253332946700110
+  lastModified: 639255199305054995
   FileSizes:
   - Name: Desktop
     Value: 7326
@@ -722,10 +722,10 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639255096577767874
+  lastModified: 639255199305065063
   FileSizes:
   - Name: Desktop
-    Value: 4682
+    Value: 4716
   Exists: 1
 --- !u!114 &-1594857155671843415
 MonoBehaviour:
@@ -769,7 +769,7 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639253332947188216
+  lastModified: 639255199305307864
   FileSizes:
   - Name: Desktop
     Value: 551584
@@ -816,7 +816,7 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/World.bank
   Name: World
   StudioPath: bank:/World
-  lastModified: 639253332952931596
+  lastModified: 639255199306545484
   FileSizes:
   - Name: Desktop
     Value: 5608736
@@ -926,6 +926,7 @@ MonoBehaviour:
   - {fileID: -9199403866608968135}
   - {fileID: -4820282335817563626}
   - {fileID: -3112659883870622864}
+  - {fileID: 8136083522349974943}
   EditorParameters:
   - {fileID: -4042335268322485408}
   - {fileID: -5489052554813551030}
@@ -937,7 +938,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -1646906190701980638}
   cacheVersion: 131860
-  cacheTime: 639255096577767874
+  cacheTime: 639255199306545484
   SerializableEventsDict:
   - key: event:/UI/Confirm
     index: 0
@@ -1055,6 +1056,8 @@ MonoBehaviour:
     index: 56
   - key: event:/JallaSound/SciFi-Hum
     index: 57
+  - key: event:/JallaSound/Tap
+    index: 58
 --- !u!114 &34043475971835307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1501,10 +1504,10 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/JallaBank.bank
   Name: JallaBank
   StudioPath: bank:/JallaBank
-  lastModified: 639255096577380396
+  lastModified: 639255199304979706
   FileSizes:
   - Name: Desktop
-    Value: 8601248
+    Value: 8607680
   Exists: 1
 --- !u!114 &5205475704489747423
 MonoBehaviour:
@@ -1575,7 +1578,7 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Core.bank
   Name: Core
   StudioPath: bank:/Core
-  lastModified: 639253332946652204
+  lastModified: 639255199301283623
   FileSizes:
   - Name: Desktop
     Value: 2560
@@ -1905,6 +1908,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2115
+--- !u!114 &8136083522349974943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/JallaSound/Tap
+  m_EditorClassIdentifier: 
+  Path: event:/JallaSound/Tap
+  Guid:
+    Data1: -846169191
+    Data2: 1259926325
+    Data3: -2110384709
+    Data4: -1436565734
+  Banks:
+  - {fileID: 4490224482741432088}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &8141708161739330027
 MonoBehaviour:
   m_ObjectHideFlags: 0
