@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UIElements;
 using static UnityEngine.Rendering.DebugUI;
 
@@ -18,6 +19,7 @@ public class Weapon_Builder : MonoBehaviour
 
     public UiWeaponsParts uiWeaponPartSc;
 
+    public UnityEvent ifHasEntireGun;
 
     private void Start()
     {
@@ -31,6 +33,8 @@ public class Weapon_Builder : MonoBehaviour
                 uiWeaponPartSc.colorUiPart(value);
                 Debug.Log(value);
             }
+
+            if (GetGunIdOnStart == 123456) ifHasEntireGun.Invoke();
         }
 
 
