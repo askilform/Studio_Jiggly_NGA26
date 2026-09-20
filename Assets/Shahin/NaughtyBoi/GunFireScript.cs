@@ -1,3 +1,4 @@
+using FMOD.Studio;
 using FMODUnity;
 using TMPro;
 using Unity.VisualScripting;
@@ -28,6 +29,14 @@ public class GunFireScript : MonoBehaviour
     //public AudioClip chargeSound;
     public AudioClip cooldownSound;
     public AudioSource chargeSoundSource;
+
+    [Header("AudioFmod")]
+    public EventReference chargeSound;
+    public EventInstance chargeSoundInstance;
+
+    private float chargeSoundPitch = 1f;
+    private float chargeSoundVolume = 1f;
+
 
     [Header("ammostuff")]
     [HideInInspector] public int batteryLeft = 10;
@@ -71,6 +80,10 @@ public class GunFireScript : MonoBehaviour
 
     void Start()
     {
+
+        chargeSoundInstance = RuntimeManager.CreateInstance(chargeSound);
+        chargeSoundInstance.start();
+
         batteryLeft = batteryMax;
 
         lightFadeNow = 1f;
@@ -148,6 +161,9 @@ public class GunFireScript : MonoBehaviour
             {
                 chargeSoundSource.volume = 1f;
                 chargeSoundSource.pitch = basePitch + chargeNow;
+
+                chargeSoundInstance.setPitch(basePitch + chargeNow);
+                chargeSoundInstance.setVolume(1f);
             }
 
             //turn off sound.
@@ -155,6 +171,15 @@ public class GunFireScript : MonoBehaviour
             {
                 chargeSoundSource.volume -= Time.deltaTime * 5f;
                 chargeSoundSource.pitch = Mathf.Lerp(chargeSoundSource.pitch , basePitch, Time.deltaTime * 40f);
+
+
+                chargeSoundPitch = Mathf.Lerp(chargeSoundPitch, basePitch, Time.deltaTime * 40f);
+                chargeSoundVolume -= Time.deltaTime * 5f;
+
+                chargeSoundInstance.setPitch(chargeSoundPitch);
+                chargeSoundInstance.setVolume(chargeSoundVolume);
+
+
             }
 
 

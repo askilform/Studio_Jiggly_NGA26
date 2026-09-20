@@ -211,6 +211,13 @@ MonoBehaviour:
   postBurstClarity: 3
   cooldownSound: {fileID: 8300000, guid: 9cdea9becc1a9b94e9c29caa2dcc1afe, type: 3}
   chargeSoundSource: {fileID: 3443111963323522508}
+  chargeSound:
+    Guid:
+      Data1: -583468838
+      Data2: 1313208553
+      Data3: 2088159114
+      Data4: 1358617943
+    Path: event:/JallaSound/gMS Chargeup Timeline
   batteryLeft: 10
   batteryMax: 50
   gunModelKnockback: 0.1
@@ -616,6 +623,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4617660618862425}
   - component: {fileID: 3443111963323522508}
+  - component: {fileID: 7872860513481289593}
   m_Layer: 0
   m_Name: ChargeSound
   m_TagString: Untagged
@@ -735,6 +743,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7872860513481289593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570565664912058148}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -583468838
+      Data2: 1313208553
+      Data3: 2088159114
+      Data4: 1358617943
+    Path: event:/JallaSound/gMS Chargeup Timeline
+  Event: 
+  EventPlayTrigger: 11
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1835741637854845770
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,6 +995,13 @@ MonoBehaviour:
   postBurstClarity: 1.5
   cooldownSound: {fileID: 0}
   chargeSoundSource: {fileID: 0}
+  chargeSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   batteryLeft: 10
   batteryMax: 256
   gunModelKnockback: 0.1
