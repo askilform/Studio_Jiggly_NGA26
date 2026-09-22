@@ -35,13 +35,11 @@ public class CarFuntion : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (!exitSc.isColliding) OnCarExit();
-            else uiSc.StartCoroutine(uiSc.FlashText("Door Is Blocked!", 0.5f, false));
+            else uiSc.StartCoroutine(uiSc.FlashText("Door Is Blocked!", 0.5f, false, false));
         }
-
-        if (Input.GetKeyDown(KeyCode.O)) uiSc.StartCoroutine(uiSc.FlashText(transform.up.ToString(), 0.5f, false));
     }
     private void OnCarExit()
     {

@@ -13,9 +13,9 @@ public class OnDeath : MonoBehaviour
 
             GameInstance.ClearSaves();
             yield return new WaitForSeconds(2);
-            textpopSC.StartCoroutine(textpopSC.FlashText("it's done.", 5, false));
+            textpopSC.StartCoroutine(textpopSC.FlashText("it's done.", 5, false, true));
             yield return new WaitForSeconds(3);
-            levelMaster.ChanceScene("MainMenu");
+            /// levelMaster.ChanceScene("MainMenu");
         }
     }
 }

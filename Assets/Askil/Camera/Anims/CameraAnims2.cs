@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class CameraAnims2 : MonoBehaviour
@@ -6,9 +7,13 @@ public class CameraAnims2 : MonoBehaviour
 
     public PlayerMovement2 movementSC;
     public Jump2 jumpSC;
-    void Start()
+    public bool WakeUp;
+
+    IEnumerator Start()
     {
         cameraAnims = GetComponent<Animator>();
+        yield return null;
+        if (WakeUp) cameraAnims.SetTrigger("WakeUp");
     }
 
     void Update()
@@ -16,6 +21,11 @@ public class CameraAnims2 : MonoBehaviour
         cameraAnims.SetFloat("SpeedMultiplier", movementSC.currentSprintMultiplier);
         cameraAnims.SetBool("IsGrounded", jumpSC.isGrounded);
         cameraAnims.SetBool("Moving", movementSC.controller.velocity.x != 0 || movementSC.controller.velocity.z != 0);
+    }
+
+    private void FixedUpdate()
+    {
+        cameraAnims.enabled = movementSC.movementAllowed;
     }
 
     public void OnShot()

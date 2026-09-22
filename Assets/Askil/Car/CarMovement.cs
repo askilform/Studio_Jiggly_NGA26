@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,14 +10,19 @@ public class CarMovement : MonoBehaviour
     float x;
     float z;
 
+    public StudioEventEmitter carEngineAudio;
+    public float CurrentRpmRead;
+
     [Header("Tweaks")]
     public float acceleration;
     public float turnSpeed;
     public float MaxSpeed;
 
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        carEngineAudio.SetParameter("RPM", 0.15f * 6500);
     }
 
     private void FixedUpdate()
@@ -24,7 +30,7 @@ public class CarMovement : MonoBehaviour
         x = Input.GetAxis("Horizontal");
         z = Input.GetAxis("Vertical");
 
-         //Push car with vertical input
+        //Push car with vertical input
         rb.AddForce(transform.forward * z * acceleration, ForceMode.Acceleration);
         rb.maxLinearVelocity = MaxSpeed;
      
@@ -39,5 +45,9 @@ public class CarMovement : MonoBehaviour
             (x * turnSpeed * (Vector3.Dot(rb.linearVelocity, transform.forward) / MaxSpeed)),
             0));
         }
+
+        CurrentRpmRead = Vector3.Dot(rb.linearVelocity, transform.forward) / MaxSpeed;
+
+        carEngineAudio.SetParameter("RPM", CurrentRpmRead * 6500f);
     }
 }

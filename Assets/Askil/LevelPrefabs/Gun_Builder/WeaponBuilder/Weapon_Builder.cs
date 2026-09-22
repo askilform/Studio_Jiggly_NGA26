@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UIElements;
+using static UnityEngine.Rendering.DebugUI;
 
 public class Weapon_Builder : MonoBehaviour
 {
@@ -13,37 +15,34 @@ public class Weapon_Builder : MonoBehaviour
 
     public bool autoPickup = false;
 
-
-    public bool instantlyBecomeInsane = false;
     public int GetGunIdOnStart;
+
+    public UiWeaponsParts uiWeaponPartSc;
+
+    public UnityEvent ifHasEntireGun;
 
     private void Start()
     {
-        // Recieve entire weapon if checked
-        if (GameInstance.gunShowcase || instantlyBecomeInsane)
-        {
-            IdsPickedUp.Add(1);
-            IdsPickedUp.Add(2);
-            IdsPickedUp.Add(3);
-            IdsPickedUp.Add(4);
-            IdsPickedUp.Add(5);
-            IdsPickedUp.Add(6);
-        }
-
 
         if (GetGunIdOnStart != 0)
         {
-            print("Null startID");
             foreach (char digit in GetGunIdOnStart.ToString())
             {
                 int value = digit - '0';
                 IdsPickedUp.Add(value);
+                uiWeaponPartSc.colorUiPart(value);
                 Debug.Log(value);
             }
+
+            if (GetGunIdOnStart == 123456) ifHasEntireGun.Invoke();
         }
 
 
-        else foreach (int i in GameInstance.savedWeaponIds) IdsPickedUp.Add((int)i);
+        else foreach (int i in GameInstance.savedWeaponIds)
+        {
+            IdsPickedUp.Add((int)i);
+            uiWeaponPartSc.colorUiPart((int)i);
+        }
     }
 
 
@@ -60,6 +59,7 @@ public class Weapon_Builder : MonoBehaviour
         WeaponPart WeaponPartScript = weaponPartObject.GetComponent<WeaponPart>();
 
         IdsPickedUp.Add(WeaponPartScript.id);
+        uiWeaponPartSc.colorUiPart(WeaponPartScript.id);
         WeaponPartScript.OnPickup();
 
         IdsPickedUp.Sort();

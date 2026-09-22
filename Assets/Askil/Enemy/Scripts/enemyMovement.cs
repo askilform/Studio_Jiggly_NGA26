@@ -1,3 +1,4 @@
+using FMODUnity;
 using System;
 using System.Collections;
 using Unity.Hierarchy;
@@ -27,13 +28,13 @@ public class enemyMovement : MonoBehaviour
 
     public float SprintSpeedMultiplier;
     public RoamingPoints roamPointSc;
-    public AudioSource walkSFX;
+    public StudioEventEmitter walkSfxNew;
     public float timeBeforeInvestigateStop;
     public GameObject jumpscarePrefab;
     public bool killOnOverlap;
 
     //a big slow when damaging him a lot.
-    private float crippleSpeedMultiplier = 1f; //should always be between 0 and 1
+    public float crippleSpeedMultiplier = 1f; //should always be between 0 and 1
     public float crippleRecoveryTime = 3f; //How many seconds for it to reach 1 again
     private float crippleBuildupCounter = 0; //when the cripple buildup reaches the needed value, his speed is multiplied by 0. The 0 slowly goes back to 1.
     public float crippleBuildupNeeded = 10f;
@@ -72,12 +73,10 @@ public class enemyMovement : MonoBehaviour
         // Start investigation
         if (levelMaster.playerRunning && levelMaster.playerInDangerArea && mainTarget != player)
         {
-            if (!investigating) StartCoroutine(FindFirstObjectByType<TextPopUp>().FlashText("He Heard You!", 0.5f, true));
+            if (!investigating) StartCoroutine(FindFirstObjectByType<TextPopUp>().FlashText("He Heard You!", 0.5f, true, true));
             Investigate(player.transform.position);
         }
    
-        walkSFX.mute = agent.velocity.x == 0 && agent.velocity.z == 0;
-
         investigedFor += investigating ? Time.deltaTime : 0;
 
         CalculatePause(); //handles cripple things
@@ -108,7 +107,7 @@ public class enemyMovement : MonoBehaviour
             {
                 GameObject.FindFirstObjectByType<CameraAnims2>().KnockBack();
 
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(0);
                 Destroy(transform.parent.gameObject);
             }
 
@@ -127,6 +126,7 @@ public class enemyMovement : MonoBehaviour
         mainTarget = player;
         agent.isStopped = false;
         agent.speed = baseSpeedReference * SprintSpeedMultiplier * hitSpeedMultiplier * crippleSpeedMultiplier;
+        
     }
 
     public void Roam()
@@ -135,6 +135,7 @@ public class enemyMovement : MonoBehaviour
         mainTarget = roamPointSc.activeRoamingPoint;
         agent.speed = baseSpeedReference * hitSpeedMultiplier * crippleSpeedMultiplier;
         agent.isStopped = false;
+        
     }
 
     public void Investigate(Vector3 locationToInvestigate)
@@ -144,6 +145,7 @@ public class enemyMovement : MonoBehaviour
         investigateLocation = locationToInvestigate;
         investigating = true;
         agent.speed = Mathf.Lerp(baseSpeedReference, baseSpeedReference * hitSpeedMultiplier * SprintSpeedMultiplier * crippleSpeedMultiplier, 0.5f);
+        
     }
 
     public void ReduceSpeedMultiplier(float reduceBy)
@@ -166,8 +168,6 @@ public class enemyMovement : MonoBehaviour
             OnCrippled.Invoke();
 
         }
-
-
     }
 
     private void CalculatePause()

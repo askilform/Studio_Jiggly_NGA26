@@ -1,3 +1,5 @@
+using FMOD.Studio;
+using FMODUnity;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,16 +13,16 @@ public class PlayerMovement2 : MonoBehaviour
     public float gravity = -20f;
 
     [Header("Audio")]
+    public EventReference walkingAudio;
+    public EventInstance walkingAudioInstance;
     public float walkVolume;
     public float sprintVolume;
-
 
     [Header("Mouse Settings")]
     public float mouseSensitivity = 2f;
 
     [Header("References")]
     public Transform cam;
-    public List<AudioSource> SFX = new List<AudioSource>();
     public Jump2 JumpScript;
 
     [Header("Dont Assign!")]
@@ -30,7 +32,6 @@ public class PlayerMovement2 : MonoBehaviour
     public bool cameraMovementAllowed = true;
     public float currentSprintMultiplier = 1f;
     public LevelMaster levelMaster;
-
     private float xRotation = 0f;
     private float startSpeed;
     private float ogHeight;
@@ -54,7 +55,10 @@ public class PlayerMovement2 : MonoBehaviour
 
         movementAllowed = true;
         cameraMovementAllowed = true;
-}
+
+        walkingAudioInstance = RuntimeManager.CreateInstance(walkingAudio);
+        walkingAudioInstance.start();
+    }   
 
     void Update()
     {
@@ -68,6 +72,7 @@ public class PlayerMovement2 : MonoBehaviour
         z = Input.GetAxis("Vertical");
 
         if (movementAllowed) HandleMovement();
+        else walkingAudioInstance.setVolume(0);
     }
 
     void HandleMovement()
@@ -88,11 +93,12 @@ public class PlayerMovement2 : MonoBehaviour
 
         controller.Move(finalMove * Time.deltaTime);
 
-        if (SFX.Count > 0 && SFX[0] != null)
+        if (move.magnitude > 0.01f && JumpScript.isGrounded)
         {
-            SFX[0].mute = move.sqrMagnitude == 0f || !JumpScript.isGrounded || isCrouching;
+            walkingAudioInstance.setVolume((Mathf.InverseLerp(0.9f, 2.5f, currentSprintMultiplier)));
         }
-        
+
+        else walkingAudioInstance.setVolume(0);
     }
 
     void HandleMouseLook()
@@ -124,8 +130,6 @@ public class PlayerMovement2 : MonoBehaviour
             Acceleration * Time.deltaTime
         );
 
-        SFX[0].volume = Mathf.Lerp(walkVolume, sprintVolume, currentSprintMultiplier - 1);
-
         moveSpeed = startSpeed * currentSprintMultiplier;
     }
 
@@ -142,5 +146,11 @@ public class PlayerMovement2 : MonoBehaviour
             controller.height = ogHeight;
             isCrouching = false;
         }
+    }
+
+    private void OnDestroy()
+    {
+        walkingAudioInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        walkingAudioInstance.release();
     }
 }

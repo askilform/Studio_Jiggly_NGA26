@@ -2,16 +2,17 @@ using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class InteractCheck : MonoBehaviour
 {
     public GameObject UI;
-    public AudioSource interactSfx;
     public GameObject playerCam;
     public LayerMask layerMask;
+    public UnityEvent InteractAudioEvent;
 
     private bool InInteraction;
-    [HideInInspector] public Interactable CurrentInteractable;
+    public Interactable CurrentInteractable;
 
     public FuelHolderScript fuelHolderScriptRef;
 
@@ -22,11 +23,6 @@ public class InteractCheck : MonoBehaviour
 
     public bool canPickupFuel = false;
 
-    private void Start()
-    {
-        interactSfx = GetComponent<AudioSource>();
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<Interactable>() != null)
@@ -34,7 +30,6 @@ public class InteractCheck : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out hit, 6, layerMask))
             {
-                UI.SetActive(true);
                 CurrentInteractable = other.GetComponent<Interactable>();
 
                 interactHoverText.text = CurrentInteractable.hoverMessage;
@@ -48,7 +43,6 @@ public class InteractCheck : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Interactable>() != null)
         {
-            UI.SetActive(false);
             CurrentInteractable = null;
         }
     }
@@ -97,46 +91,18 @@ public class InteractCheck : MonoBehaviour
                 }
 
             }
-
-
         }
+    }
 
-        /*                  ----- WORK IN PROGESS (RAYCAST TO INTERACTCHECK) ------
-        RaycastHit hit;
-        // --------------------------------------------------------------------------------------------------------------------- !!!!!!!!!!!!
-        if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out hit, 4, layerMask))
-        {
-            if (hit.transform.GetComponentInChildren<Interactable>() != null)
-            {
-                UI.SetActive(true);
-                CurrentInteractable = hit.transform.GetComponentInChildren<Interactable>();
-
-                interactHoverText.text = CurrentInteractable.hoverMessage;
-            }
-
-            else
-            {
-                if (hit.transform.GetComponentInChildren<Interactable>() != null)
-                {
-                    UI.SetActive(false);
-                    CurrentInteractable = null;
-                }
-            }
-        }
-
-        else
-        {
-            UI.SetActive(false);
-            CurrentInteractable = null;
-        }
-
-        */
+    private void FixedUpdate()
+    {
+        UI.SetActive(CurrentInteractable != null);
     }
 
     private IEnumerator Interact()
     {
         InInteraction = true;
-        UI.SetActive(false);
+
         PlayInteractSFX();
         CurrentInteractable.onEnable.Invoke();
 
@@ -174,7 +140,7 @@ public class InteractCheck : MonoBehaviour
 
     public void PlayInteractSFX()
     {
-        interactSfx.Play();
+        InteractAudioEvent.Invoke();
     }
 
 }

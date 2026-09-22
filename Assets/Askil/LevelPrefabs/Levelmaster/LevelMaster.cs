@@ -36,7 +36,7 @@ public class LevelMaster : MonoBehaviour
         sceneIn = true;
         canvasGroup.alpha = 1.0f;
 
-        if (SceneManager.GetActiveScene().name == "MainMenu")
+        if (SceneManager.GetActiveScene().name == "MainMenu" || SceneManager.GetActiveScene().name == "MainMenuKari")
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
@@ -75,8 +75,11 @@ public class LevelMaster : MonoBehaviour
 
     private void Update()
     {
-        DiscardSaves(); 
-        if (Input.GetKeyDown(KeyCode.F12)) ChanceScene("MainMenu");
+        if (Input.GetKeyDown(KeyCode.F12))
+        {
+            DiscardSaves();
+            ChanceScene("MainMenu");
+        }
     }
 
     public void ChanceScene(string sceneName) { StartCoroutine(ChanceSceneCoroutine(sceneName)); }

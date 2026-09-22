@@ -206,13 +206,28 @@ MonoBehaviour:
   burstShot: 1
   shotCooldownNow: 0
   ShotCooldown: 0.1
-  chargeupTime: 2.2
+  chargeupTime: 2
   burstDuration: 1.5
-  postBurstClarity: 3
+  postBurstClarity: 2.6
   cooldownSound: {fileID: 8300000, guid: 9cdea9becc1a9b94e9c29caa2dcc1afe, type: 3}
   chargeSoundSource: {fileID: 3443111963323522508}
-  batteryLeft: 10
+  chargeSound:
+    Guid:
+      Data1: -583468838
+      Data2: 1313208553
+      Data3: 2088159114
+      Data4: 1358617943
+    Path: event:/JallaSound/gMS Chargeup Timeline
+  gunfireSound:
+    Guid:
+      Data1: 590887500
+      Data2: 1210147055
+      Data3: -1565685102
+      Data4: 1543934351
+    Path: event:/JallaSound/gMS shot
+  gunfireFmod: {fileID: 0}
   batteryMax: 50
+  batteryLeft: 10
   gunModelKnockback: 0.1
   aimKnockback: 0.1
   raycastRange: 80
@@ -616,6 +631,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4617660618862425}
   - component: {fileID: 3443111963323522508}
+  - component: {fileID: 7872860513481289593}
   m_Layer: 0
   m_Name: ChargeSound
   m_TagString: Untagged
@@ -735,6 +751,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7872860513481289593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570565664912058148}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -583468838
+      Data2: 1313208553
+      Data3: 2088159114
+      Data4: 1358617943
+    Path: event:/JallaSound/gMS Chargeup Timeline
+  Event: 
+  EventPlayTrigger: 11
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1835741637854845770
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,8 +1003,23 @@ MonoBehaviour:
   postBurstClarity: 1.5
   cooldownSound: {fileID: 0}
   chargeSoundSource: {fileID: 0}
-  batteryLeft: 10
+  chargeSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  gunfireSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  gunfireFmod: {fileID: 0}
   batteryMax: 256
+  batteryLeft: 10
   gunModelKnockback: 0.1
   aimKnockback: 0.1
   raycastRange: 4
@@ -2099,6 +2161,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: armv2_3_connector
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8cc14a0c960fe21438d902c4a3d09757, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2257,6 +2323,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4bc569d5f1641134fbdb658360a69f29, type: 3}
       propertyPath: m_Name
       value: armv2_5_rail
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4bc569d5f1641134fbdb658360a69f29, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2433,6 +2503,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 95d2c475963b4f14b9531e6ac1e1406e, type: 3}
       propertyPath: m_Name
       value: armv2_6_fuelholder
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 95d2c475963b4f14b9531e6ac1e1406e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2644,6 +2718,10 @@ PrefabInstance:
     - target: {fileID: 7989184519605364246, guid: d7f39cab415a5ce449fd28b19762cef9, type: 3}
       propertyPath: m_Name
       value: armv2_4_capacitor
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989184519605364246, guid: d7f39cab415a5ce449fd28b19762cef9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8364936161476268074, guid: d7f39cab415a5ce449fd28b19762cef9, type: 3}
       propertyPath: m_CastShadows
