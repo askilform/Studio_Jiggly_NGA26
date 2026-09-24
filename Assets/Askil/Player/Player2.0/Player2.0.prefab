@@ -4712,16 +4712,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 44260327515451628, guid: 2b5d3844e533427459228216a1f6481e, type: 3}
+      propertyPath: runWhenEnabled.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7328957467819501816}
+    - target: {fileID: 44260327515451628, guid: 2b5d3844e533427459228216a1f6481e, type: 3}
       propertyPath: runWhenEnabled.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 44260327515451628, guid: 2b5d3844e533427459228216a1f6481e, type: 3}
       propertyPath: runWhenEnabled.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: startPlayingMusic
+      value: startChargeAudio
       objectReference: {fileID: 0}
     - target: {fileID: 44260327515451628, guid: 2b5d3844e533427459228216a1f6481e, type: 3}
       propertyPath: runWhenEnabled.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: EpicMusicSystem, Assembly-CSharp
+      value: GunFireScript, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 44260327515451628, guid: 2b5d3844e533427459228216a1f6481e, type: 3}
       propertyPath: runWhenEnabled.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -4846,6 +4850,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50a5b7c654891e64ea126625771cb4ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7328957467819501816 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8523937725533299735, guid: 2b5d3844e533427459228216a1f6481e, type: 3}
+  m_PrefabInstance: {fileID: 1440786634905046255}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af05f9c7cf4a0114d85f438003c6af82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &5533415268940038421

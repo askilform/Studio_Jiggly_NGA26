@@ -10,7 +10,7 @@ public class EventOnTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "Player" && !InCar)
+        if (other.transform.tag == "Player")
         {
             onTriggerEvent.Invoke();
 

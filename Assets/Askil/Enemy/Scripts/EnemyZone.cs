@@ -85,7 +85,7 @@ public class EnemyZone : MonoBehaviour
         yield return new WaitForSeconds(5);
         if (!levelMaster.playerInDangerArea)
         {
-            Enemy.transform.position = enemyStartLocation;
+            // Enemy.transform.position = enemyStartLocation;
             Enemy.SetActive(false);
         }    
     }
