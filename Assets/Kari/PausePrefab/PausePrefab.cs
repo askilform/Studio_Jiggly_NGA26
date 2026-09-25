@@ -65,6 +65,7 @@ public class PausePrefab : MonoBehaviour
     public void GoToScene(string SceneToGoTo)
     {
         Time.timeScale = 1f;
+        GameInstance.ClearSaves();
         GameObject.FindFirstObjectByType<LevelMaster>().ChanceScene(SceneToGoTo);
     }
 }
