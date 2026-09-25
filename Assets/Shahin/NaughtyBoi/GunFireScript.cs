@@ -268,6 +268,7 @@ public class GunFireScript : MonoBehaviour
         //Reduce Battery
         batteryLeft = Mathf.Max(batteryLeft - 1, 0);
         CameraSc.OnShot();
+        gunfireSoundInstance.start();
 
         audioSource.pitch = Random.Range(0.9f, 1.1f);
 
