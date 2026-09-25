@@ -236,6 +236,8 @@ MonoBehaviour:
   heldInHandTossMessage: Drop
   showUseMessage: 1
   heldInHandUseMessage: Refill Ammo
+  throwFromCenterOfScreen: 0
+  throwForce: 3
 --- !u!114 &3882571698400186958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,6 +329,10 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 169406c85e2a67a4bbc789719a486654, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b9a82c5d22d93b47a95e6dc601d50ee, type: 2}
     - target: {fileID: 919132149155446097, guid: 169406c85e2a67a4bbc789719a486654, type: 3}
       propertyPath: m_Name
       value: RG_BatteryHolder
@@ -408,7 +414,7 @@ PrefabInstance:
     - target: {fileID: -7635826562936255635, guid: 1c37bbc0a0ff3f049bf3b40ed17e644b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 3ebe3b5e414f83f49b9d9348f98d2330, type: 2}
+      objectReference: {fileID: 2100000, guid: b924db7ec18b02440be0d13ae9211abd, type: 2}
     - target: {fileID: 919132149155446097, guid: 1c37bbc0a0ff3f049bf3b40ed17e644b, type: 3}
       propertyPath: m_Name
       value: RG_BatteryCore
