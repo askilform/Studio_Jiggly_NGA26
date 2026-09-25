@@ -13669,10 +13669,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1397115645926456323, guid: 92da7b33632eba7459fddaa749535448, type: 3}
       propertyPath: runWhenEnabled.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1397115645926456323, guid: 92da7b33632eba7459fddaa749535448, type: 3}
       propertyPath: runWhenEnabled.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397115645926456323, guid: 92da7b33632eba7459fddaa749535448, type: 3}
+      propertyPath: runWhenEnabled.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1397115645926456323, guid: 92da7b33632eba7459fddaa749535448, type: 3}
@@ -13680,7 +13684,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1521670061}
     - target: {fileID: 1397115645926456323, guid: 92da7b33632eba7459fddaa749535448, type: 3}
+      propertyPath: runWhenEnabled.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 454057631}
+    - target: {fileID: 1397115645926456323, guid: 92da7b33632eba7459fddaa749535448, type: 3}
       propertyPath: runWhenEnabled.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397115645926456323, guid: 92da7b33632eba7459fddaa749535448, type: 3}
+      propertyPath: runWhenEnabled.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1397115645926456323, guid: 92da7b33632eba7459fddaa749535448, type: 3}
@@ -13688,11 +13700,23 @@ PrefabInstance:
       value: startPlayingMusic
       objectReference: {fileID: 0}
     - target: {fileID: 1397115645926456323, guid: 92da7b33632eba7459fddaa749535448, type: 3}
+      propertyPath: runWhenEnabled.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: startChargeAudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397115645926456323, guid: 92da7b33632eba7459fddaa749535448, type: 3}
       propertyPath: runWhenEnabled.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: EpicMusicSystem, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1397115645926456323, guid: 92da7b33632eba7459fddaa749535448, type: 3}
+      propertyPath: runWhenEnabled.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: GunFireScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397115645926456323, guid: 92da7b33632eba7459fddaa749535448, type: 3}
       propertyPath: runWhenEnabled.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397115645926456323, guid: 92da7b33632eba7459fddaa749535448, type: 3}
+      propertyPath: runWhenEnabled.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2223401360093469492, guid: 92da7b33632eba7459fddaa749535448, type: 3}
@@ -13764,8 +13788,48 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6939798138021911320, guid: 92da7b33632eba7459fddaa749535448, type: 3}
+      propertyPath: chargeSound.Path
+      value: event:/JallaSound/gMS Chargeup Timeline
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939798138021911320, guid: 92da7b33632eba7459fddaa749535448, type: 3}
       propertyPath: layerMask.m_Bits
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939798138021911320, guid: 92da7b33632eba7459fddaa749535448, type: 3}
+      propertyPath: gunfireSound.Path
+      value: event:/JallaSound/cyber-tennis-smash-100733
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939798138021911320, guid: 92da7b33632eba7459fddaa749535448, type: 3}
+      propertyPath: chargeSound.Guid.Data1
+      value: -583468838
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939798138021911320, guid: 92da7b33632eba7459fddaa749535448, type: 3}
+      propertyPath: chargeSound.Guid.Data2
+      value: 1313208553
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939798138021911320, guid: 92da7b33632eba7459fddaa749535448, type: 3}
+      propertyPath: chargeSound.Guid.Data3
+      value: 2088159114
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939798138021911320, guid: 92da7b33632eba7459fddaa749535448, type: 3}
+      propertyPath: chargeSound.Guid.Data4
+      value: 1358617943
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939798138021911320, guid: 92da7b33632eba7459fddaa749535448, type: 3}
+      propertyPath: gunfireSound.Guid.Data1
+      value: -2068661983
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939798138021911320, guid: 92da7b33632eba7459fddaa749535448, type: 3}
+      propertyPath: gunfireSound.Guid.Data2
+      value: 1309200441
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939798138021911320, guid: 92da7b33632eba7459fddaa749535448, type: 3}
+      propertyPath: gunfireSound.Guid.Data3
+      value: 2112726207
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939798138021911320, guid: 92da7b33632eba7459fddaa749535448, type: 3}
+      propertyPath: gunfireSound.Guid.Data4
+      value: -624928196
       objectReference: {fileID: 0}
     - target: {fileID: 7328957467819501816, guid: 92da7b33632eba7459fddaa749535448, type: 3}
       propertyPath: layerMask.m_Bits
@@ -26129,6 +26193,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 452314639}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &454057631 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7328957467819501816, guid: 92da7b33632eba7459fddaa749535448, type: 3}
+  m_PrefabInstance: {fileID: 236424589}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af05f9c7cf4a0114d85f438003c6af82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &458216128
 GameObject:
   m_ObjectHideFlags: 0
