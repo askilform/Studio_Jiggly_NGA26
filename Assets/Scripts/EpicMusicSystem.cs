@@ -1,3 +1,5 @@
+using FMOD.Studio;
+using FMODUnity;
 using System;
 using TMPro;
 using Unity.Mathematics;
@@ -6,8 +8,30 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 public class EpicMusicSystem : MonoBehaviour
-{   
+{
 
+    public bool useFmod = true;
+    private bool fmodHasBegun = false;
+
+    [Header("AudioFmod")]
+    public EventReference fmodBase;
+    public EventInstance fmodBaseInst;
+
+    public EventReference fmodHit;
+    public EventInstance fmodHitInst;
+
+    public EventReference fmodLead;
+    public EventInstance fmodLeadInst;
+
+    public EventReference fmodBuild;
+    public EventInstance fmodBuildInst;
+    
+    private float baseVol = 0f;
+    private float hitVol = 0f;
+    private float leadVol = 0f;
+    private float buildVol = 0f;
+
+    [Header("Other Stuff")]
     public TextMeshPro devMusicUi;
     public bool disableDebugLog = true;
 
@@ -15,6 +39,9 @@ public class EpicMusicSystem : MonoBehaviour
     public AudioSource audHit;
     public AudioSource audLead;
     public AudioSource audBuild;
+
+    public StudioEventEmitter foBase;
+    public StudioEventEmitter foHit;
 
 
     public float maxVol = 0.2f;
@@ -49,7 +76,16 @@ public class EpicMusicSystem : MonoBehaviour
 
     void Start()
     {
+        fmodBaseInst = RuntimeManager.CreateInstance(fmodBase);
+        fmodLeadInst = RuntimeManager.CreateInstance(fmodLead);
+        fmodBuildInst = RuntimeManager.CreateInstance(fmodBuild);
+        fmodHitInst = RuntimeManager.CreateInstance(fmodHit);
+        
+
+
+
         audBase.volume = maxVol;
+        baseVol = maxVol;
         audHit.volume = 0;
         audLead.volume = 0;
         audBuild.volume = 0;
@@ -59,6 +95,7 @@ public class EpicMusicSystem : MonoBehaviour
     public void startPlayingMusic()
     {
         playMusic = true;
+
     }
 
     public void stopPlayingMusic()
@@ -76,6 +113,21 @@ public class EpicMusicSystem : MonoBehaviour
             audHit.Play();
             audLead.Play();
             audBuild.Play();
+            leadNow = 0;
+            hitNow = 0;
+
+            
+        }
+
+        if (useFmod && !fmodHasBegun && playMusic)
+        {
+            print("BEGIN FMOD");
+            fmodBaseInst.start();
+            fmodLeadInst.start();
+            fmodBuildInst.start();
+            fmodHitInst.start();
+            fmodHasBegun = true;
+
             leadNow = 0;
             hitNow = 0;
         }
@@ -117,12 +169,30 @@ public class EpicMusicSystem : MonoBehaviour
         lerpVolume(audBuild, isBuild);
 
 
+        lerpValue(leadVol, isLead);
+        lerpValue(hitVol, isHit);
+        lerpValue(buildVol, isBuild);
+
+        fmodLeadInst.setVolume(audLead.volume);
+        fmodHitInst.setVolume(audHit.volume);
+        fmodBuildInst.setVolume(audBuild.volume);
+
+
 
 
         //DEV----------------------------------------------------------------------------------
         if (allowDevKeys)
         {
-         
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                startPlayingMusic();
+            }
+
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                stopPlayingMusic();
+            }
+
             if (Input.GetKeyDown(KeyCode.L))
             {
                 bufferLeadSegment();
@@ -166,6 +236,15 @@ public class EpicMusicSystem : MonoBehaviour
             
         }
 
+
+        if (playMusic == false)
+        {
+            fmodBaseInst.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            fmodBuildInst.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            fmodLeadInst.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            fmodHitInst.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }
+
         
     }
 
@@ -178,7 +257,11 @@ public class EpicMusicSystem : MonoBehaviour
         whatSource.volume = Mathf.Lerp(whatSource.volume, whatVolume, Time.deltaTime * musicFadeLerp);
     }
 
-
+    private void lerpValue(float whatValue, bool whatBool)
+    {
+        float whatVolume = whatBool ? maxVol : 0f;
+        whatValue = Mathf.Lerp(whatValue, whatVolume, Time.deltaTime * musicFadeLerp);
+    }
 
 
     private void devText(string categoryName, float percentage, int amount)

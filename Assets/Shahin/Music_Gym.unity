@@ -240,6 +240,69 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &522241543
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 522241544}
+  - component: {fileID: 522241545}
+  m_Layer: 0
+  m_Name: Build (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &522241544
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522241543}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1788930147}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &522241545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522241543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 300454634
+      Data2: 1203798641
+      Data3: -1212602728
+      Data4: -264480562
+    Path: event:/JallaSound/Haunted Echo T1_BUILD
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &640441774
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,6 +315,7 @@ GameObject:
   - component: {fileID: 640441776}
   - component: {fileID: 640441775}
   - component: {fileID: 640441778}
+  - component: {fileID: 640441779}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -377,6 +441,214 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &640441779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640441774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
+--- !u!1 &1383879937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1383879938}
+  - component: {fileID: 1383879939}
+  m_Layer: 0
+  m_Name: Hit (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1383879938
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383879937}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1788930147}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1383879939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383879937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -423724464
+      Data2: 1264141648
+      Data3: 133676961
+      Data4: 1088015681
+    Path: event:/JallaSound/Haunted Echo T1_HITS v5
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!4 &1788930147 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8321413226435229114, guid: 26c961aad8f29884282d921e5f89cdf6, type: 3}
+  m_PrefabInstance: {fileID: 726062018919660724}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1894881924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1894881925}
+  - component: {fileID: 1894881926}
+  m_Layer: 0
+  m_Name: Lead (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1894881925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894881924}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1788930147}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1894881926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894881924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 86928669
+      Data2: 1249053820
+      Data3: -1966189423
+      Data4: 581384696
+    Path: event:/JallaSound/Haunted Echo T1_LEAD
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!1 &1912412681
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1912412682}
+  - component: {fileID: 1912412683}
+  m_Layer: 0
+  m_Name: Base (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1912412682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912412681}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1788930147}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1912412683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912412681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -207248725
+      Data2: 1260019302
+      Data3: 1347331215
+      Data4: -150839801
+    Path: event:/JallaSound/Haunted Echo T1_BASE
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &726062018919660724
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -386,8 +658,84 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 746098562115832335, guid: 26c961aad8f29884282d921e5f89cdf6, type: 3}
+      propertyPath: foBase
+      value: 
+      objectReference: {fileID: 1912412683}
+    - target: {fileID: 746098562115832335, guid: 26c961aad8f29884282d921e5f89cdf6, type: 3}
       propertyPath: hitFreq
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 746098562115832335, guid: 26c961aad8f29884282d921e5f89cdf6, type: 3}
+      propertyPath: useFmod
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 746098562115832335, guid: 26c961aad8f29884282d921e5f89cdf6, type: 3}
+      propertyPath: allowDevKeys
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 746098562115832335, guid: 26c961aad8f29884282d921e5f89cdf6, type: 3}
+      propertyPath: fmodHit.Path
+      value: event:/JallaSound/EnemyWalk
+      objectReference: {fileID: 0}
+    - target: {fileID: 746098562115832335, guid: 26c961aad8f29884282d921e5f89cdf6, type: 3}
+      propertyPath: fmodLead.Path
+      value: event:/JallaSound/Enemychase
+      objectReference: {fileID: 0}
+    - target: {fileID: 746098562115832335, guid: 26c961aad8f29884282d921e5f89cdf6, type: 3}
+      propertyPath: fmodBuild.Path
+      value: event:/JallaSound/chasing_beat
+      objectReference: {fileID: 0}
+    - target: {fileID: 746098562115832335, guid: 26c961aad8f29884282d921e5f89cdf6, type: 3}
+      propertyPath: disableDebugLog
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 746098562115832335, guid: 26c961aad8f29884282d921e5f89cdf6, type: 3}
+      propertyPath: fmodHit.Guid.Data1
+      value: -889902160
+      objectReference: {fileID: 0}
+    - target: {fileID: 746098562115832335, guid: 26c961aad8f29884282d921e5f89cdf6, type: 3}
+      propertyPath: fmodHit.Guid.Data2
+      value: 1303394850
+      objectReference: {fileID: 0}
+    - target: {fileID: 746098562115832335, guid: 26c961aad8f29884282d921e5f89cdf6, type: 3}
+      propertyPath: fmodHit.Guid.Data3
+      value: -1161379700
+      objectReference: {fileID: 0}
+    - target: {fileID: 746098562115832335, guid: 26c961aad8f29884282d921e5f89cdf6, type: 3}
+      propertyPath: fmodHit.Guid.Data4
+      value: -318444793
+      objectReference: {fileID: 0}
+    - target: {fileID: 746098562115832335, guid: 26c961aad8f29884282d921e5f89cdf6, type: 3}
+      propertyPath: fmodLead.Guid.Data1
+      value: -70921021
+      objectReference: {fileID: 0}
+    - target: {fileID: 746098562115832335, guid: 26c961aad8f29884282d921e5f89cdf6, type: 3}
+      propertyPath: fmodLead.Guid.Data2
+      value: 1121761380
+      objectReference: {fileID: 0}
+    - target: {fileID: 746098562115832335, guid: 26c961aad8f29884282d921e5f89cdf6, type: 3}
+      propertyPath: fmodLead.Guid.Data3
+      value: -778255226
+      objectReference: {fileID: 0}
+    - target: {fileID: 746098562115832335, guid: 26c961aad8f29884282d921e5f89cdf6, type: 3}
+      propertyPath: fmodLead.Guid.Data4
+      value: 1109193180
+      objectReference: {fileID: 0}
+    - target: {fileID: 746098562115832335, guid: 26c961aad8f29884282d921e5f89cdf6, type: 3}
+      propertyPath: fmodBuild.Guid.Data1
+      value: 1853136506
+      objectReference: {fileID: 0}
+    - target: {fileID: 746098562115832335, guid: 26c961aad8f29884282d921e5f89cdf6, type: 3}
+      propertyPath: fmodBuild.Guid.Data2
+      value: 1220190896
+      objectReference: {fileID: 0}
+    - target: {fileID: 746098562115832335, guid: 26c961aad8f29884282d921e5f89cdf6, type: 3}
+      propertyPath: fmodBuild.Guid.Data3
+      value: 54764726
+      objectReference: {fileID: 0}
+    - target: {fileID: 746098562115832335, guid: 26c961aad8f29884282d921e5f89cdf6, type: 3}
+      propertyPath: fmodBuild.Guid.Data4
+      value: 1555435578
       objectReference: {fileID: 0}
     - target: {fileID: 8282866132303839221, guid: 26c961aad8f29884282d921e5f89cdf6, type: 3}
       propertyPath: m_Name
@@ -435,7 +783,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8321413226435229114, guid: 26c961aad8f29884282d921e5f89cdf6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1912412682}
+    - targetCorrespondingSourceObject: {fileID: 8321413226435229114, guid: 26c961aad8f29884282d921e5f89cdf6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 522241544}
+    - targetCorrespondingSourceObject: {fileID: 8321413226435229114, guid: 26c961aad8f29884282d921e5f89cdf6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1894881925}
+    - targetCorrespondingSourceObject: {fileID: 8321413226435229114, guid: 26c961aad8f29884282d921e5f89cdf6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1383879938}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4052828051879970122, guid: 26c961aad8f29884282d921e5f89cdf6, type: 3}
       insertIndex: -1
