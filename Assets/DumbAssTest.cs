@@ -8,8 +8,6 @@ public class DumbAssTest : MonoBehaviour
     [Header("AudioFmod")]
     public EventReference fmodBase;
     public EventInstance fmodBaseInst;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         

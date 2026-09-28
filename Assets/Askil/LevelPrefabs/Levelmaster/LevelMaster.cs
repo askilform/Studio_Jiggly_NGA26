@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -59,7 +61,7 @@ public class LevelMaster : MonoBehaviour
             {
                 if (GameInstance.savedWeaponIds.Contains(weaponPart.id)) Destroy(weaponPart.transform.gameObject);
             }
-        } 
+        }
     }
 
     private void FixedUpdate()
@@ -105,5 +107,14 @@ public class LevelMaster : MonoBehaviour
     public void DiscardSaves()
     {
         GameInstance.ClearSaves();
+    }
+
+    public void GiveAllWeaponParts()
+    {
+        GameInstance.gunShowcase = true;
+
+        //lord forgive me, it's been a while since i've used unity.
+        //THIS IS CURSED!
+        //And it didnt work.,
     }
 }
