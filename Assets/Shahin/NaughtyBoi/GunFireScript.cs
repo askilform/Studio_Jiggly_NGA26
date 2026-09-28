@@ -90,7 +90,7 @@ public class GunFireScript : MonoBehaviour
     {
 
         chargeSoundInstance = RuntimeManager.CreateInstance(chargeSound);
-        chargeSoundInstance.start();
+        // chargeSoundInstance.start();
 
         gunfireSoundInstance = RuntimeManager.CreateInstance(gunfireSound);
 
@@ -98,6 +98,11 @@ public class GunFireScript : MonoBehaviour
 
         lightFadeNow = 1f;
         //print("Press F to fire, for now");
+    }
+
+    public void startChargeAudio()
+    {
+        chargeSoundInstance.start();
     }
 
     public void RefillBatteries()
@@ -263,6 +268,7 @@ public class GunFireScript : MonoBehaviour
         //Reduce Battery
         batteryLeft = Mathf.Max(batteryLeft - 1, 0);
         CameraSc.OnShot();
+        gunfireSoundInstance.start();
 
         audioSource.pitch = Random.Range(0.9f, 1.1f);
 

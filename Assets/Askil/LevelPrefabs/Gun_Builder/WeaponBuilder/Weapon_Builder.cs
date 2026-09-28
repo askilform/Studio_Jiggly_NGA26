@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
@@ -21,7 +22,7 @@ public class Weapon_Builder : MonoBehaviour
 
     public UnityEvent ifHasEntireGun;
 
-    private void Start()
+    private IEnumerator Start()
     {
 
         if (GetGunIdOnStart != 0)
@@ -38,10 +39,13 @@ public class Weapon_Builder : MonoBehaviour
         }
 
 
+
         else foreach (int i in GameInstance.savedWeaponIds)
         {
-            IdsPickedUp.Add((int)i);
-            uiWeaponPartSc.colorUiPart((int)i);
+                IdsPickedUp.Add((int)i);
+
+                yield return null;
+                uiWeaponPartSc.colorUiPart((int)i);
         }
     }
 

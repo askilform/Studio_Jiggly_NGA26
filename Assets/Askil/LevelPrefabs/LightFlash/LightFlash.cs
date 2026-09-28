@@ -15,6 +15,9 @@ public class LightFlash : MonoBehaviour
     public Volume PostProcessing;
     public List <StudioEventEmitter> sfxs = new List<StudioEventEmitter>();
 
+    public bool TeleportPlayer;
+    public Vector3 teleportPlayerTo;
+
 
     bool turnDark = true;
     int IntervalsHappened;
@@ -31,6 +34,8 @@ public class LightFlash : MonoBehaviour
         {
             print("ShouldHappenLOL");
             eventToHappen.Invoke();
+
+            if (TeleportPlayer) GameObject.FindGameObjectWithTag("Player").transform.localPosition = teleportPlayerTo;
         }
 
         if (flashIntervals.Count != 0) StartCoroutine(FLashLoop());

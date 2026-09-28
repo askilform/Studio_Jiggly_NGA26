@@ -13,8 +13,6 @@ public class GuessTheDoor : MonoBehaviour
 
     [Header("Assign")]
     public List<DoorToGuess> sides = new List<DoorToGuess>();
-    public Animator animator;
-    public AnimationCurve CountDownTime;
 
 
     [Header("Tewaks")]
@@ -30,7 +28,6 @@ public class GuessTheDoor : MonoBehaviour
 
         else
         {
-            animator.SetTrigger("OpenDore");
             onLastKill.Invoke();
         }
     }
@@ -61,7 +58,6 @@ public class GuessTheDoor : MonoBehaviour
 
         else
         {
-            animator.SetTrigger("OpenDore");
             onLastKill.Invoke();
         }
 
