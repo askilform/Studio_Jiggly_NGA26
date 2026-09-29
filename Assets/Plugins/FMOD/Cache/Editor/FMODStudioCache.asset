@@ -309,7 +309,7 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639262997749838740
+  lastModified: 639263039697924193
   FileSizes:
   - Name: Desktop
     Value: 7326
@@ -533,10 +533,10 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639262997749858768
+  lastModified: 639263039697946006
   FileSizes:
   - Name: Desktop
-    Value: 4230
+    Value: 4280
   Exists: 1
 --- !u!114 &-1594857155671843415
 MonoBehaviour:
@@ -755,6 +755,7 @@ MonoBehaviour:
   - {fileID: 8136083522349974943}
   - {fileID: 8697290887033627619}
   - {fileID: -635393782563460864}
+  - {fileID: 974352229759044376}
   EditorParameters:
   - {fileID: -4042335268322485408}
   - {fileID: -5489052554813551030}
@@ -766,7 +767,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -1646906190701980638}
   cacheVersion: 131860
-  cacheTime: 639263024499719324
+  cacheTime: 639263042837388649
   SerializableEventsDict:
   - key: event:/UI/Confirm
     index: 0
@@ -866,6 +867,8 @@ MonoBehaviour:
     index: 47
   - key: event:/Music/RoadTrip
     index: 48
+  - key: event:/JallaSound/Thunder
+    index: 49
 --- !u!114 &34043475971835307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -974,6 +977,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 36728
+--- !u!114 &974352229759044376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/JallaSound/Thunder
+  m_EditorClassIdentifier: 
+  Path: event:/JallaSound/Thunder
+  Guid:
+    Data1: 783906199
+    Data2: 1282032612
+    Data3: 1280738730
+    Data4: -910410227
+  Banks:
+  - {fileID: 4490224482741432088}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &1304459653498022468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1258,10 +1288,10 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/JallaBank.bank
   Name: JallaBank
   StudioPath: bank:/JallaBank
-  lastModified: 639262957629800516
+  lastModified: 639263042837388649
   FileSizes:
   - Name: Desktop
-    Value: 4555392
+    Value: 4622304
   Exists: 1
 --- !u!114 &5205475704489747423
 MonoBehaviour:
@@ -1311,7 +1341,7 @@ MonoBehaviour:
   Banks:
   - {fileID: 4490224482741432088}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -1818,7 +1848,7 @@ MonoBehaviour:
   Banks:
   - {fileID: 4490224482741432088}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
