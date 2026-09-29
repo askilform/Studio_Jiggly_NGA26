@@ -42,6 +42,7 @@ public class LevelMaster : MonoBehaviour
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+            GameInstance.gunShowcase = false;
         }
 
         else
@@ -107,14 +108,5 @@ public class LevelMaster : MonoBehaviour
     public void DiscardSaves()
     {
         GameInstance.ClearSaves();
-    }
-
-    public void GiveAllWeaponParts()
-    {
-        GameInstance.gunShowcase = true;
-
-        //lord forgive me, it's been a while since i've used unity.
-        //THIS IS CURSED!
-        //And it didnt work.,
     }
 }

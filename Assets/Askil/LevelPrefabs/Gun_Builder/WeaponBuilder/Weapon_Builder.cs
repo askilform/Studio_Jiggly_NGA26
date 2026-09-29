@@ -24,6 +24,7 @@ public class Weapon_Builder : MonoBehaviour
 
     private IEnumerator Start()
     {
+        if (GameInstance.gunShowcase) GetGunIdOnStart = 123456;
 
         if (GetGunIdOnStart != 0)
         {
