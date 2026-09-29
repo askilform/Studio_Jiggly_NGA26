@@ -50,6 +50,7 @@ public class CarFuntion : MonoBehaviour
         player.GetComponent<PlayerMovement2>().cameraMovementAllowed = true;
         player.GetComponent<CharacterController>().enabled = true;
 
+        carMovementSc.carEngineAudio.SetParameter("RPM", 0);
         carMovementSc.enabled = false;
         enabled = false;
     }
