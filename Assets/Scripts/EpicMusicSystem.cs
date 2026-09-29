@@ -309,4 +309,12 @@ public class EpicMusicSystem : MonoBehaviour
         bufferLead = false;
 
     }
+
+    private void OnDestroy()
+    {
+        fmodBaseInst.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        fmodLeadInst.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        fmodBuildInst.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        fmodHitInst.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+    }
 }
