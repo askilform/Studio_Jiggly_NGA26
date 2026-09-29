@@ -17,6 +17,10 @@ public class TextPopUp : MonoBehaviour
         txt.color = new Color(0, 0, 0, 0);
         blackBackground.SetActive(false);
     }
+    public void BasicTextFlash(string message0)
+    {
+        StartCoroutine(FlashText(message0, 1, false, true));
+    }
 
     public void TextFlashEvent(string message0, bool SfxOn)
     {

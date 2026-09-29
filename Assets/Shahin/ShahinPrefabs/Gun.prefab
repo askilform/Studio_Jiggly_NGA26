@@ -206,7 +206,7 @@ MonoBehaviour:
   burstShot: 1
   shotCooldownNow: 0
   ShotCooldown: 0.1
-  chargeupTime: 2
+  chargeupTime: 1.8
   burstDuration: 1.5
   postBurstClarity: 2.6
   cooldownSound: {fileID: 8300000, guid: 9cdea9becc1a9b94e9c29caa2dcc1afe, type: 3}
@@ -226,11 +226,11 @@ MonoBehaviour:
       Data4: 1543934351
     Path: event:/JallaSound/gMS shot
   gunfireFmod: {fileID: 0}
-  batteryMax: 50
+  batteryMax: 35
   batteryLeft: 10
   gunModelKnockback: 0.1
   aimKnockback: 0.1
-  raycastRange: 80
+  raycastRange: 200
   layerMask:
     serializedVersion: 2
     m_Bits: 513
@@ -246,10 +246,10 @@ MonoBehaviour:
     key5: {r: 0.09019608, g: 0, b: 0.039341737, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 964
-    ctime1: 2313
-    ctime2: 3277
-    ctime3: 4626
+    ctime0: 694
+    ctime1: 1619
+    ctime2: 2544
+    ctime3: 3624
     ctime4: 8481
     ctime5: 27371
     ctime6: 44718
@@ -1434,6 +1434,69 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 0
   m_ApplyActiveColorSpace: 1
+--- !u!1 &4883367511812328761
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4460628252579214686}
+  - component: {fileID: 1035514159689275910}
+  m_Layer: 0
+  m_Name: ReloadSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4460628252579214686
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4883367511812328761}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.13052624, y: -0.9914449, z: -0, w: 0}
+  m_LocalPosition: {x: -0.0054537854, y: 0.035808604, z: -0.6020001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6911800923809868020}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1035514159689275910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4883367511812328761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1135097275
+      Data2: 1089153770
+      Data3: -792374142
+      Data4: 2009986587
+    Path: event:/JallaSound/cloth_thud_rustle_medium
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &5604513886643429054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1770,6 +1833,69 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &8491862792296361289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8340992174389354889}
+  - component: {fileID: 4422122703069304908}
+  m_Layer: 0
+  m_Name: DropRodSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8340992174389354889
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8491862792296361289}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.13052624, y: -0.9914449, z: -0, w: 0}
+  m_LocalPosition: {x: -0.0054537854, y: 0.035808604, z: -0.6020001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6911800923809868020}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4422122703069304908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8491862792296361289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1467997625
+      Data2: 1100659199
+      Data3: 542694550
+      Data4: -1642579976
+    Path: event:/JallaSound/custom fleshy sandy punch hitmarker
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &8988630110779118713
 GameObject:
   m_ObjectHideFlags: 0
@@ -2610,6 +2736,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95d2c475963b4f14b9531e6ac1e1406e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 450946272009230777}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95d2c475963b4f14b9531e6ac1e1406e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4460628252579214686}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95d2c475963b4f14b9531e6ac1e1406e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8340992174389354889}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 95d2c475963b4f14b9531e6ac1e1406e, type: 3}
       insertIndex: -1
@@ -2661,6 +2793,8 @@ MonoBehaviour:
   dropRodSound: {fileID: 8300000, guid: cad511be983f34e408a6ac0d87f19f57, type: 3}
   restockRodSound: {fileID: 8300000, guid: d75068d875344464daf62c8e011ba6d1, type: 3}
   audioSource: {fileID: 4898076792729976083}
+  fmodDropRod: {fileID: 4422122703069304908}
+  fmodReload: {fileID: 1035514159689275910}
 --- !u!82 &4898076792729976083
 AudioSource:
   m_ObjectHideFlags: 0

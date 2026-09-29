@@ -58690,6 +58690,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1176564838000631550, guid: 92da7b33632eba7459fddaa749535448, type: 3}
   m_PrefabInstance: {fileID: 873227904}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &873227907 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7638314157334301129, guid: 92da7b33632eba7459fddaa749535448, type: 3}
+  m_PrefabInstance: {fileID: 873227904}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873227905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3f0b87e577c5545bd4d515fffa7c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &875744482
 GameObject:
   m_ObjectHideFlags: 0
@@ -75840,6 +75851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSc: {fileID: 480154260}
+  agent: {fileID: 0}
 --- !u!95 &1093671779
 Animator:
   serializedVersion: 7
@@ -121773,6 +121785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSc: {fileID: 480154260}
+  agent: {fileID: 0}
 --- !u!95 &1741404110
 Animator:
   serializedVersion: 7
@@ -121820,6 +121833,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 873227907}
+        m_TargetAssemblyTypeName: TextPopUp, Assembly-CSharp
+        m_MethodName: BasicTextFlash
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: He's behind You, RUN!
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1742637183
