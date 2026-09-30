@@ -18,7 +18,8 @@ public class Weapon_Builder : MonoBehaviour
 
     public int GetGunIdOnStart;
 
-    public UiWeaponsParts uiWeaponPartSc;
+    // public UiWeaponsParts uiWeaponPartSc;
+    public List<UiWeaponsParts> weaponsPartsList = new List<UiWeaponsParts>();
 
     public UnityEvent ifHasEntireGun;
 
@@ -32,7 +33,13 @@ public class Weapon_Builder : MonoBehaviour
             {
                 int value = digit - '0';
                 IdsPickedUp.Add(value);
-                uiWeaponPartSc.colorUiPart(value);
+
+                foreach (UiWeaponsParts partScs in weaponsPartsList)
+                {
+
+                    partScs.colorUiPart(value);
+                }
+
                 Debug.Log(value);
             }
 
@@ -46,7 +53,12 @@ public class Weapon_Builder : MonoBehaviour
                 IdsPickedUp.Add((int)i);
 
                 yield return null;
-                uiWeaponPartSc.colorUiPart((int)i);
+
+            foreach (UiWeaponsParts partScs in weaponsPartsList)
+            {
+                partScs.colorUiPart((int)i);
+            }
+
         }
     }
 
@@ -64,7 +76,13 @@ public class Weapon_Builder : MonoBehaviour
         WeaponPart WeaponPartScript = weaponPartObject.GetComponent<WeaponPart>();
 
         IdsPickedUp.Add(WeaponPartScript.id);
-        uiWeaponPartSc.colorUiPart(WeaponPartScript.id);
+
+        foreach (UiWeaponsParts partScs in weaponsPartsList)
+        {
+
+            partScs.colorUiPart(WeaponPartScript.id);
+        }
+        
         WeaponPartScript.OnPickup();
 
         IdsPickedUp.Sort();
