@@ -72,6 +72,8 @@ public class GunFireScript : MonoBehaviour
     public TextMeshPro burstingTextDev;
     public TextMeshPro cdTextDev;
     public TextMeshPro batteryDev;
+    public Canvas showIfNoAmmo;
+    public bool enableOutOfAmmoUI = true;
 
     [Header("Juice")]
     public GameObject UniversalHitParticle;
@@ -83,6 +85,7 @@ public class GunFireScript : MonoBehaviour
 
     [Header("for move arm")]
     public gunscript ParentGunScript;
+
 
 
 
@@ -252,6 +255,9 @@ public class GunFireScript : MonoBehaviour
         {
             batteryDev.text = batteryLeft.ToString() + " / " + batteryMax.ToString() + " battery"; 
         }
+
+
+        showIfNoAmmo.enabled = enableOutOfAmmoUI && batteryLeft < 0.001f;
 
     }
 
