@@ -79,8 +79,6 @@ public class EpicMusicSystem : MonoBehaviour
         fmodHitInst = RuntimeManager.CreateInstance(fmodHit);
         
 
-
-
         audBase.volume = maxVol;
         baseVol = maxVol;
         audHit.volume = 0;

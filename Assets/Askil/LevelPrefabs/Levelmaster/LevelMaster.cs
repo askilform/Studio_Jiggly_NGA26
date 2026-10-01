@@ -87,6 +87,11 @@ public class LevelMaster : MonoBehaviour
 
     public void ChanceScene(string sceneName) { StartCoroutine(ChanceSceneCoroutine(sceneName)); }
 
+    public void MainBattle()
+    {
+
+    }
+
     public IEnumerator ChanceSceneCoroutine(string sceneName)
     {
         sceneIn = false;

@@ -113,6 +113,16 @@ public class enemyMovement : MonoBehaviour
 
             onPlayerOverlap.Invoke();
         }
+
+        if (other.TryGetComponent<BreakableEndgame>(out BreakableEndgame breakableSc))
+        {
+            breakableSc.OnEnemyOverlap(transform.position);
+        } 
+
+        else if (other.transform.parent.TryGetComponent<BreakableEndgame>(out BreakableEndgame breakableSc2))
+        {
+            breakableSc2.OnEnemyOverlap(transform.position);
+        }
     }
 
     public void StopMovement()

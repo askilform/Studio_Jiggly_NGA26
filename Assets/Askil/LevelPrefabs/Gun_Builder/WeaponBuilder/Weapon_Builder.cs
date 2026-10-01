@@ -1,12 +1,8 @@
-using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UIElements;
-using static UnityEngine.Rendering.DebugUI;
+using Unity.AI.Navigation;
 
 public class Weapon_Builder : MonoBehaviour
 {
@@ -43,7 +39,17 @@ public class Weapon_Builder : MonoBehaviour
                 Debug.Log(value);
             }
 
-            if (GetGunIdOnStart == 123456) ifHasEntireGun.Invoke();
+            if (GetGunIdOnStart == 123456)
+            {
+                foreach (BreakableEndgame breakables in FindObjectsByType<BreakableEndgame>(sortMode: FindObjectsSortMode.None))
+                {
+                    breakables.OnBattleBegin();
+                }
+
+                FindFirstObjectByType<NavMeshSurface>().BuildNavMesh();
+
+                ifHasEntireGun.Invoke();
+            }
         }
 
 
