@@ -43,6 +43,7 @@ public class LevelMaster : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             GameInstance.gunShowcase = false;
+            GameInstance.ClearSaves();
         }
 
         else

@@ -4,8 +4,12 @@ using System.Collections;
 public class BreakableEndgame : MonoBehaviour
 {
     [SerializeField] private GameObject ParticlePrefab;
+
+    bool battleBegun;
     public void OnBattleBegin()
     {
+        battleBegun = true;
+
         transform.gameObject.layer = 3;
 
         foreach (Transform child in gameObject.transform)
@@ -28,7 +32,10 @@ public class BreakableEndgame : MonoBehaviour
 
     public void OnEnemyOverlap(Vector3 breakArea)
     {
-        Instantiate(ParticlePrefab, breakArea, Quaternion.identity);
-        Destroy(gameObject);
+        if (battleBegun)
+        {
+            Instantiate(ParticlePrefab, breakArea, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 }
