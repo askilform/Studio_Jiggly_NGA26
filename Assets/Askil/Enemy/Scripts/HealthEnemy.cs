@@ -12,9 +12,6 @@ public class HealthEnemy : MonoBehaviour
 
     private Vector3 ogScale;
 
-
-
-
     public int Health;
     public enemyMovement movementSc;
 

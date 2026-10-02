@@ -17,7 +17,7 @@ public class Weapon_Builder : MonoBehaviour
     // public UiWeaponsParts uiWeaponPartSc;
     public List<UiWeaponsParts> weaponsPartsList = new List<UiWeaponsParts>();
 
-    public UnityEvent ifHasEntireGun;
+    public UnityEvent ifHasEntireGunOnStart;
 
     private IEnumerator Start()
     {
@@ -32,16 +32,15 @@ public class Weapon_Builder : MonoBehaviour
 
                 foreach (UiWeaponsParts partScs in weaponsPartsList)
                 {
-
                     partScs.colorUiPart(value);
                 }
 
                 Debug.Log(value);
             }
-
+                
             if (GetGunIdOnStart == 123456)
             {
-                ifHasEntireGun.Invoke();
+                ifHasEntireGunOnStart.Invoke();
             }
         }
 
@@ -57,8 +56,9 @@ public class Weapon_Builder : MonoBehaviour
             {
                 partScs.colorUiPart((int)i);
             }
-
         }
+
+        if (CurrentBuildId == 123456) ifHasEntireGunOnStart.Invoke();
     }
 
 

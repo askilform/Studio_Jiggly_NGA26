@@ -89,4 +89,9 @@ public class EnemyZone : MonoBehaviour
             Enemy.SetActive(false);
         }    
     }
+
+    public void ExpandEnemyZone()
+    {
+        GetComponent<BoxCollider>().size = new Vector3(2,2,2); 
+    }
 }

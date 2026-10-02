@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+
 public class BreakableEndgame : MonoBehaviour
 {
     [SerializeField] private GameObject ParticlePrefab;
@@ -22,13 +23,16 @@ public class BreakableEndgame : MonoBehaviour
         print ("Has Prefab =" + ParticlePrefab != null);
     }
 
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 9)
         {
-            OnEnemyOverlap(transform.position);
+            print("Overlap detected from breakable");
+             OnEnemyOverlap(transform.position);
         }
     }
+    */
 
     public void OnEnemyOverlap(Vector3 breakArea)
     {

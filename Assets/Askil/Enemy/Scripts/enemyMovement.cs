@@ -117,11 +117,13 @@ public class enemyMovement : MonoBehaviour
         if (other.TryGetComponent<BreakableEndgame>(out BreakableEndgame breakableSc))
         {
             breakableSc.OnEnemyOverlap(transform.position);
+            GetHitBuildTowardsPause(11);
         } 
 
         else if (other.transform.parent.TryGetComponent<BreakableEndgame>(out BreakableEndgame breakableSc2))
         {
             breakableSc2.OnEnemyOverlap(transform.position);
+            GetHitBuildTowardsPause(11);
         }
     }
 
@@ -161,7 +163,6 @@ public class enemyMovement : MonoBehaviour
     public void ReduceSpeedMultiplier(float reduceBy)
     {
         hitSpeedMultiplier = reduceBy;
-        
     }
 
 
@@ -176,7 +177,6 @@ public class enemyMovement : MonoBehaviour
             crippleSpeedMultiplier = 0; //slow to zero
 
             OnCrippled.Invoke();
-
         }
     }
 
@@ -191,12 +191,6 @@ public class enemyMovement : MonoBehaviour
         crippleSpeedMultiplier = Mathf.MoveTowards(crippleSpeedMultiplier, 1f, Time.deltaTime * (1f / Mathf.Max(0.01f, crippleRecoveryTime))); 
         //increase over time (if 3s is the target, 1/3 = 0.3333 per second) (can't divide by zero, that's why the max picks 0.01 if lower) 
 
-    }
-
-    public void ScriptedAttack(float NewBaseSpeed)
-    {
-        Speed = NewBaseSpeed;
-        killOnOverlap = false;
     }
 
 }
