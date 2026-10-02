@@ -769,6 +769,7 @@ GameObject:
   - component: {fileID: 309028609045587476}
   - component: {fileID: 6818096609173419225}
   - component: {fileID: 5565305562993552808}
+  - component: {fileID: 6856044044494983743}
   m_Layer: 0
   m_Name: Body
   m_TagString: Car
@@ -919,6 +920,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carEngineAudio: {fileID: 5565305562993552808}
   CurrentRpmRead: 0
+  rpmToEngine: 0
   acceleration: 20
   turnSpeed: 2
   MaxSpeed: 10
@@ -937,8 +939,8 @@ MonoBehaviour:
   playerPreRot: {x: 0, y: 0, z: 0}
   exitSc: {fileID: 1600862292759331970}
   SeatPosition: {fileID: 5661139118144062063}
-  player: {fileID: 0}
   carMovementSc: {fileID: 2902863449555588295}
+  carEnterAudio: {fileID: 6856044044494983743}
 --- !u!114 &6818096609173419225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1021,6 +1023,37 @@ MonoBehaviour:
   Params:
   - Name: RPM
     Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &6856044044494983743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7386076976344776844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -565221162
+      Data2: 1340891325
+      Data3: -1122753366
+      Data4: -1932649346
+    Path: event:/Ambiance/CarStartStop
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20

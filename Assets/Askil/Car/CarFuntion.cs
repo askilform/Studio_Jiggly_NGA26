@@ -1,3 +1,4 @@
+using FMODUnity;
 using System;
 using System.Collections;
 using Unity.VisualScripting;
@@ -12,6 +13,7 @@ public class CarFuntion : MonoBehaviour
 
     [NonSerialized] public GameObject player;
     public CarMovement carMovementSc;
+    public StudioEventEmitter carEnterAudio;
 
     private TextPopUp uiSc;
 
@@ -30,6 +32,7 @@ public class CarFuntion : MonoBehaviour
 
         rb = gameObject.GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        if (carEnterAudio != null) carEnterAudio.Play();
     }
 
     private void FixedUpdate()
@@ -62,6 +65,7 @@ public class CarFuntion : MonoBehaviour
 
         carMovementSc.carEngineAudio.SetParameter("RPM", 0);
         carMovementSc.enabled = false;
+        if (carEnterAudio != null) carEnterAudio.Stop();
         enabled = false;
     }
 }

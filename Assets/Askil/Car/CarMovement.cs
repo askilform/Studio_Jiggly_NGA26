@@ -12,6 +12,7 @@ public class CarMovement : MonoBehaviour
 
     public StudioEventEmitter carEngineAudio;
     public float CurrentRpmRead;
+    public float rpmToEngine;
 
     [Header("Tweaks")]
     public float acceleration;
@@ -46,8 +47,14 @@ public class CarMovement : MonoBehaviour
             0));
         }
 
-        CurrentRpmRead = Vector3.Dot(rb.linearVelocity, transform.forward) / MaxSpeed;
+        CurrentRpmRead = Mathf.Abs(Vector3.Dot(rb.linearVelocity, transform.forward) / MaxSpeed);
 
-        carEngineAudio.SetParameter("RPM", CurrentRpmRead * 6500f);
+        rpmToEngine = Mathf.Lerp(
+            (CurrentRpmRead * 6500),
+            x > 0.1f ? 6500 : 1000,
+            0.2f
+            );
+
+        carEngineAudio.SetParameter("RPM", Mathf.RoundToInt(rpmToEngine));
     }
 }
