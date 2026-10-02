@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,11 +10,17 @@ public class CarFuntion : MonoBehaviour
     public CarExitCheck exitSc;
     public GameObject SeatPosition;
 
-    public GameObject player;
+    [NonSerialized] public GameObject player;
     public CarMovement carMovementSc;
+
     private TextPopUp uiSc;
 
     private void OnEnable()
+    {
+        CarEnter();
+    }
+
+    public void CarEnter()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<PlayerMovement2>().movementAllowed = false;
@@ -37,12 +45,14 @@ public class CarFuntion : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (!exitSc.isColliding) OnCarExit();
+            if (!exitSc.isColliding) StartCoroutine(OnCarExit());
             else uiSc.StartCoroutine(uiSc.FlashText("Door Is Blocked!", 0.5f, false, false));
         }
     }
-    private void OnCarExit()
+    private IEnumerator OnCarExit()
     {
+        yield return new WaitForSeconds(0.1f);
+
         player.transform.position = exitSc.transform.position;
         player.transform.rotation = Quaternion.identity;
 
