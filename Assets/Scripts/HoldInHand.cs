@@ -155,6 +155,7 @@ public class HoldInHand : MonoBehaviour
         if (currentHeldObject != null)
         {
 
+            currentHeldObject.gameObject.layer = 1; // Change Layer back to default -- So it can be picked up
             currentHeldObject.transform.parent = null;
 
             if (currentHeldObject.TryGetComponent<Rigidbody>(out Rigidbody rb))

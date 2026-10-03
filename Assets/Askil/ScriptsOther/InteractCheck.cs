@@ -101,12 +101,15 @@ public class InteractCheck : MonoBehaviour
 
     private IEnumerator Interact()
     {
-        
         InInteraction = true;
 
         PlayInteractSFX();
         CurrentInteractable.onEnable.Invoke();
 
+        // Changes layer so player doesnt try to interact with held object
+        // New interactCheck Position overlaps with held objects
+
+        if (CurrentInteractable.canBeHeldInHand) CurrentInteractable.gameObject.layer = 12;
 
         {
             if (CurrentInteractable.ToDisable != null) foreach (GameObject obj in CurrentInteractable.ToDisable)
