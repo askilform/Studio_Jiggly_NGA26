@@ -6,7 +6,7 @@ public class BreakableEndgame : MonoBehaviour
 {
     [SerializeField] private GameObject ParticlePrefab;
 
-    bool battleBegun;
+    public bool battleBegun;
     public void OnBattleBegin()
     {
         battleBegun = true;

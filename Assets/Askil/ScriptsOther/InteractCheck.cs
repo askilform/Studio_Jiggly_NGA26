@@ -101,6 +101,7 @@ public class InteractCheck : MonoBehaviour
 
     private IEnumerator Interact()
     {
+        
         InInteraction = true;
 
         PlayInteractSFX();

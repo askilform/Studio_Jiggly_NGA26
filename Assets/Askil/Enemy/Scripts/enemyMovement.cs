@@ -116,14 +116,20 @@ public class enemyMovement : MonoBehaviour
 
         if (other.TryGetComponent<BreakableEndgame>(out BreakableEndgame breakableSc))
         {
-            breakableSc.OnEnemyOverlap(transform.position);
-            GetHitBuildTowardsPause(11);
+            if (breakableSc.battleBegun)
+            {
+                breakableSc.OnEnemyOverlap(transform.position);
+                GetHitBuildTowardsPause(11);
+            }
         } 
 
         else if (other.transform.parent.TryGetComponent<BreakableEndgame>(out BreakableEndgame breakableSc2))
         {
-            breakableSc2.OnEnemyOverlap(transform.position);
-            GetHitBuildTowardsPause(11);
+            if (breakableSc2.battleBegun)
+            {
+                breakableSc2.OnEnemyOverlap(transform.position);
+                GetHitBuildTowardsPause(11);
+            }
         }
     }
 
