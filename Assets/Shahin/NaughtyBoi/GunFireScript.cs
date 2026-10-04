@@ -256,7 +256,11 @@ public class GunFireScript : MonoBehaviour
         }
 
 
-        showIfNoAmmo.enabled = enableOutOfAmmoUI && batteryLeft < 0.001f;
+        if (showIfNoAmmo != null)
+        {
+            showIfNoAmmo.enabled = enableOutOfAmmoUI && batteryLeft < 0.001f;
+
+        }
 
     }
 
