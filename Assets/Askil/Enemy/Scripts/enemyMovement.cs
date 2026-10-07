@@ -136,6 +136,12 @@ public class enemyMovement : MonoBehaviour
 
         }
     }
+    IEnumerator temporaryColliderStop(float time)
+    {
+        GetComponent<CapsuleCollider>().enabled = false;
+        yield return new WaitForSeconds(time);
+        GetComponent<CapsuleCollider>().enabled = true;
+    }
 
     public void StopMovement()
     {
@@ -183,6 +189,8 @@ public class enemyMovement : MonoBehaviour
 
         if (crippleBuildupCounter >= crippleBuildupNeeded)
         {
+            // StartCoroutine(temporaryColliderStop(2));
+
             crippleBuildupCounter = 0; //reset counter
             crippleSpeedMultiplier = 0; //slow to zero
 

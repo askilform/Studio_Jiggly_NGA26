@@ -71,7 +71,7 @@ public class PlayerDetection : MonoBehaviour
     private void FixedUpdate()
     {
         playerTransform = playerObject.transform;
-        enemyDetectionSlider.value = (detectionProcent / 100);
+        if (enemyDetectionSlider != null) enemyDetectionSlider.value = (detectionProcent / 100);
         headLight.color = lightGradient.Evaluate(detectionProcent / 100);
     }
 
