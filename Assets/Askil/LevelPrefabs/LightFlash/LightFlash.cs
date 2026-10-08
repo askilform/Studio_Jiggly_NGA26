@@ -22,13 +22,23 @@ public class LightFlash : MonoBehaviour
     bool turnDark = true;
     int IntervalsHappened;
 
+    public List<float> OgflashIntervals = new List<float>();
+
+    private void Start()
+    {
+        OgflashIntervals = new List<float>(flashIntervals);
+    }
+
     public void StartLoop()
     {
-       startLoop();
+       print("StartedLOPPPP");
+       IntervalsHappened = 0;
+       flashIntervals = new List<float>(OgflashIntervals);
+       startLoopLocal();
        foreach (var sfx in sfxs) sfx.Play();
     }
 
-    void startLoop()
+    void startLoopLocal()
     {
         if (IntervalsHappened == intervalsBeforeEvent)
         {
@@ -55,6 +65,6 @@ public class LightFlash : MonoBehaviour
 
         IntervalsHappened += 1;
 
-        startLoop();
+        startLoopLocal();
     }
 }

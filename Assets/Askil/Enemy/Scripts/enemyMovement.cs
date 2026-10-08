@@ -1,12 +1,9 @@
-using FMODUnity;
-using System;
-using System.Collections;
-using Unity.Hierarchy;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
+using FMODUnity;
+using System.Collections;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using TMPro;
 
 public class enemyMovement : MonoBehaviour
 {
@@ -14,10 +11,12 @@ public class enemyMovement : MonoBehaviour
     private Vector3 investigateLocation;
     private LevelMaster levelMaster;
     private EnemyZone enemyZone;
-    [SerializeField] private float investigedFor;
+    private float investigedFor;
+    private float DistanceToPlayer;
 
-    [NonSerialized] public NavMeshAgent agent;
-    public GameObject player;
+    public NavMeshAgent agent;
+    public TextMeshPro DistanceTxt;
+    [HideInInspector] public GameObject player;
     public bool investigating;
     public GameObject mainTarget;
     public float Speed = 1;
@@ -91,6 +90,9 @@ public class enemyMovement : MonoBehaviour
 
         else agent.updateRotation = true;
         */
+
+        DistanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        DistanceTxt.text = DistanceToPlayer.ToString();
     }
 
     private IEnumerator OnTriggerEnter(Collider other)
@@ -119,7 +121,7 @@ public class enemyMovement : MonoBehaviour
             if (breakableSc.battleBegun)
             {
                 breakableSc.OnEnemyOverlap(transform.position);
-                GetHitBuildTowardsPause(11);
+              //  GetHitBuildTowardsPause(11);
             }
         }
 
@@ -130,7 +132,7 @@ public class enemyMovement : MonoBehaviour
                 if (breakableSc2.battleBegun)
                 {
                     breakableSc2.OnEnemyOverlap(transform.position);
-                    GetHitBuildTowardsPause(11);
+                 //    GetHitBuildTowardsPause(11);
                 }
             }
 
@@ -148,7 +150,6 @@ public class enemyMovement : MonoBehaviour
         mainTarget = player;
         agent.isStopped = false;
         agent.speed = baseSpeedReference * SprintSpeedMultiplier * hitSpeedMultiplier * crippleSpeedMultiplier;
-        
     }
 
     public void Roam()
@@ -174,7 +175,6 @@ public class enemyMovement : MonoBehaviour
     {
         hitSpeedMultiplier = reduceBy;
     }
-
 
     public void GetHitBuildTowardsPause(float damageIn)
     {
@@ -203,4 +203,8 @@ public class enemyMovement : MonoBehaviour
 
     }
 
+    public void TeleportRandom()
+    {
+        transform.position = roamPointSc.points[Random.Range(0, roamPointSc.points.Count)].transform.position;
+    }
 }
