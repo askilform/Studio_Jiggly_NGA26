@@ -28,10 +28,13 @@ public class DoorToGuess : MonoBehaviour
 
     public void BecomeActiveDoor()
     {
+        Light.SetActive(true);
+
         foreach (MeshRenderer renderer in Light.GetComponentsInChildren<MeshRenderer>())
         {
            renderer.material = RedGlow;
         }
+
         print("DoorActivated");
         TurnOnSound.pitch = Random.Range(0.5f, 1.5f);
         TurnOnSound.Play();
@@ -44,5 +47,7 @@ public class DoorToGuess : MonoBehaviour
         {
             renderer.material = WhiteGlow;
         }
+
+        Light.SetActive(false);
     }
 }

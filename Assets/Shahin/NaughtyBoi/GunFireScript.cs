@@ -339,4 +339,9 @@ public class GunFireScript : MonoBehaviour
 
         UniHitParticles.Play();
     }
+
+    private void OnDestroy()
+    {
+        chargeSoundInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+    }
 }
