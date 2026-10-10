@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{b21e1d10-c180-43ee-bb48-678c4092322a}">
+		<property name="color">
+			<value>Red Light 2</value>
+		</property>
 		<property name="name">
 			<value>pistol-shot-loud</value>
 		</property>
@@ -56,7 +59,7 @@
 			<destination>{a429a143-bd15-49ba-9577-4b93a385f315}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{f91bf3a9-7540-42ec-98fc-e2195b211686}</destination>
+			<destination>{557f6fad-54c4-477a-a8c1-3e780aa72f3d}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{33acc6d9-fbe0-456f-82db-65051ce76100}" />
@@ -96,7 +99,6 @@
 	<object class="MixerBusEffectChain" id="{8161c682-abbb-4696-b4ad-ef79dad142ed}">
 		<relationship name="effects">
 			<destination>{7634ec64-9ab3-4c6e-8268-8d6f92a5f65f}</destination>
-			<destination>{ae923e6a-b910-4678-87df-1222b87bd988}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{615d8691-f812-44fa-8e0f-6ddf300f95d6}" />
@@ -107,5 +109,4 @@
 	</object>
 	<object class="MixerBusFader" id="{ad69f62e-6be1-42cd-885b-8b44dd6d0560}" />
 	<object class="MixerBusFader" id="{7634ec64-9ab3-4c6e-8268-8d6f92a5f65f}" />
-	<object class="SpatialiserEffect" id="{ae923e6a-b910-4678-87df-1222b87bd988}" />
 </objects>

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{02a8ccb8-884f-405b-a966-88ea23c715fb}">
+		<property name="color">
+			<value>Yellow Light 2</value>
+		</property>
 		<property name="name">
 			<value>Electricity</value>
 		</property>
@@ -56,7 +59,7 @@
 			<destination>{46c2288e-ab26-40eb-bc94-5700c1fb7d34}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{f91bf3a9-7540-42ec-98fc-e2195b211686}</destination>
+			<destination>{9bdf0b4b-5351-4818-a474-fa5e803c18f2}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{cb1cb392-669d-4829-a4f7-5ad926ad49a6}" />
@@ -96,6 +99,7 @@
 	<object class="MixerBusEffectChain" id="{4194c776-0294-4834-9331-20159bc4dab5}">
 		<relationship name="effects">
 			<destination>{fc847b8d-c17a-43d2-a700-5d203bfaf78e}</destination>
+			<destination>{23bb373e-517e-56f9-9c73-f3743758863d}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{a9769da7-0f5a-4143-b09f-461799af7ea3}" />
@@ -112,4 +116,5 @@
 	</object>
 	<object class="MixerBusFader" id="{7607d607-7c4a-4bb3-a529-00225f085e1c}" />
 	<object class="MixerBusFader" id="{fc847b8d-c17a-43d2-a700-5d203bfaf78e}" />
+	<object class="SpatialiserEffect" id="{23bb373e-517e-56f9-9c73-f3743758863d}" />
 </objects>

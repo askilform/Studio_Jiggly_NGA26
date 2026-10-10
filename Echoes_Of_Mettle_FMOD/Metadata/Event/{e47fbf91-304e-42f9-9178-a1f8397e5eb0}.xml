@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{e47fbf91-304e-42f9-9178-a1f8397e5eb0}">
+		<property name="color">
+			<value>Green Light 2</value>
+		</property>
 		<property name="name">
 			<value>PickupPart.SFX</value>
 		</property>
@@ -56,7 +59,7 @@
 			<destination>{6397d6f9-64f4-4e69-b034-1cb475a25db7}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{f91bf3a9-7540-42ec-98fc-e2195b211686}</destination>
+			<destination>{0fe45b13-8be6-43ed-bc34-04e53089dc93}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{597910e2-b043-4c28-b34f-12950beba4cd}" />
@@ -96,7 +99,6 @@
 	<object class="MixerBusEffectChain" id="{e30d68f2-a82b-4130-a478-9a5765dc6e4c}">
 		<relationship name="effects">
 			<destination>{c627a4ad-86b3-48bc-a840-7bcfff1ccff5}</destination>
-			<destination>{5519a297-0603-4bc3-8291-375d00725964}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{f1cb69ea-caa1-461a-b817-d50b2be5d7d2}" />
@@ -107,5 +109,4 @@
 	</object>
 	<object class="MixerBusFader" id="{e00253ac-78b4-4e08-b2dc-a7ea68c3f21b}" />
 	<object class="MixerBusFader" id="{c627a4ad-86b3-48bc-a840-7bcfff1ccff5}" />
-	<object class="SpatialiserEffect" id="{5519a297-0603-4bc3-8291-375d00725964}" />
 </objects>

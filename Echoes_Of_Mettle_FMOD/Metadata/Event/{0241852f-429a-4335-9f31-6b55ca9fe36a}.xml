@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{0241852f-429a-4335-9f31-6b55ca9fe36a}">
+		<property name="color">
+			<value>Yellow Light 2</value>
+		</property>
 		<property name="name">
 			<value>SciFi-Hum</value>
 		</property>
@@ -56,7 +59,7 @@
 			<destination>{46eea1ea-f30a-4450-a0d3-00ee7e5fecad}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{f91bf3a9-7540-42ec-98fc-e2195b211686}</destination>
+			<destination>{9bdf0b4b-5351-4818-a474-fa5e803c18f2}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{1b02a080-a966-4a31-89cd-5c2b5b9c5f3e}" />
@@ -96,6 +99,7 @@
 	<object class="MixerBusEffectChain" id="{5c2d6369-d4f4-4910-b2ce-5f10c84a162a}">
 		<relationship name="effects">
 			<destination>{b9ce7b98-0416-4ea2-b1ef-bbf4fa81182f}</destination>
+			<destination>{c7cfe2a6-a7cf-5ca7-af8a-e88b08cef3d4}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{e1d7a30f-89a5-42df-82b2-29be439fbd59}" />
@@ -106,4 +110,5 @@
 	</object>
 	<object class="MixerBusFader" id="{172d6443-9ae8-47db-b29f-28094db829fe}" />
 	<object class="MixerBusFader" id="{b9ce7b98-0416-4ea2-b1ef-bbf4fa81182f}" />
+	<object class="SpatialiserEffect" id="{c7cfe2a6-a7cf-5ca7-af8a-e88b08cef3d4}" />
 </objects>
