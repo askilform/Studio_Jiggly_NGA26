@@ -12,6 +12,7 @@ public class UiWeaponsParts : MonoBehaviour
 
     bool started;
     CanvasGroup canvasGroup;
+
     private void Start()
     {
         foreach (var part in partImages)

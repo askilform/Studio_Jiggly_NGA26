@@ -2,6 +2,7 @@ using FMOD.Studio;
 using FMODUnity;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerMovement2 : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class PlayerMovement2 : MonoBehaviour
     public float Acceleration = 2f;
     public float crouchSpeed = 0.2f;
     public float gravity = -20f;
+
+    public UnityEvent onStart;
 
     [Header("Audio")]
     public EventReference walkingAudio;
@@ -58,6 +61,8 @@ public class PlayerMovement2 : MonoBehaviour
 
         walkingAudioInstance = RuntimeManager.CreateInstance(walkingAudio);
         walkingAudioInstance.start();
+
+        onStart.Invoke();
     }   
 
     void Update()

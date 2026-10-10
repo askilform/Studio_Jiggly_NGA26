@@ -9,15 +9,21 @@ public class CarMovement : MonoBehaviour
     private float SteeringAdd;
     float x;
     float z;
+    public float timeInCar;
 
     public StudioEventEmitter carEngineAudio;
     public float CurrentRpmRead;
+    public float rpmToEngine;
 
     [Header("Tweaks")]
     public float acceleration;
     public float turnSpeed;
     public float MaxSpeed;
 
+    private void OnEnable()
+    {
+        timeInCar = 0;
+    }
 
     private void Start()
     {
@@ -30,9 +36,12 @@ public class CarMovement : MonoBehaviour
         x = Input.GetAxis("Horizontal");
         z = Input.GetAxis("Vertical");
 
-        //Push car with vertical input
-        rb.AddForce(transform.forward * z * acceleration, ForceMode.Acceleration);
-        rb.maxLinearVelocity = MaxSpeed;
+        if (timeInCar > 1.5)
+        {
+            //Push car with vertical input
+            rb.AddForce(transform.forward * z * acceleration, ForceMode.Acceleration);
+            rb.maxLinearVelocity = MaxSpeed;
+        }
      
 
         //rotate car with horizontal input
@@ -46,8 +55,16 @@ public class CarMovement : MonoBehaviour
             0));
         }
 
-        CurrentRpmRead = Vector3.Dot(rb.linearVelocity, transform.forward) / MaxSpeed;
+        CurrentRpmRead = Mathf.Abs(Vector3.Dot(rb.linearVelocity, transform.forward) / MaxSpeed);
 
-        carEngineAudio.SetParameter("RPM", CurrentRpmRead * 6500f);
+        rpmToEngine = Mathf.Lerp(
+            (CurrentRpmRead * 6500),
+            x > 0.1f ? 6500 : 1000,
+            0.2f
+            );
+
+        carEngineAudio.SetParameter("RPM", Mathf.RoundToInt(rpmToEngine));
+
+        timeInCar += 0.02f;
     }
 }

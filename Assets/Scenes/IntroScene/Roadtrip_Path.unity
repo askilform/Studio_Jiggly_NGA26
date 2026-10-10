@@ -816,6 +816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99c5b0eccb2b8444399df3470fff541b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startDelay: 2
   sentences:
   - 'A Factory so long forgotten [E]'
   - 'With a debt unpaid [E]'
@@ -1851,11 +1852,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1697090775
-      Data2: 1155561965
-      Data3: -296640325
-      Data4: -1325453573
-    Path: event:/Music/Main Menu
+      Data1: 309704766
+      Data2: 1137086861
+      Data3: 1007330213
+      Data4: 2058908517
+    Path: event:/Music/RoadTrip
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 2
@@ -1935,6 +1936,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1743261361
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3388400423882390334, guid: 17a6ef3dbcb5fd242bff7f6a7b97e1db, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388400423882390334, guid: 17a6ef3dbcb5fd242bff7f6a7b97e1db, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388400423882390334, guid: 17a6ef3dbcb5fd242bff7f6a7b97e1db, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388400423882390334, guid: 17a6ef3dbcb5fd242bff7f6a7b97e1db, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388400423882390334, guid: 17a6ef3dbcb5fd242bff7f6a7b97e1db, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388400423882390334, guid: 17a6ef3dbcb5fd242bff7f6a7b97e1db, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388400423882390334, guid: 17a6ef3dbcb5fd242bff7f6a7b97e1db, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388400423882390334, guid: 17a6ef3dbcb5fd242bff7f6a7b97e1db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388400423882390334, guid: 17a6ef3dbcb5fd242bff7f6a7b97e1db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388400423882390334, guid: 17a6ef3dbcb5fd242bff7f6a7b97e1db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5781690863831282112, guid: 17a6ef3dbcb5fd242bff7f6a7b97e1db, type: 3}
+      propertyPath: m_Name
+      value: Lighting
+      objectReference: {fileID: 0}
+    - target: {fileID: 7183413399578286779, guid: 17a6ef3dbcb5fd242bff7f6a7b97e1db, type: 3}
+      propertyPath: ThunderMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 32b9e0821f9be67449426f63ca12bd38, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 17a6ef3dbcb5fd242bff7f6a7b97e1db, type: 3}
 --- !u!1 &1762948108 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8880452743921515339, guid: d69c26715fc3f7248b34457c97ef6745, type: 3}
@@ -2500,3 +2562,4 @@ SceneRoots:
   - {fileID: 1189474769}
   - {fileID: 1682604367}
   - {fileID: 838044649}
+  - {fileID: 1743261361}

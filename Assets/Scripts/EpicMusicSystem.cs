@@ -40,9 +40,6 @@ public class EpicMusicSystem : MonoBehaviour
     public AudioSource audLead;
     public AudioSource audBuild;
 
-    public StudioEventEmitter foBase;
-    public StudioEventEmitter foHit;
-
 
     public float maxVol = 0.2f;
 
@@ -82,8 +79,6 @@ public class EpicMusicSystem : MonoBehaviour
         fmodHitInst = RuntimeManager.CreateInstance(fmodHit);
         
 
-
-
         audBase.volume = maxVol;
         baseVol = maxVol;
         audHit.volume = 0;
@@ -107,7 +102,7 @@ public class EpicMusicSystem : MonoBehaviour
     void Update()
     {
         //try no loop this instead for detect end and reset bpm-------------------------------------
-        if (!audBase.isPlaying && playMusic)
+        if (!useFmod && !audBase.isPlaying && playMusic)
         {
             audBase.Play();
             audHit.Play();
@@ -311,5 +306,13 @@ public class EpicMusicSystem : MonoBehaviour
         isLead = bufferLead;
         bufferLead = false;
 
+    }
+
+    private void OnDestroy()
+    {
+        fmodBaseInst.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        fmodLeadInst.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        fmodBuildInst.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        fmodHitInst.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 }

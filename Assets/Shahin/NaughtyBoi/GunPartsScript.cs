@@ -11,6 +11,8 @@ public class GunPartsScript : MonoBehaviour
     public List<GameObject> partList;
     public Weapon_Builder weaponBuilderIdManager;
 
+    public GunFireScript smolGunFireSc;
+
     void Start()
     {
         print("Press G to update parts");
@@ -55,5 +57,11 @@ public class GunPartsScript : MonoBehaviour
                 partScript.gameObject.SetActive(weaponBuilderIdManager.IdsPickedUp.Contains(partScript.partID));
             }
         }
+    }
+
+    public void SmolGunShoot()
+    {
+        smolGunFireSc.GunFire();
+        smolGunFireSc.GunFireEffects();
     }
 }

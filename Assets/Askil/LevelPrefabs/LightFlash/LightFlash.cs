@@ -14,21 +14,32 @@ public class LightFlash : MonoBehaviour
 
     public Volume PostProcessing;
     public List <StudioEventEmitter> sfxs = new List<StudioEventEmitter>();
+    public bool DecaySound = true;
 
     public bool TeleportPlayer;
     public Vector3 teleportPlayerTo;
 
-
     bool turnDark = true;
     int IntervalsHappened;
 
-    public void StartLoop()
+    public List<float> OgflashIntervals = new List<float>();
+
+    private void Start()
     {
-       startLoop();
-       foreach (var sfx in sfxs) sfx.Play();
+        OgflashIntervals = new List<float>(flashIntervals);
     }
 
-    void startLoop()
+    public void StartLoop()
+    {
+       print("StartedLOPPPP");
+       IntervalsHappened = 0;
+       flashIntervals = new List<float>(OgflashIntervals);
+       startLoopLocal();
+        if (DecaySound) foreach (var sfx in sfxs) sfx.Play();
+        else sfxs[0].Play();
+    }
+
+    void startLoopLocal()
     {
         if (IntervalsHappened == intervalsBeforeEvent)
         {
@@ -55,6 +66,6 @@ public class LightFlash : MonoBehaviour
 
         IntervalsHappened += 1;
 
-        startLoop();
+        startLoopLocal();
     }
 }

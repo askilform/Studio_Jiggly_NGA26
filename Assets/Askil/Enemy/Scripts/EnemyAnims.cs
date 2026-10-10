@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyAnims : MonoBehaviour
 {
     private Animator animator;
 
     public enemyMovement movementSc;
+    public NavMeshAgent agent;
 
     private void Start()
     {
@@ -23,5 +25,6 @@ public class EnemyAnims : MonoBehaviour
     {
         animator.SetBool("Stunned", movementSc.crippleSpeedMultiplier < 1);
         animator.SetFloat("StunnedMultiplier", (1 - movementSc.crippleSpeedMultiplier) * 5);
+        animator.SetBool("AgentStopped", agent.isStopped);
     }
 }

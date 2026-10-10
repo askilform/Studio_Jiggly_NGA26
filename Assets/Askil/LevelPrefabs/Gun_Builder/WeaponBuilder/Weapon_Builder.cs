@@ -1,12 +1,8 @@
-using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UIElements;
-using static UnityEngine.Rendering.DebugUI;
+
 
 public class Weapon_Builder : MonoBehaviour
 {
@@ -18,12 +14,13 @@ public class Weapon_Builder : MonoBehaviour
 
     public int GetGunIdOnStart;
 
-    public UiWeaponsParts uiWeaponPartSc;
+    // public UiWeaponsParts uiWeaponPartSc;
+    public List<UiWeaponsParts> weaponsPartsList = new List<UiWeaponsParts>();
 
-    public UnityEvent ifHasEntireGun;
 
     private IEnumerator Start()
     {
+        if (GameInstance.gunShowcase) GetGunIdOnStart = 123456;
 
         if (GetGunIdOnStart != 0)
         {
@@ -31,11 +28,16 @@ public class Weapon_Builder : MonoBehaviour
             {
                 int value = digit - '0';
                 IdsPickedUp.Add(value);
-                uiWeaponPartSc.colorUiPart(value);
+
+                foreach (UiWeaponsParts partScs in weaponsPartsList)
+                {
+                    partScs.colorUiPart(value);
+                }
+
                 Debug.Log(value);
             }
+                
 
-            if (GetGunIdOnStart == 123456) ifHasEntireGun.Invoke();
         }
 
 
@@ -45,7 +47,11 @@ public class Weapon_Builder : MonoBehaviour
                 IdsPickedUp.Add((int)i);
 
                 yield return null;
-                uiWeaponPartSc.colorUiPart((int)i);
+
+            foreach (UiWeaponsParts partScs in weaponsPartsList)
+            {
+                partScs.colorUiPart((int)i);
+            }
         }
     }
 
@@ -63,7 +69,13 @@ public class Weapon_Builder : MonoBehaviour
         WeaponPart WeaponPartScript = weaponPartObject.GetComponent<WeaponPart>();
 
         IdsPickedUp.Add(WeaponPartScript.id);
-        uiWeaponPartSc.colorUiPart(WeaponPartScript.id);
+
+        foreach (UiWeaponsParts partScs in weaponsPartsList)
+        {
+
+            partScs.colorUiPart(WeaponPartScript.id);
+        }
+        
         WeaponPartScript.OnPickup();
 
         IdsPickedUp.Sort();
