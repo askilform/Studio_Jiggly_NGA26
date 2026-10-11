@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TextColour_Hover : MonoBehaviour
+public class HoverEffects : MonoBehaviour
 {
     
     private Color defaultColor = Color.white;
@@ -39,14 +39,40 @@ public class TextColour_Hover : MonoBehaviour
         if (currentState.IsName("Highlighted"))
         {
             ButtonText.color = hoverColor;
+            ArrowFadeIn();
             Arrow.enabled = true;
         }
         else
         {
             ButtonText.color = defaultColor;
-            Arrow.enabled = false;
+            ArrowFadeOut();
+            //Arrow.enabled = false;
 
         }
+    }
+
+    void ArrowFadeIn()
+    {
+        //Fade effect in over time for the triangle beside the hovered text
+
+        Color color = Arrow.color;
+        color.a = 1f;
+        Arrow.color = color;
+
+        
+        Arrow.CrossFadeAlpha(1f, 0.2f, false);
+    }
+
+    void ArrowFadeOut()
+    {
+        //Fade effect out over time for the triangle beside the hovered text
+
+        Color color = Arrow.color;
+        color.a = 1f;
+        Arrow.color = color;
+
+
+        Arrow.CrossFadeAlpha(0f, 0.015f, false);
     }
 
 }
