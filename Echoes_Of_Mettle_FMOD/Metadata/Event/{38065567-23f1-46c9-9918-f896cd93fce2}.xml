@@ -89,8 +89,12 @@
 		</relationship>
 	</object>
 	<object class="MultiSound" id="{c28a41c6-5e7b-417a-bc54-3937c1b0b57c}">
+		<property name="playbackMode">
+			<value>1</value>
+		</property>
 		<relationship name="sounds">
 			<destination>{e0610950-87d4-46a8-b532-fe3b5daa35ec}</destination>
+			<destination>{25ab1117-6298-4903-b10f-3c6d83b14f8c}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{e0cf22aa-d43a-4f0e-aef0-1ef94714827f}">
@@ -102,14 +106,46 @@
 	<object class="MixerBusEffectChain" id="{83ec3780-601d-473c-9ae2-f29b2507d183}">
 		<relationship name="effects">
 			<destination>{f44905de-fd5f-4970-90b2-03466bbefa9f}</destination>
+			<destination>{84e5d432-5856-409d-91d4-1f524f824e55}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{82f0e54a-7481-40b7-b578-648094ee5e95}" />
 	<object class="SingleSound" id="{e0610950-87d4-46a8-b532-fe3b5daa35ec}">
+		<property name="volume">
+			<value>-10</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{40e5a875-4e69-4411-83ac-1ead9a95887a}</destination>
 		</relationship>
 	</object>
+	<object class="CommandSound" id="{25ab1117-6298-4903-b10f-3c6d83b14f8c}">
+		<property name="commandType">
+			<value>1</value>
+		</property>
+		<relationship name="commandTarget">
+			<destination>{ba75d861-ba1e-4376-a286-a8c4c077f9b7}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusFader" id="{821eb43d-7908-4d65-92b1-0924edb3e1c2}" />
 	<object class="MixerBusFader" id="{f44905de-fd5f-4970-90b2-03466bbefa9f}" />
+	<object class="SFXReverbEffect" id="{84e5d432-5856-409d-91d4-1f524f824e55}">
+		<property name="decayTime">
+			<value>7200</value>
+		</property>
+		<property name="lateDelay">
+			<value>30</value>
+		</property>
+		<property name="HFDecayRatio">
+			<value>33</value>
+		</property>
+		<property name="highCut">
+			<value>4500</value>
+		</property>
+		<property name="earlyLateMix">
+			<value>80</value>
+		</property>
+		<property name="wetLevel">
+			<value>-9.60000038</value>
+		</property>
+	</object>
 </objects>
