@@ -102,6 +102,9 @@
 		<property name="length">
 			<value>0.1015625</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{3dc33102-2e11-498c-bb8a-3d1a7d2d2632}</destination>
+		</relationship>
 		<relationship name="triggerConditions">
 			<destination>{ac62dc7f-4190-4396-bff7-fa15c65b3559}</destination>
 		</relationship>
@@ -147,6 +150,9 @@
 		<property name="length">
 			<value>0.40625</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{3b1d6b4d-b278-4b64-9904-7ca136d37f8c}</destination>
+		</relationship>
 		<relationship name="triggerConditions">
 			<destination>{9354b876-dace-4ebc-ad09-f7b3784cbe4b}</destination>
 		</relationship>
@@ -187,6 +193,14 @@
 	</object>
 	<object class="MixerBusPanner" id="{8b14d63b-f93f-4d32-93e5-9707fc27f7bc}" />
 	<object class="MixerBusFader" id="{97e892b4-cebe-401f-9462-0c7b6a6518fb}" />
+	<object class="RandomizerModulator" id="{3dc33102-2e11-498c-bb8a-3d1a7d2d2632}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>2</value>
+		</property>
+	</object>
 	<object class="ParameterCondition" id="{ac62dc7f-4190-4396-bff7-fa15c65b3559}">
 		<property name="minimum">
 			<value>1</value>
@@ -262,6 +276,14 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{7c069227-5cee-45f7-8f64-b3cb63e2dc38}" />
+	<object class="RandomizerModulator" id="{3b1d6b4d-b278-4b64-9904-7ca136d37f8c}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>2</value>
+		</property>
+	</object>
 	<object class="ParameterCondition" id="{9354b876-dace-4ebc-ad09-f7b3784cbe4b}">
 		<property name="minimum">
 			<value>1</value>
