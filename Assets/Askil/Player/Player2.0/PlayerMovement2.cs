@@ -169,7 +169,6 @@ public class PlayerMovement2 : MonoBehaviour
         StepSFX.Play();
     }
 
-
     private void OnDestroy()
     {
         walkingAudioInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
