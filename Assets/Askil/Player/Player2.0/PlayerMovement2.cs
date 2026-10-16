@@ -3,6 +3,7 @@ using FMODUnity;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEngine.Rendering.DebugUI;
 
 public class PlayerMovement2 : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class PlayerMovement2 : MonoBehaviour
     [Header("Audio")]
     public EventReference walkingAudio;
     public EventInstance walkingAudioInstance;
+
+    public StudioEventEmitter StepSFX;
+    public StudioGlobalParameterTrigger SpeedParamater;
+
     public float walkVolume;
     public float sprintVolume;
 
@@ -78,6 +83,8 @@ public class PlayerMovement2 : MonoBehaviour
 
         if (movementAllowed) HandleMovement();
         else walkingAudioInstance.setVolume(0);
+
+
     }
 
     void HandleMovement()
@@ -151,6 +158,15 @@ public class PlayerMovement2 : MonoBehaviour
             controller.height = ogHeight;
             isCrouching = false;
         }
+    }
+
+    public void playStepSfx()
+    {
+        RuntimeManager.StudioSystem.setParameterByName("Speed",
+        isCrouching ? 0 :
+        currentSprintMultiplier > 2 ? 2 : 1);
+
+        StepSFX.Play();
     }
 
     private void OnDestroy()

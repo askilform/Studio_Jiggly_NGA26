@@ -37,4 +37,9 @@ public class CameraAnims2 : MonoBehaviour
     {
         cameraAnims.SetTrigger("KnockBack");
     }
+
+    public void StepSfxTrigger()
+    {
+        movementSC.playStepSfx();
+    }
 }
