@@ -131,6 +131,7 @@ MonoBehaviour:
   Parameters:
   - {fileID: 786028323123021793}
   - {fileID: 351440175950979054}
+  - {fileID: -6161706954031821088}
   MinDistance: 1
   MaxDistance: 20
   Length: 0
@@ -161,6 +162,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-7447059236098124169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Stingers/Scaryhorn
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Stingers/Scaryhorn
+  Guid:
+    Data1: -898786376
+    Data2: 1142693200
+    Data3: -2127772758
+    Data4: -995031239
+  Banks:
+  - {fileID: -1566480398266307747}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 18000
 --- !u!114 &-7289739883593380121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,19 +203,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/SFX/World/CigaretteThrow
   Guid:
-    Data1: -1915493722
-    Data2: 1150101771
-    Data3: -1862877530
-    Data4: -2097037419
+    Data1: -226869583
+    Data2: 1195756365
+    Data3: -1736892030
+    Data4: 1970161023
   Banks:
   - {fileID: -1218985343077198328}
   IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
+  Is3D: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 6641
 --- !u!114 &-6633002433712801086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,7 +238,7 @@ MonoBehaviour:
   - {fileID: -1218985343077198328}
   IsStream: 0
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
@@ -293,6 +321,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-6161706954031821088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Steps/Volume
+  m_EditorClassIdentifier: 
+  Name: Volume
+  StudioPath: 
+  Min: -1
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2610459451
+    data2: 2225909457
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-6114409915307923393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,7 +447,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -1218985343077198328}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -449,7 +501,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -1566480398266307747}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -479,6 +531,33 @@ MonoBehaviour:
   IsGlobal: 1
   Labels: []
   Exists: 1
+--- !u!114 &-5344333560425661588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/World/SpotLight2D
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/World/SpotLight2D
+  Guid:
+    Data1: 532042407
+    Data2: 1269192079
+    Data3: 795224216
+    Data4: -420068421
+  Banks:
+  - {fileID: -1218985343077198328}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-5203259962913534109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -629,10 +708,10 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639277443452513418
+  lastModified: 639277841461206957
   FileSizes:
   - Name: Desktop
-    Value: 16806
+    Value: 16790
   Exists: 1
 --- !u!114 &-4209193766928814531
 MonoBehaviour:
@@ -736,6 +815,33 @@ MonoBehaviour:
   IsGlobal: 1
   Labels: []
   Exists: 1
+--- !u!114 &-3958690379757148179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/World/FuelCellHover
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/World/FuelCellHover
+  Guid:
+    Data1: -397668971
+    Data2: 1307985862
+    Data3: -491485518
+    Data4: -742198921
+  Banks:
+  - {fileID: -1218985343077198328}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-3736236377634141276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -809,10 +915,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/SFX/World/CigaretteBurn
   Guid:
-    Data1: -226869583
-    Data2: 1195756365
-    Data3: -1736892030
-    Data4: 1970161023
+    Data1: -1915493722
+    Data2: 1150101771
+    Data3: -1862877530
+    Data4: -2097037419
   Banks:
   - {fileID: -1218985343077198328}
   IsStream: 0
@@ -1021,10 +1127,10 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639277443452513418
+  lastModified: 639277841461222505
   FileSizes:
   - Name: Desktop
-    Value: 6192
+    Value: 6318
   Exists: 1
 --- !u!114 &-1566480398266307747
 MonoBehaviour:
@@ -1041,10 +1147,10 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639277443452642692
+  lastModified: 639277841480387525
   FileSizes:
   - Name: Desktop
-    Value: 4087616
+    Value: 8431872
   Exists: 1
 --- !u!114 &-1477043654261558682
 MonoBehaviour:
@@ -1088,10 +1194,10 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/World.bank
   Name: World
   StudioPath: bank:/World
-  lastModified: 639277443453828773
+  lastModified: 639277841514167096
   FileSizes:
   - Name: Desktop
-    Value: 12441408
+    Value: 13264224
   Exists: 1
 --- !u!114 &-1027614757500971796
 MonoBehaviour:
@@ -1240,7 +1346,6 @@ MonoBehaviour:
   - {fileID: 8854067282543348044}
   - {fileID: 5272253996170640607}
   - {fileID: -9199403866608968135}
-  - {fileID: -4820282335817563626}
   - {fileID: 8136083522349974943}
   - {fileID: 1756085376570890612}
   - {fileID: -2079424612258476110}
@@ -1263,7 +1368,6 @@ MonoBehaviour:
   - {fileID: 6363217654553248495}
   - {fileID: 7374705934144296985}
   - {fileID: -4439428690603198169}
-  - {fileID: -4829561103100365968}
   - {fileID: -4094156376205857677}
   - {fileID: 2050748023244938749}
   - {fileID: -6114409915307923393}
@@ -1297,6 +1401,10 @@ MonoBehaviour:
   - {fileID: 8657359682677983300}
   - {fileID: -6633002433712801086}
   - {fileID: -693946448091911828}
+  - {fileID: -7447059236098124169}
+  - {fileID: 3862287559224297720}
+  - {fileID: -3958690379757148179}
+  - {fileID: -5344333560425661588}
   EditorParameters:
   - {fileID: -4042335268322485408}
   - {fileID: -5489052554813551030}
@@ -1311,7 +1419,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -1646906190701980638}
   cacheVersion: 131860
-  cacheTime: 639277443453828773
+  cacheTime: 639277841514167096
   SerializableEventsDict:
   - key: event:/UI/Confirm
     index: 0
@@ -1351,120 +1459,124 @@ MonoBehaviour:
     index: 17
   - key: event:/JallaSound/OnBreak
     index: 18
-  - key: event:/JallaSound/SpotLight
-    index: 19
   - key: event:/JallaSound/Tap
-    index: 20
+    index: 19
   - key: event:/Music/RoadTrip
-    index: 21
+    index: 20
   - key: event:/UI/Hover
-    index: 22
+    index: 21
   - key: event:/LocationMatrix
-    index: 23
+    index: 22
   - key: event:/UI/Unpause
-    index: 24
+    index: 23
   - key: event:/UI/Pause
-    index: 25
+    index: 24
   - key: event:/UI/ScreenMessage
-    index: 26
+    index: 25
   - key: event:/Music/Haunted Echo System
-    index: 27
+    index: 26
   - key: event:/Music/Haunted music/Haunted Echo T1_LEAD
-    index: 28
+    index: 27
   - key: event:/Music/Stingers/SciFi-Hum
-    index: 29
+    index: 28
   - key: event:/Music/Haunted music/Haunted Echo T1_HITS v5
-    index: 30
+    index: 29
   - key: event:/Music/chasing_beat
-    index: 31
+    index: 30
   - key: event:/Music/Stingers/JumpscareSFX
-    index: 32
+    index: 31
   - key: event:/Music/Stingers/PlayerLost
-    index: 33
+    index: 32
   - key: event:/Music/Stingers/InEnemyZone
-    index: 34
+    index: 33
   - key: event:/Music/Haunted music/Haunted Echo T1_BASE
-    index: 35
+    index: 34
   - key: event:/Music/Stingers/PlayerSpotted
-    index: 36
+    index: 35
   - key: event:/Music/Haunted music/Haunted Echo T1_BUILD
-    index: 37
+    index: 36
   - key: event:/SFX/World/Debris
-    index: 38
+    index: 37
   - key: event:/SFX/Weapons/pistol-shot-loud
-    index: 39
+    index: 38
   - key: event:/SFX/Enemy/EnemyWalkTimeline
-    index: 40
+    index: 39
   - key: event:/SFX/Weapons/GMS shot
-    index: 41
-  - key: event:/SFX/World/LightBuzz
-    index: 42
+    index: 40
   - key: event:/SFX/Player/Crouch
-    index: 43
+    index: 41
   - key: event:/Ambiance/AmbianceMain
-    index: 44
+    index: 42
   - key: event:/Ambiance/Thunder
-    index: 45
+    index: 43
   - key: event:/SFX/World/PaperPickup
-    index: 46
+    index: 44
   - key: event:/SFX/World/CigaretteThrow
-    index: 47
+    index: 45
   - key: event:/SFX/Enemy/EnemyWalk
-    index: 48
+    index: 46
   - key: event:/SFX/World/CigaretteBurn
-    index: 49
+    index: 47
   - key: event:/SFX/World/PuzzleSocket
-    index: 50
+    index: 48
   - key: event:/SFX/Enemy/Enemychase
-    index: 51
+    index: 49
   - key: event:/SFX/Player/Pickup
-    index: 52
+    index: 50
   - key: event:/SFX/Player/Throw
-    index: 53
+    index: 51
   - key: event:/SFX/World/Breakable
-    index: 54
+    index: 52
   - key: event:/SFX/Weapons/GMS Chargeup Timeline
-    index: 55
+    index: 53
   - key: event:/SFX/Weapons/power-charge-6798
-    index: 56
+    index: 54
   - key: event:/SFX/Weapons/GMS Cooldown
-    index: 57
+    index: 55
   - key: event:/SFX/Player/Breathing
-    index: 58
+    index: 56
   - key: event:/Ambiance/ScatterAmbiance
-    index: 59
+    index: 57
   - key: snapshot:/Tunnels
-    index: 60
+    index: 58
   - key: snapshot:/Small Factory Room
-    index: 61
+    index: 59
   - key: snapshot:/Dry-Outdoor
-    index: 62
+    index: 60
   - key: snapshot:/Hut Interior
-    index: 63
+    index: 61
   - key: snapshot:/Boss Arena
-    index: 64
+    index: 62
   - key: snapshot:/Factory Corridors
-    index: 65
+    index: 63
   - key: snapshot:/Lower Rooms
-    index: 66
+    index: 64
   - key: snapshot:/Large Factory Room
-    index: 67
+    index: 65
   - key: event:/SFX/Player/Steps
-    index: 68
+    index: 66
   - key: event:/SFX/World/DoorOpen
-    index: 69
+    index: 67
   - key: event:/SFX/World/DoorClose
-    index: 70
+    index: 68
   - key: event:/Ambiance/LightFlick
-    index: 71
+    index: 69
   - key: event:/Ambiance/Light buzz
-    index: 72
+    index: 70
   - key: event:/SFX/Player/Land
-    index: 73
+    index: 71
   - key: event:/SFX/World/Typewriter
-    index: 74
+    index: 72
   - key: event:/SFX/Player/Jump
+    index: 73
+  - key: event:/Music/Stingers/Scaryhorn
+    index: 74
+  - key: event:/SFX/World/SpotLight
     index: 75
+  - key: event:/SFX/World/FuelCellHover
+    index: 76
+  - key: event:/SFX/World/SpotLight2D
+    index: 77
 --- !u!114 &34043475971835307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2172,6 +2284,33 @@ MonoBehaviour:
   - Gravel
   - Flesh
   Exists: 1
+--- !u!114 &3862287559224297720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/World/SpotLight
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/World/SpotLight
+  Guid:
+    Data1: 2079309097
+    Data2: 1198408803
+    Data3: 1427572893
+    Data4: 2116879489
+  Banks:
+  - {fileID: -1218985343077198328}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &4218544895881691157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2241,10 +2380,10 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/JallaBank.bank
   Name: JallaBank
   StudioPath: bank:/JallaBank
-  lastModified: 639277443452503374
+  lastModified: 639277841461026725
   FileSizes:
   - Name: Desktop
-    Value: 228128
+    Value: 181568
   Exists: 1
 --- !u!114 &4597959115711730716
 MonoBehaviour:
@@ -2367,7 +2506,7 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Core.bank
   Name: Core
   StudioPath: bank:/Core
-  lastModified: 639277443452481391
+  lastModified: 639277841459940373
   FileSizes:
   - Name: Desktop
     Value: 77184

@@ -2157,6 +2157,76 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!1 &164112631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 164112632}
+  - component: {fileID: 164112634}
+  - component: {fileID: 164112633}
+  m_Layer: 11
+  m_Name: MeatReverb
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &164112632
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164112631}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.009446076, y: -0.4373228, z: 0.0056420118, w: 0.89923733}
+  m_LocalPosition: {x: 54.49, y: -13.14, z: 76.04}
+  m_LocalScale: {x: 6.835319, y: 3.4301012, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1697897772}
+  m_LocalEulerAnglesHint: {x: -0.691, y: -51.876, z: 1.055}
+--- !u!114 &164112633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164112631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Player
+  Parameter: Location
+  TriggerEvent: 3
+  Value: 0
+--- !u!65 &164112634
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164112631}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &165769404
 GameObject:
   m_ObjectHideFlags: 0
@@ -7336,7 +7406,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7480598497636289843, guid: 0e6740f33ebe0db498d2cab4fff2260f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 0e6740f33ebe0db498d2cab4fff2260f, type: 3}
 --- !u!4 &892178848 stripped
 Transform:
@@ -13510,6 +13583,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8545504786958889000, guid: 0ac943b4395ec8c4880ca374648bce34, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1785846257}
+    - targetCorrespondingSourceObject: {fileID: 8545504786958889000, guid: 0ac943b4395ec8c4880ca374648bce34, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 164112632}
     - targetCorrespondingSourceObject: {fileID: 8545504786958889000, guid: 0ac943b4395ec8c4880ca374648bce34, type: 3}
       insertIndex: -1
       addedObject: {fileID: 479480813}
