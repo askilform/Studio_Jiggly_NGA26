@@ -8,7 +8,7 @@
 			<value>LightFlick</value>
 		</property>
 		<property name="outputFormat">
-			<value>0</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{c3c3b8b9-4942-433d-80ee-d25272a23115}</destination>
@@ -100,10 +100,14 @@
 		<relationship name="effects">
 			<destination>{f1565534-5bec-4140-8caa-c81e57e3885c}</destination>
 			<destination>{e2ef59f7-585f-4108-86f3-f7856a4bab8d}</destination>
+			<destination>{d77329b8-0fb3-4f68-8ca0-6e6cb06115d9}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{63dd561a-38b0-4138-a37c-791faaa6e585}" />
 	<object class="MultiSound" id="{1c9f0415-3102-465f-943a-478c22919038}">
+		<property name="volume">
+			<value>-7.5</value>
+		</property>
 		<relationship name="sounds">
 			<destination>{2a348f73-4ebb-4f8f-9490-c304f2c519c5}</destination>
 			<destination>{d012acf3-7d5c-42ab-91d2-ed233acfe7a6}</destination>
@@ -125,6 +129,7 @@
 	<object class="MixerBusFader" id="{4309fe6e-c48e-40a3-86b5-9181166caced}" />
 	<object class="MixerBusFader" id="{f1565534-5bec-4140-8caa-c81e57e3885c}" />
 	<object class="Sidechain" id="{e2ef59f7-585f-4108-86f3-f7856a4bab8d}" />
+	<object class="SpatialiserEffect" id="{d77329b8-0fb3-4f68-8ca0-6e6cb06115d9}" />
 	<object class="SingleSound" id="{2a348f73-4ebb-4f8f-9490-c304f2c519c5}">
 		<relationship name="audioFile">
 			<destination>{ecac2ba0-ff31-471e-a022-070e290ffe67}</destination>
