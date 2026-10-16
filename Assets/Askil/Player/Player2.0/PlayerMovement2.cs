@@ -21,7 +21,7 @@ public class PlayerMovement2 : MonoBehaviour
     public EventInstance walkingAudioInstance;
 
     public StudioEventEmitter StepSFX;
-    public int StepSpeed;
+    public StudioGlobalParameterTrigger SpeedParamater;
 
     public float walkVolume;
     public float sprintVolume;
@@ -83,6 +83,8 @@ public class PlayerMovement2 : MonoBehaviour
 
         if (movementAllowed) HandleMovement();
         else walkingAudioInstance.setVolume(0);
+
+
     }
 
     void HandleMovement()
@@ -160,11 +162,10 @@ public class PlayerMovement2 : MonoBehaviour
 
     public void playStepSfx()
     {
-        StepSpeed =
-            isCrouching ? 0 :
-            currentSprintMultiplier > 2 ? 2 : 1;
+        RuntimeManager.StudioSystem.setParameterByName("Speed",
+        isCrouching ? 0 :
+        currentSprintMultiplier > 2 ? 2 : 1);
 
-        StepSFX.SetParameter("Speed", StepSpeed);
         StepSFX.Play();
     }
 
