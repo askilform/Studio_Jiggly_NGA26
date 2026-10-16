@@ -7,24 +7,28 @@ public class PlayerPush : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        Rigidbody rb = hit.collider.attachedRigidbody;
+        if (hit.transform.tag != "Car")
+        {
 
-        // Ignore objects without a movable Rigidbody
-        if (rb == null || rb.isKinematic)
-            return;
+            Rigidbody rb = hit.collider.attachedRigidbody;
 
-        // Only push horizontally
-        Vector3 pushDirection = new Vector3(
-            hit.moveDirection.x,
-            0f,
-            hit.moveDirection.z
-        ).normalized;
+            // Ignore objects without a movable Rigidbody
+            if (rb == null || rb.isKinematic)
+                return;
 
-        // Apply force at the point of contact
-        rb.AddForceAtPosition(
-            pushDirection * pushForce,
-            hit.point,
-            ForceMode.Impulse
-        );
+            // Only push horizontally
+            Vector3 pushDirection = new Vector3(
+                hit.moveDirection.x,
+                0f,
+                hit.moveDirection.z
+            ).normalized;
+
+            // Apply force at the point of contact
+            rb.AddForceAtPosition(
+                pushDirection * pushForce,
+                hit.point,
+                ForceMode.Impulse
+            );
+        }
     }
 }
