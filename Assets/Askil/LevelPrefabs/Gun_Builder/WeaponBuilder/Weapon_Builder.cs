@@ -41,7 +41,6 @@ public class Weapon_Builder : MonoBehaviour
         }
 
 
-
         else foreach (int i in GameInstance.savedWeaponIds)
         {
                 IdsPickedUp.Add((int)i);
@@ -75,7 +74,8 @@ public class Weapon_Builder : MonoBehaviour
 
             partScs.colorUiPart(WeaponPartScript.id);
         }
-        
+    
+
         WeaponPartScript.OnPickup();
 
         IdsPickedUp.Sort();
