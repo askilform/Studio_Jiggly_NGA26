@@ -3,6 +3,7 @@ using FMODUnity;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEngine.Rendering.DebugUI;
 
 public class PlayerMovement2 : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class PlayerMovement2 : MonoBehaviour
     [Header("Audio")]
     public EventReference walkingAudio;
     public EventInstance walkingAudioInstance;
+
+    public StudioEventEmitter StepSFX;
+    public int StepSpeed;
+
     public float walkVolume;
     public float sprintVolume;
 
@@ -152,6 +157,17 @@ public class PlayerMovement2 : MonoBehaviour
             isCrouching = false;
         }
     }
+
+    public void playStepSfx()
+    {
+        StepSpeed =
+            isCrouching ? 0 :
+            currentSprintMultiplier > 2 ? 2 : 1;
+
+        StepSFX.SetParameter("Speed", StepSpeed);
+        StepSFX.Play();
+    }
+
 
     private void OnDestroy()
     {
