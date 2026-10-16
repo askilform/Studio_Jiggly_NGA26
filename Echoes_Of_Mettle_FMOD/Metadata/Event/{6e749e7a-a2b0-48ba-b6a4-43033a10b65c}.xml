@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{6e749e7a-a2b0-48ba-b6a4-43033a10b65c}">
+		<property name="color">
+			<value>Red</value>
+		</property>
 		<property name="name">
 			<value>chasing_beat</value>
 		</property>
@@ -8,7 +11,7 @@
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{873f198e-80b3-4d6b-8a1d-2bf813d17883}</destination>
+			<destination>{2a009990-7244-441a-b06b-b6b6ad912cd2}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{8c1a8dba-9a5f-4626-9fce-587ad2fea781}</destination>
@@ -32,7 +35,7 @@
 			<destination>{947adc77-d5f8-425c-b08b-578760358414}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{e1e7f04e-1cbb-4584-ab71-316b2e6ef1d2}</destination>
+			<destination>{9638bd33-d833-4c02-b0dd-770d04f7ab53}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{8c1a8dba-9a5f-4626-9fce-587ad2fea781}">
@@ -56,7 +59,7 @@
 			<destination>{686ed8f3-7a11-4b37-a7f4-9f43eb784c82}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{f91bf3a9-7540-42ec-98fc-e2195b211686}</destination>
+			<destination>{da47b70f-beb8-409d-a4c3-3f1c69bc8556}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{facb5a18-f580-4c89-acb9-3cd87205ced5}" />
@@ -100,6 +103,9 @@
 	</object>
 	<object class="MixerBusPanner" id="{bf529c2f-1ddf-438e-9911-e3630f5415f0}" />
 	<object class="SingleSound" id="{a14787c2-c4af-457a-a8df-da63cb24c27c}">
+		<property name="looping">
+			<value>true</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{984cba54-5376-4a53-9ed1-cefa657cbaae}</destination>
 		</relationship>

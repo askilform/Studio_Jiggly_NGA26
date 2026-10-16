@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{09b6737f-717f-4b80-a6ad-ffa13f2f47f3}">
+		<property name="color">
+			<value>Red</value>
+		</property>
 		<property name="name">
 			<value>JumpscareSFX</value>
 		</property>
@@ -8,7 +11,7 @@
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{873f198e-80b3-4d6b-8a1d-2bf813d17883}</destination>
+			<destination>{13232eee-da70-43b3-a78a-6f733ca2bb94}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{58236b0c-896f-4719-a1c2-265017a433cc}</destination>
@@ -32,7 +35,7 @@
 			<destination>{99245aee-9a4d-4bfc-8d1e-318282b8c2f8}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{e1e7f04e-1cbb-4584-ab71-316b2e6ef1d2}</destination>
+			<destination>{9638bd33-d833-4c02-b0dd-770d04f7ab53}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{58236b0c-896f-4719-a1c2-265017a433cc}">
@@ -56,7 +59,7 @@
 			<destination>{8a5db7d0-f88f-450e-a2e5-fe1389cc2cd8}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{f91bf3a9-7540-42ec-98fc-e2195b211686}</destination>
+			<destination>{045e8e1a-0adc-4f78-8b69-38cb5c4cab0a}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{72aea831-cd29-445c-95a7-780c71b53335}" />
@@ -72,6 +75,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{c6e82cd7-706e-4442-92ed-e197f0b4ca5d}">
+		<property name="volume">
+			<value>-10.5</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{978ae79b-e0da-40f8-b20b-c563dd80437e}</destination>
 		</relationship>

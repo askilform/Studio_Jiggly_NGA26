@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{84b2b921-d039-4e08-bfa4-ed7d3c5ac0da}">
+		<property name="color">
+			<value>Red Light 2</value>
+		</property>
 		<property name="name">
 			<value>cyber-tennis-smash-100733</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{873f198e-80b3-4d6b-8a1d-2bf813d17883}</destination>
@@ -56,7 +59,7 @@
 			<destination>{af474d09-f7f4-4dff-91d0-d2ccb180819c}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{f91bf3a9-7540-42ec-98fc-e2195b211686}</destination>
+			<destination>{557f6fad-54c4-477a-a8c1-3e780aa72f3d}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{51848f33-a81e-40d1-876b-98104ce3c7b7}" />
@@ -96,7 +99,6 @@
 	<object class="MixerBusEffectChain" id="{644aa9ec-712d-499e-bd6e-de6b9f14bd58}">
 		<relationship name="effects">
 			<destination>{a8a8d02c-4aeb-4a14-abf4-0689b6de48b4}</destination>
-			<destination>{e5c7ea43-a098-4114-b748-97453adad863}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{45900bbd-7b16-47b7-8369-73438a196d46}" />
@@ -107,5 +109,4 @@
 	</object>
 	<object class="MixerBusFader" id="{e7ba8a67-6e36-4ed4-a238-6e5d7003bd09}" />
 	<object class="MixerBusFader" id="{a8a8d02c-4aeb-4a14-abf4-0689b6de48b4}" />
-	<object class="SpatialiserEffect" id="{e5c7ea43-a098-4114-b748-97453adad863}" />
 </objects>

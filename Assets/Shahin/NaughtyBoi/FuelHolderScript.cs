@@ -1,4 +1,7 @@
+using FMOD.Studio;
 using UnityEngine;
+using FMODUnity;
+
 
 public class FuelHolderScript : MonoBehaviour
 {
@@ -16,6 +19,9 @@ public class FuelHolderScript : MonoBehaviour
     public AudioClip dropRodSound;
     public AudioClip restockRodSound;
     public AudioSource audioSource;
+
+    public StudioEventEmitter fmodDropRod;
+    public StudioEventEmitter fmodReload;
 
 
     void Start()
@@ -38,14 +44,16 @@ public class FuelHolderScript : MonoBehaviour
     public void DropFuel()
     {
         fuelAnimator.SetTrigger("dropFuelRod");
-            GameObject fuelRodInstance = Instantiate(emptyFuelPrefabProjectile, fuelObject.transform.position, fuelObject.transform.rotation);
+        GameObject fuelRodInstance = Instantiate(emptyFuelPrefabProjectile, fuelObject.transform.position, fuelObject.transform.rotation);
 
-            if (fuelRodInstance.TryGetComponent<Rigidbody>(out Rigidbody rb))
+        if (fuelRodInstance.TryGetComponent<Rigidbody>(out Rigidbody rb))
             {
                 rb.linearVelocity = fuelRodInstance.transform.up * 1f + fuelRodInstance.transform.forward * -0.5f + fuelRodInstance.transform.right * -0.5f;;
                 rb.angularVelocity = fuelRodInstance.transform.right * -16f;
             }
-            audioSource.PlayOneShot(dropRodSound);
+        audioSource.PlayOneShot(dropRodSound);
+        
+        fmodDropRod.Play();
     }
 
 
@@ -85,6 +93,7 @@ public class FuelHolderScript : MonoBehaviour
                 print("RUN RESTOCK ROD SCRIPT");
                 fuelAnimator.SetTrigger("restockFuelRod");
                 audioSource.PlayOneShot(restockRodSound);
+                fmodDropRod.Play();
             }
             hasDroppedRod = false;
         }

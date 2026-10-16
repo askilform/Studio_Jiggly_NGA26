@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GuessTheDoor : MonoBehaviour
 {
@@ -8,10 +9,10 @@ public class GuessTheDoor : MonoBehaviour
    
     int DoorToChoose;
 
+    public UnityEvent onLastKill;
+
     [Header("Assign")]
     public List<DoorToGuess> sides = new List<DoorToGuess>();
-    public Animator animator;
-    public AnimationCurve CountDownTime;
 
 
     [Header("Tewaks")]
@@ -21,13 +22,14 @@ public class GuessTheDoor : MonoBehaviour
     {
         if (sides.Count > 1)
         {
-
-
             if (timeBetweenDoorChange > 0) StartCoroutine(DoorChanger());
             else StartCoroutine(DoorBreak());
         }
 
-        else animator.SetTrigger("OpenDore");
+        else
+        {
+            onLastKill.Invoke();
+        }
     }
 
     IEnumerator DoorChanger()
@@ -53,7 +55,11 @@ public class GuessTheDoor : MonoBehaviour
             sides[DoorToChoose].ActivateEnemy();
         }
 
-        else animator.SetTrigger("OpenDore");
+
+        else
+        {
+            onLastKill.Invoke();
+        }
 
         timeBetweenDoorChange = 1;
     }

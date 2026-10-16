@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class CarText : MonoBehaviour
 {
+
+    public string NextLevelName = "Tryings_AskilEdit";
+
     TextMeshProUGUI text;
     public bool CanProceed = false;
     private void Start()
@@ -20,6 +23,6 @@ public class CarText : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && CanProceed) { GameObject.FindFirstObjectByType<LevelMaster>().ChanceScene("Tryings_AskilEdit"); }
+        if (Input.GetKeyDown(KeyCode.E) && CanProceed) { GameObject.FindFirstObjectByType<LevelMaster>().ChanceScene(NextLevelName); }
     }
 }

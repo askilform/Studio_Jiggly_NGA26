@@ -1,3 +1,6 @@
+using FMODUnity;
+using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,11 +11,18 @@ public class CarFuntion : MonoBehaviour
     public CarExitCheck exitSc;
     public GameObject SeatPosition;
 
-    public GameObject player;
+    [NonSerialized] public GameObject player;
     public CarMovement carMovementSc;
+    public StudioEventEmitter carEnterAudio;
+
     private TextPopUp uiSc;
 
     private void OnEnable()
+    {
+        CarEnter();
+    }
+
+    public void CarEnter()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<PlayerMovement2>().movementAllowed = false;
@@ -22,6 +32,7 @@ public class CarFuntion : MonoBehaviour
 
         rb = gameObject.GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        if (carEnterAudio != null) carEnterAudio.Play();
     }
 
     private void FixedUpdate()
@@ -37,14 +48,14 @@ public class CarFuntion : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (!exitSc.isColliding) OnCarExit();
-            else uiSc.StartCoroutine(uiSc.FlashText("Door Is Blocked!", 0.5f, false));
+            if (!exitSc.isColliding) StartCoroutine(OnCarExit());
+            else uiSc.StartCoroutine(uiSc.FlashText("Door Is Blocked!", 0.5f, false, false));
         }
-
-        if (Input.GetKeyDown(KeyCode.O)) uiSc.StartCoroutine(uiSc.FlashText(transform.up.ToString(), 0.5f, false));
     }
-    private void OnCarExit()
+    private IEnumerator OnCarExit()
     {
+        yield return new WaitForSeconds(0.1f);
+
         player.transform.position = exitSc.transform.position;
         player.transform.rotation = Quaternion.identity;
 
@@ -52,7 +63,9 @@ public class CarFuntion : MonoBehaviour
         player.GetComponent<PlayerMovement2>().cameraMovementAllowed = true;
         player.GetComponent<CharacterController>().enabled = true;
 
+        carMovementSc.carEngineAudio.SetParameter("RPM", 0);
         carMovementSc.enabled = false;
+        if (carEnterAudio != null) carEnterAudio.Stop();
         enabled = false;
     }
 }

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{676c4da8-018b-4eb7-afc2-0be15cf4d4f1}">
+		<property name="color">
+			<value>Red</value>
+		</property>
 		<property name="name">
 			<value>InEnemyZone</value>
 		</property>
@@ -8,7 +11,7 @@
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{873f198e-80b3-4d6b-8a1d-2bf813d17883}</destination>
+			<destination>{13232eee-da70-43b3-a78a-6f733ca2bb94}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{1aa8e989-18e7-44f4-8828-11e23f03aeab}</destination>
@@ -32,7 +35,7 @@
 			<destination>{ce5296c2-edbc-4458-b02e-1a769421046b}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{e1e7f04e-1cbb-4584-ab71-316b2e6ef1d2}</destination>
+			<destination>{9638bd33-d833-4c02-b0dd-770d04f7ab53}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{1aa8e989-18e7-44f4-8828-11e23f03aeab}">
@@ -56,7 +59,7 @@
 			<destination>{311f9f17-61bf-48e4-92f9-59338d7f9181}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{f91bf3a9-7540-42ec-98fc-e2195b211686}</destination>
+			<destination>{045e8e1a-0adc-4f78-8b69-38cb5c4cab0a}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{d502928f-fe9f-46e2-9783-5e84de83c914}" />
@@ -72,6 +75,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{6247b2ec-4647-4f43-904c-a4496e63f1db}">
+		<property name="volume">
+			<value>-13.5</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{ceb45de6-313a-4703-bb53-c84e9f74bf62}</destination>
 		</relationship>

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{02a9bfdf-c919-466d-8114-03303a68a6ee}">
+		<property name="color">
+			<value>Yellow</value>
+		</property>
 		<property name="name">
 			<value>power-charge-6798</value>
 		</property>
@@ -8,7 +11,7 @@
 			<value>2</value>
 		</property>
 		<relationship name="folder">
-			<destination>{873f198e-80b3-4d6b-8a1d-2bf813d17883}</destination>
+			<destination>{82a7c9ca-ed2c-4bee-80f3-4a4c7e7cf14a}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{306566f6-5958-4a0c-9c01-9c8ddc034216}</destination>
@@ -32,7 +35,7 @@
 			<destination>{bcf11f20-6d9c-4c8d-9baa-a321dd800f80}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{e1e7f04e-1cbb-4584-ab71-316b2e6ef1d2}</destination>
+			<destination>{35392dd2-1cfd-40d3-9c31-bf4dd9c3d841}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{306566f6-5958-4a0c-9c01-9c8ddc034216}">
@@ -56,7 +59,7 @@
 			<destination>{3713adfa-9e8e-48ad-9c83-4f9b66368575}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{f91bf3a9-7540-42ec-98fc-e2195b211686}</destination>
+			<destination>{557f6fad-54c4-477a-a8c1-3e780aa72f3d}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{c9eefb2f-99a8-4e2e-9dad-da02300f36b0}" />
@@ -96,7 +99,6 @@
 	<object class="MixerBusEffectChain" id="{df43ece0-6539-49bb-8676-e7b21c0ad40d}">
 		<relationship name="effects">
 			<destination>{ab61ff1d-cabe-4e44-b412-7132d80599af}</destination>
-			<destination>{f9f184ff-011b-4398-86bb-e2c6582d0ab2}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{12ac290f-b6f2-46f9-a192-0c21812f9262}" />
@@ -107,5 +109,4 @@
 	</object>
 	<object class="MixerBusFader" id="{472796ef-2dc0-47c0-b43d-e11685e2cb63}" />
 	<object class="MixerBusFader" id="{ab61ff1d-cabe-4e44-b412-7132d80599af}" />
-	<object class="SpatialiserEffect" id="{f9f184ff-011b-4398-86bb-e2c6582d0ab2}" />
 </objects>

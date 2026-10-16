@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -36,10 +38,12 @@ public class LevelMaster : MonoBehaviour
         sceneIn = true;
         canvasGroup.alpha = 1.0f;
 
-        if (SceneManager.GetActiveScene().name == "MainMenu")
+        if (SceneManager.GetActiveScene().name == "MainMenu" || SceneManager.GetActiveScene().name == "MainMenuKari")
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+            GameInstance.gunShowcase = false;
+            GameInstance.ClearSaves();
         }
 
         else
@@ -59,7 +63,7 @@ public class LevelMaster : MonoBehaviour
             {
                 if (GameInstance.savedWeaponIds.Contains(weaponPart.id)) Destroy(weaponPart.transform.gameObject);
             }
-        } 
+        }
     }
 
     private void FixedUpdate()
@@ -70,7 +74,7 @@ public class LevelMaster : MonoBehaviour
             playerRunning = playerMovementSc.moveSpeed > (ogPlayerSpeed * playerMovementSc.sprintSpeed) - 0.5f;
         }
 
-        if (canvasGroup.alpha < 1.1 || canvasGroup.alpha < 0) canvasGroup.alpha += sceneIn ? -0.05f : 0.05f;
+        if (canvasGroup.alpha < 1.1 || canvasGroup.alpha < 0) canvasGroup.alpha += sceneIn ? -0.01f : 0.05f;
     }
 
     private void Update()
@@ -83,6 +87,11 @@ public class LevelMaster : MonoBehaviour
     }
 
     public void ChanceScene(string sceneName) { StartCoroutine(ChanceSceneCoroutine(sceneName)); }
+
+    public void MainBattle()
+    {
+
+    }
 
     public IEnumerator ChanceSceneCoroutine(string sceneName)
     {

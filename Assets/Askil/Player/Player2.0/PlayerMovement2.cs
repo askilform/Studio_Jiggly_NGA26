@@ -2,6 +2,8 @@ using FMOD.Studio;
 using FMODUnity;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using static UnityEngine.Rendering.DebugUI;
 
 public class PlayerMovement2 : MonoBehaviour
 {
@@ -12,9 +14,15 @@ public class PlayerMovement2 : MonoBehaviour
     public float crouchSpeed = 0.2f;
     public float gravity = -20f;
 
+    public UnityEvent onStart;
+
     [Header("Audio")]
     public EventReference walkingAudio;
     public EventInstance walkingAudioInstance;
+
+    public StudioEventEmitter StepSFX;
+    public StudioGlobalParameterTrigger SpeedParamater;
+
     public float walkVolume;
     public float sprintVolume;
 
@@ -58,6 +66,8 @@ public class PlayerMovement2 : MonoBehaviour
 
         walkingAudioInstance = RuntimeManager.CreateInstance(walkingAudio);
         walkingAudioInstance.start();
+
+        onStart.Invoke();
     }   
 
     void Update()
@@ -72,6 +82,9 @@ public class PlayerMovement2 : MonoBehaviour
         z = Input.GetAxis("Vertical");
 
         if (movementAllowed) HandleMovement();
+        else walkingAudioInstance.setVolume(0);
+
+
     }
 
     void HandleMovement()
@@ -91,7 +104,13 @@ public class PlayerMovement2 : MonoBehaviour
         Vector3 finalMove = move + Vector3.up * velocity.y;
 
         controller.Move(finalMove * Time.deltaTime);
-        walkingAudioInstance.setVolume((move.magnitude > 0.01f && JumpScript.isGrounded) ? 1f : 0f);
+
+        if (move.magnitude > 0.01f && JumpScript.isGrounded)
+        {
+            walkingAudioInstance.setVolume((Mathf.InverseLerp(0.9f, 2.5f, currentSprintMultiplier)));
+        }
+
+        else walkingAudioInstance.setVolume(0);
     }
 
     void HandleMouseLook()
@@ -139,6 +158,15 @@ public class PlayerMovement2 : MonoBehaviour
             controller.height = ogHeight;
             isCrouching = false;
         }
+    }
+
+    public void playStepSfx()
+    {
+        RuntimeManager.StudioSystem.setParameterByName("Speed",
+        isCrouching ? 0 :
+        currentSprintMultiplier > 2 ? 2 : 1);
+
+        StepSFX.Play();
     }
 
     private void OnDestroy()

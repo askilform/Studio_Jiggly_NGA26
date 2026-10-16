@@ -1,12 +1,9 @@
-using FMODUnity;
-using System;
-using System.Collections;
-using Unity.Hierarchy;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
+using FMODUnity;
+using System.Collections;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using TMPro;
 
 public class enemyMovement : MonoBehaviour
 {
@@ -14,10 +11,12 @@ public class enemyMovement : MonoBehaviour
     private Vector3 investigateLocation;
     private LevelMaster levelMaster;
     private EnemyZone enemyZone;
-    [SerializeField] private float investigedFor;
+    private float investigedFor;
+    private float DistanceToPlayer;
 
-    [NonSerialized] public NavMeshAgent agent;
-    public GameObject player;
+    public NavMeshAgent agent;
+    public TextMeshPro DistanceTxt;
+    [HideInInspector] public GameObject player;
     public bool investigating;
     public GameObject mainTarget;
     public float Speed = 1;
@@ -28,14 +27,13 @@ public class enemyMovement : MonoBehaviour
 
     public float SprintSpeedMultiplier;
     public RoamingPoints roamPointSc;
-    public AudioSource walkSFX;
     public StudioEventEmitter walkSfxNew;
     public float timeBeforeInvestigateStop;
     public GameObject jumpscarePrefab;
     public bool killOnOverlap;
 
     //a big slow when damaging him a lot.
-    private float crippleSpeedMultiplier = 1f; //should always be between 0 and 1
+    public float crippleSpeedMultiplier = 1f; //should always be between 0 and 1
     public float crippleRecoveryTime = 3f; //How many seconds for it to reach 1 again
     private float crippleBuildupCounter = 0; //when the cripple buildup reaches the needed value, his speed is multiplied by 0. The 0 slowly goes back to 1.
     public float crippleBuildupNeeded = 10f;
@@ -74,12 +72,10 @@ public class enemyMovement : MonoBehaviour
         // Start investigation
         if (levelMaster.playerRunning && levelMaster.playerInDangerArea && mainTarget != player)
         {
-            if (!investigating) StartCoroutine(FindFirstObjectByType<TextPopUp>().FlashText("He Heard You!", 0.5f, true));
+            if (!investigating) StartCoroutine(FindFirstObjectByType<TextPopUp>().FlashText("He Heard You!", 0.5f, true, true));
             Investigate(player.transform.position);
         }
    
-        walkSFX.mute = agent.velocity.x == 0 && agent.velocity.z == 0;
-
         investigedFor += investigating ? Time.deltaTime : 0;
 
         CalculatePause(); //handles cripple things
@@ -94,6 +90,9 @@ public class enemyMovement : MonoBehaviour
 
         else agent.updateRotation = true;
         */
+
+        DistanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        DistanceTxt.text = DistanceToPlayer.ToString();
     }
 
     private IEnumerator OnTriggerEnter(Collider other)
@@ -116,6 +115,28 @@ public class enemyMovement : MonoBehaviour
 
             onPlayerOverlap.Invoke();
         }
+
+        if (other.TryGetComponent<BreakableEndgame>(out BreakableEndgame breakableSc))
+        {
+            if (breakableSc.battleBegun)
+            {
+                breakableSc.OnEnemyOverlap(transform.position);
+              //  GetHitBuildTowardsPause(11);
+            }
+        }
+
+        else if (other.transform.parent != null)
+        {
+            if (other.transform.parent.TryGetComponent<BreakableEndgame>(out BreakableEndgame breakableSc2))
+            {
+                if (breakableSc2.battleBegun)
+                {
+                    breakableSc2.OnEnemyOverlap(transform.position);
+                 //    GetHitBuildTowardsPause(11);
+                }
+            }
+
+        }
     }
 
     public void StopMovement()
@@ -129,7 +150,6 @@ public class enemyMovement : MonoBehaviour
         mainTarget = player;
         agent.isStopped = false;
         agent.speed = baseSpeedReference * SprintSpeedMultiplier * hitSpeedMultiplier * crippleSpeedMultiplier;
-        
     }
 
     public void Roam()
@@ -154,9 +174,7 @@ public class enemyMovement : MonoBehaviour
     public void ReduceSpeedMultiplier(float reduceBy)
     {
         hitSpeedMultiplier = reduceBy;
-        
     }
-
 
     public void GetHitBuildTowardsPause(float damageIn)
     {
@@ -169,10 +187,7 @@ public class enemyMovement : MonoBehaviour
             crippleSpeedMultiplier = 0; //slow to zero
 
             OnCrippled.Invoke();
-
         }
-
-
     }
 
     private void CalculatePause()
@@ -188,10 +203,8 @@ public class enemyMovement : MonoBehaviour
 
     }
 
-    public void ScriptedAttack(float NewBaseSpeed)
+    public void TeleportRandom()
     {
-        Speed = NewBaseSpeed;
-        killOnOverlap = false;
+        transform.position = roamPointSc.points[Random.Range(0, roamPointSc.points.Count)].transform.position;
     }
-
 }

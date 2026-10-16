@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{62cb5fe5-dd0e-44c4-9890-6100208ff9bc}">
+		<property name="color">
+			<value>Yellow</value>
+		</property>
 		<property name="name">
 			<value>GMS Cooldown</value>
 		</property>
@@ -8,7 +11,7 @@
 			<value>2</value>
 		</property>
 		<relationship name="folder">
-			<destination>{873f198e-80b3-4d6b-8a1d-2bf813d17883}</destination>
+			<destination>{82a7c9ca-ed2c-4bee-80f3-4a4c7e7cf14a}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{1ba124e0-2044-4713-ae75-0f35837abd95}</destination>
@@ -32,7 +35,7 @@
 			<destination>{80abe76b-560d-4556-8268-725f5c868dbc}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{e1e7f04e-1cbb-4584-ab71-316b2e6ef1d2}</destination>
+			<destination>{35392dd2-1cfd-40d3-9c31-bf4dd9c3d841}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{1ba124e0-2044-4713-ae75-0f35837abd95}">
@@ -56,7 +59,7 @@
 			<destination>{59065ac5-25d8-4ae9-9a78-c427338d7d69}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{f91bf3a9-7540-42ec-98fc-e2195b211686}</destination>
+			<destination>{557f6fad-54c4-477a-a8c1-3e780aa72f3d}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{e5af7aae-515b-4aff-abd3-41b7a9afe3c6}" />
@@ -96,7 +99,6 @@
 	<object class="MixerBusEffectChain" id="{953550b7-7b8f-4229-b16b-9d0fa6b3360f}">
 		<relationship name="effects">
 			<destination>{501b2e95-eec9-4532-8cab-a74e6b66e4ba}</destination>
-			<destination>{344df8a5-1908-4d8f-b4ab-f1d2f2c14cad}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{81a7d6de-1d8d-4e12-b33e-f849304ff9c7}" />
@@ -107,5 +109,4 @@
 	</object>
 	<object class="MixerBusFader" id="{31543c6c-8d71-4d1f-be64-672fcc478fcf}" />
 	<object class="MixerBusFader" id="{501b2e95-eec9-4532-8cab-a74e6b66e4ba}" />
-	<object class="SpatialiserEffect" id="{344df8a5-1908-4d8f-b4ab-f1d2f2c14cad}" />
 </objects>

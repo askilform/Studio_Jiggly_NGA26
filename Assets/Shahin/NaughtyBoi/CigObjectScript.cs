@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 
 public class CigObjectScript : MonoBehaviour
@@ -22,6 +23,7 @@ public class CigObjectScript : MonoBehaviour
     public GameObject cigaretteTip;
 
     public Light[] cigaretteLights;
+    public StudioEventEmitter CigAudio;
 
 
     void Start()
@@ -35,8 +37,6 @@ public class CigObjectScript : MonoBehaviour
         //Go from 0 to 1 over time
         currentLifetimeAsRatio += Time.deltaTime / Mathf.Max(maxLifetime, 0.1f);
         currentLifetimeAsRatio = Mathf.Clamp(currentLifetimeAsRatio, 0, 1f);
-
-
 
         foreach (Light ciglight in cigaretteLights) 
         {
@@ -54,5 +54,10 @@ public class CigObjectScript : MonoBehaviour
         //move tip (tihi)
         cigaretteTip.transform.localPosition = new Vector3(0, 0, (1f - currentLifetimeAsRatio) * cigarettePhysicalLength);
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        CigAudio.Stop();
     }
 }
