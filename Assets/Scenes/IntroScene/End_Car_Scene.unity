@@ -15,18 +15,18 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
   m_Fog: 1
-  m_FogColor: {r: 0.15294118, g: 0.058823533, b: 0.098039225, a: 1}
+  m_FogColor: {r: 0.6132076, g: 0.22912641, b: 0.19958171, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
-  m_LinearFogStart: 20
+  m_LinearFogStart: 50
   m_LinearFogEnd: 200
-  m_AmbientSkyColor: {r: 0.0047769533, g: 0.0047769533, b: 0.009721218, a: 1}
+  m_AmbientSkyColor: {r: 0.5566038, g: 0.06038627, b: 0.08084873, a: 1}
   m_AmbientEquatorColor: {r: 0.009721218, g: 0.015208514, b: 0.015208514, a: 1}
   m_AmbientGroundColor: {r: 0.015208514, g: 0.020288562, b: 0.020288562, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 6eecb3bb77b3f7a43a504fceda3b0b5f, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: de1d750fefeeac642bf9b11a3978ccf5, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -668,7 +668,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 55.6
+  field of view: 34.6
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -694,13 +694,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691115818}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.055928808, y: 0.07837549, z: -0.004403953, w: 0.99534404}
-  m_LocalPosition: {x: -14.5, y: 3.7, z: -44.64}
+  m_LocalRotation: {x: -0, y: -0.44233435, z: -0, w: 0.8968502}
+  m_LocalPosition: {x: 29, y: 10, z: -24.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -6.353, y: 9.061, z: -1.011}
+  m_LocalEulerAnglesHint: {x: 0, y: -52.506, z: 0}
 --- !u!114 &691115822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1364,8 +1364,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 1
-  m_Color: {r: 0.7132075, g: 0.4034277, b: 0.39697394, a: 1}
-  m_Intensity: 0.5
+  m_Color: {r: 0.7647059, g: 0.2653333, b: 0.09803921, a: 1}
+  m_Intensity: 0.52
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1427,13 +1427,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 965616938}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.63804597, y: -0.7632321, z: 0.006657848, w: 0.10163535}
+  m_LocalRotation: {x: 0.6087231, y: -0.66670746, z: 0.37157604, w: -0.216538}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 8.04, y: 188.517, z: 280.81}
+  m_LocalEulerAnglesHint: {x: 13.406, y: 130.371, z: 268.985}
 --- !u!114 &965616941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1920,7 +1920,7 @@ MonoBehaviour:
   - {fileID: 956436362}
   - {fileID: 1189474770}
   tileSize: 100
-  moveSpeed: 30
+  moveSpeed: 20
   howFarBack: -200
 --- !u!4 &1736131439
 Transform:

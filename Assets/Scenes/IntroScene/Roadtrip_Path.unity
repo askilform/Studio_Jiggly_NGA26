@@ -15,14 +15,14 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
   m_Fog: 1
-  m_FogColor: {r: 0.098039225, g: 0.12941177, b: 0.15294118, a: 1}
+  m_FogColor: {r: 0.10079208, g: 0.12933713, b: 0.14150941, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
-  m_LinearFogStart: 50
-  m_LinearFogEnd: 200
-  m_AmbientSkyColor: {r: 0.14877176, g: 0.27249908, b: 0.3962264, a: 1}
-  m_AmbientEquatorColor: {r: 0.009721218, g: 0.015208514, b: 0.015208514, a: 1}
-  m_AmbientGroundColor: {r: 0.015208514, g: 0.020288562, b: 0.020288562, a: 1}
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 150
+  m_AmbientSkyColor: {r: 0.10359559, g: 0.1640306, b: 0.2264151, a: 1}
+  m_AmbientEquatorColor: {r: 0.098967604, g: 0.1509434, b: 0.1509434, a: 1}
+  m_AmbientGroundColor: {r: 0.33962262, g: 0.2034455, b: 0.14257741, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
@@ -153,7 +153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -148.99884, y: -59.000427}
+  m_AnchoredPosition: {x: 0, y: -59.000427}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &30397435
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -140.3052, z: -245.41144, w: 0}
+  m_margin: {x: -162.6793, y: -140.3052, z: -168.95273, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -668,7 +668,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 40
+  field of view: 59.1
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -694,13 +694,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691115818}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.04741473, y: -0.37169054, z: -0.03162385, w: 0.9266056}
-  m_LocalPosition: {x: 24.48, y: 12.29, z: -25.53}
+  m_LocalRotation: {x: -0.050923716, y: 0.031514123, z: -0.03874491, w: 0.99745303}
+  m_LocalPosition: {x: -15.59, y: 5.23, z: -25.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 3.69, y: -43.888, z: -5.397}
+  m_LocalEulerAnglesHint: {x: -5.69, y: 3.85, z: -4.64}
 --- !u!114 &691115822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1276,6 +1276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8172458157c4d03489349d0e0f3fcfc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NextLevelName: Tryings_AskilEdit
   CanProceed: 0
 --- !u!1001 &956436361
 PrefabInstance:
@@ -1374,7 +1375,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -1430,13 +1431,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 965616938}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.42341867, y: -0.0184797, z: -0.49925253, w: 0.75572616}
+  m_LocalRotation: {x: 0.6611555, y: -0.44312683, z: -0.15710256, w: 0.58466303}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 38.428, y: 324.877, z: 280.512}
+  m_LocalEulerAnglesHint: {x: 39.337, y: 249.807, z: 275.668}
 --- !u!114 &965616941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1923,7 +1924,7 @@ MonoBehaviour:
   - {fileID: 956436362}
   - {fileID: 1189474770}
   tileSize: 100
-  moveSpeed: 30
+  moveSpeed: 50
   howFarBack: -200
 --- !u!4 &1736131439
 Transform:
@@ -2394,7 +2395,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 691115820}
-  m_PlaneDistance: 50
+  m_PlaneDistance: 80
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
