@@ -70,7 +70,13 @@ public class HealthEnemy : MonoBehaviour
             }
 
             onDeath.Invoke();
-            if (DieOnDeath) Destroy(transform.parent.gameObject);
+
+            if (DieOnDeath)
+            {
+               print ("ENEMY REALLY SOULD BE DYING HERE LIKE");
+               Destroy(transform.parent.gameObject);
+            }
+                
         }
     }
 
