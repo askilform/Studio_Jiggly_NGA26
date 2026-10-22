@@ -17,6 +17,8 @@ public class RatNav : MonoBehaviour
 
     public bool dontUseRats = false;
 
+    public GameObject splat;
+
     void Start()
     {
         if (dontUseRats)
@@ -94,5 +96,12 @@ public class RatNav : MonoBehaviour
 
             hasFoundFleePos = true;
         }
+    }
+
+
+    public void SplatRat()
+    {
+        GameObject.Instantiate(splat);
+        Destroy(gameObject);
     }
 }
