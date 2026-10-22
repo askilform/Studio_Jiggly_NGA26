@@ -8504,6 +8504,33 @@ MonoBehaviour:
   Parameter: Location
   TriggerEvent: 1
   Value: 0
+--- !u!114 &1061822385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061822382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4982af83365172498826eb9dbd3886d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WhenEnabled:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1641876771}
+        m_TargetAssemblyTypeName: PostProcessFade, Assembly-CSharp
+        m_MethodName: fadeVolume
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!4 &1066020506 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b4c2d3d7006b7514aad7fef704a01fc9, type: 3}
@@ -13892,6 +13919,68 @@ Transform:
   - {fileID: 63812614}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1641876768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1641876769}
+  - component: {fileID: 1641876770}
+  - component: {fileID: 1641876771}
+  m_Layer: 0
+  m_Name: MeatWorldPostProcess
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1641876769
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641876768}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.7337656, y: 3.698513, z: -14.719948}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1641876770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641876768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 0
+  sharedProfile: {fileID: 11400000, guid: d1f2e3e4b5db7484db00d1ea42fe5977, type: 2}
+--- !u!114 &1641876771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641876768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 496a7857b5a98a3438f4a00da8988137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1643276026
 GameObject:
   m_ObjectHideFlags: 0
@@ -14638,6 +14727,7 @@ GameObject:
   - component: {fileID: 1785846257}
   - component: {fileID: 1785846259}
   - component: {fileID: 1785846258}
+  - component: {fileID: 1785846260}
   m_Layer: 11
   m_Name: EndRoomReverb
   m_TagString: Untagged
@@ -14697,6 +14787,35 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1785846260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785846256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31227c2d10ab29043b67f33424c96c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onTriggerEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1641876771}
+        m_TargetAssemblyTypeName: PostProcessFade, Assembly-CSharp
+        m_MethodName: fadeVolume
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  destroyAfterEvent: 1
+  InCar: 0
 --- !u!1 &1826901451
 GameObject:
   m_ObjectHideFlags: 0
@@ -17193,6 +17312,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 65af8c6f90627124184a54445e434b20, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1061822384}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 65af8c6f90627124184a54445e434b20, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1061822385}
   m_SourcePrefab: {fileID: 100100000, guid: 65af8c6f90627124184a54445e434b20, type: 3}
 --- !u!23 &8543476044089481924
 MeshRenderer:
@@ -17297,3 +17419,4 @@ SceneRoots:
   - {fileID: 57896543}
   - {fileID: 1758222904}
   - {fileID: 1196443375}
+  - {fileID: 1641876769}
