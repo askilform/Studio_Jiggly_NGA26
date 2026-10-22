@@ -99,6 +99,7 @@
 	<object class="MixerBusEffectChain" id="{ce475f3e-fab4-4594-914b-d305029fc2b1}">
 		<relationship name="effects">
 			<destination>{557f1444-3577-46ef-8925-bffd86c326b4}</destination>
+			<destination>{9a85760c-6fb7-4981-b7cc-431bdf1ef348}</destination>
 			<destination>{e758cb9b-6e07-504a-8011-c83b4f8a1747}</destination>
 		</relationship>
 	</object>
@@ -116,7 +117,34 @@
 	</object>
 	<object class="MixerBusFader" id="{4ce8dbf8-d132-4977-9051-3219da11afdf}" />
 	<object class="MixerBusFader" id="{557f1444-3577-46ef-8925-bffd86c326b4}" />
-	<object class="SpatialiserEffect" id="{e758cb9b-6e07-504a-8011-c83b4f8a1747}" />
+	<object class="MixerSend" id="{9a85760c-6fb7-4981-b7cc-431bdf1ef348}">
+		<property name="level">
+			<value>0</value>
+		</property>
+		<property name="inputFormat">
+			<value>0</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{fab40bb1-5fb3-4548-9aa6-4ebcf7ea2f57}</destination>
+		</relationship>
+	</object>
+	<object class="SpatialiserEffect" id="{e758cb9b-6e07-504a-8011-c83b4f8a1747}">
+		<property name="distanceRolloffType">
+			<value>1</value>
+		</property>
+		<property name="maximumDistance">
+			<value>100</value>
+		</property>
+		<property name="overrideRange">
+			<value>true</value>
+		</property>
+		<property name="soundSize">
+			<value>13.5</value>
+		</property>
+		<property name="minimumExtent">
+			<value>208</value>
+		</property>
+	</object>
 	<object class="RandomizerModulator" id="{85daf964-d731-4b52-93a4-8c012ebfadfd}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>pitch</value>
