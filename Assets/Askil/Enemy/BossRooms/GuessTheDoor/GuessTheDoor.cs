@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class GuessTheDoor : MonoBehaviour
 {
-    float timeBetweenDoorChange = 1;
+    // float timeBetweenDoorChange = 1;
+    int CurrentIntervalIndex = 1;
    
     int DoorToChoose;
 
@@ -13,6 +15,8 @@ public class GuessTheDoor : MonoBehaviour
 
     [Header("Assign")]
     public List<DoorToGuess> sides = new List<DoorToGuess>();
+    public List<float> LightIntervals = new List<float>();
+    public AnimationCurve graf;  
 
 
     [Header("Tewaks")]
@@ -20,12 +24,16 @@ public class GuessTheDoor : MonoBehaviour
 
     public void StartGameRound()
     {
-        if (sides.Count > 1)
+        print("Index:" + CurrentIntervalIndex + "and listcount is" + LightIntervals.Count);
+        // Checks if there are more enemies
+        // Only restarts loop if there are 2 sides left, 1 would be wierd
+        if (sides.Count > 1) 
         {
-            if (timeBetweenDoorChange > 0) StartCoroutine(DoorChanger());
+            if (CurrentIntervalIndex < LightIntervals.Count) StartCoroutine(DoorChanger());
             else StartCoroutine(DoorBreak());
         }
 
+        // Finihses GuessTheDoor if there is only one available enemy
         else
         {
             onLastKill.Invoke();
@@ -34,18 +42,27 @@ public class GuessTheDoor : MonoBehaviour
 
     IEnumerator DoorChanger()
     {
-        yield return new WaitForSeconds(timeBetweenDoorChange);
-        foreach (DoorToGuess side in sides) side.BecomeInactive();
+        yield return new WaitForSeconds(LightIntervals[CurrentIntervalIndex]);
+
+        foreach (DoorToGuess side in sides)
+            side.BecomeInactive();
+
         yield return null;
-        DoorToChoose = Random.Range(0, sides.Count);
+
+        int previousDoor = DoorToChoose;
+
+        do
+        {
+            DoorToChoose = Random.Range(0, sides.Count);
+        }
+        while (DoorToChoose == previousDoor);
+
         sides[DoorToChoose].BecomeActiveDoor();
-     
-        timeBetweenDoorChange -= 0.1f;
 
+        CurrentIntervalIndex += 1;
 
-        StartGameRound(); //Restart Loop
+        StartGameRound();
     }
-
 
     IEnumerator DoorBreak()
     {
@@ -55,12 +72,14 @@ public class GuessTheDoor : MonoBehaviour
             sides[DoorToChoose].ActivateEnemy();
         }
 
-
         else
         {
             onLastKill.Invoke();
         }
 
-        timeBetweenDoorChange = 1;
+        // timeBetweenDoorChange = 1;
+
+        // Delay picks from first index og Interval-list again
+        CurrentIntervalIndex = 1;
     }
 }
