@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using FMODUnity;
 
 public class GuessTheDoor : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class GuessTheDoor : MonoBehaviour
     [Header("Assign")]
     public List<DoorToGuess> sides = new List<DoorToGuess>();
     public List<float> LightIntervals = new List<float>();
-    public AnimationCurve graf;  
+    public AnimationCurve graf;
 
 
     [Header("Tewaks")]
