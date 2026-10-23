@@ -3789,6 +3789,7 @@ GameObject:
   - component: {fileID: 3609426496436094555}
   - component: {fileID: 6509061183871149411}
   - component: {fileID: 4895600235792320426}
+  - component: {fileID: 2945730116715237852}
   m_Layer: 0
   m_Name: EmptyParticles
   m_TagString: Untagged
@@ -8611,6 +8612,37 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &2945730116715237852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8092612810070830974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -408858830
+      Data2: 1262842620
+      Data3: -422984546
+      Data4: -2135703502
+    Path: event:/SFX/Weapons/AmmoEmpty
+  Event: 
+  EventPlayTrigger: 11
+  EventStopTrigger: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &8271407902063658427
 GameObject:
   m_ObjectHideFlags: 0
