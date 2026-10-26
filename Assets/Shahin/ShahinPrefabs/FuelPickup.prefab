@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 848517953408699085}
   - component: {fileID: 3882571698400186958}
   - component: {fileID: 464570324275985549}
+  - component: {fileID: 7423161225350351663}
   m_Layer: 0
   m_Name: FuelPickup
   m_TagString: AmmoPickup
@@ -228,6 +229,9 @@ MonoBehaviour:
   onEnable:
     m_PersistentCalls:
       m_Calls: []
+  onDrop:
+    m_PersistentCalls:
+      m_Calls: []
   resetAfterTime: 1
   TimeBeforeReset: 0
   canBeHeldInHand: 1
@@ -277,6 +281,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4d2161f88218584fa2f8e3d3c15c497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7423161225350351663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6274706926854864891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -397668971
+      Data2: 1307985862
+      Data3: -491485518
+      Data4: -742198921
+    Path: event:/SFX/World/FuelCellHover
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &216497633339402349
 PrefabInstance:
   m_ObjectHideFlags: 0

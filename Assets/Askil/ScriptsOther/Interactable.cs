@@ -1,6 +1,7 @@
+using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
-using NUnit.Framework;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
@@ -12,6 +13,7 @@ public class Interactable : MonoBehaviour
     public List<GameObject> ToEnable = new List<GameObject>();
     public string PlayerAnimBool;
     public UnityEvent onEnable;
+    public UnityEvent onDrop;
 
     public bool resetAfterTime = true;
     public float TimeBeforeReset;
@@ -32,6 +34,11 @@ public class Interactable : MonoBehaviour
     public void ChangeHoverMessage(string newMessage)
     {
         hoverMessage = newMessage;
+    }
+
+    public void OnDrop()
+    {
+        onDrop.Invoke();
     }
 
 }

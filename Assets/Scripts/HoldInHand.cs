@@ -177,15 +177,16 @@ public class HoldInHand : MonoBehaviour
                             //center on screen if thing says so
                             
                             rb.gameObject.transform.position = throwFromHere.position;
-                            
                         }
                         //Override throw force in object
                         throwForceOut = interactibleScript.throwForce;
+                        interactibleScript.OnDrop();
                     }
                     
                 }
                 //Toss the salad
                 rb.linearVelocity = transform.forward * throwForceOut;
+                
 
 
             }
