@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 7055064636182214388}
   - component: {fileID: 5627295519270736552}
   - component: {fileID: 5133662124020765850}
+  - component: {fileID: 257243924338408675}
   m_Layer: 0
   m_Name: Casette
   m_TagString: Untagged
@@ -196,7 +197,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -252,7 +253,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5627295519270736552}
         m_TargetAssemblyTypeName: WalkMan, Assembly-CSharp
-        m_MethodName: StopAudio
+        m_MethodName: onDrop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -311,8 +312,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a3f1e69728f8894888b6011cf76386b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anims: {fileID: 0}
+  ButtonAnims: {fileID: 7086445928226875855}
+  TapeWheelAnims: {fileID: 4042957095352234920}
   CasetteAudio: {fileID: 5133662124020765850}
+  CasetteStop: {fileID: 257243924338408675}
 --- !u!114 &5133662124020765850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,6 +336,37 @@ MonoBehaviour:
       Data3: 855189907
       Data4: -793439045
     Path: event:/SFX/World/WalkManRecording
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &257243924338408675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4773512201783236113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 94474100
+      Data2: 1225866182
+      Data3: 1548319163
+      Data4: 991793705
+    Path: event:/SFX/World/WalkManStop
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 2
@@ -438,17 +472,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7716651832510810205}
     m_Modifications:
+    - target: {fileID: -8879391126077866720, guid: c11d1c4729faf6742972fffdd22655ae, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a6951fbd8c3920947a8c387470afe923, type: 2}
     - target: {fileID: -8679921383154817045, guid: c11d1c4729faf6742972fffdd22655ae, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.20097
+      value: 0.19415434
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c11d1c4729faf6742972fffdd22655ae, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.20097
+      value: 0.15833823
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c11d1c4729faf6742972fffdd22655ae, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.20097
+      value: 0.15833823
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c11d1c4729faf6742972fffdd22655ae, type: 3}
       propertyPath: m_LocalPosition.x
@@ -456,7 +494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c11d1c4729faf6742972fffdd22655ae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.25
+      value: 0.68
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c11d1c4729faf6742972fffdd22655ae, type: 3}
       propertyPath: m_LocalPosition.z
@@ -497,10 +535,100 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c11d1c4729faf6742972fffdd22655ae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4042957095352234920}
+    - targetCorrespondingSourceObject: {fileID: 1299510413217003831, guid: c11d1c4729faf6742972fffdd22655ae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7086445928226875855}
+    - targetCorrespondingSourceObject: {fileID: -2931339929651611107, guid: c11d1c4729faf6742972fffdd22655ae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3566783642386352439}
   m_SourcePrefab: {fileID: 100100000, guid: c11d1c4729faf6742972fffdd22655ae, type: 3}
 --- !u!4 &2546352869678695950 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c11d1c4729faf6742972fffdd22655ae, type: 3}
   m_PrefabInstance: {fileID: 2656225534501167589}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2890650004082302132 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c11d1c4729faf6742972fffdd22655ae, type: 3}
+  m_PrefabInstance: {fileID: 2656225534501167589}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4042957095352234920
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2890650004082302132}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dbd27855952d3f342bccc4de24f69edb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &3950790302506932434 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1299510413217003831, guid: c11d1c4729faf6742972fffdd22655ae, type: 3}
+  m_PrefabInstance: {fileID: 2656225534501167589}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7086445928226875855
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3950790302506932434}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 59dd5292f20574f4e9260c6d75b3dc77, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &8326318783118564344 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2931339929651611107, guid: c11d1c4729faf6742972fffdd22655ae, type: 3}
+  m_PrefabInstance: {fileID: 2656225534501167589}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &3566783642386352439
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8326318783118564344}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5258423989486054245, guid: c11d1c4729faf6742972fffdd22655ae, type: 3}
