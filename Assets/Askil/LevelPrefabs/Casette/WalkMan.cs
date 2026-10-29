@@ -1,6 +1,7 @@
 using UnityEngine;
 using FMODUnity;
 using UnityEditor.Build.Reporting;
+using UnityEngine.Events;
 
 public class WalkMan : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class WalkMan : MonoBehaviour
     public Animator TapeWheelAnims;
     public StudioEventEmitter CasetteAudio;
     public StudioEventEmitter CasetteStop;
+    public UnityEvent onPlay;
     bool Playing;
     public void ToggleAudio()
     {
@@ -17,6 +19,7 @@ public class WalkMan : MonoBehaviour
             ButtonAnims.SetTrigger("Press");
             TapeWheelAnims.SetBool("Playing", true);
             Playing = true;
+            onPlay.Invoke();
         }
 
         else StopAudio();
