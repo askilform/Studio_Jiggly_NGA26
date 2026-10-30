@@ -50,6 +50,7 @@ public class GunFireScript : MonoBehaviour
     public int batteryMax = 10;
     [HideInInspector] public int batteryLeft = 10;
     public GameObject EmptyParticles;
+    float timeWithParticles;
 
 
     [Header("some unused now")]
@@ -267,7 +268,10 @@ public class GunFireScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        EmptyParticles.SetActive(batteryLeft == 0 && burstShot && EmptyParticles != null);
+        EmptyParticles.SetActive(batteryLeft == 0 && burstShot && EmptyParticles != null && timeWithParticles < 5);
+
+        if (batteryLeft == 0 && burstShot && EmptyParticles != null) timeWithParticles += 0.02f;
+        else timeWithParticles = 0;
     }
     public void GunFireEffects()
     {

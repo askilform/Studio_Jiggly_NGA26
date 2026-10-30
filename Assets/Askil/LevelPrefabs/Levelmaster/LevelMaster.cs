@@ -87,6 +87,11 @@ public class LevelMaster : MonoBehaviour
         }
     }
 
+    public void CustomTextForScene(string TextForScene)
+    {
+        GameInstance.stringForTextScene = TextForScene;
+    }
+
     public void QueueTextScene(string sceneName)
     {
         GameInstance.sceneAfterTextScene = sceneName;
