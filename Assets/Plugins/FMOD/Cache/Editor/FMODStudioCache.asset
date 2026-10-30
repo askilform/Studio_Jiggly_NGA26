@@ -681,7 +681,7 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639286134640351357
+  lastModified: 639288759602666595
   FileSizes:
   - Name: Desktop
     Value: 28480
@@ -901,6 +901,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-3131856659568690667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/World/WalkManRecording
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/World/WalkManRecording
+  Guid:
+    Data1: 1402781869
+    Data2: 1253945483
+    Data3: 855189907
+    Data4: -793439045
+  Banks:
+  - {fileID: -1218985343077198328}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-3043636076003279826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1100,10 +1127,10 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639286134640351357
+  lastModified: 639288759602686543
   FileSizes:
   - Name: Desktop
-    Value: 6358
+    Value: 6452
   Exists: 1
 --- !u!114 &-1566480398266307747
 MonoBehaviour:
@@ -1120,7 +1147,7 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639286134641088499
+  lastModified: 639288759628927194
   FileSizes:
   - Name: Desktop
     Value: 8431840
@@ -1167,10 +1194,10 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/World.bank
   Name: World
   StudioPath: bank:/World
-  lastModified: 639286134641514372
+  lastModified: 639288760891160784
   FileSizes:
   - Name: Desktop
-    Value: 13259296
+    Value: 13481888
   Exists: 1
 --- !u!114 &-1027614757500971796
 MonoBehaviour:
@@ -1406,6 +1433,8 @@ MonoBehaviour:
   - {fileID: -3958690379757148179}
   - {fileID: 253596307894557501}
   - {fileID: -638880473235027366}
+  - {fileID: -3131856659568690667}
+  - {fileID: 5761592150592232399}
   EditorParameters:
   - {fileID: -4042335268322485408}
   - {fileID: -5489052554813551030}
@@ -1420,7 +1449,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -1646906190701980638}
   cacheVersion: 131860
-  cacheTime: 639286134641514372
+  cacheTime: 639288760891160784
   SerializableEventsDict:
   - key: event:/UI/Confirm
     index: 0
@@ -1580,6 +1609,10 @@ MonoBehaviour:
     index: 77
   - key: event:/SFX/World/SpotLight2D
     index: 78
+  - key: event:/SFX/World/WalkManRecording
+    index: 79
+  - key: event:/SFX/World/WalkManStop
+    index: 80
 --- !u!114 &34043475971835307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1927,7 +1960,7 @@ MonoBehaviour:
   - {fileID: -1218985343077198328}
   IsStream: 1
   Is3D: 1
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
@@ -2410,7 +2443,7 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/JallaBank.bank
   Name: JallaBank
   StudioPath: bank:/JallaBank
-  lastModified: 639286134640339722
+  lastModified: 639288759602237624
   FileSizes:
   - Name: Desktop
     Value: 181440
@@ -2536,7 +2569,7 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Core.bank
   Name: Core
   StudioPath: bank:/Core
-  lastModified: 639286134640327367
+  lastModified: 639288759600258166
   FileSizes:
   - Name: Desktop
     Value: 77088
@@ -2568,6 +2601,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 36728
+--- !u!114 &5761592150592232399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/World/WalkManStop
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/World/WalkManStop
+  Guid:
+    Data1: 94474100
+    Data2: 1225866182
+    Data3: 1548319163
+    Data4: 991793705
+  Banks:
+  - {fileID: -1218985343077198328}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &5871634895694444322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2865,7 +2925,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 16900
+  Length: 26000
 --- !u!114 &7381910064992342288
 MonoBehaviour:
   m_ObjectHideFlags: 0

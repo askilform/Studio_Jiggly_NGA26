@@ -31,6 +31,7 @@ public class LevelMaster : MonoBehaviour
     public bool playerSprinting;
     public WeaponPart[] weaponPartScripts;
 
+
     private void Start()
     {
         PlayerInScene = (FindFirstObjectByType<PlayerMovement2>() != null);
@@ -86,18 +87,20 @@ public class LevelMaster : MonoBehaviour
         }
     }
 
-    public void ChanceScene(string sceneName) { StartCoroutine(ChanceSceneCoroutine(sceneName)); }
-
-    public void MainBattle()
+    public void QueueTextScene(string sceneName)
     {
-
+        GameInstance.sceneAfterTextScene = sceneName;
+        { StartCoroutine(ChanceSceneCoroutine("TextScene")); }
     }
+
+    public void ChanceScene(string sceneName) { StartCoroutine(ChanceSceneCoroutine(sceneName)); }
 
     public IEnumerator ChanceSceneCoroutine(string sceneName)
     {
         sceneIn = false;
         yield return new WaitForSeconds(1);
 
+        if (GameInstance.sceneAfterTextScene != null) SceneManager.LoadScene("TextScene");
         SceneManager.LoadScene(sceneName);
     }
 
