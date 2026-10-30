@@ -6110,6 +6110,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onDrop:
+    m_PersistentCalls:
+      m_Calls: []
   resetAfterTime: 0
   TimeBeforeReset: 0
   canBeHeldInHand: 0
@@ -16277,6 +16280,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onDrop:
+    m_PersistentCalls:
+      m_Calls: []
   resetAfterTime: 1
   TimeBeforeReset: 0
   canBeHeldInHand: 0
@@ -35315,6 +35321,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onDrop:
+    m_PersistentCalls:
+      m_Calls: []
   resetAfterTime: 1
   TimeBeforeReset: 0
   canBeHeldInHand: 0
@@ -50999,6 +51008,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onDrop:
+    m_PersistentCalls:
+      m_Calls: []
   resetAfterTime: 0
   TimeBeforeReset: 0
   canBeHeldInHand: 0
@@ -63561,6 +63573,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onDrop:
+    m_PersistentCalls:
+      m_Calls: []
   resetAfterTime: 0
   TimeBeforeReset: 0
   canBeHeldInHand: 0
@@ -72272,6 +72287,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onDrop:
+    m_PersistentCalls:
+      m_Calls: []
   resetAfterTime: 1
   TimeBeforeReset: 0
   canBeHeldInHand: 0
@@ -73845,6 +73863,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onDrop:
+    m_PersistentCalls:
+      m_Calls: []
   resetAfterTime: 1
   TimeBeforeReset: 0
   canBeHeldInHand: 0
@@ -84657,6 +84678,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onDrop:
+    m_PersistentCalls:
+      m_Calls: []
   resetAfterTime: 1
   TimeBeforeReset: 0
   canBeHeldInHand: 0
@@ -86744,6 +86768,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onDrop:
+    m_PersistentCalls:
+      m_Calls: []
   resetAfterTime: 1
   TimeBeforeReset: 0
   canBeHeldInHand: 0
@@ -95845,10 +95872,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4875794237660661017, guid: 6b78619a61ab18e4daca1874e460cdf4, type: 3}
       propertyPath: onTriggerEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4875794237660661017, guid: 6b78619a61ab18e4daca1874e460cdf4, type: 3}
       propertyPath: onTriggerEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4875794237660661017, guid: 6b78619a61ab18e4daca1874e460cdf4, type: 3}
+      propertyPath: onTriggerEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4875794237660661017, guid: 6b78619a61ab18e4daca1874e460cdf4, type: 3}
+      propertyPath: onTriggerEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4875794237660661017, guid: 6b78619a61ab18e4daca1874e460cdf4, type: 3}
@@ -95856,23 +95891,71 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 55448182}
     - target: {fileID: 4875794237660661017, guid: 6b78619a61ab18e4daca1874e460cdf4, type: 3}
+      propertyPath: onTriggerEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 55448182}
+    - target: {fileID: 4875794237660661017, guid: 6b78619a61ab18e4daca1874e460cdf4, type: 3}
+      propertyPath: onTriggerEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 55448182}
+    - target: {fileID: 4875794237660661017, guid: 6b78619a61ab18e4daca1874e460cdf4, type: 3}
       propertyPath: onTriggerEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4875794237660661017, guid: 6b78619a61ab18e4daca1874e460cdf4, type: 3}
+      propertyPath: onTriggerEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4875794237660661017, guid: 6b78619a61ab18e4daca1874e460cdf4, type: 3}
+      propertyPath: onTriggerEvent.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4875794237660661017, guid: 6b78619a61ab18e4daca1874e460cdf4, type: 3}
       propertyPath: onTriggerEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChanceScene
+      value: CustomTextForScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 4875794237660661017, guid: 6b78619a61ab18e4daca1874e460cdf4, type: 3}
+      propertyPath: onTriggerEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: QueueTextScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 4875794237660661017, guid: 6b78619a61ab18e4daca1874e460cdf4, type: 3}
+      propertyPath: onTriggerEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: QueueTextScene
       objectReference: {fileID: 0}
     - target: {fileID: 4875794237660661017, guid: 6b78619a61ab18e4daca1874e460cdf4, type: 3}
       propertyPath: onTriggerEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: LevelMaster, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4875794237660661017, guid: 6b78619a61ab18e4daca1874e460cdf4, type: 3}
+      propertyPath: onTriggerEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: LevelMaster, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4875794237660661017, guid: 6b78619a61ab18e4daca1874e460cdf4, type: 3}
+      propertyPath: onTriggerEvent.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: LevelMaster, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4875794237660661017, guid: 6b78619a61ab18e4daca1874e460cdf4, type: 3}
       propertyPath: onTriggerEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: (Progess Saved) (Not)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4875794237660661017, guid: 6b78619a61ab18e4daca1874e460cdf4, type: 3}
+      propertyPath: onTriggerEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: EndGameScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 4875794237660661017, guid: 6b78619a61ab18e4daca1874e460cdf4, type: 3}
+      propertyPath: onTriggerEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
       value: EndGameScene
       objectReference: {fileID: 0}
     - target: {fileID: 4875794237660661017, guid: 6b78619a61ab18e4daca1874e460cdf4, type: 3}
       propertyPath: onTriggerEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4875794237660661017, guid: 6b78619a61ab18e4daca1874e460cdf4, type: 3}
+      propertyPath: onTriggerEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4875794237660661017, guid: 6b78619a61ab18e4daca1874e460cdf4, type: 3}
+      propertyPath: onTriggerEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6697396930057590350, guid: 6b78619a61ab18e4daca1874e460cdf4, type: 3}
@@ -108999,6 +109082,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onDrop:
+    m_PersistentCalls:
+      m_Calls: []
   resetAfterTime: 0
   TimeBeforeReset: 0
   canBeHeldInHand: 0
@@ -120093,6 +120179,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onDrop:
+    m_PersistentCalls:
+      m_Calls: []
   resetAfterTime: 0
   TimeBeforeReset: 0
   canBeHeldInHand: 0
@@ -124172,6 +124261,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onDrop:
+    m_PersistentCalls:
+      m_Calls: []
   resetAfterTime: 1
   TimeBeforeReset: 0
   canBeHeldInHand: 0
