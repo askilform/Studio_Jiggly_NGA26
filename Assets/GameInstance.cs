@@ -7,6 +7,7 @@ public static class GameInstance
 {
     public static int[] savedWeaponIds;
     public static bool gunShowcase;
+    public static string sceneAfterTextScene;
 
     public static void ClearSaves()
     {
