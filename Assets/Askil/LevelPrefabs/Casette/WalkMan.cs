@@ -1,6 +1,5 @@
 using UnityEngine;
 using FMODUnity;
-using UnityEditor.Build.Reporting;
 using UnityEngine.Events;
 
 public class WalkMan : MonoBehaviour
