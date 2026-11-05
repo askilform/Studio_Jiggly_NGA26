@@ -268,7 +268,7 @@ public class GunFireScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        EmptyParticles.SetActive(batteryLeft == 0 && burstShot && EmptyParticles != null && timeWithParticles < 5);
+        EmptyParticles.SetActive(batteryLeft == 0 && burstShot && EmptyParticles != null && timeWithParticles < 10);
 
         if (batteryLeft == 0 && burstShot && EmptyParticles != null) timeWithParticles += 0.02f;
         else timeWithParticles = 0;
