@@ -119,9 +119,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4773512201783236113}
   serializedVersion: 2
-  m_LocalRotation: {x: -1, y: -0, z: -0, w: -0.00000035762784}
+  m_LocalRotation: {x: -1, y: 0, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.26178545, y: 0.26178545, z: 0.26178545}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 282886455526273379}
@@ -202,7 +202,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.6869886, y: 1.9137738, z: 1}
-  m_Center: {x: -0.92443717, y: -0.038401484, z: 4.0651483e-16}
+  m_Center: {x: -0.05, y: -0.17, z: 0}
 --- !u!54 &4902994523269191187
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -316,6 +316,33 @@ MonoBehaviour:
   TapeWheelAnims: {fileID: 4042957095352234920}
   CasetteAudio: {fileID: 5133662124020765850}
   CasetteStop: {fileID: 257243924338408675}
+  onPlay:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: MultipurposeDoor, Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: MultipurposeDoor, Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5133662124020765850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,15 +517,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c11d1c4729faf6742972fffdd22655ae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.712
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c11d1c4729faf6742972fffdd22655ae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.68
+      value: 0.068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c11d1c4729faf6742972fffdd22655ae, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.143
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c11d1c4729faf6742972fffdd22655ae, type: 3}
       propertyPath: m_LocalRotation.w
