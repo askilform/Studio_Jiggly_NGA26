@@ -18,6 +18,10 @@ public class EnemyZone : MonoBehaviour
     private Vector3 enemyStartLocation;
     public bool enemyActive;
 
+    // Zone Extentions
+    public enum CurrentZoneExtention {None, DangerZone, SafeZone}
+    public CurrentZoneExtention currentZoneExtention;
+
     private void Start()
     {
         uiSc = GameObject.FindFirstObjectByType<TextPopUp>();
@@ -43,30 +47,28 @@ public class EnemyZone : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            uiSc.StartCoroutine(uiSc.FlashText("He's Nearby! be quiet...", 5f, true, false));
-            sfxs[0].Play();
-            sfxsNew[0].Play();
-            levelMaster.playerInDangerArea = true;
-            StartCoroutine(WaitAndActivate());
+            OnDangerAreaEntered();
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && currentZoneExtention != CurrentZoneExtention.DangerZone)
         {
-            uiSc.StartCoroutine(uiSc.FlashText("You Are Safe, FOR NOW", 2, false, false));
-            sfxs[1].Play();
-            sfxsNew[1].Play();
-            levelMaster.playerInDangerArea = false;
-            enemyMovementSc.investigating = false;
-
-            if (enemyMovementSc.mainTarget.tag == "Player")
             {
-                playerdetectSc.OnPlayerLost();
-            }
+                uiSc.StartCoroutine(uiSc.FlashText("You Are Safe, FOR NOW", 2, false, false));
+                sfxs[1].Play();
+                sfxsNew[1].Play();
+                levelMaster.playerInDangerArea = false;
+                enemyMovementSc.investigating = false;
 
-            StartCoroutine(WaitAndDeactivate());
+                if (enemyMovementSc.mainTarget.tag == "Player")
+                {
+                    playerdetectSc.OnPlayerLost();
+                }
+
+                StartCoroutine(WaitAndDeactivate());
+            }
         }
     }
     private IEnumerator WaitAndActivate()
@@ -93,4 +95,17 @@ public class EnemyZone : MonoBehaviour
     {
         GetComponent<BoxCollider>().size = new Vector3(2,2,2); 
     }
+
+    public void OnDangerAreaEntered()
+    {
+        if (!levelMaster.playerInDangerArea)
+        {
+            uiSc.StartCoroutine(uiSc.FlashText("He's Nearby! be quiet...", 5f, true, false));
+            sfxs[0].Play();
+            sfxsNew[0].Play();
+            levelMaster.playerInDangerArea = true;
+            StartCoroutine(WaitAndActivate());
+        }
+    }
+
 }
