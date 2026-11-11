@@ -6,6 +6,8 @@ public class Lighting : MonoBehaviour
 {
     public Material ThunderMat;
     public StudioEventEmitter sfx;
+
+    public Vector2 LightningIntervals;
     void Start()
     {
         ThunderShot();
@@ -18,7 +20,7 @@ public class Lighting : MonoBehaviour
 
     IEnumerator ThunderShotroutine()
     {
-        yield return new WaitForSeconds(Random.Range (1, 20));
+        yield return new WaitForSeconds(Random.Range (LightningIntervals.x, LightningIntervals.y));
 
         Material oGskybox = RenderSettings.skybox;
         RenderSettings.skybox = ThunderMat;

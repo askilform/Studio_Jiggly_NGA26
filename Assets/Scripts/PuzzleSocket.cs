@@ -61,6 +61,7 @@ public class PuzzleSocket : MonoBehaviour
             //Get powered when connected to the right powwered plug, or if any plug is connected.
             if (plug.plugPowered && (canTakeAnyID || plug.plugID == lookForThisID))
             {
+                other.GetComponent<Interactable>().enabled = false;
                 powered = true;
 
                 StartCoroutine(lerpMovement());

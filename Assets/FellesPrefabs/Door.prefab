@@ -241,6 +241,7 @@ GameObject:
   - component: {fileID: 1478615475658602318}
   - component: {fileID: 1052129616513896469}
   - component: {fileID: 8115024949095057779}
+  - component: {fileID: 4606791125491188879}
   m_Layer: 0
   m_Name: The_D_O_R_E (1)
   m_TagString: Untagged
@@ -352,6 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   open: 0
+  Works: 1
   openOffset: {x: 0, y: 0, z: 0}
   openAngles: {x: 0, y: 90, z: 0}
   defaultOffst: {x: 0, y: 0, z: 0}
@@ -387,9 +389,62 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4606791125491188879}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDrop:
+    m_PersistentCalls:
+      m_Calls: []
   resetAfterTime: 0
   TimeBeforeReset: 0
   canBeHeldInHand: 0
+  hoverMessage: E
+  heldInHandName: Junk
+  heldInHandTossMessage: Drop
+  showUseMessage: 0
+  heldInHandUseMessage: Use
+  throwFromCenterOfScreen: 0
+  throwForce: 3
+--- !u!114 &4606791125491188879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6820640421978812309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1535247043
+      Data2: 1127059125
+      Data3: 103886505
+      Data4: 1136466309
+    Path: event:/SFX/World/DoorOpen
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &8873406356521348356
 PrefabInstance:
   m_ObjectHideFlags: 0

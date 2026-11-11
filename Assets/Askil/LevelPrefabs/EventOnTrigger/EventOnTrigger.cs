@@ -10,18 +10,21 @@ public class EventOnTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "Player")
+        if (this.enabled)
         {
-            onTriggerEvent.Invoke();
+            if (other.transform.tag == "Player")
+            {
+                onTriggerEvent.Invoke();
 
-            if (destroyAfterEvent) Destroy(transform.parent.gameObject);
-        }
+                if (destroyAfterEvent) Destroy(transform.parent.gameObject);
+            }
 
-        if (other.transform.tag == "Car" && InCar)
-        {
-            onTriggerEvent.Invoke();
+            if (other.transform.tag == "Car" && InCar)
+            {
+                onTriggerEvent.Invoke();
 
-            if (destroyAfterEvent) Destroy(transform.parent.gameObject);
+                if (destroyAfterEvent) Destroy(transform.parent.gameObject);
+            }
         }
     }
 }
