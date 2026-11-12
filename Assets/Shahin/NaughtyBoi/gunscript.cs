@@ -39,6 +39,8 @@ public class gunscript : MonoBehaviour
     public float fovLerpIn = 1.5f;
     public float fovLerpOut = 8f;
 
+    public string aimingAt;
+
     private void Start()
     {
         if(gameCamera != null)
@@ -101,6 +103,7 @@ public class gunscript : MonoBehaviour
         if (Physics.Raycast(AimReferenceObject.transform.position, AimReferenceObject.transform.forward, out hit, raycastRange, layerMask))
         { 
             HitPos = hit.point;
+            aimingAt = hit.transform.name;
         }
 
         //show where we aim
