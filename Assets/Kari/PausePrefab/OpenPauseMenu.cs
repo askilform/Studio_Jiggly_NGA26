@@ -7,7 +7,7 @@ public class OpenPauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameObject.FindFirstObjectByType<PausePrefab>() == null) Instantiate(pausePrefab);
         }

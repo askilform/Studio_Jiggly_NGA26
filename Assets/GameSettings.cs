@@ -1,16 +1,9 @@
 using UnityEngine;
 
-public class GameSettings : MonoBehaviour
+public static class GameSettings
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public static float masterVolumeMult = 1f;
+    public static bool motionBlur;
+    public static bool EasyMode;
+    public static int GraphicsPreset; // 0-1-2 = low, medium, high
 }
