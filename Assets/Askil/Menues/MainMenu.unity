@@ -5697,7 +5697,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1299636496}
-  - component: {fileID: 1299636497}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -5725,18 +5724,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1299636497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1299636495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce9adcf3512249e4caa33616c01f1749, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1314867391
 GameObject:
   m_ObjectHideFlags: 0
@@ -7212,6 +7199,7 @@ GameObject:
   - component: {fileID: 1766906361}
   - component: {fileID: 1766906360}
   - component: {fileID: 1766906359}
+  - component: {fileID: 1766906363}
   m_Layer: 5
   m_Name: MainAreaStartGUN
   m_TagString: Untagged
@@ -7380,6 +7368,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1766906357}
   m_CullTransparentMesh: 1
+--- !u!114 &1766906363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766906357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb97cfcf0f75746438975c57510f93af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressRequired: 3
 --- !u!1 &1768558882
 GameObject:
   m_ObjectHideFlags: 0
@@ -8772,6 +8773,7 @@ GameObject:
   - component: {fileID: 2139281856}
   - component: {fileID: 2139281855}
   - component: {fileID: 2139281854}
+  - component: {fileID: 2139281858}
   m_Layer: 5
   m_Name: BossBattleStart
   m_TagString: Untagged
@@ -8928,6 +8930,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2139281852}
   m_CullTransparentMesh: 1
+--- !u!114 &2139281858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139281852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb97cfcf0f75746438975c57510f93af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressRequired: 4
 --- !u!1 &2145246990
 GameObject:
   m_ObjectHideFlags: 0
@@ -8941,6 +8956,7 @@ GameObject:
   - component: {fileID: 2145246994}
   - component: {fileID: 2145246993}
   - component: {fileID: 2145246992}
+  - component: {fileID: 2145246996}
   m_Layer: 5
   m_Name: MainAreaStart
   m_TagString: Untagged
@@ -9097,6 +9113,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145246990}
   m_CullTransparentMesh: 1
+--- !u!114 &2145246996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145246990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb97cfcf0f75746438975c57510f93af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressRequired: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
