@@ -149,7 +149,8 @@ public class enemyMovement : MonoBehaviour
         print("[] Enemy Following player!");
         mainTarget = player;
         agent.isStopped = false;
-        agent.speed = baseSpeedReference * SprintSpeedMultiplier * hitSpeedMultiplier * crippleSpeedMultiplier;
+        agent.speed = baseSpeedReference * SprintSpeedMultiplier * hitSpeedMultiplier * crippleSpeedMultiplier
+           * (GameSettings.EasyMode ? 0.6f : 1);
     }
 
     public void Roam()
