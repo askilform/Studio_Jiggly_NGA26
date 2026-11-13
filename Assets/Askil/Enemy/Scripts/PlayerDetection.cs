@@ -79,7 +79,7 @@ public class PlayerDetection : MonoBehaviour
     {
         if (other.transform.tag == "Player" && lineCastToPlayer && !playerSpotted && detectionProcent < 110)
         {
-            detectionProcent += detectionSpeed * Time.deltaTime;
+            detectionProcent += detectionSpeed * Time.deltaTime * (GameSettings.EasyMode ? 0.6f : 1);
             sinceLastSawPlayer = 0;
 
             if (detectionProcent > 100 && !playerSpotted) OnPlayerSpot();
