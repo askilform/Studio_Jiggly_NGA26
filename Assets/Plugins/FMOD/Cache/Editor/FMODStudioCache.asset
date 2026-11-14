@@ -20,8 +20,8 @@ MonoBehaviour:
     Data4: 1001948004
   Banks:
   - {fileID: 4490224482741432088}
-  - {fileID: -4410155006156342484}
   - {fileID: -1218985343077198328}
+  - {fileID: -4410155006156342484}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -240,7 +240,7 @@ MonoBehaviour:
   - {fileID: -1218985343077198328}
   IsStream: 0
   Is3D: 0
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
@@ -683,7 +683,7 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639302661848218452
+  lastModified: 639302701882405499
   FileSizes:
   - Name: Desktop
     Value: 100928
@@ -1156,10 +1156,10 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639302661848228439
+  lastModified: 639302701882425573
   FileSizes:
   - Name: Desktop
-    Value: 6664
+    Value: 6760
   Exists: 1
 --- !u!114 &-1566480398266307747
 MonoBehaviour:
@@ -1176,10 +1176,10 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639302583075259947
+  lastModified: 639302701887144388
   FileSizes:
   - Name: Desktop
-    Value: 8483296
+    Value: 8757888
   Exists: 1
 --- !u!114 &-1477043654261558682
 MonoBehaviour:
@@ -1223,7 +1223,7 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/World.bank
   Name: World
   StudioPath: bank:/World
-  lastModified: 639302661851408205
+  lastModified: 639302686194735683
   FileSizes:
   - Name: Desktop
     Value: 13258048
@@ -1470,6 +1470,8 @@ MonoBehaviour:
   - {fileID: 3134274028030296305}
   - {fileID: 8638418727440234273}
   - {fileID: 570166434326841674}
+  - {fileID: 409032078489510240}
+  - {fileID: 8525679684584453071}
   EditorParameters:
   - {fileID: -4042335268322485408}
   - {fileID: -5489052554813551030}
@@ -1484,7 +1486,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -1646906190701980638}
   cacheVersion: 131860
-  cacheTime: 639302661851408205
+  cacheTime: 639302701887144388
   SerializableEventsDict:
   - key: event:/UI/Confirm
     index: 0
@@ -1660,6 +1662,10 @@ MonoBehaviour:
     index: 85
   - key: event:/SFX/Enemy/EnemyHit
     index: 86
+  - key: event:/SFX/World/Threat
+    index: 87
+  - key: event:/Music/RoadTrip_Outro
+    index: 88
 --- !u!114 &34043475971835307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1769,6 +1775,33 @@ MonoBehaviour:
   - Gravel
   - Flesh
   Exists: 1
+--- !u!114 &409032078489510240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/World/Threat
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/World/Threat
+  Guid:
+    Data1: 1308423754
+    Data2: 1161635306
+    Data3: 367689407
+    Data4: 1364687867
+  Banks:
+  - {fileID: -1218985343077198328}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &570166434326841674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3296,6 +3329,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &8525679684584453071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/RoadTrip_Outro
+  m_EditorClassIdentifier: 
+  Path: event:/Music/RoadTrip_Outro
+  Guid:
+    Data1: 2047370625
+    Data2: 1262765181
+    Data3: -1623449928
+    Data4: -1014867165
+  Banks:
+  - {fileID: -1566480398266307747}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 21333
 --- !u!114 &8638418727440234273
 MonoBehaviour:
   m_ObjectHideFlags: 0
