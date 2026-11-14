@@ -20,6 +20,8 @@ MonoBehaviour:
     Data4: 1001948004
   Banks:
   - {fileID: 4490224482741432088}
+  - {fileID: -4410155006156342484}
+  - {fileID: -1218985343077198328}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -681,10 +683,10 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639296712679086591
+  lastModified: 639302661848218452
   FileSizes:
   - Name: Desktop
-    Value: 28480
+    Value: 100928
   Exists: 1
 --- !u!114 &-4209193766928814531
 MonoBehaviour:
@@ -811,6 +813,33 @@ MonoBehaviour:
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-3743615638529612920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Weapons/Eject
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Weapons/Eject
+  Guid:
+    Data1: -2079766523
+    Data2: 1251485378
+    Data3: -1826748266
+    Data4: 146740887
+  Banks:
+  - {fileID: -1218985343077198328}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
@@ -1127,10 +1156,10 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639296712679086591
+  lastModified: 639302661848228439
   FileSizes:
   - Name: Desktop
-    Value: 6452
+    Value: 6664
   Exists: 1
 --- !u!114 &-1566480398266307747
 MonoBehaviour:
@@ -1147,10 +1176,10 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639296712679417247
+  lastModified: 639302583075259947
   FileSizes:
   - Name: Desktop
-    Value: 8431840
+    Value: 8483296
   Exists: 1
 --- !u!114 &-1477043654261558682
 MonoBehaviour:
@@ -1194,10 +1223,10 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/World.bank
   Name: World
   StudioPath: bank:/World
-  lastModified: 639296712679713010
+  lastModified: 639302661851408205
   FileSizes:
   - Name: Desktop
-    Value: 13481888
+    Value: 13258048
   Exists: 1
 --- !u!114 &-1027614757500971796
 MonoBehaviour:
@@ -1435,6 +1464,12 @@ MonoBehaviour:
   - {fileID: -638880473235027366}
   - {fileID: -3131856659568690667}
   - {fileID: 5761592150592232399}
+  - {fileID: -3743615638529612920}
+  - {fileID: 6354695471101841143}
+  - {fileID: 6252639714595819000}
+  - {fileID: 3134274028030296305}
+  - {fileID: 8638418727440234273}
+  - {fileID: 570166434326841674}
   EditorParameters:
   - {fileID: -4042335268322485408}
   - {fileID: -5489052554813551030}
@@ -1449,7 +1484,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -1646906190701980638}
   cacheVersion: 131860
-  cacheTime: 639296712679713010
+  cacheTime: 639302661851408205
   SerializableEventsDict:
   - key: event:/UI/Confirm
     index: 0
@@ -1613,6 +1648,18 @@ MonoBehaviour:
     index: 79
   - key: event:/SFX/World/WalkManStop
     index: 80
+  - key: event:/SFX/Weapons/Eject
+    index: 81
+  - key: event:/SFX/Weapons/Reload
+    index: 82
+  - key: event:/SFX/Enemy/EnemyStun
+    index: 83
+  - key: event:/SFX/Enemy/EnemyDefeat
+    index: 84
+  - key: event:/SFX/Enemy/EnemyRun
+    index: 85
+  - key: event:/SFX/Enemy/EnemyHit
+    index: 86
 --- !u!114 &34043475971835307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1722,6 +1769,33 @@ MonoBehaviour:
   - Gravel
   - Flesh
   Exists: 1
+--- !u!114 &570166434326841674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemy/EnemyHit
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemy/EnemyHit
+  Guid:
+    Data1: -1757201927
+    Data2: 1215481269
+    Data3: -1936920426
+    Data4: 1505807838
+  Banks:
+  - {fileID: -1218985343077198328}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &786028323123021793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1958,9 +2032,9 @@ MonoBehaviour:
     Data4: -318444793
   Banks:
   - {fileID: -1218985343077198328}
-  IsStream: 1
+  IsStream: 0
   Is3D: 1
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
@@ -2207,6 +2281,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 110805
+--- !u!114 &3134274028030296305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemy/EnemyDefeat
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemy/EnemyDefeat
+  Guid:
+    Data1: 1080028616
+    Data2: 1134267976
+    Data3: 745176735
+    Data4: -38646859
+  Banks:
+  - {fileID: -1218985343077198328}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &3232489133155974267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2443,10 +2544,10 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/JallaBank.bank
   Name: JallaBank
   StudioPath: bank:/JallaBank
-  lastModified: 639296712679086591
+  lastModified: 639302661847964161
   FileSizes:
   - Name: Desktop
-    Value: 181440
+    Value: 181856
   Exists: 1
 --- !u!114 &4597959115711730716
 MonoBehaviour:
@@ -2569,7 +2670,7 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Core.bank
   Name: Core
   StudioPath: bank:/Core
-  lastModified: 639296712679086591
+  lastModified: 639302583068129453
   FileSizes:
   - Name: Desktop
     Value: 77088
@@ -2733,6 +2834,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &6252639714595819000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemy/EnemyStun
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemy/EnemyStun
+  Guid:
+    Data1: 63050613
+    Data2: 1279306837
+    Data3: 7486899
+    Data4: 1637849705
+  Banks:
+  - {fileID: -1218985343077198328}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &6293717921193324385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2762,6 +2890,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 6200
+--- !u!114 &6354695471101841143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Weapons/Reload
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Weapons/Reload
+  Guid:
+    Data1: 1864689710
+    Data2: 1281115065
+    Data3: 1348592801
+    Data4: 1651889687
+  Banks:
+  - {fileID: -1218985343077198328}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &6363217654553248495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2919,7 +3074,7 @@ MonoBehaviour:
     Data4: 699440709
   Banks:
   - {fileID: -1218985343077198328}
-  IsStream: 1
+  IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters: []
@@ -3141,6 +3296,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &8638418727440234273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemy/EnemyRun
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemy/EnemyRun
+  Guid:
+    Data1: -1894602548
+    Data2: 1225750918
+    Data3: 352544416
+    Data4: -1695367404
+  Banks:
+  - {fileID: -1218985343077198328}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1113
 --- !u!114 &8657359682677983300
 MonoBehaviour:
   m_ObjectHideFlags: 0

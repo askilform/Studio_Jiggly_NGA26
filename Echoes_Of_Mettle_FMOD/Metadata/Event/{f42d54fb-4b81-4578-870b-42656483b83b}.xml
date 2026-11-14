@@ -36,6 +36,8 @@
 		</relationship>
 		<relationship name="banks">
 			<destination>{e1e7f04e-1cbb-4584-ab71-316b2e6ef1d2}</destination>
+			<destination>{ae5574e1-7d3a-4c74-aa9d-91557e23aba0}</destination>
+			<destination>{35392dd2-1cfd-40d3-9c31-bf4dd9c3d841}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{1372cb8b-76b6-480d-bd29-d98cda855415}">
@@ -98,6 +100,7 @@
 	<object class="MixerBusPanner" id="{70c31791-ad20-4def-ae36-872c7b92574d}" />
 	<object class="MixerBusEffectChain" id="{d77f2822-60bd-4ff8-b529-9cd97d30a432}">
 		<relationship name="effects">
+			<destination>{4fb7898a-b602-468d-9ee9-0f165b3944ba}</destination>
 			<destination>{695a582b-1bb6-4b59-9104-634470a7a594}</destination>
 			<destination>{ed0caa04-9c1e-4215-a359-3597fe5238d3}</destination>
 			<destination>{41a89fef-8385-424f-bf02-f0dbd44d2297}</destination>
@@ -105,11 +108,25 @@
 	</object>
 	<object class="MixerBusPanner" id="{9044e344-ed1e-4705-9718-c8eb2e846521}" />
 	<object class="SingleSound" id="{c467671e-b72f-4ac3-b4cd-e9939ddda65a}">
+		<property name="pitch">
+			<value>8</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{dbc9502d-7bf2-4556-8277-303addca62a9}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{37790f3a-db70-4951-8be6-0593a4deffb0}" />
+	<object class="MixerSend" id="{4fb7898a-b602-468d-9ee9-0f165b3944ba}">
+		<property name="level">
+			<value>0</value>
+		</property>
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{fab40bb1-5fb3-4548-9aa6-4ebcf7ea2f57}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusFader" id="{695a582b-1bb6-4b59-9104-634470a7a594}" />
 	<object class="MultibandEqEffect" id="{ed0caa04-9c1e-4215-a359-3597fe5238d3}">
 		<property name="filterTypeB">
