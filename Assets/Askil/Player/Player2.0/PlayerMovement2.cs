@@ -1,6 +1,7 @@
 using FMOD.Studio;
 using FMODUnity;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using static UnityEngine.Rendering.DebugUI;
@@ -25,6 +26,9 @@ public class PlayerMovement2 : MonoBehaviour
 
     public float walkVolume;
     public float sprintVolume;
+
+    public StudioEventEmitter BreathingSfx;
+    public float breathingLevel;
 
     [Header("Mouse Settings")]
     public float mouseSensitivity = 2f;
@@ -87,6 +91,13 @@ public class PlayerMovement2 : MonoBehaviour
 
     }
 
+    private void FixedUpdate()
+    {
+        BreathingSfx.SetParameter("Breathing", breathingLevel);
+        Mathf.Clamp(breathingLevel, 0, 3);
+    }
+
+
     void HandleMovement()
     {
         Vector3 direction = transform.right * x + transform.forward * z;
@@ -143,6 +154,8 @@ public class PlayerMovement2 : MonoBehaviour
         );
 
         moveSpeed = startSpeed * currentSprintMultiplier;
+
+        breathingLevel = currentSprintMultiplier > 2 ? 3 : 0;
     }
 
     void CrouchCheck()

@@ -863,6 +863,8 @@ MonoBehaviour:
   SpeedParamater: {fileID: 0}
   walkVolume: 0.02
   sprintVolume: 0.2
+  BreathingSfx: {fileID: 3541860242634702894}
+  breathingLevel: 0
   mouseSensitivity: 2
   cam: {fileID: 3200426720164360264}
   JumpScript: {fileID: 7755356356409509890}
@@ -1366,11 +1368,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -461389935
-      Data2: 1123627086
-      Data3: -123635567
-      Data4: -1335984583
-    Path: event:/JallaSound/PickupPart.SFX
+      Data1: -19072565
+      Data2: 1243887105
+      Data3: 1938692002
+      Data4: -581398344
+    Path: event:/SFX/Player/Pickup
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0
@@ -1649,6 +1651,69 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &3900674397240462104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 691458796863174971}
+  - component: {fileID: 3541860242634702894}
+  m_Layer: 0
+  m_Name: BreatheSFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &691458796863174971
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3900674397240462104}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9162240695770239810}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3541860242634702894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3900674397240462104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1219603732
+      Data2: 1216624320
+      Data3: 1721191824
+      Data4: 316017310
+    Path: event:/SFX/Player/Breathing
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &3947082425913831403
 GameObject:
   m_ObjectHideFlags: 0
@@ -1735,6 +1800,7 @@ Transform:
   - {fileID: 4530705009113732479}
   - {fileID: 7680372080491766033}
   - {fileID: 7152050446825647139}
+  - {fileID: 691458796863174971}
   m_Father: {fileID: 2223401360093469492}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4470642517451237267
