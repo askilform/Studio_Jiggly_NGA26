@@ -903,10 +903,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7480598497636289843, guid: 0e6740f33ebe0db498d2cab4fff2260f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e6740f33ebe0db498d2cab4fff2260f, type: 3}
 --- !u!1 &57896541
 GameObject:
@@ -2548,7 +2545,7 @@ GameObject:
   - component: {fileID: 81145325}
   - component: {fileID: 81145327}
   - component: {fileID: 81145326}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: EndRoomReverb2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3927,7 +3924,7 @@ GameObject:
   - component: {fileID: 164112632}
   - component: {fileID: 164112634}
   - component: {fileID: 164112633}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: MeatReverb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8318,6 +8315,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1903233565249717262, guid: 4b134fbdee1975a4c82041192d33a346, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/SFX/Enemy/EnemyDefeat
+      objectReference: {fileID: 0}
+    - target: {fileID: 1903233565249717262, guid: 4b134fbdee1975a4c82041192d33a346, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: 1080028616
+      objectReference: {fileID: 0}
+    - target: {fileID: 1903233565249717262, guid: 4b134fbdee1975a4c82041192d33a346, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1134267976
+      objectReference: {fileID: 0}
+    - target: {fileID: 1903233565249717262, guid: 4b134fbdee1975a4c82041192d33a346, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: 745176735
+      objectReference: {fileID: 0}
+    - target: {fileID: 1903233565249717262, guid: 4b134fbdee1975a4c82041192d33a346, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: -38646859
+      objectReference: {fileID: 0}
     - target: {fileID: 2986273963611377230, guid: 4b134fbdee1975a4c82041192d33a346, type: 3}
       propertyPath: DecaySound
       value: 1
@@ -8392,7 +8409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2986273963611377230, guid: 4b134fbdee1975a4c82041192d33a346, type: 3}
       propertyPath: eventToHappen.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2986273963611377230, guid: 4b134fbdee1975a4c82041192d33a346, type: 3}
       propertyPath: eventToHappen.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -8405,6 +8422,10 @@ PrefabInstance:
     - target: {fileID: 2986273963611377230, guid: 4b134fbdee1975a4c82041192d33a346, type: 3}
       propertyPath: eventToHappen.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2986273963611377230, guid: 4b134fbdee1975a4c82041192d33a346, type: 3}
+      propertyPath: eventToHappen.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2986273963611377230, guid: 4b134fbdee1975a4c82041192d33a346, type: 3}
       propertyPath: eventToHappen.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -8431,6 +8452,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2986273963611377230, guid: 4b134fbdee1975a4c82041192d33a346, type: 3}
+      propertyPath: eventToHappen.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2986273963611377230, guid: 4b134fbdee1975a4c82041192d33a346, type: 3}
       propertyPath: eventToHappen.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive
       objectReference: {fileID: 0}
@@ -8452,6 +8477,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2986273963611377230, guid: 4b134fbdee1975a4c82041192d33a346, type: 3}
       propertyPath: eventToHappen.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2986273963611377230, guid: 4b134fbdee1975a4c82041192d33a346, type: 3}
+      propertyPath: eventToHappen.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2986273963611377230, guid: 4b134fbdee1975a4c82041192d33a346, type: 3}
@@ -9411,7 +9440,7 @@ GameObject:
   - component: {fileID: 479480813}
   - component: {fileID: 479480815}
   - component: {fileID: 479480814}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: OutsideReverb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10094,10 +10123,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7480598497636289843, guid: 0e6740f33ebe0db498d2cab4fff2260f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e6740f33ebe0db498d2cab4fff2260f, type: 3}
 --- !u!1 &540605832
 GameObject:
@@ -11267,10 +11293,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7480598497636289843, guid: 0e6740f33ebe0db498d2cab4fff2260f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e6740f33ebe0db498d2cab4fff2260f, type: 3}
 --- !u!1 &616033613
 GameObject:
@@ -14937,10 +14960,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7480598497636289843, guid: 0e6740f33ebe0db498d2cab4fff2260f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e6740f33ebe0db498d2cab4fff2260f, type: 3}
 --- !u!4 &892178848 stripped
 Transform:
@@ -18169,10 +18189,7 @@ PrefabInstance:
     - {fileID: 5069684312590074062, guid: 0e6740f33ebe0db498d2cab4fff2260f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7480598497636289843, guid: 0e6740f33ebe0db498d2cab4fff2260f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e6740f33ebe0db498d2cab4fff2260f, type: 3}
 --- !u!4 &1069022813 stripped
 Transform:
@@ -20324,10 +20341,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7480598497636289843, guid: 0e6740f33ebe0db498d2cab4fff2260f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e6740f33ebe0db498d2cab4fff2260f, type: 3}
 --- !u!1 &1160139932
 GameObject:
@@ -30053,6 +30067,7 @@ GameObject:
   - component: {fileID: 1641876769}
   - component: {fileID: 1641876770}
   - component: {fileID: 1641876771}
+  - component: {fileID: 1641876772}
   m_Layer: 0
   m_Name: MeatWorldPostProcess
   m_TagString: Untagged
@@ -30102,6 +30117,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 496a7857b5a98a3438f4a00da8988137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1641876772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641876768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660c8f224e8536b4e849f73f062f8ded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1643276026
@@ -31779,6 +31806,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1758222904}
   - component: {fileID: 1758222903}
+  - component: {fileID: 1758222905}
   m_Layer: 0
   m_Name: Global Volume
   m_TagString: Untagged
@@ -31818,6 +31846,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1624959188}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1758222905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758222902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660c8f224e8536b4e849f73f062f8ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1766670326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31895,10 +31935,7 @@ PrefabInstance:
     - {fileID: 2029319541690656666, guid: 0e6740f33ebe0db498d2cab4fff2260f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7480598497636289843, guid: 0e6740f33ebe0db498d2cab4fff2260f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e6740f33ebe0db498d2cab4fff2260f, type: 3}
 --- !u!4 &1770097225 stripped
 Transform:
@@ -32063,7 +32100,7 @@ GameObject:
   - component: {fileID: 1785846259}
   - component: {fileID: 1785846258}
   - component: {fileID: 1785846260}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: EndRoomReverb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32985,7 +33022,7 @@ GameObject:
   - component: {fileID: 1844590730}
   - component: {fileID: 1844590729}
   - component: {fileID: 1844590731}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: TunnelReverb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33961,7 +33998,7 @@ GameObject:
   - component: {fileID: 1937430622}
   - component: {fileID: 1937430623}
   - component: {fileID: 1937430624}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: BigRoomReverb
   m_TagString: Untagged
   m_Icon: {fileID: 0}

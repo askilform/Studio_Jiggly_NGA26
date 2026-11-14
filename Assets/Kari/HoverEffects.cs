@@ -9,16 +9,18 @@ public class HoverEffects : MonoBehaviour
     private TextMeshProUGUI ButtonText;
     
     Image Arrow;
+    Color hoverColor1;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        hoverColor1 = GetComponent<Image>().color;
         ButtonText = GetComponentInChildren<TextMeshProUGUI>();
         Arrow = transform.Find("Arrow").GetComponent<Image>();
 
         Arrow.enabled = false;
       
-     
+        
     }
 
 
@@ -31,14 +33,14 @@ public class HoverEffects : MonoBehaviour
     void CheckAnimationState()
     {
         Animator animator = GetComponent<Animator>();
-        ColorUtility.TryParseHtmlString("#76789C", out Color hoverColor);
+        ColorUtility.TryParseHtmlString("#670000", out Color hoverColor);
 
         AnimatorStateInfo currentState =
             animator.GetCurrentAnimatorStateInfo(0);
 
         if (currentState.IsName("Highlighted"))
         {
-            ButtonText.color = hoverColor;
+            ButtonText.color = hoverColor1;
             ArrowFadeIn();
             Arrow.enabled = true;
         }

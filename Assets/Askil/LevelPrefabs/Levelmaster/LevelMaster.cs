@@ -44,7 +44,8 @@ public class LevelMaster : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             GameInstance.gunShowcase = false;
-            GameInstance.ClearSaves();
+            GameInstance.ClearSaves(); // This is the progress on your weapon
+            GameSave.Load(); // This loads the correct amount of levels progressed
         }
 
         else
@@ -122,5 +123,14 @@ public class LevelMaster : MonoBehaviour
     public void DiscardSaves()
     {
         GameInstance.ClearSaves();
+    }
+
+    public void OverrideLevelSave(int newProgress)
+    {
+        if (newProgress > GameSave.LevelsAvailable)
+        {
+            GameSave.LevelsAvailable = newProgress;
+            GameSave.Save();
+        }
     }
 }
