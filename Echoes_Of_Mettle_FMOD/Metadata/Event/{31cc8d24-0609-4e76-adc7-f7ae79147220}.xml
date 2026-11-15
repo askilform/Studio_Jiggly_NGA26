@@ -55,6 +55,7 @@
 			<destination>{39c20731-97f7-473c-893e-0c635d827971}</destination>
 			<destination>{2f63e33f-7c99-4a62-a02a-551858106475}</destination>
 			<destination>{303d0218-828b-400c-94d9-52b456a17d05}</destination>
+			<destination>{1da2596a-8b0e-4100-a275-788e2e4363ae}</destination>
 		</relationship>
 		<relationship name="modules">
 			<destination>{15e1eb50-40f6-4ebf-8d4a-82bcd5f64401}</destination>
@@ -140,6 +141,11 @@
 			<destination>{ec4194fa-825b-4313-8095-becb38621c62}</destination>
 		</relationship>
 	</object>
+	<object class="AutomationTrack" id="{1da2596a-8b0e-4100-a275-788e2e4363ae}">
+		<relationship name="automator">
+			<destination>{31ac855c-b1e6-4457-ba3c-ee228b53f265}</destination>
+		</relationship>
+	</object>
 	<object class="MultiSound" id="{15e1eb50-40f6-4ebf-8d4a-82bcd5f64401}">
 		<property name="playbackMode">
 			<value>1</value>
@@ -208,6 +214,9 @@
 		</relationship>
 	</object>
 	<object class="EventSound" id="{58543dc9-820f-4a26-be1b-ba02fa31ec82}">
+		<relationship name="automators">
+			<destination>{31ac855c-b1e6-4457-ba3c-ee228b53f265}</destination>
+		</relationship>
 		<relationship name="event">
 			<destination>{213e77b8-8346-496e-a550-7429156be822}</destination>
 		</relationship>
@@ -290,6 +299,14 @@
 			<destination>{ab84bff7-8e91-42db-b146-1a631c9bfade}</destination>
 		</relationship>
 	</object>
+	<object class="Automator" id="{31ac855c-b1e6-4457-ba3c-ee228b53f265}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>volume</value>
+		</property>
+		<relationship name="automationCurves">
+			<destination>{86c41b0a-2ae3-42f6-a2ea-5885fe8cddd9}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusFader" id="{2c5b40fe-8c8d-4176-a1fa-2fa9b08e65fb}" />
 	<object class="AutomationPoint" id="{19913a6f-21cf-4270-9ddf-620b32b37197}">
 		<property name="position">
@@ -360,6 +377,17 @@
 		<relationship name="automationPoints">
 			<destination>{d628778a-c4d6-4913-8e96-2fe261e9e370}</destination>
 			<destination>{ad810432-9007-4759-85ed-e704118f9c5d}</destination>
+			<destination>{97910cc4-12d3-46c4-a856-f1de6efa685d}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationCurve" id="{86c41b0a-2ae3-42f6-a2ea-5885fe8cddd9}">
+		<relationship name="parameter">
+			<destination>{3e2829e4-c7bc-4dea-ac5d-c708e3e23b4a}</destination>
+		</relationship>
+		<relationship name="automationPoints">
+			<destination>{084b5894-0d40-439e-9cbe-a192ff25ea25}</destination>
+			<destination>{5c65de3b-22ba-4bcb-9606-51b8cf23e8e6}</destination>
+			<destination>{09cc03da-9196-4f4b-b791-643bc3b75870}</destination>
 		</relationship>
 	</object>
 	<object class="AutomationCurve" id="{a475689d-94c9-4f73-9f3e-147501941d91}">
@@ -417,7 +445,7 @@
 			<value>1</value>
 		</property>
 		<property name="value">
-			<value>0</value>
+			<value>-2</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{9c6901e9-b984-4d19-ac5b-9ba8925a3229}">
@@ -465,7 +493,39 @@
 			<value>1</value>
 		</property>
 		<property name="value">
-			<value>-9.53674316e-07</value>
+			<value>-10</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{97910cc4-12d3-46c4-a856-f1de6efa685d}">
+		<property name="position">
+			<value>2</value>
+		</property>
+		<property name="value">
+			<value>-4</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{084b5894-0d40-439e-9cbe-a192ff25ea25}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>-10</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{5c65de3b-22ba-4bcb-9606-51b8cf23e8e6}">
+		<property name="position">
+			<value>1</value>
+		</property>
+		<property name="value">
+			<value>-5</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{09cc03da-9196-4f4b-b791-643bc3b75870}">
+		<property name="position">
+			<value>2</value>
+		</property>
+		<property name="value">
+			<value>0</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{5e7b91a2-97df-4477-b260-ed96a69f5ee5}">
