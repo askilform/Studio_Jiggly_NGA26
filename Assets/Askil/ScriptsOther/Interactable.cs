@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -30,6 +31,8 @@ public class Interactable : MonoBehaviour
 
     public bool throwFromCenterOfScreen = false;
     public float throwForce = 3.0f;
+
+    [NonSerialized] public bool ActiveInteractable = true;
 
     public void ChangeHoverMessage(string newMessage)
     {
