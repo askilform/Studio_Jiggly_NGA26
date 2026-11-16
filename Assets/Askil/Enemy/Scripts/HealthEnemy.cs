@@ -15,7 +15,12 @@ public class HealthEnemy : MonoBehaviour
     public int Health;
     public enemyMovement movementSc;
 
+    [Header ("Post Death")]
     public GameObject PostDeathPrefab;
+    public bool OverridePrefabLocation = false;
+    public Vector3 OverrideLocation;
+
+    [Header("Other")]
     public GameObject CripplePrefab;
     public GameObject hitParticles;
     public UnityEvent onDeath;
@@ -60,7 +65,9 @@ public class HealthEnemy : MonoBehaviour
 
             if (PostDeathPrefab != null)
             {
-                GameObject newDeathPrefab = Instantiate(PostDeathPrefab, transform.position, Quaternion.identity);
+                GameObject newDeathPrefab = Instantiate(PostDeathPrefab,
+                    OverridePrefabLocation ? OverrideLocation : transform.position, 
+                    Quaternion.identity);
             }
 
             if (destroyDelayDeath != 0)
