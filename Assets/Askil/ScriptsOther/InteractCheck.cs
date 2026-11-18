@@ -23,6 +23,8 @@ public class InteractCheck : MonoBehaviour
 
     public bool canPickupFuel = false;
 
+    public Animator RightArmAnims;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<Interactable>() != null && other.gameObject.GetComponent<Interactable>().ActiveInteractable)
@@ -88,6 +90,8 @@ public class InteractCheck : MonoBehaviour
 
                     heldWeaponPartRef = null;
                     holdInHandScriptRef.currentHeldObject = null;
+
+                    RightArmAnims.SetTrigger("Drop");
                 }
 
             }
