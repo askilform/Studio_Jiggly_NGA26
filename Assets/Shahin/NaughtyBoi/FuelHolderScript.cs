@@ -23,6 +23,8 @@ public class FuelHolderScript : MonoBehaviour
     public StudioEventEmitter fmodDropRod;
     public StudioEventEmitter fmodReload;
 
+    public Animator RightArmAnims;
+
 
     void Start()
     {
@@ -39,6 +41,7 @@ public class FuelHolderScript : MonoBehaviour
         
         hasDroppedRod = true;
         gunFireScript.batteryLeft = gunFireScript.batteryMax;
+        RightArmAnims.SetTrigger("Drop");
     }
 
     public void DropFuel()

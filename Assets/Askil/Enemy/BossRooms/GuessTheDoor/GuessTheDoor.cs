@@ -69,7 +69,7 @@ public class GuessTheDoor : MonoBehaviour
     {
         if (sides.Count != 0)
         {
-            yield return new WaitForSeconds(timeBeforeWallBreak);
+            yield return new WaitForSeconds(Random.Range(0, 3f));
             sides[DoorToChoose].ActivateEnemy();
         }
 

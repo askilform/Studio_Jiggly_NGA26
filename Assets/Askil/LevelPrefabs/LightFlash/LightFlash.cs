@@ -24,9 +24,12 @@ public class LightFlash : MonoBehaviour
 
     public List<float> OgflashIntervals = new List<float>();
 
+    public bool OnStartDebug;
+
     private void Start()
     {
         OgflashIntervals = new List<float>(flashIntervals);
+        if (OnStartDebug) StartLoop();
     }
 
     public void StartLoop()
