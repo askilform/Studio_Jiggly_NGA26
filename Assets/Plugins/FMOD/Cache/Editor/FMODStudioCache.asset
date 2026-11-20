@@ -533,6 +533,33 @@ MonoBehaviour:
   IsGlobal: 1
   Labels: []
   Exists: 1
+--- !u!114 &-5332427576650692084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemy/EnemyWalkLoop
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemy/EnemyWalkLoop
+  Guid:
+    Data1: -914307054
+    Data2: 1262310097
+    Data3: -1826553425
+    Data4: -1788662248
+  Banks:
+  - {fileID: -1218985343077198328}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2982
 --- !u!114 &-5203259962913534109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -683,7 +710,7 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639302701882405499
+  lastModified: 639307007143466592
   FileSizes:
   - Name: Desktop
     Value: 100928
@@ -1156,10 +1183,10 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639302701882425573
+  lastModified: 639307007143496596
   FileSizes:
   - Name: Desktop
-    Value: 6760
+    Value: 6796
   Exists: 1
 --- !u!114 &-1566480398266307747
 MonoBehaviour:
@@ -1223,10 +1250,10 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/World.bank
   Name: World
   StudioPath: bank:/World
-  lastModified: 639302884000343326
+  lastModified: 639307007149469979
   FileSizes:
   - Name: Desktop
-    Value: 13258048
+    Value: 13261760
   Exists: 1
 --- !u!114 &-1027614757500971796
 MonoBehaviour:
@@ -1472,6 +1499,7 @@ MonoBehaviour:
   - {fileID: 570166434326841674}
   - {fileID: 409032078489510240}
   - {fileID: 8525679684584453071}
+  - {fileID: -5332427576650692084}
   EditorParameters:
   - {fileID: -4042335268322485408}
   - {fileID: -5489052554813551030}
@@ -1486,7 +1514,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -1646906190701980638}
   cacheVersion: 131860
-  cacheTime: 639302884000343326
+  cacheTime: 639307007149469979
   SerializableEventsDict:
   - key: event:/UI/Confirm
     index: 0
@@ -1666,6 +1694,8 @@ MonoBehaviour:
     index: 87
   - key: event:/Music/RoadTrip_Outro
     index: 88
+  - key: event:/SFX/Enemy/EnemyWalkLoop
+    index: 89
 --- !u!114 &34043475971835307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3377,7 +3407,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -1218985343077198328}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 0
   Parameters: []
   MinDistance: 1
