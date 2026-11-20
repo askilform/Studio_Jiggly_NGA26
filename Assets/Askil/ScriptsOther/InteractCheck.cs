@@ -23,9 +23,11 @@ public class InteractCheck : MonoBehaviour
 
     public bool canPickupFuel = false;
 
+    public Animator RightArmAnims;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Interactable>() != null)
+        if (other.gameObject.GetComponent<Interactable>() != null && other.gameObject.GetComponent<Interactable>().ActiveInteractable)
         {
             RaycastHit hit;
             if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out hit, 6, layerMask))
@@ -88,6 +90,8 @@ public class InteractCheck : MonoBehaviour
 
                     heldWeaponPartRef = null;
                     holdInHandScriptRef.currentHeldObject = null;
+
+                    RightArmAnims.SetTrigger("Drop");
                 }
 
             }

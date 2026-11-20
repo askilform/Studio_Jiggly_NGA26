@@ -45,7 +45,7 @@ public class HoldInHand : MonoBehaviour
                 }
 
                 currentHeldObject = interactCheck.CurrentInteractable.gameObject;
-                RightHandAnims.SetTrigger("Pickup");
+                RightHandAnims.SetTrigger("PickUp");
 
                 if (currentHeldObject.TryGetComponent<Rigidbody>(out Rigidbody rb))
                 {
@@ -192,6 +192,7 @@ public class HoldInHand : MonoBehaviour
             }
 
             currentHeldObject = null;
+            RightHandAnims.SetTrigger("Drop");
 
         }
 

@@ -24,6 +24,7 @@ public class settingsMaster : MonoBehaviour
         MotionBlurToggle.isOn = GameSettings.motionBlur;
         EasyModeToggle.isOn = GameSettings.EasyMode;
         GraphicsPreset.value = GameSettings.GraphicsPreset;
+        QualitySettings.SetQualityLevel(GameSettings.GraphicsPreset, true);
     }
 
     public void onValueChanged()
@@ -35,6 +36,9 @@ public class settingsMaster : MonoBehaviour
 
         masterbusAudio.setVolume(volumeBar.value);
         FMOD.RESULT result = masterbusAudio.setVolume(volumeBar.value);
+
+        QualitySettings.SetQualityLevel(GraphicsPreset.value, true);
+
         Debug.Log("FMOD result: " + result);
     }
 }

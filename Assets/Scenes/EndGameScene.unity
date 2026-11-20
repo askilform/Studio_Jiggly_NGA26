@@ -8340,6 +8340,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2986273963611377230, guid: 4b134fbdee1975a4c82041192d33a346, type: 3}
+      propertyPath: StartDelay
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2986273963611377230, guid: 4b134fbdee1975a4c82041192d33a346, type: 3}
+      propertyPath: OnStartDebug
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2986273963611377230, guid: 4b134fbdee1975a4c82041192d33a346, type: 3}
       propertyPath: TeleportPlayer
       value: 1
       objectReference: {fileID: 0}
@@ -8389,7 +8397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2986273963611377230, guid: 4b134fbdee1975a4c82041192d33a346, type: 3}
       propertyPath: 'flashIntervals.Array.data[1]'
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2986273963611377230, guid: 4b134fbdee1975a4c82041192d33a346, type: 3}
       propertyPath: 'flashIntervals.Array.data[2]'
@@ -8401,7 +8409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2986273963611377230, guid: 4b134fbdee1975a4c82041192d33a346, type: 3}
       propertyPath: 'flashIntervals.Array.data[4]'
-      value: 1
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 2986273963611377230, guid: 4b134fbdee1975a4c82041192d33a346, type: 3}
       propertyPath: 'flashIntervals.Array.data[5]'
@@ -13229,6 +13237,42 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 334162369803825695, guid: d69c26715fc3f7248b34457c97ef6745, type: 3}
   m_PrefabInstance: {fileID: 1813374622}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &761258067 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6752557081645342755, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+  m_PrefabInstance: {fileID: 1297051995}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &761258075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761258067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -914307054
+      Data2: 1262310097
+      Data3: -1826553425
+      Data4: -1788662248
+    Path: event:/SFX/Enemy/EnemyWalkLoop
+  Event: 
+  EventPlayTrigger: 11
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 3.5
+  OverrideMaxDistance: 20
 --- !u!1 &767885658
 GameObject:
   m_ObjectHideFlags: 0
@@ -23409,6 +23453,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 909426512699866175, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+      propertyPath: OverrideLocation.x
+      value: 35.519
+      objectReference: {fileID: 0}
+    - target: {fileID: 909426512699866175, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+      propertyPath: OverrideLocation.y
+      value: -17.691
+      objectReference: {fileID: 0}
+    - target: {fileID: 909426512699866175, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+      propertyPath: OverrideLocation.z
+      value: 68.591
+      objectReference: {fileID: 0}
+    - target: {fileID: 909426512699866175, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+      propertyPath: OverridePrefabLocation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 909426512699866175, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -23444,6 +23504,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1483218444291168970, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+      propertyPath: enemyProperDeath
+      value: 
+      objectReference: {fileID: 130758445289965371, guid: 38bbe184a780e544583b48e81df5b770, type: 3}
     - target: {fileID: 1511423248900452766, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
       propertyPath: m_Name
       value: FloorCube
@@ -23636,6 +23700,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 87.242
       objectReference: {fileID: 0}
+    - target: {fileID: 3800706326255912095, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+      propertyPath: enemyProperDeath
+      value: 
+      objectReference: {fileID: 130758445289965371, guid: 38bbe184a780e544583b48e81df5b770, type: 3}
     - target: {fileID: 3828167873284167626, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.47334912
@@ -23698,6 +23766,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4408229048453239968, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
       propertyPath: destroyDelayDeath
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4408229048453239968, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+      propertyPath: OverrideLocation.x
+      value: 35.519
+      objectReference: {fileID: 0}
+    - target: {fileID: 4408229048453239968, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+      propertyPath: OverrideLocation.y
+      value: -17.691
+      objectReference: {fileID: 0}
+    - target: {fileID: 4408229048453239968, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+      propertyPath: OverrideLocation.z
+      value: 68.591
+      objectReference: {fileID: 0}
+    - target: {fileID: 4408229048453239968, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+      propertyPath: OverridePrefabLocation
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4408229048453239968, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
@@ -23776,6 +23860,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -88.076
       objectReference: {fileID: 0}
+    - target: {fileID: 5955595394721780738, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+      propertyPath: enemyProperDeath
+      value: 
+      objectReference: {fileID: 130758445289965371, guid: 38bbe184a780e544583b48e81df5b770, type: 3}
     - target: {fileID: 6206137001859976914, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -23824,6 +23912,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6422343262007077627, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+      propertyPath: enemyProperDeath
+      value: 
+      objectReference: {fileID: 130758445289965371, guid: 38bbe184a780e544583b48e81df5b770, type: 3}
     - target: {fileID: 6900670356333207740, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
       propertyPath: timeBeforeWallBreak
       value: 2
@@ -24237,6 +24329,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6904289509604948328, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+      propertyPath: OverrideLocation.x
+      value: 35.519
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904289509604948328, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+      propertyPath: OverrideLocation.y
+      value: -17.691
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904289509604948328, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+      propertyPath: OverrideLocation.z
+      value: 68.591
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904289509604948328, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+      propertyPath: OverridePrefabLocation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904289509604948328, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -24561,6 +24669,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9106297395807056356, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+      propertyPath: OverrideLocation.x
+      value: 35.519
+      objectReference: {fileID: 0}
+    - target: {fileID: 9106297395807056356, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+      propertyPath: OverrideLocation.y
+      value: -17.691
+      objectReference: {fileID: 0}
+    - target: {fileID: 9106297395807056356, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+      propertyPath: OverrideLocation.z
+      value: 68.591
+      objectReference: {fileID: 0}
+    - target: {fileID: 9106297395807056356, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+      propertyPath: OverridePrefabLocation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9106297395807056356, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 177157516}
@@ -24613,6 +24737,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 345027748}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2529108822718769164, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1500280030}
     - targetCorrespondingSourceObject: {fileID: 7687726554234881394, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1262734652}
@@ -24622,6 +24749,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8874521989543522391, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2067955306}
+    - targetCorrespondingSourceObject: {fileID: 6752557081645342755, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 761258075}
     - targetCorrespondingSourceObject: {fileID: 8370479705539513946, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 971307666}
@@ -24631,6 +24761,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1786721823335712492, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1297052008}
+    - targetCorrespondingSourceObject: {fileID: 6735704543671792369, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1661997825}
     - targetCorrespondingSourceObject: {fileID: 2736611245452551077, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 296497812}
@@ -24640,6 +24773,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5516571526190834841, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1297052003}
+    - targetCorrespondingSourceObject: {fileID: 813977961161753113, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1396940125}
     - targetCorrespondingSourceObject: {fileID: 5489334442213820288, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1871153114}
@@ -25844,6 +25980,42 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5458865292092093154, guid: fe71ddf1e8eb0a94781fbbb5ab1b7781, type: 3}
   m_PrefabInstance: {fileID: 1390122015}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1396940117 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 813977961161753113, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+  m_PrefabInstance: {fileID: 1297051995}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1396940125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396940117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -914307054
+      Data2: 1262310097
+      Data3: -1826553425
+      Data4: -1788662248
+    Path: event:/SFX/Enemy/EnemyWalkLoop
+  Event: 
+  EventPlayTrigger: 11
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 3.5
+  OverrideMaxDistance: 20
 --- !u!1 &1406015432
 GameObject:
   m_ObjectHideFlags: 0
@@ -27995,6 +28167,42 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8602857963628118510, guid: 709f514585ef23740849fb80b141f1db, type: 3}
   m_PrefabInstance: {fileID: 1497250998}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1500280022 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2529108822718769164, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+  m_PrefabInstance: {fileID: 1297051995}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1500280030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500280022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -914307054
+      Data2: 1262310097
+      Data3: -1826553425
+      Data4: -1788662248
+    Path: event:/SFX/Enemy/EnemyWalkLoop
+  Event: 
+  EventPlayTrigger: 11
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 3.5
+  OverrideMaxDistance: 20
 --- !u!1 &1500798844
 GameObject:
   m_ObjectHideFlags: 0
@@ -30340,6 +30548,42 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8602857963628118510, guid: 709f514585ef23740849fb80b141f1db, type: 3}
   m_PrefabInstance: {fileID: 1650239755}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1661997817 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6735704543671792369, guid: 24e91a4c64a704d4d860628a49fe91e4, type: 3}
+  m_PrefabInstance: {fileID: 1297051995}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1661997825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661997817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -914307054
+      Data2: 1262310097
+      Data3: -1826553425
+      Data4: -1788662248
+    Path: event:/SFX/Enemy/EnemyWalkLoop
+  Event: 
+  EventPlayTrigger: 11
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 3.5
+  OverrideMaxDistance: 20
 --- !u!4 &1667541798 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5458865292092093154, guid: fe71ddf1e8eb0a94781fbbb5ab1b7781, type: 3}

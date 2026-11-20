@@ -19,20 +19,29 @@ public class CarFuntion : MonoBehaviour
 
     private void OnEnable()
     {
-        CarEnter();
+        StartCoroutine(CarEnter());
     }
 
-    public void CarEnter()
+    public IEnumerator CarEnter()
     {
+        // Dissalowes player to move ecs.
         player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<PlayerMovement2>().movementAllowed = false;
         player.GetComponent<PlayerMovement2>().cameraMovementAllowed = false;
         player.GetComponent<CharacterController>().enabled = false;
+
+        // fiind textpopup script
         uiSc = GameObject.FindFirstObjectByType<TextPopUp>();
 
         rb = gameObject.GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         if (carEnterAudio != null) carEnterAudio.Play();
+
+        GetComponent<Interactable>().ActiveInteractable = false;
+        InteractCheck ic = (InteractCheck)FindFirstObjectByType(typeof(InteractCheck));
+
+        yield return null;
+        ic.CurrentInteractable = null;
     }
 
     private void FixedUpdate()
@@ -67,5 +76,7 @@ public class CarFuntion : MonoBehaviour
         carMovementSc.enabled = false;
         if (carEnterAudio != null) carEnterAudio.Stop();
         enabled = false;
+
+        GetComponent<Interactable>().ActiveInteractable = true;
     }
 }
