@@ -1,22 +1,38 @@
+
 using UnityEngine;
 
-public class PlaneClipper : MonoBehaviour
+[RequireComponent(typeof(BoxCollider))]
+public class CubeShaderController : MonoBehaviour
 {
-    [SerializeField] private Transform clipPlaneObject;
-    [SerializeField] private Renderer targetRenderer;
+    public Renderer targetMesh;
 
-    private static readonly int PlanePosId = Shader.PropertyToID("_PlanePos");
-    private static readonly int PlaneNormalId = Shader.PropertyToID("_PlaneNormal");
+    private MaterialPropertyBlock propertyBlock;
+    private BoxCollider cubeCollider;
 
-    private void Update()
+    void Awake()
     {
-        if (!clipPlaneObject || !targetRenderer) return;
+        propertyBlock = new MaterialPropertyBlock();
+        cubeCollider = GetComponent<BoxCollider>();
+    }
 
-        // Use TransformDirection so scaling/rotation on the plane object works cleanly
-        Vector3 normal = clipPlaneObject.TransformDirection(Vector3.up).normalized;
-        Vector3 pos = clipPlaneObject.position;
+    void LateUpdate()
+    {
+        if (targetMesh == null) return;
 
-        targetRenderer.material.SetVector(PlanePosId, pos);
-        targetRenderer.material.SetVector(PlaneNormalId, normal);
+        Bounds bounds = cubeCollider.bounds;
+
+        targetMesh.GetPropertyBlock(propertyBlock);
+
+        propertyBlock.SetVector(
+            "_cubeCenter",
+            bounds.center
+        );
+
+        propertyBlock.SetVector(
+            "_cubeSize",
+            bounds.size
+        );
+
+        targetMesh.SetPropertyBlock(propertyBlock);
     }
 }
