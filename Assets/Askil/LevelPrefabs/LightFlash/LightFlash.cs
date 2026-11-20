@@ -25,6 +25,7 @@ public class LightFlash : MonoBehaviour
     public List<float> OgflashIntervals = new List<float>();
 
     public bool OnStartDebug;
+    public float StartDelay;
 
     private void Start()
     {
@@ -34,10 +35,17 @@ public class LightFlash : MonoBehaviour
 
     public void StartLoop()
     {
-       print("StartedLOPPPP");
-       IntervalsHappened = 0;
-       flashIntervals = new List<float>(OgflashIntervals);
-       startLoopLocal();
+        StartCoroutine(LoopIen());
+    }
+
+    public IEnumerator LoopIen()
+    {
+        yield return new WaitForSeconds(StartDelay);
+
+        print("StartedLOPPPP");
+        IntervalsHappened = 0;
+        flashIntervals = new List<float>(OgflashIntervals);
+        startLoopLocal();
         if (DecaySound) foreach (var sfx in sfxs) sfx.Play();
         else sfxs[0].Play();
     }
