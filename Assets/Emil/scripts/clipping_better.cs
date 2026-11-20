@@ -8,13 +8,13 @@ public class clipping_better : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        monster.SetVector("_cubeCenter", block.transform.position);
-        monster.SetVector("_cubeSize", block.transform.lossyScale);
+        
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        monster.SetVector("_cubeCenter", block.transform.position);
+        monster.SetVector("_cubeSize", block.transform.lossyScale);
     }
 }
