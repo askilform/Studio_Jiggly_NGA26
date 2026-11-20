@@ -18,12 +18,12 @@ public class settingsMaster : MonoBehaviour
         masterbusAudio = RuntimeManager.GetBus("bus:/");
         Debug.Log("Bus valid: " + masterbusAudio.isValid());
 
-        volumeBar.value = GameSettings.masterVolumeMult;
-        masterbusAudio.setVolume(GameSettings.masterVolumeMult);
+        volumeBar.SetValueWithoutNotify(GameSettings.masterVolumeMult);
+        MotionBlurToggle.SetIsOnWithoutNotify(GameSettings.motionBlur);
+        EasyModeToggle.SetIsOnWithoutNotify(GameSettings.EasyMode);
+        GraphicsPreset.SetValueWithoutNotify(GameSettings.GraphicsPreset);
 
-        MotionBlurToggle.isOn = GameSettings.motionBlur;
-        EasyModeToggle.isOn = GameSettings.EasyMode;
-        GraphicsPreset.value = GameSettings.GraphicsPreset;
+        masterbusAudio.setVolume(GameSettings.masterVolumeMult);
         QualitySettings.SetQualityLevel(GameSettings.GraphicsPreset, true);
     }
 
@@ -34,11 +34,16 @@ public class settingsMaster : MonoBehaviour
         GameSettings.EasyMode = EasyModeToggle.isOn;
         GameSettings.GraphicsPreset = GraphicsPreset.value;
 
-        masterbusAudio.setVolume(volumeBar.value);
         FMOD.RESULT result = masterbusAudio.setVolume(volumeBar.value);
-
         QualitySettings.SetQualityLevel(GraphicsPreset.value, true);
 
         Debug.Log("FMOD result: " + result);
+    }
+
+    // Write to disk when leaving the settings scene/menu or quitting,
+    // instead of on every slider tick.
+    private void OnDisable()
+    {
+        GameSettings.Save();
     }
 }
