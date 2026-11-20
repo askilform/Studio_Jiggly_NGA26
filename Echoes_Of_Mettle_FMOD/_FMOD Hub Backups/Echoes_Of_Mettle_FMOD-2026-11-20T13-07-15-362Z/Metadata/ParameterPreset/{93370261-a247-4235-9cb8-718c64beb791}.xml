@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{93370261-a247-4235-9cb8-718c64beb791}">
+		<property name="name">
+			<value>Breathing</value>
+		</property>
+		<relationship name="folder">
+			<destination>{ccf57a97-225b-450b-bec0-ef9ccef73c85}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{83a2ad44-6839-438f-941c-646a8ecaf2bf}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{83a2ad44-6839-438f-941c-646a8ecaf2bf}">
+		<property name="maximum">
+			<value>3</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<relationship name="modulators">
+			<destination>{b84c7ea7-3b46-417e-a45c-185cc8bbd74e}</destination>
+		</relationship>
+	</object>
+	<object class="SeekModulator" id="{b84c7ea7-3b46-417e-a45c-185cc8bbd74e}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>cursorPosition</value>
+		</property>
+		<property name="speedAscending">
+			<value>0.08999999612569809</value>
+		</property>
+	</object>
+</objects>
