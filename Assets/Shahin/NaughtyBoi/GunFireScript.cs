@@ -39,8 +39,6 @@ public class GunFireScript : MonoBehaviour
     public EventReference gunfireSound;
     public EventInstance gunfireSoundInstance;
 
-    public StudioEventEmitter gunfireFmod;
-
 
     private float chargeSoundPitch = 1f;
     private float chargeSoundVolume = 1f;

@@ -38,7 +38,7 @@ public class BreakableEndgame : MonoBehaviour
     {
         if (battleBegun)
         {
-            Instantiate(ParticlePrefab, breakArea, Quaternion.identity);
+            if (ParticlePrefab != null) Instantiate(ParticlePrefab, breakArea, Quaternion.identity);
             Destroy(gameObject);
         }
     }

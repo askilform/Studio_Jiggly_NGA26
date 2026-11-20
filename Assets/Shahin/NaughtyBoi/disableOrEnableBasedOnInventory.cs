@@ -65,9 +65,9 @@ public class disableOrEnableBasedOnInventory : MonoBehaviour
 
         if (!hasRunEvent && hasAllTheGoodOnes && !hasAllTheBadOnes)
         {
+            hasRunEvent = true;
             print("GO! GOOD EVENTS");
             runWhenEnabled.Invoke();
-            hasRunEvent = true;
         }
 
     }
