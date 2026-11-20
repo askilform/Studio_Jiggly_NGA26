@@ -180,9 +180,9 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{abf5e68e-1467-4e7c-975e-f6d4a713cc77}">
 		<relationship name="effects">
-			<destination>{f0f63817-f2e3-4684-bd5f-dda936fb0870}</destination>
 			<destination>{c970f43b-dda6-479a-ae2f-c4167f312ac8}</destination>
 			<destination>{278ead6b-2422-485d-8ced-b239a7110a3d}</destination>
+			<destination>{f0f63817-f2e3-4684-bd5f-dda936fb0870}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{78696f54-0bf4-4a7d-b0ba-d60f1bd0349a}" />
@@ -244,19 +244,29 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{eb4176df-16d8-40e0-b823-64b8ef8ff012}" />
+	<object class="MixerBusFader" id="{c970f43b-dda6-479a-ae2f-c4167f312ac8}" />
+	<object class="SpatialiserEffect" id="{278ead6b-2422-485d-8ced-b239a7110a3d}">
+		<property name="distanceRolloffType">
+			<value>1</value>
+		</property>
+		<property name="maximumDistance">
+			<value>10000</value>
+		</property>
+		<property name="overrideRange">
+			<value>true</value>
+		</property>
+	</object>
 	<object class="MixerSend" id="{f0f63817-f2e3-4684-bd5f-dda936fb0870}">
 		<property name="level">
 			<value>0</value>
 		</property>
 		<property name="inputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="mixerReturn">
 			<destination>{fab40bb1-5fb3-4548-9aa6-4ebcf7ea2f57}</destination>
 		</relationship>
 	</object>
-	<object class="MixerBusFader" id="{c970f43b-dda6-479a-ae2f-c4167f312ac8}" />
-	<object class="SpatialiserEffect" id="{278ead6b-2422-485d-8ced-b239a7110a3d}" />
 	<object class="MixerBusFader" id="{436a8882-d357-4bbb-9f67-17b4b0dee8bc}" />
 	<object class="MultibandEqEffect" id="{39976c7e-b932-41ee-babf-92b2d8766fa5}">
 		<property name="filterTypeA">

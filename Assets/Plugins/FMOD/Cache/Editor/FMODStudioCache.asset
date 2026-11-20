@@ -107,6 +107,33 @@ MonoBehaviour:
   IsGlobal: 1
   Labels: []
   Exists: 1
+--- !u!114 &-8879593625525934276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/JallaSound/Plug insert
+  m_EditorClassIdentifier: 
+  Path: event:/JallaSound/Plug insert
+  Guid:
+    Data1: 44616888
+    Data2: 1079740495
+    Data3: -360159575
+    Data4: -82458845
+  Banks:
+  - {fileID: 4490224482741432088}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 7000
 --- !u!114 &-8647233489227438007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,7 +217,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 18000
+  Length: 12000
 --- !u!114 &-7289739883593380121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -683,10 +710,10 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639302701882405499
+  lastModified: 639307922356537844
   FileSizes:
   - Name: Desktop
-    Value: 100928
+    Value: 98880
   Exists: 1
 --- !u!114 &-4209193766928814531
 MonoBehaviour:
@@ -1156,10 +1183,10 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639302701882425573
+  lastModified: 639307922356547291
   FileSizes:
   - Name: Desktop
-    Value: 6760
+    Value: 6846
   Exists: 1
 --- !u!114 &-1566480398266307747
 MonoBehaviour:
@@ -1176,10 +1203,10 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639302701887144388
+  lastModified: 639307901441428118
   FileSizes:
   - Name: Desktop
-    Value: 8757888
+    Value: 9305376
   Exists: 1
 --- !u!114 &-1477043654261558682
 MonoBehaviour:
@@ -1223,10 +1250,10 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/World.bank
   Name: World
   StudioPath: bank:/World
-  lastModified: 639302884000343326
+  lastModified: 639307931543325118
   FileSizes:
   - Name: Desktop
-    Value: 13258048
+    Value: 22054656
   Exists: 1
 --- !u!114 &-1027614757500971796
 MonoBehaviour:
@@ -1399,7 +1426,6 @@ MonoBehaviour:
   - {fileID: 3564618312175452027}
   - {fileID: 7381910064992342288}
   - {fileID: -8441713452063688285}
-  - {fileID: 8854067282543348044}
   - {fileID: 5272253996170640607}
   - {fileID: -9199403866608968135}
   - {fileID: 8136083522349974943}
@@ -1472,6 +1498,9 @@ MonoBehaviour:
   - {fileID: 570166434326841674}
   - {fileID: 409032078489510240}
   - {fileID: 8525679684584453071}
+  - {fileID: 2173858829508712378}
+  - {fileID: 2499276774886206269}
+  - {fileID: -8879593625525934276}
   EditorParameters:
   - {fileID: -4042335268322485408}
   - {fileID: -5489052554813551030}
@@ -1486,7 +1515,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -1646906190701980638}
   cacheVersion: 131860
-  cacheTime: 639302884000343326
+  cacheTime: 639307931543325118
   SerializableEventsDict:
   - key: event:/UI/Confirm
     index: 0
@@ -1520,152 +1549,156 @@ MonoBehaviour:
     index: 14
   - key: event:/JallaSound/DoorOn
     index: 15
-  - key: event:/JallaSound/Electricity
-    index: 16
   - key: event:/JallaSound/custom fleshy sandy punch hitmarker
-    index: 17
+    index: 16
   - key: event:/JallaSound/OnBreak
-    index: 18
+    index: 17
   - key: event:/JallaSound/Tap
-    index: 19
+    index: 18
   - key: event:/Music/RoadTrip
-    index: 20
+    index: 19
   - key: event:/UI/Hover
-    index: 21
+    index: 20
   - key: event:/LocationMatrix
-    index: 22
+    index: 21
   - key: event:/UI/Unpause
-    index: 23
+    index: 22
   - key: event:/UI/Pause
-    index: 24
+    index: 23
   - key: event:/UI/ScreenMessage
-    index: 25
+    index: 24
   - key: event:/Music/Haunted Echo System
-    index: 26
+    index: 25
   - key: event:/Music/Haunted music/Haunted Echo T1_LEAD
-    index: 27
+    index: 26
   - key: event:/Music/Stingers/SciFi-Hum
-    index: 28
+    index: 27
   - key: event:/Music/Haunted music/Haunted Echo T1_HITS v5
-    index: 29
+    index: 28
   - key: event:/Music/chasing_beat
-    index: 30
+    index: 29
   - key: event:/Music/Stingers/JumpscareSFX
-    index: 31
+    index: 30
   - key: event:/Music/Stingers/PlayerLost
-    index: 32
+    index: 31
   - key: event:/Music/Stingers/InEnemyZone
-    index: 33
+    index: 32
   - key: event:/Music/Haunted music/Haunted Echo T1_BASE
-    index: 34
+    index: 33
   - key: event:/Music/Stingers/PlayerSpotted
-    index: 35
+    index: 34
   - key: event:/Music/Haunted music/Haunted Echo T1_BUILD
-    index: 36
+    index: 35
   - key: event:/SFX/World/Debris
-    index: 37
+    index: 36
   - key: event:/SFX/Weapons/pistol-shot-loud
-    index: 38
+    index: 37
   - key: event:/SFX/Enemy/EnemyWalkTimeline
-    index: 39
+    index: 38
   - key: event:/SFX/Weapons/GMS shot
-    index: 40
+    index: 39
   - key: event:/SFX/Player/Crouch
-    index: 41
+    index: 40
   - key: event:/Ambiance/AmbianceMain
-    index: 42
+    index: 41
   - key: event:/Ambiance/Thunder
-    index: 43
+    index: 42
   - key: event:/SFX/World/PaperPickup
-    index: 44
+    index: 43
   - key: event:/SFX/World/CigaretteThrow
-    index: 45
+    index: 44
   - key: event:/SFX/Enemy/EnemyWalk
-    index: 46
+    index: 45
   - key: event:/SFX/World/CigaretteBurn
-    index: 47
+    index: 46
   - key: event:/SFX/World/PuzzleSocket
-    index: 48
+    index: 47
   - key: event:/SFX/Enemy/Enemychase
-    index: 49
+    index: 48
   - key: event:/SFX/Player/Pickup
-    index: 50
+    index: 49
   - key: event:/SFX/Player/Throw
-    index: 51
+    index: 50
   - key: event:/SFX/World/Breakable
-    index: 52
+    index: 51
   - key: event:/SFX/Weapons/GMS Chargeup Timeline
-    index: 53
+    index: 52
   - key: event:/SFX/Weapons/power-charge-6798
-    index: 54
+    index: 53
   - key: event:/SFX/Weapons/GMS Cooldown
-    index: 55
+    index: 54
   - key: event:/SFX/Player/Breathing
-    index: 56
+    index: 55
   - key: event:/Ambiance/ScatterAmbiance
-    index: 57
+    index: 56
   - key: snapshot:/Tunnels
-    index: 58
+    index: 57
   - key: snapshot:/Small Factory Room
-    index: 59
+    index: 58
   - key: snapshot:/Dry-Outdoor
-    index: 60
+    index: 59
   - key: snapshot:/Hut Interior
-    index: 61
+    index: 60
   - key: snapshot:/Boss Arena
-    index: 62
+    index: 61
   - key: snapshot:/Factory Corridors
-    index: 63
+    index: 62
   - key: snapshot:/Lower Rooms
-    index: 64
+    index: 63
   - key: snapshot:/Large Factory Room
-    index: 65
+    index: 64
   - key: event:/SFX/Player/Steps
-    index: 66
+    index: 65
   - key: event:/SFX/World/DoorOpen
-    index: 67
+    index: 66
   - key: event:/SFX/World/DoorClose
-    index: 68
+    index: 67
   - key: event:/Ambiance/LightFlick
-    index: 69
+    index: 68
   - key: event:/Ambiance/Light buzz
-    index: 70
+    index: 69
   - key: event:/SFX/Player/Land
-    index: 71
+    index: 70
   - key: event:/SFX/World/Typewriter
-    index: 72
+    index: 71
   - key: event:/SFX/Player/Jump
-    index: 73
+    index: 72
   - key: event:/Music/Stingers/Scaryhorn
-    index: 74
+    index: 73
   - key: event:/SFX/World/SpotLight
-    index: 75
+    index: 74
   - key: event:/SFX/World/FuelCellHover
-    index: 76
+    index: 75
   - key: event:/SFX/Weapons/AmmoEmpty
-    index: 77
+    index: 76
   - key: event:/SFX/World/SpotLight2D
-    index: 78
+    index: 77
   - key: event:/SFX/World/WalkManRecording
-    index: 79
+    index: 78
   - key: event:/SFX/World/WalkManStop
-    index: 80
+    index: 79
   - key: event:/SFX/Weapons/Eject
-    index: 81
+    index: 80
   - key: event:/SFX/Weapons/Reload
-    index: 82
+    index: 81
   - key: event:/SFX/Enemy/EnemyStun
-    index: 83
+    index: 82
   - key: event:/SFX/Enemy/EnemyDefeat
-    index: 84
+    index: 83
   - key: event:/SFX/Enemy/EnemyRun
-    index: 85
+    index: 84
   - key: event:/SFX/Enemy/EnemyHit
-    index: 86
+    index: 85
   - key: event:/SFX/World/Threat
-    index: 87
+    index: 86
   - key: event:/Music/RoadTrip_Outro
+    index: 87
+  - key: event:/SFX/Enemy/EnemyWalkLoop
     index: 88
+  - key: event:/Ambiance/Meat room
+    index: 89
+  - key: event:/JallaSound/Plug insert
+    index: 90
 --- !u!114 &34043475971835307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1742,12 +1775,12 @@ MonoBehaviour:
   Banks:
   - {fileID: -4410155006156342484}
   IsStream: 0
-  Is3D: 1
-  IsOneShot: 0
+  Is3D: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 750
+  Length: 385
 --- !u!114 &351440175950979054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2066,7 +2099,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -1218985343077198328}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -2154,6 +2187,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 110805
+--- !u!114 &2173858829508712378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemy/EnemyWalkLoop
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemy/EnemyWalkLoop
+  Guid:
+    Data1: -914307054
+    Data2: 1262310097
+    Data3: -1826553425
+    Data4: -1788662248
+  Banks:
+  - {fileID: -1218985343077198328}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2982
 --- !u!114 &2195319127485042517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2232,6 +2292,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &2499276774886206269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambiance/Meat room
+  m_EditorClassIdentifier: 
+  Path: event:/Ambiance/Meat room
+  Guid:
+    Data1: -1932628058
+    Data2: 1264097721
+    Data3: 545971085
+    Data4: -2070716313
+  Banks:
+  - {fileID: -1218985343077198328}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 170566
 --- !u!114 &2730012072354385170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2335,7 +2422,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -1218985343077198328}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -2577,10 +2664,10 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/JallaBank.bank
   Name: JallaBank
   StudioPath: bank:/JallaBank
-  lastModified: 639302661847964161
+  lastModified: 639307923383632276
   FileSizes:
   - Name: Desktop
-    Value: 181856
+    Value: 695968
   Exists: 1
 --- !u!114 &4597959115711730716
 MonoBehaviour:
@@ -2703,10 +2790,10 @@ MonoBehaviour:
   Path: Echoes_Of_Mettle_FMOD/Build/Desktop/Core.bank
   Name: Core
   StudioPath: bank:/Core
-  lastModified: 639302583068129453
+  lastModified: 639307916648647276
   FileSizes:
   - Name: Desktop
-    Value: 77088
+    Value: 78432
   Exists: 1
 --- !u!114 &5650421911679503528
 MonoBehaviour:
@@ -3377,7 +3464,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -1218985343077198328}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 0
   Parameters: []
   MinDistance: 1
@@ -3408,34 +3495,6 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters:
   - {fileID: 8293152853300385047}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &8854067282543348044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/JallaSound/Electricity
-  m_EditorClassIdentifier: 
-  Path: event:/JallaSound/Electricity
-  Guid:
-    Data1: 44616888
-    Data2: 1079740495
-    Data3: -360159575
-    Data4: -82458845
-  Banks:
-  - {fileID: 4490224482741432088}
-  - {fileID: -4410155006156342484}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
   MinDistance: 1
   MaxDistance: 20
   Length: 0
