@@ -1,5 +1,6 @@
 using UnityEngine;
 using Unity.AI.Navigation;
+using System.Collections;
 
 public class BreakableWallManager : MonoBehaviour
 {
@@ -11,8 +12,15 @@ public class BreakableWallManager : MonoBehaviour
             print("I can break now lol");
         }
 
-        FindFirstObjectByType<NavMeshSurface>().BuildNavMesh();
+        StartCoroutine(WaitAndBuildNm());
 
         print("Walls Now Breakable!");
     }
+
+    IEnumerator WaitAndBuildNm()
+    {
+        yield return new WaitForSeconds(1);
+        FindFirstObjectByType<NavMeshSurface>().BuildNavMesh();
+    }
+ 
 }
