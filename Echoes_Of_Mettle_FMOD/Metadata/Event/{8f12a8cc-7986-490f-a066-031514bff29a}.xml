@@ -182,6 +182,7 @@
 		<relationship name="effects">
 			<destination>{c970f43b-dda6-479a-ae2f-c4167f312ac8}</destination>
 			<destination>{278ead6b-2422-485d-8ced-b239a7110a3d}</destination>
+			<destination>{f0f63817-f2e3-4684-bd5f-dda936fb0870}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{78696f54-0bf4-4a7d-b0ba-d60f1bd0349a}" />
@@ -205,6 +206,7 @@
 	<object class="MixerBusEffectChain" id="{23392aca-463e-4f0a-a6a6-11bdc399cbb2}">
 		<relationship name="effects">
 			<destination>{436a8882-d357-4bbb-9f67-17b4b0dee8bc}</destination>
+			<destination>{39976c7e-b932-41ee-babf-92b2d8766fa5}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{dc8fdf77-9262-46c6-ba3b-11da08479a60}" />
@@ -243,8 +245,40 @@
 	</object>
 	<object class="MixerBusPanner" id="{eb4176df-16d8-40e0-b823-64b8ef8ff012}" />
 	<object class="MixerBusFader" id="{c970f43b-dda6-479a-ae2f-c4167f312ac8}" />
-	<object class="SpatialiserEffect" id="{278ead6b-2422-485d-8ced-b239a7110a3d}" />
+	<object class="SpatialiserEffect" id="{278ead6b-2422-485d-8ced-b239a7110a3d}">
+		<property name="distanceRolloffType">
+			<value>1</value>
+		</property>
+		<property name="maximumDistance">
+			<value>10000</value>
+		</property>
+		<property name="overrideRange">
+			<value>true</value>
+		</property>
+	</object>
+	<object class="MixerSend" id="{f0f63817-f2e3-4684-bd5f-dda936fb0870}">
+		<property name="level">
+			<value>0</value>
+		</property>
+		<property name="inputFormat">
+			<value>2</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{fab40bb1-5fb3-4548-9aa6-4ebcf7ea2f57}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusFader" id="{436a8882-d357-4bbb-9f67-17b4b0dee8bc}" />
+	<object class="MultibandEqEffect" id="{39976c7e-b932-41ee-babf-92b2d8766fa5}">
+		<property name="filterTypeA">
+			<value>7</value>
+		</property>
+		<property name="frequencyA">
+			<value>277.844482</value>
+		</property>
+		<property name="gainA">
+			<value>11.7984829</value>
+		</property>
+	</object>
 	<object class="AutomationPoint" id="{7c9f1729-0703-493b-afa8-68e56545e228}">
 		<property name="position">
 			<value>1.09375</value>

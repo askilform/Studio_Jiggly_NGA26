@@ -5,7 +5,7 @@
 			<value>EnemyDefeat</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{95943ede-def7-4108-bef8-13c0835da8a6}</destination>
@@ -96,14 +96,31 @@
 	<object class="MixerBusEffectChain" id="{9aaf728c-3f0b-456d-9b55-78207cdbc4c4}">
 		<relationship name="effects">
 			<destination>{85c1bae5-7950-4ec5-a009-0c2881b874e8}</destination>
+			<destination>{b4ec61a9-b232-4fcd-900b-9781aea63338}</destination>
+			<destination>{61054428-9a1e-4d2e-ab29-f4dd45ef9312}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{05605b47-4d4a-4749-853f-828bb5278fba}" />
 	<object class="SingleSound" id="{4bb786d0-e4d3-42fb-a703-b721265b8341}">
+		<property name="volume">
+			<value>10</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{dc369236-b719-4df1-a432-507d8a58ab5f}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{3dff9920-0223-43b0-9129-d1c842c9ff73}" />
 	<object class="MixerBusFader" id="{85c1bae5-7950-4ec5-a009-0c2881b874e8}" />
+	<object class="SpatialiserEffect" id="{b4ec61a9-b232-4fcd-900b-9781aea63338}" />
+	<object class="MixerSend" id="{61054428-9a1e-4d2e-ab29-f4dd45ef9312}">
+		<property name="level">
+			<value>0</value>
+		</property>
+		<property name="inputFormat">
+			<value>2</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{fab40bb1-5fb3-4548-9aa6-4ebcf7ea2f57}</destination>
+		</relationship>
+	</object>
 </objects>
