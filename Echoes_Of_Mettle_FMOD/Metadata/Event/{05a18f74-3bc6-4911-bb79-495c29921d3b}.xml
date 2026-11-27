@@ -95,7 +95,7 @@
 	</object>
 	<object class="MultiSound" id="{a7f8526a-a94f-498c-9782-7be3917deb4d}">
 		<relationship name="sounds">
-			<destination>{7bedc5dc-ae8c-4a9f-959d-8521def800f9}</destination>
+			<destination>{12184f37-47ce-4aee-8057-2ad98b776835}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{3e4f4b51-0325-40fe-a380-799821b47635}">
@@ -106,17 +106,29 @@
 	<object class="MixerBusPanner" id="{efa95a1e-2dd6-465d-8e7d-af58414a74c9}" />
 	<object class="MixerBusEffectChain" id="{3c976e92-a47f-4ab7-9206-4301b79293bc}">
 		<relationship name="effects">
+			<destination>{dbc97009-9558-44af-ac86-4f61b3305cc1}</destination>
 			<destination>{197103a8-5eb8-43c7-bbae-dc2909ce3ee2}</destination>
 			<destination>{20108ca3-8382-4418-836f-08fea4eb6108}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{e431969d-b3f7-42d9-a41a-15266b17c7b8}" />
-	<object class="SingleSound" id="{7bedc5dc-ae8c-4a9f-959d-8521def800f9}">
+	<object class="SingleSound" id="{12184f37-47ce-4aee-8057-2ad98b776835}">
+		<property name="pitch">
+			<value>1.80000007</value>
+		</property>
 		<relationship name="audioFile">
-			<destination>{f193363f-162b-4400-ad56-7dc1b2244012}</destination>
+			<destination>{a9c2d792-fa97-46d7-b594-056c5e25cf87}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{624a79df-c934-446a-a175-2c2654c29adf}" />
+	<object class="ThreeEQEffect" id="{dbc97009-9558-44af-ac86-4f61b3305cc1}">
+		<property name="lowGain">
+			<value>-64</value>
+		</property>
+		<property name="midGain">
+			<value>3</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{197103a8-5eb8-43c7-bbae-dc2909ce3ee2}" />
 	<object class="PitchShifterEffect" id="{20108ca3-8382-4418-836f-08fea4eb6108}">
 		<relationship name="automators">
@@ -145,7 +157,7 @@
 			<value>0</value>
 		</property>
 		<property name="value">
-			<value>1</value>
+			<value>0.539999962</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{a03489e5-6d59-44aa-bc13-b43584480c23}">
@@ -153,7 +165,7 @@
 			<value>2</value>
 		</property>
 		<property name="value">
-			<value>0.5</value>
+			<value>0.539999962</value>
 		</property>
 	</object>
 </objects>

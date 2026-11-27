@@ -8,7 +8,7 @@
 			<value>WalkManRecording</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{f2d9a359-683e-44da-a3f3-4292e0150bbc}</destination>
@@ -32,7 +32,6 @@
 			<destination>{53e25050-2f7e-4c3e-975a-f75f5d199f99}</destination>
 		</relationship>
 		<relationship name="parameters">
-			<destination>{411d3992-6c3f-404a-854d-49f55853a225}</destination>
 			<destination>{61b68c80-7873-4a97-95c6-6c4060465c23}</destination>
 		</relationship>
 		<relationship name="banks">
@@ -47,7 +46,6 @@
 	<object class="MasterTrack" id="{e6a85715-8695-43f3-9c71-eb67ceeb50fa}">
 		<relationship name="modules">
 			<destination>{c454b389-0b97-48b8-937b-d3681daa197c}</destination>
-			<destination>{5cd53125-fe29-432e-af18-6458e59bb27f}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{dc849309-8f72-4e63-9338-c6633be7c2d0}</destination>
@@ -71,14 +69,6 @@
 			<value>false</value>
 		</property>
 	</object>
-	<object class="ActionSheet" id="{411d3992-6c3f-404a-854d-49f55853a225}">
-		<property name="name">
-			<value>Press</value>
-		</property>
-		<relationship name="modules">
-			<destination>{5cd53125-fe29-432e-af18-6458e59bb27f}</destination>
-		</relationship>
-	</object>
 	<object class="ActionSheet" id="{61b68c80-7873-4a97-95c6-6c4060465c23}">
 		<property name="name">
 			<value>Voice</value>
@@ -100,12 +90,7 @@
 	</object>
 	<object class="MultiSound" id="{c454b389-0b97-48b8-937b-d3681daa197c}">
 		<relationship name="sounds">
-			<destination>{ba0fbfc5-b6df-443a-8617-1f57a75bb874}</destination>
-		</relationship>
-	</object>
-	<object class="MultiSound" id="{5cd53125-fe29-432e-af18-6458e59bb27f}">
-		<relationship name="sounds">
-			<destination>{2810372d-5875-4168-a778-efa4b422d916}</destination>
+			<destination>{2dca957d-0809-464f-84d7-62fb28034530}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{015fe536-562f-4238-96f0-8e260a0fa6a6}">
@@ -120,17 +105,9 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{2d4ac6dd-929c-4957-a598-7d15332aa5e0}" />
-	<object class="SingleSound" id="{ba0fbfc5-b6df-443a-8617-1f57a75bb874}">
+	<object class="SingleSound" id="{2dca957d-0809-464f-84d7-62fb28034530}">
 		<relationship name="audioFile">
-			<destination>{478d5c79-a4eb-47fd-bf86-ecc24a76c4ab}</destination>
-		</relationship>
-	</object>
-	<object class="SingleSound" id="{2810372d-5875-4168-a778-efa4b422d916}">
-		<property name="volume">
-			<value>4.5</value>
-		</property>
-		<relationship name="audioFile">
-			<destination>{f193363f-162b-4400-ad56-7dc1b2244012}</destination>
+			<destination>{98bdcc4b-5ca9-4971-a787-13d72e348481}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{c9bac991-c0d9-4b7a-9e0a-c057638bed6d}" />
