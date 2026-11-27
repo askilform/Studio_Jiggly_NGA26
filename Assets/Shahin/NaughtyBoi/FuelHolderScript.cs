@@ -41,7 +41,7 @@ public class FuelHolderScript : MonoBehaviour
         
         hasDroppedRod = true;
         gunFireScript.batteryLeft = gunFireScript.batteryMax;
-        RightArmAnims.SetTrigger("Drop");
+        RightArmAnims.SetBool("Holding", false);
     }
 
     public void DropFuel()

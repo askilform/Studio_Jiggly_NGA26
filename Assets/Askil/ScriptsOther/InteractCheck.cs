@@ -59,25 +59,6 @@ public class InteractCheck : MonoBehaviour
         {
             StartCoroutine(Interact());
 
-
-            //We now use the fuel cell to reload while held. We don't need this anymore. But dont delete please
-            /*
-            //------------------------------------------------------------------------------------------------ fuel
-            if (CurrentInteractable.CompareTag("AmmoPickup") && fuelHolderScriptRef != null)
-            {
-                print("pick up and reload fuel");
-
-                if (canPickupFuel)
-                {
-
-                    fuelHolderScriptRef.ReloadFuel();
-
-                    Destroy(CurrentInteractable.gameObject);
-                }
-            }
-            */
-            
-
             //BUILD PART WHILE AT WORKBENCH
             // --------------------------------------------------------------------------------------------------------------------- !!!!!!!!!!
             if (CurrentInteractable.CompareTag("WorkBench"))
@@ -91,7 +72,7 @@ public class InteractCheck : MonoBehaviour
                     heldWeaponPartRef = null;
                     holdInHandScriptRef.currentHeldObject = null;
 
-                    RightArmAnims.SetTrigger("Drop");
+                    RightArmAnims.SetBool("Holding", false);
                 }
 
             }
