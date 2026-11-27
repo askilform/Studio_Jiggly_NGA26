@@ -24,6 +24,9 @@ public class CarFuntion : MonoBehaviour
 
     public IEnumerator CarEnter()
     {
+        ((HoldInHand)FindAnyObjectByType(typeof(HoldInHand))).dropObject();
+
+
         // Dissalowes player to move ecs.
         player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<PlayerMovement2>().movementAllowed = false;
